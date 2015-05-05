@@ -1,4 +1,17 @@
-html{
-	margin: 0;
+@import "settings";
+
+body,html{
 	padding: 0;
+	margin: 0;
+	font-family:"franklin-gothic-urw",sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-ms-font-smoothing: antialiased;
+	-o-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	color: $black;
+	font-size: $fs;
 }
+
+@import "global";
+@import "nav";
