@@ -1,0 +1,79 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->  
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	{% if template == 'index' %}
+		<title>{{ shop.name }} | {{ page_title }}</title>
+	{% elsif template == '404' %}
+		<title>Page Not Found | {{ shop.name }}</title>
+	{% else %}
+		<title>{{ page_title }} | {{ shop.name }}</title>
+	{% endif %}
+	{% if page_description %}
+		<meta name="description" content="{{ page_description }}" />
+	{% endif %}
+	
+	<link rel="canonical" href="{{ canonical_url }}" />
+	<meta name="viewport" content="width=device-width" />  
+	
+	{{ content_for_header }}
+	{{ 'style.min.css' | asset_url | stylesheet_tag }}
+	{{ 'modernizr.js'  | asset_url | script_tag }}
+	{{ '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' | script_tag }}
+
+</head>
+<body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+	<h1>HELLO!</h1>
+	<div id="nav" class="closed">
+		<div id="nav-container">
+			<div id="nav-open">
+				<ul>
+				{% for link in linklists.main-menu.links %}
+
+				{%comment%}		this figures out if there is a sub menue	{%endcomment%}
+				{% assign has_drop_down = false %}
+				{% assign child_list_handle = link.title | handle %}
+				{% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+					{% assign has_drop_down = true %}
+				{% endif %}
+
+					<li class="{% if link.active %}selected{% endif %} {% if has_drop_down %}hassublinks{% endif %}">
+						<span class="nav-item-clickable">
+							<a href="{{ link.url }}">{{ link.title }}</a>
+						</span>
+						{% if has_drop_down %}
+							<span class="sublist">
+								<ul>
+									{% for sublink in linklists[child_list_handle].links %}
+										<li><a href="{{ sublink.url }}">{{sublink.title}}</a></li>	
+									{% endfor %}
+								</ul>
+							</span>
+						{% endif %}
+					</li>
+					
+				{% endfor %}					
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+<!-- 	{% if settings.use_logo %}
+		{{ 'logo.png' | asset_url | img_tag: shop.name }}
+	{% else %}
+		<span class="no-logo">{{ shop.name }}</span>
+	{% endif %} -->
+
+
+	{{ content_for_layout }}
+	
+	{{ 'main.min.js'  | asset_url | script_tag }}
+</body>
+</html>
