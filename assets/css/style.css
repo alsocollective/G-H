@@ -1,4 +1,4 @@
-.center, #nav #nav-main {
+.center, #nav #nav-main, .logos, #product {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -18,9 +18,9 @@ body, html {
   -o-font-smoothing: antialiased;
   font-smoothing: antialiased;
   color: #222222;
-  font-size: 1.2em; }
+  font-size: 0.95em; }
 
-.center, #nav #nav-main {
+.center, #nav #nav-main, .logos, #product {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -38,7 +38,17 @@ h1, h2, h3, h4, h5, a, ul, li, p {
   color: inherit;
   text-decoration: none; }
 
-.center, #nav #nav-main {
+#wrapper {
+  width: 100%;
+  position: relative;
+  padding-top: 72px; }
+
+.slideshow {
+  height: 400px;
+  width: 100%;
+  background-color: #818a8f; }
+
+.center, #nav #nav-main, .logos, #product {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -52,21 +62,74 @@ h1, h2, h3, h4, h5, a, ul, li, p {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%; }
-  #nav li {
-    display: inline-block; }
+  width: 100%;
+  z-index: 999;
+  background-color: white;
+  border-bottom: 1px solid #222222; }
   #nav > div {
     position: relative; }
+  #nav li {
+    display: inline-block; }
   #nav #nav-logo {
+    position: absolute;
     top: 0;
     left: 0; }
   #nav #nav-main > li {
     display: inline-block;
     padding: 1em;
-    vertical-align: top; }
+    vertical-align: top;
+    position: relative; }
   #nav #nav-main .sublist {
-    font-size: 0.8em; }
+    font-size: 0.8em;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none; }
+    #nav #nav-main .sublist li {
+      display: block; }
   #nav #nav-cart {
     position: absolute;
     top: 0;
     right: 0; }
+
+.center, #nav #nav-main, .logos, #product {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto; }
+
+.bolder {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.logos {
+  text-align: center; }
+  .logos .logo {
+    display: inline-block;
+    position: relative;
+    padding: 2em; }
+    .logos .logo .hover {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0; }
+      .logos .logo .hover:hover {
+        opacity: 1; }
+
+.center, #nav #nav-main, .logos, #product {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto; }
+
+.bolder {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+#product ul {
+  padding: 1em 0; }
+  #product ul li {
+    font-size: 0.90em;
+    color: #555555; }

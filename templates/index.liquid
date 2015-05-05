@@ -1,54 +1,65 @@
+
+<div class="slideshow">
+	
+</div>
+
+<div class="logos">
+	<div class="logo">
+		{% include 'logo-body.html' %}
+		<div class="hover">
+			<p>short description</p>
+		</div>
+	</div><div class="logo">
+		{% include 'logo-mind.html' %}
+		<div class="hover">
+			<p>short description</p>
+		</div>
+	</div><div class="logo">
+		{% include 'logo-urban.html' %}
+		<div class="hover">
+			<p>short description</p>
+		</div>
+	</div>
+</div>
+
+
+
 {% assign page = pages.frontpage %}
 {{ page.content }}
 {% assign collection = collections.frontpage %}
 
 <div class="product-collection">
-{% for product in collection.products %}
-	<div id="{{product.id}}"></div>
+	{% for product in collection.products %}
+		<div id="{{product.id}}">
+			<a href="{{ product.url }}">
+				<h3>{{product.title}}</h3>
+			</a>
+		</div>
+		<!-- 			
+			{% for image in product.images %}
+				{% assign lastword = image.alt | split: ' ' %}
+				
+				{% if lastword.last != "lifestyle" %}
+					<img src="{{ image.src | product_img_url: 'grande' }}" alt="image.alt">
+				{% endif %}
+			{% endfor %}
 
-		{% for image in product.images %}
-			{% assign lastword = image.alt | split: ' ' %}
-			
-			{% if lastword.last != "lifestyle" %}
-				<img src="{{ image.src | product_img_url: 'grande' }}" alt="image.alt">
-			{% endif %}
-		{% endfor %}
 
-
-		{% for image in product.images %}
-			{% assign lastword = image.alt | split: ' ' %}
-			{% if lastword.last == "lifestyle" %}
-			<div class="liststylebox" style="background-image:url({{ image | product_img_url: 'grande' }});">
-				<!-- <img src="{{ image | product_img_url: 'grande' }}" alt="{{ image.alt }}" /> -->
-				<div class="details">
-					<h2><a href="{{ product.url }}">{{ product.title }}</a></h2>
-					{{ product.description }}
-					<table>
-						<tr>
-							<th>Size</th>
-							<th>Colour</th>
-							<th>Quantity</th>
-						</tr>
-					{% for size in product.variants%}
-						{% if size.available%}
-							<tr>	
-								<td>{{size.option2}}</td>
-								<td>{{size.option1}}</td>								
-								<td>{{size.inventory_quantity}}</td>
-							</tr>
-						{% endif %}
-					{% endfor %}
-					</table>
+			{% for image in product.images %}
+				{% assign lastword = image.alt | split: ' ' %}
+				{% if lastword.last == "lifestyle" %}
+				<div class="liststylebox" style="background-image:url({{ image | product_img_url: 'grande' }});">
+					<div class="details">
+						<h2><a href="{{ product.url }}">{{ product.title }}</a></h2>
+						{{ product.description }}
+					</div>
 				</div>
-			</div>
-			{% endif %}
-		{% endfor %}
+				{% endif %}
+			{% endfor %} 
+		-->
 
-		<!-- <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape }}" /> -->
-
-
-
-{% endfor %}
+			<!-- <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape }}" /> -->
+	{% endfor %}
 </div>
 
 

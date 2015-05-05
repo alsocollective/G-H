@@ -1,0 +1,13 @@
+@import "settings";
+
+#product{
+	@extend .center;
+
+	ul{
+		padding: 1em 0;
+		li{
+			font-size: 0.90em;
+			color: $darkgrey;
+		}
+	}
+}

@@ -1,0 +1,55 @@
+@import "settings";
+
+#nav{
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+	background-color: $white;
+	border-bottom: 1px solid $black;
+	>div{
+		position: relative;
+	}
+	li{
+		display: inline-block;
+	}
+
+	#nav-logo {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	#nav-main {
+		@extend .center;
+		> li{
+			display: inline-block;
+			padding: 1em;
+			vertical-align: top;
+			position: relative;
+		}
+		.sublist{
+			font-size: 0.8em;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			display: none;
+			li{
+				display: block;
+			}
+		}
+	}
+	#nav-cart{
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	
+
+
+
+
+
+
+}

@@ -1,0 +1,22 @@
+@import "settings";
+
+.logos{
+	@extend .center;
+	text-align: center;
+	.logo{
+		display: inline-block;
+		position: relative;
+		padding: 2em;
+		.hover{
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			opacity: 0;
+			&:hover{
+				opacity: 1;
+			}
+		}
+	}
+}

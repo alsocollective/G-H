@@ -33,7 +33,7 @@
 	<div id="nav">
 		<div>
 			<div id="nav-logo">
-				{{ 'logo.png' | asset_url | img_tag: shop.name }}
+				<!-- {{ 'logo.png' | asset_url | img_tag: shop.name }} -->
 			</div>
 			<ul id="nav-main">
 			{% for link in linklists.main-menu.links %}
@@ -63,27 +63,20 @@
 			{% endfor %}					
 			</ul>
 			<ul id="nav-cart" {% if cart.item_count == -1 %} style="display:none;"{%endif%}>
-				
 				<li>Knapsack</li>
 				<li>{{ cart.item_count}} {{ cart.item_count | pluralize: 'item', 'items' }}</li>
 				<li>{{ cart.total_price | money  }}</li>
-
-
-
 			</ul>
 		</div>
 	</div>
 
-
-<!-- 	{% if settings.use_logo %}
-		{{ 'logo.png' | asset_url | img_tag: shop.name }}
-	{% else %}
-		<span class="no-logo">{{ shop.name }}</span>
-	{% endif %} -->
-
-
+	<div id="wrapper">
 	{{ content_for_layout }}
-	
+	</div>
+
+	<div class="footer">
+
+	</div>
 	{{ 'main.min.js'  | asset_url | script_tag }}
 </body>
 </html>
