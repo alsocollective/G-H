@@ -3,11 +3,66 @@
 #product{
 	@extend .center;
 
-	ul{
-		padding: 1em 0;
-		li{
-			font-size: 0.90em;
-			color: $darkgrey;
+	.left{
+		width: 50%;
+		display: inline-block;
+		vertical-align: top;
+		margin-top: 3em;
+		.list{
+			width: 20%;
+			display: inline-block;
+			vertical-align: top;
+			img{
+				width: 80%;
+				margin: 0 20% 20% 0;
+			}
+		}
+		.main{
+			width: 80%;
+			display: inline-block;
+			vertical-align: top;
+			img{
+				width: 100%;
+			}
 		}
 	}
+	.right{
+		width: 40%;
+		margin-left: 10%;
+		display: inline-block;
+		vertical-align: top;
+
+		ul{
+			padding: 1em 0;
+			li{
+				font-size: 0.90em;
+				color: $darkgrey;
+			}
+		}	
+		select{
+			// display: none;
+		}	
+		#producttitle{
+			margin-bottom: 1.5em;
+		}
+		#price{
+			margin-bottom: 1.5em;
+			text-align: right;
+			width: 80%;
+			color: $blue;
+		}
+		#description{
+
+		}
+		#quantity,#add{
+			border: 2px solid $black;
+			padding: 1em 0;
+			width: 40%;
+			margin-right: 2%;
+		}
+	}
+
+
+
+
 }

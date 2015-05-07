@@ -1,9 +1,21 @@
+<div class="collections">
 {% if collection.all_products_count > 0 %}
+{% assign section = "none"%}
+
 {% for product in collection.products %}
-<h2><a href="{{ product.url }}">{{ product.title }}</a></h2>
-{{ product.description }}
-<img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ product.title | escape }}" />
+
+	{% if product.type != section %}
+		<h3 class="lined">{{product.type}}</h3>
+		{% assign section = product.type %}
+	{% endif %}
+
+
+
+	{% include 'product-thumbnail'%}
+
 {% endfor %}
+
 {% else %}
 <p>Sorry, there are no products in this collection</p>
 {% endif %}
+</div>

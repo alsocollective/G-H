@@ -28,6 +28,9 @@
 			padding: 1em;
 			vertical-align: top;
 			position: relative;
+			&:hover .sublist{
+				display: block;
+			}
 		}
 		.sublist{
 			font-size: 0.8em;
@@ -37,8 +40,19 @@
 			display: none;
 			li{
 				display: block;
+				a{
+					display: inline-block;
+					padding: 0.5em;
+					background-color: $white;
+					width: 100%;
+				}
+				a:hover{
+					background-color: $black;
+					color: $white;
+				}
 			}
 		}
+
 	}
 	#nav-cart{
 		position: absolute;

@@ -9,6 +9,16 @@ h1,h2,h3,h4,h5,a,ul,li,p{
 	text-decoration: none;
 }
 
+h3{
+	text-transform: uppercase;
+	font-weight: normal;
+	&.lined{
+		padding-bottom: 0.5em;
+		border-bottom: $border;
+		margin: 3em 0;
+	}
+}
+
 #wrapper{
 	width: 100%;
 	position: relative;
@@ -19,4 +29,27 @@ h1,h2,h3,h4,h5,a,ul,li,p{
 	height: 400px;
 	width: 100%;
 	background-color: $grey;
+}
+input{
+	border: $border;
+	padding: 1em 2.75em;
+	-webkit-appearance:none;
+	text-align: center;
+	font-family: inherit;
+	font-size: inherit;
+}
+
+.button{
+	background-color: $black;
+	color: $white;
+	border: none;
+	-webkit-appearance:none;
+	text-transform: uppercase;
+	&.small{
+		padding: .45em 1.5em;
+		margin-right: 1%;
+	}
+	&.large{
+		padding: 1em 2.75em;
+	}
 }

@@ -3,7 +3,8 @@
 body,html{
 	padding: 0;
 	margin: 0;
-	font-family:"franklin-gothic-urw",sans-serif;
+	font-family: 'Gotham A','Gotham B';
+	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
 	-ms-font-smoothing: antialiased;
@@ -17,4 +18,34 @@ body,html{
 @import "nav";
 @import "index";
 
-@import "product"
+@import "product";
+@import "productthumbnail";
+@import "info";
+@import "collections";
+
+.footer{
+	background-color: $darkgrey;
+	color: #fff;
+
+	.logo,.footer-nav,.news{
+		vertical-align: top;
+		display: inline-block;
+	}
+	.logo{
+		width:20%;
+		path{
+			fill: $white;
+		}
+	}
+	.footer-nav{
+		width:20%;
+	}
+	.news{
+		width: 40%;
+	}
+
+
+	.notes{
+		display: none;
+	}
+}

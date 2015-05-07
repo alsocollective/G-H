@@ -30,11 +30,12 @@
 
 <div class="product-collection">
 	{% for product in collection.products %}
-		<div id="{{product.id}}">
+		{% include 'product-thumbnail'%}
+<!-- 		<div id="{{product.id}}">
 			<a href="{{ product.url }}">
 				<h3>{{product.title}}</h3>
 			</a>
-		</div>
+		</div> -->
 		<!-- 			
 			{% for image in product.images %}
 				{% assign lastword = image.alt | split: ' ' %}

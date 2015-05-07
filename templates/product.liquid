@@ -1,39 +1,77 @@
-<div id="product">
-	<a href="{{product.url}}"><h2>{{ product.title }}</h2></a>
-	{% for image in product.images %} 
-		<img src="{{ image.src | product_img_url: 'grande' }}" alt="image.alt">
-	{% endfor %}
-	<br>
-	<br>
-	<div id="description">
-	{{ product.description }}
-	</div>
-	<br>
-	<br>
+<div class="social">
+	<a class="facebook">F</a>
+	<a class="twitter">T</a>
+	<a href="pintrest">P</a>
+</div>
 
-	<div id="sizing">
-		{% for variant in product.variants %}
-			{% if variant.available == true %}
-				<button id="{{variant.id}}">{{ variant.title }}</button>
-			{% else %}
-				<button id="{{variant.id}}" class="notavailable">{{ variant.title }}</button>
-			{% endif %}
+<div id="product">
+
+	<div class="left">
+		<div class="list">
+		{% for image in product.images %} 
+			<img src="{{ image.src | product_img_url: 'small' }}" alt="image.alt">
 		{% endfor %}
-	</div>
-	<form action="/cart/add" method="post" enctype="multipart/form-data">
-		<select name="id">
+		</div><div class="main">
+			<img src="{{ product.featured_image| product_img_url: 'grande'}}">
+		</div>
+
+	</div><div class="right">
+		<h2 id="producttitle">{{ product.title }}</h2>
+		<h3 id="price">{{ product.price | money }}</h3>
+
+		<div id="description">
+			<h3>Description</h3>
+		{{ product.description }}
+		</div>
+		<div id="sizing">
+			<h3>Sizing | <a href="#" id="fitguide">Fit Guide</a></h3>
 			{% for variant in product.variants %}
 				{% if variant.available == true %}
-					<option value="{{variant.id}}"> {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
+					<button class="button small" id="{{variant.id}}">{{ variant.title }}</button>
 				{% else %}
-					<option disabled="disabled"> {{ variant.title }} - sold out!</option>
+					<button class="button small notavailable" id="{{variant.id}}" >{{ variant.title }}</button>
 				{% endif %}
 			{% endfor %}
-		</select>
-		<input type="submit" name="add" id="add" value="Add to Cart" class="button">
-	</form>
+		</div>
+		<form action="/cart/add" method="post" enctype="multipart/form-data">
+			<select name="id">
+				{% for variant in product.variants %}
+					{% if variant.available == true %}
+						<option value="{{variant.id}}" > {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
+					{% else %}
+						<option disabled="disabled"> {{ variant.title }} - sold out!</option>
+					{% endif %}
+				{% endfor %}
+			</select>
+			<h3>Quantity</h3>
+			<input id="quantity" type="number" name="quantity" class="styled-input" value="1" min="1" >
+			<input id="add" type="submit" name="add" class="button large" value="Add to Bag" >
+		</form>
+	</div>
 
-	<br>
-	<br>
+	<h2>Similar Products</h2>
+
+	{% assign limit = 6 %}
+	{% assign col = product.collections.last.handle %}
+	{% assign products = collections[col].products %}
+	{% assign skip_product = product %}
+	{% assign product_found = false %}
+	{% assign skip = false %}
+
+	{% for product in products limit: limit %}
+		{% if product.id == skip_product.id%}
+			{% assign product_found = true %}
+		{% else %}
+			{% comment %}
+				we check if it's last to see if we have the current product in the show list.
+			{% endcomment %} 
+			{% if !forloop.last %}
+				{% include 'product-thumbnail-simple'%}
+			{% elsif product_found == true %}
+				{% include 'product-thumbnail-simple'%}
+			{% endif %}
+		{% endif %}	
+	{% endfor %}
+
 
 </div>

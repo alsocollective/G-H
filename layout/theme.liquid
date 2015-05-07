@@ -7,6 +7,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" type="text/css" href="//cloud.typography.com/717268/608946/css/fonts.css">
 
 	{% if template == 'index' %}
 		<title>{{ shop.name }} | {{ page_title }}</title>
@@ -75,7 +76,36 @@
 	</div>
 
 	<div class="footer">
+		<div class="logo">
+			{% include 'logo-small.html' %}
+		</div><div class="footer-nav">
+			{% for link in linklists.footer.links %}
+				<li><a href="{{link.url}}#{{link.handle}}">{{link.title}}</a></li>
+			{% endfor %}
+		</div><div class="footer-nav">
+			<ul>
+				<li><a href="/contact">Contact Info</a></li>
+				<li><a href="">hello@goodandhec.com</a></li>
+			</ul>
+		</div><div class="news">
+			<input type="text">
+		</div>
 
+		<div class="notes">
+			<h3>Global</h3>
+			<p>
+				Type!
+			</p>
+			<h3>Product page</h3>
+			<p>
+				related products are done by what collection they are in, the most recent collection they where added is the related products.
+			</p>
+			<h3>collections</h3>
+			<p>
+				collections are based of product types <br>
+				if the products have the same name only one is shown (this first)
+			</p>
+		</div>
 	</div>
 	{{ 'main.min.js'  | asset_url | script_tag }}
 </body>

@@ -8,14 +8,15 @@ $max: max-width;
 $grey: #818A8F;
 $darkgrey: #555;
 $white: #fff;
-$black: #222;
+$black: #363636;
+$blue: rgb(42,127,192);
 
 $width: 90%;
 $indsideWidth: 1000px;
 $min-width:500px;
 $pb: 75px;
 $fs: 0.95em; //font size
-
+$border: 2px solid $black;
 .center{
 	width: $width;
 	max-width: $indsideWidth;
