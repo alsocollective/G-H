@@ -1,0 +1,14 @@
+@import "settings";
+
+.info{
+	@extend .center;
+	padding-bottom: 6em;
+	> h3{
+		@extend h3.lined;
+	}
+	p{
+		margin-left: 10%;
+		width: 70%;
+	}
+
+}

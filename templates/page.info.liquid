@@ -1,0 +1,13 @@
+<div class="info">
+	{{ page.content }}
+
+	{% assign pageArray = "return-exchange-policy,shipping,privacy-policy,return-policy" | split: "," %}
+
+	{% for pageName in pageArray %}
+	<div>
+		<h3 id="{{pageName}}" class="lined">{{ pages[pageName].title }}</h3>
+		{{ pages[pageName].content }}
+	</div>
+	{% endfor %}
+</div>
+

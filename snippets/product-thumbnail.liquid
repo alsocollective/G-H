@@ -1,0 +1,21 @@
+{% if product.title != productName %}
+	<div class="productthumbnail listitem">
+		<a href="{{ product.url }}">
+			<img src="{{ product.featured_image | product_img_url: 'grande' }}">
+		</a>
+		<h3>{{product.title}}</h3>
+		{% assign location = forloop.index|:plus 1%}
+		<hr>
+		<ul>
+		{% for tag in product.tags%}
+			<li>{{tag}}</li>
+		{% endfor %}
+		</ul>
+		<ul>
+		{% for tag in collection.products[location].tags%}
+			<li>{{tag}}</li>
+		{% endfor %}
+		</ul>
+	</div>
+{% assign productName = product.title %}	
+{% endif %}
