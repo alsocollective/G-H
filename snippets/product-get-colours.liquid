@@ -1,29 +1,25 @@
 <ul class="uniquetags">
 {% assign location = forloop.index0|plus:1%}
-{% if collection.products[location].title == collection.products[forloop.index0].title %}
+{% assign productN = collection.products[location]%}
+{% if productN.title == collection.products[forloop.index0].title %}
 	{% assign count = 0%}
 	{% for tag in product.tags%}
-
-		<hr>
-		{% if tag != collection.products[location].tags[forloop.index0] %}
-				{% if tag == collection.products[location].tags[forloop.index]%}
-					<li>same- <a href="{{product.url| remove_first: '-1'}}{% if count == 1%}-1{%endif%}">{{collection.products[location].tags[forloop.index0]}}</a></li>
-					{% assign count = count|plus:1%}
-				{% elsif product.tags[forloop.index] == collection.products[location].tags[forloop.index0] %}
-					<li>left off <a href="{{product.url| remove_first: '-1'}}{% if count == 1%}-1{%endif%}">{{tag}}</a></li>
-				{% else %}
-					else
-					{% if product.tags[forloop.index] %}
-						<li>{{product.tags[forloop.index]}} {{collection.products[location].tags[forloop.index]}}</li>
-						{% if product.tags[forloop.index] ==  collection.products[location].tags[forloop.index] %}
-							<li>1- <a href="{{product.url| remove_first: '-1'}}{% if count == 1%}-1{%endif%}">{{collection.products[location].tags[forloop.index0]}}</a></li>
-							{% assign count = count|plus:1%}								
-						{% endif %}
-					{% endif %}
-					<li>2- <a href="{{product.url| remove_first: '-1'}}{% if count == 1%}-1{%endif%}">{{tag}}</a></li>
-					{% assign count = count|plus:1%}						
-				{% endif %}
+		{% assign previousIndex = forloop.index0 |minus: 1%}
+		{% if productN.tags[forloop.index0] == product.tags[forloop.index] %}
+			<a href="{{product.url|remove_first: '-1'}}{% if count == 1%}-1{%endif%}{% assign count = count | plus: 1 %}">{{tag}}</a>{% if count == 1 %},{%endif%}
+		{% elsif productN.tags[forloop.index] == tag %}
+			<a href="{{product.url|remove_first: '-1'}}{% if count == 1%}-1{%endif%}{% assign count = count|plus:1%}">{{productN.tags[forloop.index0]}}</a>{% if count == 1%},{%endif%}
+		{% elsif forloop.last and productN.tags[forloop.index0] != tag and (productN.tags[previousIndex] == product.tags[forloop.index0] or productN.tags[forloop.index0] == product.tags[previousIndex])%}
+			{% if productN.tags[previousIndex] == product.tags[forloop.index0] %}
+				<a href="{{product.url|remove_first: '-1'}}{% if count == 1%}-1{%endif%}{% assign count = count|plus:1%}">{{productN.tags[forloop.index0]}}</a>{% if count == 1%},{%endif%}
+			{% else %}
+				<a href="{{product.url|remove_first: '-1'}}{% if count == 1%}-1{%endif%}{% assign count = count|plus:1%}">{{tag}}</a>{% if count == 1%},{%endif%}
+			{% endif %}
+		{% elsif productN.tags[forloop.index0] != tag %}
+			<a href="{{product.url|remove_first: '-1'}}{% if count == 1%}-1{%endif%}{% assign count = count|plus:1%}">{{productN.tags[forloop.index0]}}</a>,
+			<a href="{{product.url|remove_first: '-1'}}{% if count == 1%}-1{%endif%}{% assign count = count|plus:1%}">{{tag}}</a>
 		{% endif %}
 	{% endfor %}
+
 {% endif %}
 </ul>

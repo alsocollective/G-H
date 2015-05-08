@@ -1,6 +1,8 @@
 
 <div class="slideshow">
-	
+	{% for article in blogs['index'].articles limit: 3 %}
+		<div>{{article.content}}</div>
+	{% endfor %}
 </div>
 
 <div class="logos">
@@ -28,11 +30,6 @@
 {{ page.content }}
 {% assign collection = collections["featured-products"] %}
 
-<!-- <div class="product-collection">
-	{% for product in collection.products %}
-		{% include 'product-thumbnail'%}
-	{% endfor %}
-</div> -->
 {% include "collection-stagard" %}
 
 <h2>additional content</h2>

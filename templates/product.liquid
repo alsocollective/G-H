@@ -64,7 +64,9 @@
 				we check if it's last to see if we have the current product in the show list.
 			{% endcomment %} 
 
-			{% if forloop.last == false and product_found == false %}
+			{% if forloop.last == true and product_found == false %}
+				{% include 'product-thumbnail-simple'%}
+			{% else %}
 				{% include 'product-thumbnail-simple'%}
 			{% endif %}
 			
