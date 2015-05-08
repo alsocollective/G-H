@@ -9,7 +9,7 @@
 	<div class="left">
 		<div class="list">
 		{% for image in product.images %} 
-			<img src="{{ image.src | product_img_url: 'small' }}" alt="image.alt">
+			<a href="{{ image.src | product_img_url: 'grande' }}"><img src="{{ image.src | product_img_url: 'small' }}" alt="image.alt"></a>
 		{% endfor %}
 		</div><div class="main">
 			<img src="{{ product.featured_image| product_img_url: 'grande'}}">
@@ -50,26 +50,29 @@
 	</div>
 
 	<h2>Similar Products</h2>
-
 	{% assign limit = 6 %}
 	{% assign col = product.collections.last.handle %}
 	{% assign products = collections[col].products %}
 	{% assign skip_product = product %}
 	{% assign product_found = false %}
 	{% assign skip = false %}
-
 	{% for product in products limit: limit %}
-		{% if product.id == skip_product.id%}
+		{% if product.id == skip_product.id %}
 			{% assign product_found = true %}
 		{% else %}
 			{% comment %}
 				we check if it's last to see if we have the current product in the show list.
 			{% endcomment %} 
-			{% if !forloop.last %}
+
+			{% if forloop.last == false and product_found == false %}
+				{% include 'product-thumbnail-simple'%}
+			{% endif %}
+			
+			<!-- {% if !forloop.last %}
 				{% include 'product-thumbnail-simple'%}
 			{% elsif product_found == true %}
 				{% include 'product-thumbnail-simple'%}
-			{% endif %}
+			{% endif %} -->
 		{% endif %}	
 	{% endfor %}
 

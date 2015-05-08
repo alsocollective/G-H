@@ -3,19 +3,12 @@
 		<a href="{{ product.url }}">
 			<img src="{{ product.featured_image | product_img_url: 'grande' }}">
 		</a>
+
 		<h3>{{product.title}}</h3>
-		{% assign location = forloop.index|:plus 1%}
+		{% assign location = forloop.index0|plus:1%}
 		<hr>
-		<ul>
-		{% for tag in product.tags%}
-			<li>{{tag}}</li>
-		{% endfor %}
-		</ul>
-		<ul>
-		{% for tag in collection.products[location].tags%}
-			<li>{{tag}}</li>
-		{% endfor %}
-		</ul>
+		{% include "product-get-colours" %}
+
 	</div>
-{% assign productName = product.title %}	
+	{% assign productName = product.title %}	
 {% endif %}

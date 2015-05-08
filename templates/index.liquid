@@ -26,43 +26,14 @@
 
 {% assign page = pages.frontpage %}
 {{ page.content }}
-{% assign collection = collections.frontpage %}
+{% assign collection = collections["featured-products"] %}
 
-<div class="product-collection">
+<!-- <div class="product-collection">
 	{% for product in collection.products %}
 		{% include 'product-thumbnail'%}
-<!-- 		<div id="{{product.id}}">
-			<a href="{{ product.url }}">
-				<h3>{{product.title}}</h3>
-			</a>
-		</div> -->
-		<!-- 			
-			{% for image in product.images %}
-				{% assign lastword = image.alt | split: ' ' %}
-				
-				{% if lastword.last != "lifestyle" %}
-					<img src="{{ image.src | product_img_url: 'grande' }}" alt="image.alt">
-				{% endif %}
-			{% endfor %}
-
-
-			{% for image in product.images %}
-				{% assign lastword = image.alt | split: ' ' %}
-				{% if lastword.last == "lifestyle" %}
-				<div class="liststylebox" style="background-image:url({{ image | product_img_url: 'grande' }});">
-					<div class="details">
-						<h2><a href="{{ product.url }}">{{ product.title }}</a></h2>
-						{{ product.description }}
-					</div>
-				</div>
-				{% endif %}
-			{% endfor %} 
-		-->
-
-			<!-- <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape }}" /> -->
 	{% endfor %}
-</div>
-
+</div> -->
+{% include "collection-stagard" %}
 
 <h2>additional content</h2>
 
