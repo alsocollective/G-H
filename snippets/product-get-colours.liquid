@@ -1,0 +1,7 @@
+<ul class="uniquetags">
+{% assign location = forloop.index0|plus:1%}
+{% if collection.products[location].title == collection.products[forloop.index0].title %}
+	{% assign count = 0%}
+
+{% endif %}
+</ul>
