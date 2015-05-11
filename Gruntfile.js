@@ -88,7 +88,7 @@ module.exports = function(grunt) {
 				tasks: ['uglify', 'notify:js']
 			},
 			shopify: {
-				files: ['layout/*.liquid', 'templates/*.liquid', 'snippets/*.liquid', 'assets/*.css', 'assets/*.js'],
+				files: ['layout/*.liquid', 'templates/*.liquid', 'snippets/*.liquid', 'assets/*.css', 'assets/*.js', 'config/*.json', 'config/*.html'],
 				tasks: ['shopify', 'notify:watch']
 			}
 		}

@@ -35,6 +35,12 @@
 				position: absolute;
 				bottom: 0;
 				left: 0;
+				p,ul,h3{
+					display: none;
+				}
+				p:first-child{
+					display: block;
+				}
 			}
 		}
 	}

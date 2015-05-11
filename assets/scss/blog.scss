@@ -1,0 +1,34 @@
+.blog{
+	ul{
+		@extend .center;
+	}
+	li{
+		position: relative;
+		display: inline-block;
+		width: 32%;
+		padding-right: 1%;
+		vertical-align: top;
+		p:first-child{
+			height: 200px;
+			position: relative;
+			overflow: hidden;
+		}
+		img{
+			min-width: 100%;
+			min-height: 200px;
+			@include vertical-align;
+		}
+		h3{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+		&:hover h3{
+			background-color: $white;
+		}		
+	}
+	.wide{
+		width: 65%;
+	}
+}

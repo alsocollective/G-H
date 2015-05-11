@@ -23,6 +23,18 @@ body,html{
 @import "info";
 @import "collections";
 @import "stagard";
+@import "blog";
+@import "article";
+@import "story.scss";
+
+.lifestyleshot{
+	min-height: 400px;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+}
+
+
 
 .footer{
 	background-color: $darkgrey;

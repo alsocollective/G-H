@@ -48,7 +48,9 @@
 
 				<li class="{% if link.active %}selected{% endif %} {% if has_drop_down %}hassublinks{% endif %}">
 					<span class="nav-item-clickable">
-						<a href="{{ link.url }}">{{ link.title }}</a>
+						{% if has_drop_down == false %}<a href="{{ link.url }}">{% endif %}
+							{{ link.title }}
+						{% if has_drop_down == false %}</a>{% endif %}
 					</span>
 					{% if has_drop_down %}
 						<span class="sublist">
@@ -73,6 +75,10 @@
 
 	<div id="wrapper">
 	{{ content_for_layout }}
+	</div>
+
+	<div class="lifestyleshot" style="background-image:url({{ 'life_style_'| append: template | append: '.jpg' | asset_url}});">
+		{{ 'life_style_'| append: template | append: '.jpg'}}
 	</div>
 
 	<div class="footer">
@@ -106,6 +112,10 @@
 				if the products have the same name only one is shown (this first) <br>
 				Tags describe the colours, the products should be added alphabetically (colour wise) <br>
 				point to having a buy tag in on the collection page, they need to select their size before they can buy the item
+			</p>
+			<h3>Story</h3>
+			<p>
+				what is the story
 			</p>
 		</div>
 	</div>

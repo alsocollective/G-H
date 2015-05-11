@@ -1,4 +1,4 @@
-.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard {
+.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard, .blog ul, .article, .story {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -21,7 +21,7 @@ body, html {
   color: #363636;
   font-size: 0.95em; }
 
-.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard {
+.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard, .blog ul, .article, .story {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -57,7 +57,33 @@ h3 {
 
 .slideshow {
   width: 100%;
-  background-color: #818a8f; }
+  height: 400px;
+  background-color: #818a8f;
+  position: relative; }
+  .slideshow .slick-slide {
+    position: relative;
+    overflow: hidden;
+    height: 400px; }
+    .slideshow .slick-slide img {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 100%; }
+  .slideshow .slick-prev, .slideshow .slick-next {
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    background-color: transparent; }
+  .slideshow .slick-prev {
+    left: 0; }
+  .slideshow .slick-next {
+    right: 0; }
 
 input {
   border: 2px solid #363636;
@@ -79,7 +105,7 @@ input {
   .button.large {
     padding: 1em 2.75em; }
 
-.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard {
+.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard, .blog ul, .article, .story {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -133,7 +159,7 @@ input {
     top: 0;
     right: 0; }
 
-.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard {
+.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard, .blog ul, .article, .story {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -159,7 +185,7 @@ input {
       .logos .logo .hover:hover {
         opacity: 1; }
 
-.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard {
+.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard, .blog ul, .article, .story {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -217,7 +243,7 @@ input {
   .productthumbnail.listitem img {
     width: 100%; }
 
-.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard {
+.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard, .blog ul, .article, .story {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -233,7 +259,7 @@ input {
     margin-left: 10%;
     width: 70%; }
 
-.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard {
+.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard, .blog ul, .article, .story {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -243,7 +269,7 @@ input {
   font-weight: bold;
   text-transform: uppercase; }
 
-.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard {
+.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard, .blog ul, .article, .story {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -282,6 +308,95 @@ input {
       position: absolute;
       bottom: 0;
       left: 0; }
+      .stagard .product .text .bottom p, .stagard .product .text .bottom ul, .stagard .product .text .bottom h3 {
+        display: none; }
+      .stagard .product .text .bottom p:first-child {
+        display: block; }
+
+.blog li {
+  position: relative;
+  display: inline-block;
+  width: 32%;
+  padding-right: 1%;
+  vertical-align: top; }
+  .blog li p:first-child {
+    height: 200px;
+    position: relative;
+    overflow: hidden; }
+  .blog li img {
+    min-width: 100%;
+    min-height: 200px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+  .blog li h3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; }
+  .blog li:hover h3 {
+    background-color: white; }
+.blog .wide {
+  width: 65%; }
+
+.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard, .blog ul, .article, .story {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto; }
+
+.bolder {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.article h2 {
+  text-align: center; }
+.article p {
+  width: 50%;
+  min-width: 400px;
+  margin: 0 auto;
+  padding-top: 1em; }
+
+.center, #nav #nav-main, .logos, #product, .info, .collections, .stagard, .blog ul, .article, .story {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto; }
+
+.bolder {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.story .gandh p {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%; }
+  .story .gandh p:first-child {
+    float: left; }
+.story .gandh .clear {
+  clear: both;
+  width: 100%; }
+.story .gandh img {
+  width: 100%; }
+.story .philosophy li {
+  display: inline-block;
+  width: 30%;
+  text-align: center; }
+.story .philosophy h4 {
+  text-align: center; }
+.story .philosophy p {
+  min-width: 150px;
+  width: 50%;
+  margin: 0 auto; }
+
+.lifestyleshot {
+  min-height: 400px;
+  width: 100%;
+  background-size: cover;
+  background-position: center; }
 
 .footer {
   background-color: #555555;

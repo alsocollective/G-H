@@ -1,7 +1,7 @@
 var app = {
 	slickSetting: {
 		dots: false,
-		adaptiveHeight: true
+		adaptiveHeight: false
 	},
 	init: function() {
 		if ($("body").hasClass("template-index")) {

@@ -1,0 +1,26 @@
+<div class="slideshow">
+	{% for article in blogs['story'].articles limit: 3 %}
+		<div>{{article.content}}</div>
+	{% endfor %}
+</div>
+
+<div class="story">
+
+	{{ page.content }}
+
+	<h3 class="lined">The Good+Hec</h3>
+	<div class="gandh">
+		{{ pages["good-and-hec"].content }}
+		<div class="clear"></div>
+	</div>
+
+	<h3 class="lined">Our Philosophy</h3>
+	<div class="philosophy">
+		{{ pages["philosophy"].content }}
+	</div>
+
+	<h3 class="lined">Our Process</h3>
+	<div class="process">
+	</div>	
+</div>
+	

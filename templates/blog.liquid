@@ -1,5 +1,14 @@
-<ul>
-  {% for article in blog.articles %}
-  <li><a href="{{ article.url }}">{{ article.title }}</a></li>
-  {% endfor %}
-</ul>
+<div class="blog">
+	{% assign bigCount = 3 %}
+	{% assign bigNext = 2 %}
+	{% assign bigIndex = 1 %}
+	<ul>
+		{% for article in blog.articles %}
+			<li class="{% if bigNext == bigIndex %}wide{% assign bigNext = bigNext|plus:bigCount %}{% if bigCount == 2 %}{% assign bigCount = 3 %}{% else %}{% assign bigCount = 2 %}{% endif %}{% endif %}">
+				<a href="{{ article.url }}"> {{article.excerpt}}</a>
+				{% assign bigIndex = bigIndex|plus:1 %}
+			</li>
+		{% endfor %}
+	</ul>
+
+</div>

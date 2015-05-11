@@ -1,0 +1,15 @@
+@import "settings";
+
+.article{
+	@extend .center;
+
+	h2{
+		text-align: center;
+	}
+	p{
+		width: 50%;
+		min-width: 400px;
+		margin: 0 auto;
+		padding-top: 1em;
+	}
+}

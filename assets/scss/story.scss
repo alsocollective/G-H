@@ -1,0 +1,40 @@
+@import "settings";
+
+.story{
+	@extend .center;
+	.gandh{
+		p{
+			display: inline-block;
+			vertical-align: top;
+			width: 50%;
+			&:first-child{
+				float: left;
+			}
+		}
+		.clear{
+			clear: both;
+			width: 100%;
+		}
+		img{
+			width: 100%;
+		}
+	}
+
+	.philosophy{
+		li{
+			display: inline-block;
+			width: 30%;
+			text-align: center;
+		}
+		h4{
+			text-align: center;
+		}
+		p{
+			min-width: 150px;
+			width: 50%;
+			margin: 0 auto;
+		}
+	}
+
+
+}

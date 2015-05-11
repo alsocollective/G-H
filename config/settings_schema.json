@@ -1,56 +1,82 @@
-[
-  {
-    "name": "Welcome",
-    "settings": [
-      {
-        "type": "header",
-        "content": "How to use this site"
-      },
-      {
-        "type": "header",
-        "content": "How to add products to the front page"
-      },
-      {
-        "type": "paragraph",
-        "content": "go to collections add go to frontpage collection add\/remove items from the collection once the item is added to the collection, you also need to edit the alt tag for the image for the item go to the new item's page click \"alt\" on the image you want to be the large image write the alternate text to the image, adding \"lifestyle\" at the end of the description"
-      },
-      {
-        "type": "header",
-        "content": "How to add related items"
-      },
-      {
-        "type": "paragraph",
-        "content": "go to the page of the item that you want to be displayed in the url take the last segment ... http:\/\/shop.surfthegreats.org\/products\/flatblues in this case it will be flatblues go to the related item's page in the admin pannel add flatblues as a tag"
-      },
-      {
-        "type": "paragraph",
-        "content": "Theme settings allow designers to provide an easy way for any user to customize the look and feel of their shop without having to delve into HTML or CSS code. Please see our [help page on theme settings](http:\/\/wiki.shopify.com\/Theme_Settings) to learn more about how you can make your theme customizable."
-      }
-    ]
-  },
-  {
-    "name": "General",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Logo Options"
-      },
-      {
-        "type": "checkbox",
-        "id": "use_logo",
-        "label": "Use Custom Logo?"
-      },
-      {
-        "type": "image",
-        "id": "logo.png",
-        "label": "Custom Logo",
-        "max-width": 940,
-        "max-height": 300
-      },
-      {
-        "type": "paragraph",
-        "content": "Maximum logo dimensions are 940px wide by 300px high.Your uploaded file will be resized to fit within those constraints.Need a full-width banner? Upload an image with a width of 940px, and a height of 300px or less."
-      }
-    ]
-  }
-]
+[{
+	"name": "theme_info",
+	"settings": [{
+		"type": "header",
+		"content": "Good+Hec Shopify theme"
+	}]
+}, {
+	"name": "Footer",
+	"settings": [{
+		"type": "header",
+		"content": "Set Life style Shots"
+	}, {
+		"type": "image",
+		"id": "life_style_index.jpg",
+		"label": "index"
+	}, {
+		"type": "image",
+		"id": "life_style_collection.jpg",
+		"label": "collection"
+	}, {
+		"type": "image",
+		"id": "life_style_product.jpg",
+		"label": "product"
+	}, {
+		"type": "image",
+		"id": "life_style_page.jpg",
+		"label": "page"
+	}, {
+		"type": "image",
+		"id": "life_style_page.info.jpg",
+		"label": "page info"
+	}, {
+		"type": "image",
+		"id": "life_style_blog.jpg",
+		"label": "blog"
+	}, {
+		"type": "image",
+		"id": "life_style_article.jpg",
+		"label": "article"
+	}]
+}]
+
+
+/*
+
+types... 
+header
+paragraph
+
+text
+textarea
+image
+radio
+select
+checkbox
+
+color			Color picker
+font			Font picker
+collection		Collections drop-down
+blog			Blogs drop-down
+page			Pages drop-down
+link_list		Link lists drop-down
+snippet			Snippets drop-down
+
+
+"type":      "textarea",
+"id":        "id",
+"label":     "Text",
+"default":   "value",
+"info":      "Text",
+
+"type":      "radio",
+"id":        "id",
+"label":     "Text",
+"options": [
+  { "value": "one", "label": "Radio One" },
+  { "value": "two", "label": "Radio Two" }
+],
+"default":   "one",
+"info":      "Text"
+
+*/
