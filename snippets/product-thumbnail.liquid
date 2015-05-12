@@ -8,7 +8,8 @@
 		{% assign location = forloop.index0|plus:1%}
 		<hr>
 		{% include "product-get-colours" %}
-
+		<hr>
+		<a href="{{ product.url }}"><button class="button">buy</button> {{ product.price | money }} </a>
 	</div>
 	{% assign productName = product.title %}	
 {% endif %}

@@ -10,6 +10,38 @@
 		"type": "header",
 		"content": "Set Life style Shots"
 	}, {
+		"id": "index",
+		"label": "index",
+		"type": "checkbox"
+	}, {
+		"id": "collection",
+		"label": "collection",
+		"type": "checkbox"
+	}, {
+		"id": "product",
+		"label": "product",
+		"type": "checkbox"
+	}, {
+		"id": "page",
+		"label": "page",
+		"type": "checkbox"
+	}, {
+		"id": "page.info",
+		"label": "page info",
+		"type": "checkbox"
+	}, {
+		"id": "page.story",
+		"label": "page story",
+		"type": "checkbox"
+	}, {
+		"id": "blog",
+		"label": "blog",
+		"type": "checkbox"
+	}, {
+		"id": "article",
+		"label": "article",
+		"type": "checkbox"
+	}, {
 		"type": "image",
 		"id": "life_style_index.jpg",
 		"label": "index"
@@ -31,6 +63,10 @@
 		"label": "page info"
 	}, {
 		"type": "image",
+		"id": "life_style_page.story.jpg",
+		"label": "page story"
+	}, {
+		"type": "image",
 		"id": "life_style_blog.jpg",
 		"label": "blog"
 	}, {
@@ -39,6 +75,7 @@
 		"label": "article"
 	}]
 }]
+
 
 
 /*

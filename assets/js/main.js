@@ -4,8 +4,11 @@ var app = {
 		adaptiveHeight: false
 	},
 	init: function() {
-		if ($("body").hasClass("template-index")) {
+		var body = $("body");
+		if (body.hasClass("template-index")) {
 			app.index.init();
+		} else if (body.hasClass("template-product")) {
+			app.product.init();
 		}
 
 
@@ -20,8 +23,15 @@ app.gloabl = {
 }
 
 app.product = {
+	mainImage: null,
 	init: function() {
-
+		app.product.mainImage = $(".left .main img")[0];
+		$(".left .list a").click(app.product.productImageClick);
+	},
+	productImageClick: function(event) {
+		event.preventDefault();
+		app.product.mainImage.src = this.href;
+		return false;
 	}
 }
 

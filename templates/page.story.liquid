@@ -21,6 +21,17 @@
 
 	<h3 class="lined">Our Process</h3>
 	<div class="process">
+	{% assign blog = blogs["process"] %}
+	{% assign bigCount = 3 %}
+	{% assign bigNext = 1 %}
+	{% assign bigIndex = 1 %}
+	<ul>
+		{% for article in blog.articles %}<li class="{% if bigNext == bigIndex %}wide{% assign bigNext = bigNext|plus:bigCount %}{% if bigCount == 3 %}{% assign bigCount = 1 %}{% else %}{% assign bigCount = 3 %}{% endif %}{% endif %}">
+				<a href="{{ article.url }}"> {{article.excerpt}}</a>
+				{% assign bigIndex = bigIndex|plus:1 %}
+			</li>{% endfor %}
+	</ul>
+
 	</div>	
 </div>
 	

@@ -1,5 +1,17 @@
 @import "settings";
 
 .collections{
-	@extend .center;
+	h3{
+		width: $width;
+		max-width: $indsideWidth+200;
+		margin: 0 auto;
+	}
+	.subcollection{
+		@extend .center;
+	}
+	.productthumbnail{
+		width: 32%;
+		margin-right: 1%;
+		display: inline-block;
+	}
 }

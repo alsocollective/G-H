@@ -3,6 +3,7 @@
 {% assign bigNext = 4 %}
 {% assign bigIndex = 1 %}
 
+
 {% for product in collection.products %}{% if product.title != productName %}<div class="product {% if bigNext == bigIndex %}big {% assign bigNext = bigNext|plus:bigCount %}{% if bigCount == 2 %}{% assign bigCount = 3 %}{% else %}{% assign bigCount = 2 %}{% endif %}{% endif %}">
 
 	<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'grande' }})"></div>

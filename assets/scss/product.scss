@@ -62,7 +62,16 @@
 		}
 	}
 
-
-
-
+	.sizing{
+		p,table{
+			width: 49%;
+			vertical-align: top;
+		}
+		p{
+			display: inline-block;
+		}
+		table{
+			display: inline-table;
+		}
+	}
 }

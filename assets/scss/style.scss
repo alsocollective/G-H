@@ -27,38 +27,3 @@ body,html{
 @import "article";
 @import "story.scss";
 
-.lifestyleshot{
-	min-height: 400px;
-	width: 100%;
-	background-size: cover;
-	background-position: center;
-}
-
-
-
-.footer{
-	background-color: $darkgrey;
-	color: #fff;
-
-	.logo,.footer-nav,.news{
-		vertical-align: top;
-		display: inline-block;
-	}
-	.logo{
-		width:20%;
-		path{
-			fill: $white;
-		}
-	}
-	.footer-nav{
-		width:20%;
-	}
-	.news{
-		width: 40%;
-	}
-
-
-	.notes{
-		display: none;
-	}
-}

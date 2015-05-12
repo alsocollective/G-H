@@ -1,7 +1,7 @@
 <div class="social">
-	<a class="facebook">F</a>
-	<a class="twitter">T</a>
-	<a href="pintrest">P</a>
+	<a class="facebook"> {% include "social-facebook" %} </a>
+	<a class="twitter">{% include "social-twitter" %}</a>
+	<a href="pintrest">{% include "social-pintrest" %}</a>
 </div>
 
 <div id="product">
@@ -16,7 +16,17 @@
 		</div>
 
 	</div><div class="right">
-		<h2 id="producttitle">{{ product.title }}</h2>
+			
+
+
+		<h2 id="producttitle">{{ product.title }} |
+			{% for tag in product.tags %}
+				{% assign first = tag | split:"-"| last %}
+				{% if "colour" == first %}
+					{{tag | split:"-"| first}}
+				{% endif %}
+			{% endfor %}
+		</h2>
 		<h3 id="price">{{ product.price | money }}</h3>
 
 		<div id="description">
@@ -47,6 +57,11 @@
 			<input id="quantity" type="number" name="quantity" class="styled-input" value="1" min="1" >
 			<input id="add" type="submit" name="add" class="button large" value="Add to Bag" >
 		</form>
+	</div>
+
+	<div class="sizing hidden">
+		{% capture pageName %}{{product.type|handleize}}{% endcapture%}
+		{{ pages[pageName].content }}
 	</div>
 
 	<h2>Similar Products</h2>

@@ -22,7 +22,10 @@ h3{
 #wrapper{
 	width: 100%;
 	position: relative;
-	padding-top: 72px;	
+	padding-top: 72px;
+	> div:first-child{
+		margin-top: 80px;
+	}
 }
 
 .hide{
@@ -81,6 +84,42 @@ input{
 	}
 	&.large{
 		padding: 1em 2.75em;
+	}
+}
+
+.lifestyleshot{
+	min-height: 400px;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+}
+
+
+
+.footer{
+	background-color: $darkgrey;
+	color: #fff;
+
+	.logo,.footer-nav,.news{
+		vertical-align: top;
+		display: inline-block;
+	}
+	.logo{
+		width:20%;
+		path{
+			fill: $white;
+		}
+	}
+	.footer-nav{
+		width:20%;
+	}
+	.news{
+		width: 40%;
+	}
+
+
+	.notes{
+		display: none;
 	}
 }
 

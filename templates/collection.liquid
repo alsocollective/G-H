@@ -2,12 +2,15 @@
 	{% include "collection-stagard" %}
 {% else %}
 	<div class="collections">
+		<div>
 		{% if collection.all_products_count > 0 %}
 			{% assign section = "none"%}
 			{% for product in collection.products %}
 
 				{% if product.type != section %}
+					</div>
 					<h3 class="lined">{{product.type}}</h3>
+					<div class="subcollection">
 					{% assign section = product.type %}
 				{% endif %}
 
@@ -18,5 +21,5 @@
 		{% else %}
 			<p>Sorry, there are no products in this collection</p>
 		{% endif %}
-	</div></div>
+	</div></div></div>
 {% endif %}

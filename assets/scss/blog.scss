@@ -9,13 +9,13 @@
 		padding-right: 1%;
 		vertical-align: top;
 		p:first-child{
-			height: 200px;
+			height: 300px;
 			position: relative;
 			overflow: hidden;
 		}
 		img{
 			min-width: 100%;
-			min-height: 200px;
+			min-height: 300px;
 			@include vertical-align;
 		}
 		h3{
