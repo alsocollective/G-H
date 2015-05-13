@@ -1,3 +1,22 @@
+
+{%comment%}
+Setting up the variables for the page
+{%endcomment%}
+{% assign limit = 6 %}
+{% assign col = product.collections.last.handle %}
+{% assign products = collections[col].products %}
+{% assign skip_product = product %}
+{% assign includeColours = 0 %}
+{%comment%}
+we get the current colour
+{%endcomment%}
+{% for tag in product.tags %}
+	{% assign first = tag | split:"-"| last %}
+	{% if "colour" == first %}
+		{% capture thisColour%}{{tag | remove: "-colour"}}{% endcapture %}
+	{% endif %}
+{% endfor %}
+
 <div class="social">
 	<a class="facebook"> {% include "social-facebook" %} </a>
 	<a class="twitter">{% include "social-twitter" %}</a>
@@ -18,20 +37,15 @@
 	</div><div class="right">
 			
 
+		<h2 id="producttitle">{{ product.title }} | {{thisColour}}
 
-		<h2 id="producttitle">{{ product.title }} |
-			{% for tag in product.tags %}
-				{% assign first = tag | split:"-"| last %}
-				{% if "colour" == first %}
-					{{tag | split:"-"| first}}
-				{% endif %}
-			{% endfor %}
 		</h2>
 		<h3 id="price">{{ product.price | money }}</h3>
 
 		<div id="description">
 			<h3>Description</h3>
 		{{ product.description }}
+		{% include "product-get-colour-productlist" %}
 		</div>
 		<div id="sizing">
 			<h3>Sizing | <a href="#" id="fitguide">Fit Guide</a></h3>
@@ -65,10 +79,6 @@
 	</div>
 
 	<h2>Similar Products</h2>
-	{% assign limit = 6 %}
-	{% assign col = product.collections.last.handle %}
-	{% assign products = collections[col].products %}
-	{% assign skip_product = product %}
 	{% assign product_found = false %}
 	{% assign skip = false %}
 	{% for product in products limit: limit %}
@@ -78,18 +88,18 @@
 			{% comment %}
 				we check if it's last to see if we have the current product in the show list.
 			{% endcomment %} 
-
-			{% if forloop.last == true and product_found == false %}
+			{% if forloop.last == true and product_found == true %}
 				{% include 'product-thumbnail-simple'%}
-			{% else %}
+			{% elsif forloop.last == false %}
 				{% include 'product-thumbnail-simple'%}
-			{% endif %}
+			{% endif %}{% comment %}
 			
 			<!-- {% if !forloop.last %}
 				{% include 'product-thumbnail-simple'%}
 			{% elsif product_found == true %}
 				{% include 'product-thumbnail-simple'%}
 			{% endif %} -->
+			{% endcomment %}
 		{% endif %}	
 	{% endfor %}
 

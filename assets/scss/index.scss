@@ -3,10 +3,12 @@
 .logos{
 	@extend .center;
 	text-align: center;
+	margin-top: 2*$pb !important;
 	.logo{
 		display: inline-block;
 		position: relative;
-		padding: 2em;
+		padding: 5%;
+		width: 20%;
 		.hover{
 			position: absolute;
 			left: 0;
@@ -16,6 +18,30 @@
 			opacity: 0;
 			&:hover{
 				opacity: 1;
+			}
+		}
+	}
+}
+
+.featureditems{
+	@extend .center;
+	margin-top: $pb !important;
+	.product{
+		display: inline-block;
+		width: 32%;
+		padding: $pb 0 0 1%;
+		vertical-align: top;
+		.backgroundimage{
+			height: 300px;
+			background-position: center;
+			background-size: cover;
+		}
+		.bottom{
+			p,ul,h3,h2{
+				display: none;
+			}
+			p:first-child{
+				display: block;
 			}
 		}
 	}

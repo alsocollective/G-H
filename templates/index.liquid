@@ -31,12 +31,10 @@
 {% assign collection = collections["featured-products"] %}
 
 
-<div class="stagard">
-{% assign bigCount = 3 %}
-{% assign bigNext = 4 %}
-{% assign bigIndex = 1 %}
+<div class="featureditems">
 
-{% for product in collection.products %}{% if product.title != productName %}<div class="product {% if bigNext == bigIndex %}big {% assign bigNext = bigNext|plus:bigCount %}{% if bigCount == 2 %}{% assign bigCount = 3 %}{% else %}{% assign bigCount = 2 %}{% endif %}{% endif %}">
+
+{% for product in collection.products %}{% if product.title != productName %}<div class="product">
 
 	<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'grande' }})"></div>
 	<div class="text" href="#">
@@ -46,24 +44,8 @@
 			{{product.content}}
 		</div>
 	</div>
-	{% assign bigIndex = bigIndex|plus:1 %}
 	{% assign productName = product.title %}
 
 </div>{% endif %}{% endfor %}
 
 </div>
-
-
-
-<h2>additional content</h2>
-
-{% capture additionalfield %}about-us{% endcapture %}
-
-{{ pages[additionalfield].content }}
-
-
-
-
-
-
-

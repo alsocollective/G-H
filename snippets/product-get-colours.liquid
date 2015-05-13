@@ -1,42 +1,41 @@
 <ul class="uniquetags">
-{% assign location = forloop.index0|plus:1%}
-{% assign lastLocation = forloop.index0|plus:2%}
-{% assign productN = collection.products[forloop.index0|plus:1]%}
-{% assign productL = collection.products[forloop.index0|plus:2]%}
-{% assign product3 = collection.products[forloop.index0|plus:3]%}
+{% assign one = forloop.index0|plus:1%}
+{% assign two = forloop.index0|plus:2%}
+{% assign three = forloop.index0|plus:3%}
+
+{% assign productN = collection.products[one]%}
+{% assign productL = collection.products[two]%}
+{% assign product3 = collection.products[three]%}
 
 {% assign myarray = "bohdan,test,things" |  split:","%}
 
-{% for el in myarray %}
-
-{% endfor %}
-
 {% if productN.title == collection.products[forloop.index0].title %}
 	{% assign count = 0%}
+	{{tag}}
 	{% for tag in product.tags%}
 
 		{% assign first = tag | split:"-"| last %}
 		{% if "colour" == first %}
-			<a href="{{product.url}}">{{tag | split:"-"| first}}</a>
+			<a href="{{product.url}}">{{tag | remove: "-colour"}}</a>
 		{% endif %}
 
 		{% assign second = productN.tags[forloop.index0] | split:"-"| last %}
 		{% if "colour" == second %}
-			<a href="{{productN.url}}">{{productN.tags[forloop.index0] | split:"-"| first}}</a>
+			<a href="{{productN.url}}">{{productN.tags[forloop.index0] | remove: "-colour"}}</a>
 		{% endif %}
 
 
 		{% if productL.title == collection.products[forloop.index0].title %}
 			{% assign third = productL.tags[forloop.index0] | split:"-"| last %}
 			{% if "colour" == third %}
-				<a href="{{productL.url}}">{{productL.tags[forloop.index0] | split:"-"| first}}</a>
+				<a href="{{productL.url}}">{{productL.tags[forloop.index0] | remove: "-colour"}}</a>
 			{% endif %}
 		{% endif %}
 
 		{% if product3.title == collection.products[forloop.index0].title %}
 			{% assign third = product3.tags[forloop.index0] | split:"-"| last %}
 			{% if "colour" == third %}
-				<a href="{{product3.url}}">{{product3.tags[forloop.index0] | split:"-"| first}}</a>
+				<a href="{{product3.url}}">{{product3.tags[forloop.index0] | remove: "-colour"}}</a>
 			{% endif %}
 		{% endif %}		
 	{% endfor %}	

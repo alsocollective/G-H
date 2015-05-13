@@ -40,6 +40,7 @@ module.exports = function(grunt) {
 					'assets/main.min.js': [
 						'assets/js/lib/jquery.min.js',
 						'assets/js/lib/slick.min.js',
+						'assets/js/lib/skrollr.min.js',
 						'assets/js/*.js'
 					]
 				}

@@ -5,6 +5,7 @@ var app = {
 	},
 	init: function() {
 		var body = $("body");
+		var s = skrollr.init();
 		if (body.hasClass("template-index")) {
 			app.index.init();
 		} else if (body.hasClass("template-product")) {

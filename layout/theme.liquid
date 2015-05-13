@@ -34,7 +34,7 @@
 	<div id="nav">
 		<div>
 			<div id="nav-logo">
-				<!-- {{ 'logo.png' | asset_url | img_tag: shop.name }} -->
+				{% include "logo-small.html" %}
 			</div>
 			<ul id="nav-main">
 			{% for link in linklists.main-menu.links %}
@@ -77,48 +77,62 @@
 	{{ content_for_layout }}
 	</div>
 
-	{% if setting[template] %}
-		<div class="lifestyleshot" style="background-image:url({{ 'life_style_'| append: template | append: '.jpg' | asset_url}});">
-			{{ 'life_style_'| append: template | append: '.jpg'}}
+	{% if settings[template] %}
+		<div class="lifestyleshot" style="background-image:url({{ 'life_style_'| append: template | append: '.jpg' | asset_url}});"
+		>
+		<!--
+			data-center="height:200px;margin-top:320px;"
+			data-bottom="height:400px;margin-top:120px;"
+		-->
+			{%comment%}{{ 'life_style_'| append: template | append: '.jpg'}}{%endcomment%}
 		</div>
 	{% endif %}
 
 	<div class="footer">
-		<div class="logo">
-			{% include 'logo-small.html' %}
-		</div><div class="footer-nav">
-			{% for link in linklists.footer.links %}
-				<li><a href="{{link.url}}#{{link.handle}}">{{link.title}}</a></li>
-			{% endfor %}
-		</div><div class="footer-nav">
-			<ul>
-				<li><a href="/contact">Contact Info</a></li>
-				<li><a href="">hello@goodandhec.com</a></li>
-			</ul>
-		</div><div class="news">
-			<input type="text" placeholder="Stay in touch">
-		</div>
+		<div class="center">
+			<div class="logo">
+				{% include 'logo-small.html' %}
+			</div><div class="footer-nav">
+				{% for link in linklists.footer.links %}
+					<li><a href="{{link.url}}#{{link.handle}}">{{link.title}}</a></li>
+				{% endfor %}
+			</div><div class="footer-nav">
+				<ul>
+					<li><a href="/contact">Contact Info</a></li>
+					<li><a href="">hello@goodandhec.com</a></li>
+				</ul>
+			</div><div class="news">
+				<span>Stay in touch</span>
+				<input type="text" placeholder="Email">
 
-		<div class="notes">
-			<h3>Global</h3>
-			<p>
-				Type! <br>
-			</p>
-			<h3>Product page</h3>
-			<p>
-				related products are done by what collection they are in, the most recent collection they where added is the related products.
-			</p>
-			<h3>collections</h3>
-			<p>
-				collections are based of product types <br>
-				if the products have the same name only one is shown (this first) <br>
-				Tags describe the colours, the products should be added alphabetically (colour wise) <br>
-				point to having a buy tag in on the collection page, they need to select their size before they can buy the item
-			</p>
-			<h3>Story</h3>
-			<p>
-				what is the story
-			</p>
+				<div class="social">
+					<a class="facebook" href="facebook"> {% include "social-facebook" %} </a>
+					<a class="twitter" href="twitter">{% include "social-twitter" %}</a>
+					<a class="pintrest" href="pintrest">{% include "social-pintrest" %}</a>
+				</div>
+			</div>
+
+			<div class="notes">
+				<h3>Global</h3>
+				<p>
+					Type! <br>
+				</p>
+				<h3>Product page</h3>
+				<p>
+					related products are done by what collection they are in, the most recent collection they where added is the related products.
+				</p>
+				<h3>collections</h3>
+				<p>
+					collections are based of product types <br>
+					if the products have the same name only one is shown (this first) <br>
+					Tags describe the colours, the products should be added alphabetically (colour wise) <br>
+					point to having a buy tag in on the collection page, they need to select their size before they can buy the item
+				</p>
+				<h3>Story</h3>
+				<p>
+					what is the story
+				</p>
+			</div>
 		</div>
 	</div>
 	{{ 'main.min.js'  | asset_url | script_tag }}

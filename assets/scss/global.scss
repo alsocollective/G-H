@@ -22,7 +22,7 @@ h3{
 #wrapper{
 	width: 100%;
 	position: relative;
-	padding-top: 72px;
+	padding-top: 46px;
 	> div:first-child{
 		margin-top: 80px;
 	}
@@ -37,10 +37,15 @@ h3{
 	height: 400px;
 	background-color: $grey;
 	position: relative;
+	overflow: hidden;
+	margin-top: 0 !important;
 	.slick-slide{
 		position: relative;
 		overflow: hidden;
 		height: 400px;
+		> div{
+			height: 400px;
+		}
 		img{
 			@include vertical-align;
 			width: 100%;
@@ -88,10 +93,11 @@ input{
 }
 
 .lifestyleshot{
-	min-height: 400px;
+	height: 400px;
 	width: 100%;
 	background-size: cover;
 	background-position: center;
+	margin-top: 2*$pb;
 }
 
 
@@ -99,24 +105,54 @@ input{
 .footer{
 	background-color: $darkgrey;
 	color: #fff;
-
+	>div>div{
+		padding: $pb 0;
+	}
 	.logo,.footer-nav,.news{
 		vertical-align: top;
 		display: inline-block;
+		padding-left: 4%;
 	}
 	.logo{
-		width:20%;
+		width:16%;
+		svg{
+			width: 100px;
+		}
 		path{
 			fill: $white;
 		}
 	}
 	.footer-nav{
-		width:20%;
+		width:16%;
+		li{
+			padding: 0.2em 0;
+		}
 	}
 	.news{
-		width: 40%;
+		width: 36%;
+		span{
+			margin-bottom: 0.7em;
+			display: inline-block;
+		}
+		input{
+			padding: 0.5em 5%;
+			border:solid $white 2px;
+			color: $white;
+			width: 90%;
+			text-align: left;
+			background-color: transparent;
+			margin-bottom: 1em;
+		}
+		path{
+			fill:$white;
+		}
 	}
-
+	.facebook, .twitter, .pintrest{
+		padding: 0 0.5em;
+	}
+	.facebook{
+		padding-left: 0.25em;
+	}
 
 	.notes{
 		display: none;

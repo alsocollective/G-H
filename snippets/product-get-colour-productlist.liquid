@@ -1,0 +1,18 @@
+
+{% for product in products %}{% if product.title == skip_product.title %}
+		{% if includeColours == 1 %}<li><a href="{{product.url}}">{%endif%}
+			{% for tag in product.tags %}{% assign first = tag | split:"-"| last %}{% if "colour" == first %}
+				{% capture currentColour %}{{tag | remove: "-colour"}}{%endcapture%}
+				{% if includeColours == 0 %}{%assign includeColours = 1 %}
+					<div class="availablecolours"><h3>Available Colours</h3><ul><li><a href="{{product.url}}">
+				{%endif%}
+				{% if currentColour == thisColour%}
+					<span class="currentcolour">{{currentColour}}</span>
+				{% else %}
+					{{currentColour}}
+				{% endif %}
+			{% endif %}{% endfor %}
+		{% if includeColours == 1 %}</a></li>{%endif%}
+{%endif%}{% endfor %}
+{% if includeColours == 1 %}</ul></div>{%endif%}
+
