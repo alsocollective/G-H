@@ -1,64 +1,68 @@
 @import "settings";
 
-#nav{
+// #nav{
 
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 999;
-	background-color: $white;
-	border-bottom: 1px solid $black;
-	>div{
-		position: relative;
-	}
-	li{
-		display: inline-block;
-	}
+// 	position: fixed;
+// 	top: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	z-index: 999;
+// 	background-color: $white;
+// 	border-bottom: 1px solid $black;
+// 	>div{
+// 		position: relative;
+// 	}
+// 	li{
+// 		display: inline-block;
+// 	}
 
-	#nav-logo {
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-	#nav-main {
-		@extend .center;
-		> li{
-			display: inline-block;
-			padding: 1em;
-			vertical-align: top;
-			position: relative;
-			&:hover .sublist{
-				display: block;
-			}
-		}
-		.sublist{
-			font-size: 0.8em;
-			position: absolute;
-			top: 100%;
-			left: 0;
-			display: none;
-			li{
-				display: block;
-				a{
-					display: inline-block;
-					padding: 0.5em;
-					background-color: $white;
-					width: 100%;
-				}
-				a:hover{
-					background-color: $black;
-					color: $white;
-				}
-			}
-		}
+// 	#nav-logo {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 	}
+// 	#nav-main {
+// 		@extend .center;
+// 		> li{
+// 			display: inline-block;
+// 			padding: 1em;
+// 			vertical-align: top;
+// 			position: relative;
+// 			&:hover .sublist{
+// 				display: block;
+// 			}
+// 		}
+// 		.sublist{
+// 			font-size: 0.8em;
+// 			position: absolute;
+// 			top: 100%;
+// 			left: 0;
+// 			display: none;
+// 			li{
+// 				display: block;
+// 				a{
+// 					display: inline-block;
+// 					padding: 0.5em;
+// 					background-color: $white;
+// 					width: 100%;
+// 				}
+// 				a:hover{
+// 					background-color: $black;
+// 					color: $white;
+// 				}
+// 			}
+// 		}
 
-	}
-	#nav-cart{
-		position: absolute;
-		top: 0;
-		right: 0;
-	}
+// 	}
+// 	#nav-cart{
+// 		position: absolute;
+// 		top: 0;
+// 		right: 2em;
+// 		li{
+// 			display: block;
+// 			text-align: center;
+// 		}
+// 	}
 	
 
 
@@ -66,4 +70,64 @@
 
 
 
+// }
+
+#nav{
+	position: fixed;
+	width: 100%;
+	z-index: 99;
+	background-color: $white;
+	border-bottom: $border;
+	>div{
+		position: relative;
+	}
+	>ul,div{
+		vertical-align: top;
+	}
+	#nav-logo{
+		float: left;
+		padding: 2em 0 1em 2em;
+		svg{
+			width: 90px;
+			height: 52px;
+		}
+	}
+	#nav-main{
+		@extend .center;
+		padding-top: 2em;
+		height: 18px;
+		overflow: hidden;
+		@include transition(height, 0.5s, ease-in-out);
+		>li{
+			display: inline-block;
+			vertical-align: top;
+			padding-right: 3em;
+		}
+	}
+	.nav-item-clickable{
+		display: block;
+		padding-bottom: 10px;
+	}
+	.sublist{
+		border-top: $border;
+		display: block;
+		padding-top: 7px;
+		a{
+			color: $grey;
+			font-size: 0.85em;
+			display: inline-block;
+			padding: 0.25em 0 0.25em 0;
+		}
+	}
+	#nav-cart{
+		position: absolute;
+		right: 2em;
+		top: 2em;
+	}
+
+	&:hover{
+		#nav-main{
+			height: 155px;
+		}
+	}
 }

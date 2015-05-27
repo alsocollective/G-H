@@ -41,6 +41,7 @@ module.exports = function(grunt) {
 						'assets/js/lib/jquery.min.js',
 						'assets/js/lib/slick.min.js',
 						'assets/js/lib/skrollr.min.js',
+						'assets/js/lib/jquery.smoothState.js',
 						'assets/js/*.js'
 					]
 				}

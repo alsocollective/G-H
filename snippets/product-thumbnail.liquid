@@ -1,15 +1,31 @@
-{% if product.title != productName %}
+{% assign producttype = product.title | split: "|" | first %}
+
+{% if producttype != productName %}
+	<h1>{{producttype}}</h1>
 	<div class="productthumbnail listitem">
 		<a href="{{ product.url }}">
 			<img src="{{ product.featured_image | product_img_url: 'grande' }}">
 		</a>
 
-		<h3>{{product.title}}</h3>
-		{% assign location = forloop.index0|plus:1%}
+		<h3>{{producttype}}</h3>
+		
 		<hr>
-		{% include "product-get-colours" %}
+		<ul>
+			{% assign productOriginal = product %}
+			<li>
+				<a href="{{product.url}}">{{product.title | split: "|" | last}}</a>
+			</li>
+			{% assign location = forloop.index0|plus:1%}
+			{% assign currentproduct = collection.products[location] %}
+			{% include "product-checknext" %}
+			{% assign location = location|plus:1%}
+			{% assign currentproduct = collection.products[location] %}
+			{% include "product-checknext" %}
+			{% assign product =  productOriginal %}
+		</ul>
+
 		<hr>
 		<a href="{{ product.url }}"><button class="button">buy</button> {{ product.price | money }} </a>
 	</div>
-	{% assign productName = product.title %}	
+	{% assign productName = producttype %}	
 {% endif %}

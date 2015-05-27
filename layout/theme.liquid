@@ -26,67 +26,68 @@
 	{{ content_for_header }}
 	{{ 'style.min.css' | asset_url | stylesheet_tag }}
 	{{ 'modernizr.js'  | asset_url | script_tag }}
-	{{ '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' | script_tag }}
 
 </head>
-<body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
-	
-	<div id="nav">
-		<div>
-			<div id="nav-logo">
-				{% include "logo-small.html" %}
-			</div>
-			<ul id="nav-main">
-			{% for link in linklists.main-menu.links %}
+<body  class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} {{ page_title | handle }}" >
+	<div id="main" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} {{ page_title | handle }} m-scene">
+		<div id="nav" class="m-header scene_element">
+			<div>
+				<div id="nav-logo">
+					<a href="/">{% include "logo-small.html" %}</a>
+				</div>
+				<ul id="nav-main">
+				{% for link in linklists.main-menu.links %}
 
-			{%comment%}		this figures out if there is a sub menue	{%endcomment%}
-			{% assign has_drop_down = false %}
-			{% assign child_list_handle = link.title | handle %}
-			{% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
-				{% assign has_drop_down = true %}
-			{% endif %}
+				{%comment%}		this figures out if there is a sub menue	{%endcomment%}
+				{% assign has_drop_down = false %}
+				{% assign child_list_handle = link.title | handle %}
+				{% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+					{% assign has_drop_down = true %}
+				{% endif %}
 
-				<li class="{% if link.active %}selected{% endif %} {% if has_drop_down %}hassublinks{% endif %}">
-					<span class="nav-item-clickable">
-						{% if has_drop_down == false %}<a href="{{ link.url }}">{% endif %}
-							{{ link.title }}
-						{% if has_drop_down == false %}</a>{% endif %}
-					</span>
-					{% if has_drop_down %}
-						<span class="sublist">
-							<ul>
-								{% for sublink in linklists[child_list_handle].links %}
-									<li><a href="{{ sublink.url }}">{{sublink.title}}</a></li>	
-								{% endfor %}
-							</ul>
+					<li class="{% if link.active %}selected{% endif %} {% if has_drop_down %}hassublinks{% endif %}">
+						<span class="nav-item-clickable">
+							{% if has_drop_down == false %}<a href="{{ link.url }}">{% endif %}
+								{{ link.title }}
+							{% if has_drop_down == false %}</a>{% endif %}
 						</span>
-					{% endif %}
-				</li>
-				
-			{% endfor %}					
-			</ul>
-			<ul id="nav-cart" {% if cart.item_count == -1 %} style="display:none;"{%endif%}>
-				<li><a href="/cart">Knapsack</a></li>
-				<li><a href="/cart">{{ cart.item_count}} {{ cart.item_count | pluralize: 'item', 'items' }}</a></li>
-				<li><a href="/cart">{{ cart.total_price | money  }}</a></li>
-			</ul>
+						{% if has_drop_down %}
+							<span class="sublist">
+								<ul>
+									{% for sublink in linklists[child_list_handle].links %}
+										<li><a href="{{ sublink.url }}">{{sublink.title}}</a></li>	
+									{% endfor %}
+								</ul>
+							</span>
+						{% endif %}
+					</li>
+					
+				{% endfor %}					
+				</ul>
+				<ul id="nav-cart" {% if cart.item_count == -1 %} style="display:none;"{%endif%}>
+					<li><a href="/cart">Knapsack</a></li>
+					<li><a href="/cart">{{ cart.item_count}} {{ cart.item_count | pluralize: 'item', 'items' }}</a></li>
+					<li><a href="/cart">{{ cart.total_price | money  }}</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="wrapper" class="m-page scene_element">
+		{{ content_for_layout }}
+
+			{% if settings[template] %}
+				<div class="lifestyleshot" style="background-image:url({{ 'life_style_'| append: template | append: '.jpg' | asset_url}});"
+				>
+				<!--
+					data-center="height:200px;margin-top:320px;"
+					data-bottom="height:400px;margin-top:120px;"
+				-->
+					{%comment%}{{ 'life_style_'| append: template | append: '.jpg'}}{%endcomment%}
+				</div>
+			{% endif %}
 		</div>
 	</div>
-
-	<div id="wrapper">
-	{{ content_for_layout }}
-	</div>
-
-	{% if settings[template] %}
-		<div class="lifestyleshot" style="background-image:url({{ 'life_style_'| append: template | append: '.jpg' | asset_url}});"
-		>
-		<!--
-			data-center="height:200px;margin-top:320px;"
-			data-bottom="height:400px;margin-top:120px;"
-		-->
-			{%comment%}{{ 'life_style_'| append: template | append: '.jpg'}}{%endcomment%}
-		</div>
-	{% endif %}
+	
 
 	<div class="footer">
 		<div class="center">
@@ -136,5 +137,8 @@
 		</div>
 	</div>
 	{{ 'main.min.js'  | asset_url | script_tag }}
+	<script type="text/javascript">	
+	</script>
+
 </body>
 </html>

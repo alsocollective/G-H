@@ -6,7 +6,6 @@
 		{% if collection.all_products_count > 0 %}
 			{% assign section = "none"%}
 			{% for product in collection.products %}
-
 				{% if product.type != section %}
 					</div>
 					<h3 class="lined">{{product.type}}</h3>
@@ -14,6 +13,7 @@
 					{% assign section = product.type %}
 				{% endif %}
 
+				<!-- we send the right product thumbnail single, double, tripple based of number of | pips... -->
 				{% include 'product-thumbnail'%}
 
 			{% endfor %}

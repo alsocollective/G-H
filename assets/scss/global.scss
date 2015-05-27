@@ -159,3 +159,38 @@ input{
 	}
 }
 
+@include keyframes(fadeIn) {
+	0% { 
+		opacity: 0; 
+	  	transform: translate3d(0, 25%, 0);
+	}
+	100% { 
+		opacity: 1;
+		transform: none;
+	}
+}
+
+#main #wrapper{
+	@include vendorize(transition-timing-function, ease-in);
+	@include vendorize(animation-fill-mode, both);
+	position: relative;
+}
+
+#main #wrapper{
+	@include animation('fadeIn 0.5s');
+}
+
+#main.is-exiting #wrapper{
+	@include vendorize(animation-direction, alternate-reverse);
+}
+
+// @-webkit-keyframes fadeIn {
+//   0% { opacity: 0; }
+//   100% { opacity: 1; }
+// }
+
+// @keyframes fadeIn {
+//   0% { opacity: 0; }
+//   100% { opacity: 1; }
+// }
+

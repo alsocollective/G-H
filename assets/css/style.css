@@ -44,7 +44,7 @@ h3 {
   font-weight: normal; }
   h3.lined, .info > h3 {
     padding-bottom: 0.5em;
-    border-bottom: 2px solid #363636;
+    border-bottom: 1px solid #363636;
     margin: 3em 0; }
 
 #wrapper {
@@ -92,7 +92,7 @@ h3 {
     right: 0; }
 
 input {
-  border: 2px solid #363636;
+  border: 1px solid #363636;
   padding: 1em 2.75em;
   -webkit-appearance: none;
   text-align: center;
@@ -159,6 +159,53 @@ input {
   .footer .notes {
     display: none; }
 
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 25%, 0); }
+
+  100% {
+    opacity: 1;
+    transform: none; } }
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 25%, 0); }
+
+  100% {
+    opacity: 1;
+    transform: none; } }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 25%, 0); }
+
+  100% {
+    opacity: 1;
+    transform: none; } }
+#main #wrapper {
+  -webkit-transition-timing-function: ease-in;
+  -ms-transition-timing-function: ease-in;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  -webkit-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  position: relative; }
+
+#main #wrapper {
+  -webkit-animation: fadeIn 0.5s; }
+
+#main.is-exiting #wrapper {
+  -webkit-animation-direction: alternate-reverse;
+  -ms-animation-direction: alternate-reverse;
+  -moz-animation-direction: alternate-reverse;
+  -o-animation-direction: alternate-reverse;
+  animation-direction: alternate-reverse; }
+
 .center, #nav #nav-main, .logos, .featureditems, #product, .info, .collections .subcollection, .stagard, .blog ul, .story .process ul, .article, .story {
   width: 90%;
   max-width: 1000px;
@@ -171,47 +218,51 @@ input {
 
 #nav {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 99;
   background-color: white;
   border-bottom: 1px solid #363636; }
   #nav > div {
     position: relative; }
-  #nav li {
-    display: inline-block; }
+  #nav > ul, #nav div {
+    vertical-align: top; }
   #nav #nav-logo {
-    position: absolute;
-    top: 0;
-    left: 0; }
-  #nav #nav-main > li {
-    display: inline-block;
-    padding: 1em;
-    vertical-align: top;
-    position: relative; }
-    #nav #nav-main > li:hover .sublist {
-      display: block; }
-  #nav #nav-main .sublist {
-    font-size: 0.8em;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: none; }
-    #nav #nav-main .sublist li {
-      display: block; }
-      #nav #nav-main .sublist li a {
-        display: inline-block;
-        padding: 0.5em;
-        background-color: white;
-        width: 100%; }
-      #nav #nav-main .sublist li a:hover {
-        background-color: #363636;
-        color: white; }
+    float: left;
+    padding: 2em 0 1em 2em; }
+    #nav #nav-logo svg {
+      width: 90px;
+      height: 52px; }
+  #nav #nav-main {
+    padding-top: 2em;
+    height: 18px;
+    overflow: hidden;
+    -webkit-transition: height 0.5s ease-in-out;
+    -moz-transition: height 0.5s ease-in-out;
+    -ms-transition: height 0.5s ease-in-out;
+    -o-transition: height 0.5s ease-in-out;
+    transition: height 0.5s ease-in-out; }
+    #nav #nav-main > li {
+      display: inline-block;
+      vertical-align: top;
+      padding-right: 3em; }
+  #nav .nav-item-clickable {
+    display: block;
+    padding-bottom: 10px; }
+  #nav .sublist {
+    border-top: 1px solid #363636;
+    display: block;
+    padding-top: 7px; }
+    #nav .sublist a {
+      color: #818a8f;
+      font-size: 0.85em;
+      display: inline-block;
+      padding: 0.25em 0 0.25em 0; }
   #nav #nav-cart {
     position: absolute;
-    top: 0;
-    right: 0; }
+    right: 2em;
+    top: 2em; }
+  #nav:hover #nav-main {
+    height: 155px; }
 
 .center, #nav #nav-main, .logos, .featureditems, #product, .info, .collections .subcollection, .stagard, .blog ul, .story .process ul, .article, .story {
   width: 90%;
