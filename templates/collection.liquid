@@ -14,7 +14,11 @@
 				{% endif %}
 
 				<!-- we send the right product thumbnail single, double, tripple based of number of | pips... -->
-				{% include 'product-thumbnail'%}
+				{% assign productTypeSplit = product.title | split: "|" %}
+				{% assign pipCount = productTypeSplit | size %}
+				{% assign loopTemplate = 'product-thumbnail-'| append: pipCount%}
+				<!-- <h2>{{pipCount}}</h2> -->
+				{% include loopTemplate%}
 
 			{% endfor %}
 
