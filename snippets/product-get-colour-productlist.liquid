@@ -1,5 +1,5 @@
 
-{% for product in products %}{% if product.title == skip_product.title %}
+{% for product in products %}{% assign productSplit = product.title | split: "|" | first %}{% if productSplit == skip_product_split[0] %}
 		{% if includeColours == 1 %}<li><a href="{{product.url}}">{%endif%}
 			{% for tag in product.tags %}{% assign first = tag | split:"-"| last %}{% if "colour" == first %}
 				{% capture currentColour %}{{tag | remove: "-colour"}}{%endcapture%}

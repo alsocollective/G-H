@@ -5,15 +5,23 @@
 
 
 {% for product in collection.products %}{% if product.title != productName %}<div class="product {% if bigNext == bigIndex %}big {% assign bigNext = bigNext|plus:bigCount %}{% if bigCount == 3 %}{% assign bigCount = 4 %}{% else %}{% assign bigCount = 3 %}{% endif %}{% endif %}">
-
-	<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'grande' }})"></div>
-	<div class="text" href="#">
-		<h3>{{product.title}}</h3>
-		{% include "product-get-colours" %}
-		<div class="bottom">
-			{{ product.price | money }}
+	<a href="{{product.url}}">
+		<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'grande' }})"></div>
+		<div class="text" href="#">
+			{% assign title = product.title | split: "|"%}
+			<h3>{{ title[0] }}</h3>
+			{% if title[1] %}
+				<h4>{{ title[1] }}</h4>
+			{% endif %}
+			{% if title[2] %}
+				<h4>{{ title[2] }}</h4>
+			{% endif %}
+			{% include "product-get-colours" %}
+			<div class="bottom">
+				{{ product.price | money }}
+			</div>
 		</div>
-	</div>
+	</a>
 	{% assign bigIndex = bigIndex|plus:1 %}
 	{% assign productName = product.title %}
 

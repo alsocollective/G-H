@@ -2,7 +2,6 @@
 {% assign producttype = producttype | append: productTypeSplit[1] %}
 
 {% if producttype != productName %}
-	<h1>{{producttype}}</h1>
 	<div class="productthumbnail listitem">
 		<a href="{{ product.url }}">
 			<img src="{{ product.featured_image | product_img_url: 'grande' }}">

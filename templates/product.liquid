@@ -6,6 +6,13 @@ Setting up the variables for the page
 {% assign col = product.collections.last.handle %}
 {% assign products = collections[col].products %}
 {% assign skip_product = product %}
+
+{% assign skip_product_split = product.title | split: "|" %}
+
+
+
+
+
 {% assign includeColours = 0 %}
 {%comment%}
 we get the current colour
@@ -26,7 +33,7 @@ we get the current colour
 <div id="product">
 
 	<div class="left">
-		<div class="list">
+		<div class="list">			
 		{% for image in product.images %} 
 			<a href="{{ image.src | product_img_url: 'grande' }}"><img src="{{ image.src | product_img_url: 'small' }}" alt="image.alt"></a>
 		{% endfor %}
