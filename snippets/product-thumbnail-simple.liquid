@@ -1,9 +1,14 @@
 <div class="productthumbnail listitem">
-	<a href="{{ product.url }}">
-		<img src="{{ product.featured_image | product_img_url: 'grande' }}">
-	</a>
-	<a href="{{ product.url }}">
-		<h3>{{product.title}}</h3>
-	</a>
-	<a href="{{ product.url }}">view</a>
+
+	<a href="{{product.url}}">
+		<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'grande' }})"></div>
+		<div class="text" href="#">
+			{% assign pro_split = product.title | split: "|" %}
+			{% assign pro_split_count = pro_split | size %}
+			<h3>{{pro_split | first}}</h3>
+			{% if pro_split_count > 1 %}
+			<h4>{{pro_split[1]}}</h4>
+			{% endif %}			
+		</div>
+	</a>	
 </div>

@@ -3,26 +3,17 @@
 Setting up the variables for the page
 {%endcomment%}
 {% assign limit = 6 %}
-{% assign col = product.collections.last.handle %}
+{% assign col = product.collections.first.handle %}
 {% assign products = collections[col].products %}
 {% assign skip_product = product %}
-
 {% assign skip_product_split = product.title | split: "|" %}
+{% assign skip_product_split_count = skip_product_split | size %}
 
-
-
-
-
+{% assign productLoop = "product0|product1|product2|product3" | split: "|" %}
 {% assign includeColours = 0 %}
-{%comment%}
-we get the current colour
-{%endcomment%}
-{% for tag in product.tags %}
-	{% assign first = tag | split:"-"| last %}
-	{% if "colour" == first %}
-		{% capture thisColour%}{{tag | remove: "-colour"}}{% endcapture %}
-	{% endif %}
-{% endfor %}
+{% include "product-get-colour-productlist" %}
+
+
 
 <div class="social">
 	<a class="facebook"> {% include "social-facebook" %} </a>
@@ -31,84 +22,65 @@ we get the current colour
 </div>
 
 <div id="product">
+<h1>{{col}}</h1>
 
-	<div class="left">
-		<div class="list">			
-		{% for image in product.images %} 
-			<a href="{{ image.src | product_img_url: 'grande' }}"><img src="{{ image.src | product_img_url: 'small' }}" alt="image.alt"></a>
-		{% endfor %}
-		</div><div class="main">
-			<img src="{{ product.featured_image| product_img_url: 'grande'}}">
-		</div>
 
-	</div><div class="right">
-			
+	{% assign product = product0 %}
+	{% include "product-page-content"%}
 
-		<h2 id="producttitle">{{ product.title }}
+	{% if product1 %}
+		{% assign product = product1 %}
+		{% include "product-page-content"%}
+	{% endif %}
+	{% if product2 %}
+		{% assign product = product2 %}
+		{% include "product-page-content"%}
+	{% endif %}
+	{% if product3 %}
+		{% assign product = product3 %}
+		{% include "product-page-content"%}
+	{% endif %}	
 
-		</h2>
-		<h3 id="price">{{ product.price | money }}</h3>
-
-		<div id="description">
-			<h3>Description</h3>
-		{{ product.description }}
-		{% include "product-get-colour-productlist" %}
-		</div>
-		<div id="sizing">
-			<h3>Sizing | <a href="#" id="fitguide">Fit Guide</a></h3>
-			{% for variant in product.variants %}
-				{% if variant.available == true %}
-					<button class="button small" id="{{variant.id}}">{{ variant.title }}</button>
-				{% else %}
-					<button class="button small notavailable" id="{{variant.id}}" >{{ variant.title }}</button>
-				{% endif %}
-			{% endfor %}
-		</div>
-		<form action="/cart/add" method="post" enctype="multipart/form-data">
-			<select name="id">
-				{% for variant in product.variants %}
-					{% if variant.available == true %}
-						<option value="{{variant.id}}" > {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
-					{% else %}
-						<option disabled="disabled"> {{ variant.title }} - sold out!</option>
-					{% endif %}
-				{% endfor %}
-			</select>
-			<h3>Quantity</h3>
-			<input id="quantity" type="number" name="quantity" class="styled-input" value="1" min="1" >
-			<input id="add" type="submit" name="add" class="button large" value="Add to Bag" >
-		</form>
-	</div>
-
-	<div class="sizing hidden">
+	<div class="sizechart hide">
 		{% capture pageName %}{{product.type|handleize}}{% endcapture%}
 		{{ pages[pageName].content }}
 	</div>
 
 	<h2>Similar Products</h2>
-	{% assign product_found = false %}
-	{% assign skip = false %}
-	{% for product in products limit: limit %}
-		{% if product.id == skip_product.id %}
-			{% assign product_found = true %}
-		{% else %}
-			{% comment %}
-				we check if it's last to see if we have the current product in the show list.
-			{% endcomment %} 
-			{% if forloop.last == true and product_found == true %}
-				{% include 'product-thumbnail-simple'%}
-			{% elsif forloop.last == false %}
-				{% include 'product-thumbnail-simple'%}
-			{% endif %}{% comment %}
-			
-			<!-- {% if !forloop.last %}
-				{% include 'product-thumbnail-simple'%}
-			{% elsif product_found == true %}
-				{% include 'product-thumbnail-simple'%}
-			{% endif %} -->
-			{% endcomment %}
-		{% endif %}	
-	{% endfor %}
+
+	{% assign previous_split = skip_product_split %}
+	{% assign previous_split_count = skip_product_split_count %}
+
+	{% for product in products %}<!-- 
+		{% if product != product0 and product != product1 and product != product2 and product != product3 %}
+			{% assign current_split = product.title | split:"|" %}
+			{% assign current_split_count = current_split | size %}
+			{% if current_split_count != previous_split_count %}
+				{% increment count %}
+				{% if count > 5 %}{% break %}{% endif %}
+				-->{% include 'product-thumbnail-simple'%}<!--
+				{% assign previous_split = current_split %}
+				{% assign previous_split_count = current_split_count %}
+			{% elsif current_split_count == 2 and current_split[0] != previous_split[0] %}
+				{% increment count %}
+				{% if count > 5 %}{% break %}{% endif %}
+				-->{% include 'product-thumbnail-simple'%}<!--
+				{% assign previous_split = current_split %}
+				{% assign previous_split_count = current_split_count %}
+			{% elsif current_split_count == 3 and current_split[0] != previous_split[0] or current_split[1] != previous_split[1] %}
+				{% increment count %}
+				{% if count > 5 %}{% break %}{% endif %}
+				-->{% include 'product-thumbnail-simple'%}<!--
+				{% assign previous_split = current_split %}
+				{% assign previous_split_count = current_split_count %}
+			{% elsif current_split_count == 4 and current_split[0] != previous_split[0] or current_split[1] != previous_split[1] and current_split[2] != previous_split[2] %}
+				{% increment count %}
+				{% if count > 5 %}{% break %}{% endif %}
+				-->{% include 'product-thumbnail-simple'%}<!--
+				{% assign previous_split = current_split %}
+				{% assign previous_split_count = current_split_count %}	
+		{% endif %}{% endif %}	
+	-->{% endfor %}
 
 
 </div>

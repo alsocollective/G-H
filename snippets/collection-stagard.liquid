@@ -4,7 +4,7 @@
 {% assign bigIndex = 1 %}
 
 
-{% for product in collection.products %}{% if product.title != productName %}<div class="product {% if bigNext == bigIndex %}big {% assign bigNext = bigNext|plus:bigCount %}{% if bigCount == 3 %}{% assign bigCount = 4 %}{% else %}{% assign bigCount = 3 %}{% endif %}{% endif %}">
+{% for product in collection.products %}{% if product.title != productName %}<div class="product productthumbnail {% if bigNext == bigIndex %}big {% assign bigNext = bigNext|plus:bigCount %}{% if bigCount == 3 %}{% assign bigCount = 4 %}{% else %}{% assign bigCount = 3 %}{% endif %}{% endif %}">
 	<a href="{{product.url}}">
 		<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'grande' }})"></div>
 		<div class="text" href="#">

@@ -1,0 +1,63 @@
+{% assign productTitleSplit = product.title | split: "|" %}
+{% assign productTitleSize = productTitleSplit | size%}
+
+<div id="{{ productTitleSplit | last | handleize}}" class="multi-product {% if skip_product.title != product.title %}hide{% endif %}">
+	<div class="left">
+		<div class="list">			
+		{% for image in product.images %} 
+			<a href="{{ image.src | product_img_url: 'grande' }}"><img src="{{ image.src | product_img_url: 'small' }}" alt="image.alt"></a>
+		{% endfor %}
+		</div><div class="main">
+			<img src="{{ product.featured_image| product_img_url: 'grande'}}">
+		</div>
+
+	</div><div class="right">
+			
+
+		<h2 class="producttitle">{{ productTitleSplit | first }}</h2>
+		{% for title in productTitleSplit %}
+			{% if forloop.first == false %}<h3 class="productsubtitle">{{title}}<h3>{% endif %}
+		{% endfor %}
+
+		<h3 class="price">{{ product.price | money }}</h3>
+
+		<div class="description">
+			<h3>Description</h3>
+			{{ product.description }}
+		</div>
+		{% if product1 %}
+		<div class="available-colours">
+			<h3>Available Colours</h3>
+			<ul>
+				{% assign keep = product %}
+				{% assign product = product0 %}{% include "product-colour-option"%}{% assign product = product1 %}{% include "product-colour-option"%}{% endif %}{% if product2 %}{% assign product = product2 %}{% include "product-colour-option"%}{% endif %}{% if product3 %}{% assign product = product3 %}{% include "product-colour-option"%}{% endif %}{% if product1 %}
+				{% assign product = keep %}
+			</ul>
+		</div>
+		{% endif %}
+		<div class="sizing">
+			<h3>Sizing | <a href="#" class="fitguide">Fit Guide</a></h3>
+			{% for variant in product.variants %}
+				{% if variant.available == true %}
+					<button class="button small {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}">{{ variant.title }}</button>
+				{% else %}
+					<button class="button small notavailable {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}" >{{ variant.title }}</button>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<form action="/cart/add" method="post" enctype="multipart/form-data" data-id="{{product.id}}">
+			<select name="id" class="sizeselector hide">
+				{% for variant in product.variants %}
+					{% if variant.available == true %}
+						<option value="{{variant.id}}" > {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
+					{% else %}
+						<option disabled="disabled"> {{ variant.title }} - sold out!</option>
+					{% endif %}
+				{% endfor %}
+			</select>
+			<h3>Quantity</h3>
+			<input class="quantity" type="number" name="quantity" class="styled-input" value="1" min="1" >
+			<input class="add" type="submit" name="add" class="button large" value="Add to Bag" >
+		</form>
+	</div>
+</div>

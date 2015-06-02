@@ -42,30 +42,39 @@
 		select{
 			// display: none;
 		}	
-		#producttitle{
+		.producttitle{
 			margin-bottom: 1.5em;
 		}
-		#price{
+		.price{
 			margin-bottom: 1.5em;
 			text-align: right;
 			width: 80%;
 			color: $blue;
 		}
-		#description{
+		.description{
 
 		}
-		#quantity,#add{
+		.quantity,.add{
 			border: 2px solid $black;
 			padding: 1em 0;
 			width: 40%;
 			margin-right: 2%;
 		}
+		.available-colours{
+			li{
+				display: inline-block;
+			}
+		}
+
 		.currentcolour{
 			text-decoration: underline;
 		}
+		.selected{
+			border: solid 1px #f00;
+		}
 	}
 
-	.sizing{
+	.sizechart{
 		p,table{
 			width: 49%;
 			vertical-align: top;

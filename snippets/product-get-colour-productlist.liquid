@@ -1,18 +1,32 @@
-
-{% for product in products %}{% assign productSplit = product.title | split: "|" | first %}{% if productSplit == skip_product_split[0] %}
-		{% if includeColours == 1 %}<li><a href="{{product.url}}">{%endif%}
-			{% for tag in product.tags %}{% assign first = tag | split:"-"| last %}{% if "colour" == first %}
-				{% capture currentColour %}{{tag | remove: "-colour"}}{%endcapture%}
-				{% if includeColours == 0 %}{%assign includeColours = 1 %}
-					<div class="availablecolours"><h3>Available Colours</h3><ul><li><a href="{{product.url}}">
-				{%endif%}
-				{% if currentColour == thisColour%}
-					<span class="currentcolour">{{currentColour}}</span>
-				{% else %}
-					{{currentColour}}
-				{% endif %}
-			{% endif %}{% endfor %}
-		{% if includeColours == 1 %}</a></li>{%endif%}
-{%endif%}{% endfor %}
-{% if includeColours == 1 %}</ul></div>{%endif%}
-
+{% if skip_product_split_count > 2%}
+	{% for product in products %}
+		{% assign productSplit = product.title | split: "|" %}
+		{% if productSplit[0] == skip_product_split[0] and productSplit[1] == skip_product_split[1]%}
+			{% if includeColours == 0 %}
+				{% assign product0 = product%}
+			{% elsif includeColours == 1 %}
+				{% assign product1 = product%}	
+			{% elsif includeColours == 2 %}
+				{% assign product2 = product%}
+			{% elsif includeColours == 3 %}
+				{% assign product3 = product%}
+			{% endif %}
+			{% assign includeColours = includeColours | plus: 1 %}
+		{%endif%}{% endfor %}
+{% else %}
+	{% for product in products %}
+		{% assign productSplit = product.title | split: "|" | first %}
+		{% if productSplit == skip_product_split[0] %}
+			{% if includeColours == 0 %}
+				{% assign product0 = product%}
+			{% elsif includeColours == 1 %}
+				{% assign product1 = product%}	
+			{% elsif includeColours == 2 %}
+				{% assign product2 = product%}
+			{% elsif includeColours == 3 %}
+				{% assign product3 = product%}
+			{% endif %}
+			{% assign includeColours = includeColours | plus: 1 %}
+		{%endif%}
+	{% endfor %}
+{% endif %}
