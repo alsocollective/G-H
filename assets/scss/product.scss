@@ -2,12 +2,16 @@
 
 #product{
 	@extend .center;
-
+	position: relative;
+	z-index: 2;
+	.multi-product{
+		padding-bottom: $pb;
+	}
 	.left{
 		width: 50%;
 		display: inline-block;
 		vertical-align: top;
-		margin-top: 3em;
+		margin-top:	0.375*$pb;
 		.list{
 			width: 20%;
 			display: inline-block;
@@ -43,16 +47,19 @@
 			// display: none;
 		}	
 		.producttitle{
-			margin-bottom: 1.5em;
+			
 		}
 		.price{
-			margin-bottom: 1.5em;
+			padding-top: 0.5*$pb;
 			text-align: right;
 			width: 80%;
 			color: $blue;
 		}
 		.description{
-
+			padding-top: 0.5*$pb;
+			ul{
+				padding: 0.125*$pb 0 0 0;
+			}
 		}
 		.quantity,.add{
 			border: 2px solid $black;
@@ -61,9 +68,16 @@
 			margin-right: 2%;
 		}
 		.available-colours{
+			padding-top: 0.5*$pb;
+			ul{
+				padding: 0.125*$pb 0 0 0;
+			}
 			li{
 				display: inline-block;
 			}
+		}
+		.sizing{
+			padding: 0.5*$pb 0;
 		}
 
 		.currentcolour{
@@ -75,6 +89,7 @@
 	}
 
 	.sizechart{
+		padding-bottom: $pb;
 		p,table{
 			width: 49%;
 			vertical-align: top;
@@ -86,4 +101,24 @@
 			display: inline-table;
 		}
 	}
+	.similar-products{
+		padding: $pb 0;
+	}
+
+}
+.social-product{
+	position: absolute;
+	width: 100%;
+	.offsetleft {
+		@extend .center;
+		position: relative;
+		left: -5%;
+	}
+	a{
+		display: block;
+		padding: 0.375*$pb 0;
+	}
+	// a:first-child{
+	// 	padding-top: 0;
+	// }
 }

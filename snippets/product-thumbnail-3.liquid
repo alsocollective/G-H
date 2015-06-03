@@ -2,35 +2,38 @@
 {% assign producttype = producttype | append: productTypeSplit[1] %}
 
 {% if producttype != productName %}
-	<div class="productthumbnail listitem">
-		<a href="{{ product.url }}">
-			<img src="{{ product.featured_image | product_img_url: 'grande' }}">
+	<div class="productthumbnail">
+		<a href="{{product.url}}#{{productTypeSplit | last | handleize}}">
+			<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'large' }})"></div>
+			<div class="backgroundimage second" style="background-image:url({{ product.images | last | product_img_url: 'large' }})"></div>
 		</a>
-
-		<h3>{{producttype}}</h3>
-		
-		<ul>
-			{% assign productOriginal = product %}
-			<li>
-				<a href="{{product.url}}">{{product.title | split: "|" | last}}</a>
-			</li>
-			{% assign location = forloop.index0|plus:1%}
-			{% assign currentproduct = collection.products[location] %}
-			{% assign currentproductSplit =  currentproduct.title | split: "|" %}
-			{% if currentproductSplit[0] == productTypeSplit[0] and currentproductSplit[1] == productTypeSplit[1] %}
-				{% include "product-checknext" %}
-				{% assign location = location|plus:1%}
+			<div class="text">
+				<a href="{{product.url}}#{{productTypeSplit | last | handleize}}">
+					<h3>{{productTypeSplit[0]}}</h3>
+					<h4>{{productTypeSplit[1]}}</h4>
+				</a>
+				<br>
+				{% assign productOriginal = product %}
+				<h4><a href="{{product.url}}#{{productTypeSplit | last | handleize}}">{{productTypeSplit | last}}</a></h4>
+				{% assign location = forloop.index0|plus:1%}
 				{% assign currentproduct = collection.products[location] %}
 				{% assign currentproductSplit =  currentproduct.title | split: "|" %}
 				{% if currentproductSplit[0] == productTypeSplit[0] and currentproductSplit[1] == productTypeSplit[1] %}
-					{% include "product-checknext" %}
+					<h4><a>/</a> <a href="{{currentproduct.url}}#{{currentproductSplit | last | handleize}}">{{currentproductSplit | last}}</a></h4>
+					{% assign location = location|plus:1%}
+					{% assign currentproduct = collection.products[location] %}
+					{% assign currentproductSplit =  currentproduct.title | split: "|" %}
+					{% if currentproductSplit[0] == productTypeSplit[0] and currentproductSplit[1] == productTypeSplit[1] %}
+						<h4><a>/</a> <a href="{{currentproduct.url}}#{{currentproductSplit | last | handleize}}">{{currentproductSplit | last}}</a></h4>
+					{% endif %}
 				{% endif %}
-			{% endif %}
-			{% assign product =  productOriginal %}
+				{% assign product =  productOriginal %}
 
-		</ul>
-
-		<a href="{{ product.url }}"><button class="button">buy</button> {{ product.price | money }} </a>
+				<a href="{{product.url}}#{{productTypeSplit | last | handleize}}">
+					<h4 class="price">{{ product.price | money }}</h4>
+				</a>
+			</div>
+		
 	</div>
 	{% assign productName = producttype %}	
 {% endif %}

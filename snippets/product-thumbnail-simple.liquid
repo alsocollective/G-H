@@ -1,7 +1,9 @@
 <div class="productthumbnail listitem">
 
 	<a href="{{product.url}}">
-		<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'grande' }})"></div>
+		<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'large' }})"></div>
+		<div class="backgroundimage second" style="background-image:url({{ product.images | last | product_img_url: 'large' }})"></div>
+		
 		<div class="text" href="#">
 			{% assign pro_split = product.title | split: "|" %}
 			{% assign pro_split_count = pro_split | size %}

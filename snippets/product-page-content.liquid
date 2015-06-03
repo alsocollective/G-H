@@ -16,7 +16,7 @@
 
 		<h2 class="producttitle">{{ productTitleSplit | first }}</h2>
 		{% for title in productTitleSplit %}
-			{% if forloop.first == false %}<h3 class="productsubtitle">{{title}}<h3>{% endif %}
+			{% if forloop.first == false %}<h3 class="productsubtitle">{{title}}</h3>{% endif %}
 		{% endfor %}
 
 		<h3 class="price">{{ product.price | money }}</h3>

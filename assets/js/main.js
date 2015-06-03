@@ -12,9 +12,9 @@ var app = {
 		console.log("soft init");
 		var body = $("#main");
 		var s = skrollr.init();
-		if (body.hasClass("template-index")) {
+		if ($(".logos").length) {
 			app.index.init();
-		} else if (body.hasClass("template-product")) {
+		} else if ($("#product").length) {
 			app.product.init();
 		}
 		$(".lifestyle").slick(app.slickSetting);
@@ -72,6 +72,7 @@ app.gloabl = {
 app.product = {
 	mainImage: null,
 	init: function() {
+		app.product.goToHash(window.location.hash);
 		$(".left .list a").click(app.product.productImageClick);
 		$(".available-colours a").click(app.product.colourClick);
 		$(".sizing button:not(.notavailable)").click(app.product.sizingClick);
@@ -100,6 +101,12 @@ app.product = {
 		event.preventDefault();
 		$(".sizechart").toggleClass("hide");
 		return false;
+	},
+	goToHash: function(hash) {
+		if (hash) {
+			$(".multi-product").addClass("hide");
+			$("#" + hash.split("#").pop()).removeClass("hide");
+		}
 	}
 
 }

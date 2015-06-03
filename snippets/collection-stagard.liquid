@@ -4,9 +4,18 @@
 {% assign bigIndex = 1 %}
 
 
-{% for product in collection.products %}{% if product.title != productName %}<div class="product productthumbnail {% if bigNext == bigIndex %}big {% assign bigNext = bigNext|plus:bigCount %}{% if bigCount == 3 %}{% assign bigCount = 4 %}{% else %}{% assign bigCount = 3 %}{% endif %}{% endif %}">
+{% for product in collection.products %}{% if product.title != productName %}<div class="product productthumbnail {% if bigNext == bigIndex %}big {% endif %}">
 	<a href="{{product.url}}">
-		<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'grande' }})"></div>
+		{% if bigNext == bigIndex %}big 
+		<div class="backgroundimage second" style="background-image:url({{ product.images[1] | product_img_url: 'large' }})"></div>
+		<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'large' }})"></div>
+		{% else %}
+		<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'large' }})"></div>
+		<div class="backgroundimage second" style="background-image:url({{ product.images | last | product_img_url: 'large' }})"></div>
+		{% endif %}
+		
+		
+
 		<div class="text" href="#">
 			{% assign title = product.title | split: "|"%}
 			<h3>{{ title[0] }}</h3>
@@ -16,15 +25,21 @@
 			{% if title[2] %}
 				<h4>{{ title[2] }}</h4>
 			{% endif %}
-			{% include "product-get-colours" %}
-			<div class="bottom">
-				{{ product.price | money }}
-			</div>
+			<h4 class="price">{{ product.price | money }}</h4>
 		</div>
 	</a>
+
+	{% if bigNext == bigIndex %}
+		{% assign bigNext = bigNext|plus:bigCount %}
+		{% if bigCount == 3 %}
+			{% assign bigCount = 4 %}
+		{% else %}
+			{% assign bigCount = 3 %}
+		{% endif %}
+	{% endif %}
+
 	{% assign bigIndex = bigIndex|plus:1 %}
 	{% assign productName = product.title %}
-
 </div>{% endif %}{% endfor %}
 
 </div>

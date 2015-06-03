@@ -1,0 +1,52 @@
+@import "settings";
+
+.cart{
+	@extend .center;
+	padding: 2*$pb 0;
+	width: 100%;	
+	p{
+		text-align: center;
+	}
+
+	table{
+		width: 100%;
+	}
+	td,a{
+		vertical-align: top;
+	}
+	td{
+		margin-top: 0.25*$pb;
+		padding-top: 0.75*$pb;
+		&:first-child{
+			padding-top: 0.25*$pb;
+			a{
+				padding-top: 0.5*$pb;
+			}
+		}
+	}
+
+	.subtotal,.actions{
+		text-align: right;
+	}
+
+	.total,.total h3{
+		text-align: right;
+	}
+
+	.desc{
+		img{
+			width: 35%;
+		}
+		a{
+			width: 55%;
+			margin-left: 3%;
+			display: inline-block;
+		}
+	}
+
+}
+
+#cart{
+	padding: 0;
+}
+

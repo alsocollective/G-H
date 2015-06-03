@@ -13,23 +13,42 @@ h3{
 	text-transform: uppercase;
 	font-weight: normal;
 	&.lined{
-		padding-bottom: 0.5em;
+		padding-bottom: $pb*0.25;
 		border-bottom: $border;
-		margin: 3em 0;
+		margin: 0 0 0.5*$pb 0;
+		padding: $pb 0 $pb*0.25 0;
+	}
+}
+
+h4{
+	@extend h3;
+	display: inline-block;
+	a{
+		color: $grey;
+		font-size: 0.85em;
+		display: inline-block;	
 	}
 }
 
 #wrapper{
 	width: 100%;
 	position: relative;
-	padding-top: 46px;
-	> div:first-child{
-		margin-top: 80px;
-	}
+	padding-top: 100+$pb;
+	// > div:first-child{
+	// 	margin-top: 80px;
+	// }
 }
 
 .hide{
 	display: none;
+}
+
+#main{
+	padding-bottom: 2*$pb;
+	background-color: $white;
+	min-height: 40%;
+	min-height: 40vh;
+	width: 100%;
 }
 
 .slideshow{
@@ -38,7 +57,7 @@ h3{
 	background-color: $grey;
 	position: relative;
 	overflow: hidden;
-	margin-top: 0 !important;
+	margin-top: -$pb;
 	.slick-slide{
 		position: relative;
 		overflow: hidden;
@@ -93,6 +112,7 @@ input{
 }
 
 .lifestyleshot{
+	display: none;
 	height: 400px;
 	width: 100%;
 	background-size: cover;

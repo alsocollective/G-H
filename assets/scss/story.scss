@@ -3,12 +3,23 @@
 
 .story{
 	@extend .center;
+	.pagecontent{
+		padding: 2*$pb 0 0 0;
+		p{
+			width: 50%;
+			margin: 0 auto;
+			padding: 0.125*$pb 0 1*$pb 0;
+		}
+	}
 	.gandh{
 		p{
 			display: inline-block;
 			vertical-align: top;
-			width: 50%;
+			width: 45%;
+			padding-left: 5%;
 			&:first-child{
+				width: 50%;
+				padding-left: 0%;
 				float: left;
 			}
 		}

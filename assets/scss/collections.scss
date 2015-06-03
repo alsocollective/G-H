@@ -10,8 +10,9 @@
 		@extend .center;
 	}
 	.productthumbnail{
-		width: 32%;
 		margin-right: 1%;
 		display: inline-block;
+		height: 400px;
+		margin: 0.5*$pb 0 0.5*$pb 0;
 	}
 }

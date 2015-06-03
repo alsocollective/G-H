@@ -28,13 +28,20 @@
 	margin-top: $pb !important;
 	.product{
 		display: inline-block;
-		width: 32%;
-		padding: $pb 0 0 1%;
+		padding: $pb 0 0 0;
 		vertical-align: top;
+		h3{
+			padding-top: $pb*0.135;
+		}
+		h4{
+			display: inline-block;
+			// font-weight: normal;
+			// text-transform: uppercase;
+			padding-bottom: $pb*0.125;
+		}
 		.backgroundimage{
 			height: 300px;
-			background-position: center;
-			background-size: cover;
+			position: relative;
 		}
 		.bottom{
 			p,ul,h3,h2{
@@ -42,6 +49,12 @@
 			}
 			p:first-child{
 				display: block;
+			}
+		}
+		.text{
+			position: relative;
+			.bottom{
+				position: relative;
 			}
 		}
 	}

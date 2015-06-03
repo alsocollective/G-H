@@ -12,6 +12,7 @@ body,html{
 	font-smoothing: antialiased;
 	color: $black;
 	font-size: $fs;
+	background-color: $darkgrey;
 }
 
 @import "global";
@@ -27,4 +28,4 @@ body,html{
 @import "article";
 @import "story.scss";
 @import "swatch";
-
+@import "cart";

@@ -34,18 +34,27 @@
 <div class="featureditems">
 
 
-{% for product in collection.products %}{% if product.title != productName %}<div class="product">
-
-	<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'grande' }})"></div>
+{% for product in collection.products %}{% if product.title != productName %}<div class="product productthumbnail {% if count == 3 %}big{%endif%}">
+	
+	{% if count == 3 %}
+		<div class="backgroundimage" style="background-image:url({{ product.images[1] | product_img_url: 'large' }})"></div>
+		<div class="backgroundimage second" style="background-image:url({{ product.images | last | product_img_url: 'large' }})"></div>
+	{% else %}
+		<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'large' }})"></div>
+		<div class="backgroundimage second" style="background-image:url({{ product.images | last | product_img_url: 'large' }})"></div>
+	{% endif %}
 	<div class="text" href="#">
-		<h3>{{product.title}}</h3>
+		{% assign product_split = product.title | split: "|" %}
+		<h3>{{product_split | first | handleize}}</h3>
+		{% if product_split[1] %}<h4>{{product_split[1] | handleize}}</h4>{% endif %}
+		{% if product_split[2] %}<h4>{{product_split[2] | handleize}}</h4>{% endif %}
 		{% include "product-get-colours" %}
 		<div class="bottom">
 			{{product.content}}
 		</div>
 	</div>
 	{% assign productName = product.title %}
-
+<!-- {% increment count %} -->
 </div>{% endif %}{% endfor %}
 
 </div>

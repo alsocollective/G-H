@@ -15,16 +15,15 @@ Setting up the variables for the page
 
 
 
-<div class="social">
-	<a class="facebook"> {% include "social-facebook" %} </a>
-	<a class="twitter">{% include "social-twitter" %}</a>
-	<a href="pintrest">{% include "social-pintrest" %}</a>
+<div class="social-product">
+	<div class="offsetleft">
+		<a href="#facebook">{% include "social-facebook" %}</a>
+		<a href="#twitter">{% include "social-twitter" %}</a>
+		<a href="#pintrest">{% include "social-pintrest" %}</a>
+	</div>
 </div>
 
 <div id="product">
-<h1>{{col}}</h1>
-
-
 	{% assign product = product0 %}
 	{% include "product-page-content"%}
 
@@ -46,41 +45,42 @@ Setting up the variables for the page
 		{{ pages[pageName].content }}
 	</div>
 
-	<h2>Similar Products</h2>
+	<div class="similar-products">
+		<h2>Similar Products</h2>
 
-	{% assign previous_split = skip_product_split %}
-	{% assign previous_split_count = skip_product_split_count %}
+		{% assign previous_split = skip_product_split %}
+		{% assign previous_split_count = skip_product_split_count %}
 
-	{% for product in products %}<!-- 
-		{% if product != product0 and product != product1 and product != product2 and product != product3 %}
-			{% assign current_split = product.title | split:"|" %}
-			{% assign current_split_count = current_split | size %}
-			{% if current_split_count != previous_split_count %}
-				{% increment count %}
-				{% if count > 5 %}{% break %}{% endif %}
-				-->{% include 'product-thumbnail-simple'%}<!--
-				{% assign previous_split = current_split %}
-				{% assign previous_split_count = current_split_count %}
-			{% elsif current_split_count == 2 and current_split[0] != previous_split[0] %}
-				{% increment count %}
-				{% if count > 5 %}{% break %}{% endif %}
-				-->{% include 'product-thumbnail-simple'%}<!--
-				{% assign previous_split = current_split %}
-				{% assign previous_split_count = current_split_count %}
-			{% elsif current_split_count == 3 and current_split[0] != previous_split[0] or current_split[1] != previous_split[1] %}
-				{% increment count %}
-				{% if count > 5 %}{% break %}{% endif %}
-				-->{% include 'product-thumbnail-simple'%}<!--
-				{% assign previous_split = current_split %}
-				{% assign previous_split_count = current_split_count %}
-			{% elsif current_split_count == 4 and current_split[0] != previous_split[0] or current_split[1] != previous_split[1] and current_split[2] != previous_split[2] %}
-				{% increment count %}
-				{% if count > 5 %}{% break %}{% endif %}
-				-->{% include 'product-thumbnail-simple'%}<!--
-				{% assign previous_split = current_split %}
-				{% assign previous_split_count = current_split_count %}	
-		{% endif %}{% endif %}	
-	-->{% endfor %}
-
+		{% for product in products %}<!-- 
+			{% if product != product0 and product != product1 and product != product2 and product != product3 %}
+				{% assign current_split = product.title | split:"|" %}
+				{% assign current_split_count = current_split | size %}
+				{% if current_split_count != previous_split_count %}
+					{% increment count %}
+					{% if count > 5 %}{% break %}{% endif %}
+					-->{% include 'product-thumbnail-simple'%}<!--
+					{% assign previous_split = current_split %}
+					{% assign previous_split_count = current_split_count %}
+				{% elsif current_split_count == 2 and current_split[0] != previous_split[0] %}
+					{% increment count %}
+					{% if count > 5 %}{% break %}{% endif %}
+					-->{% include 'product-thumbnail-simple'%}<!--
+					{% assign previous_split = current_split %}
+					{% assign previous_split_count = current_split_count %}
+				{% elsif current_split_count == 3 and current_split[0] != previous_split[0] or current_split[1] != previous_split[1] %}
+					{% increment count %}
+					{% if count > 5 %}{% break %}{% endif %}
+					-->{% include 'product-thumbnail-simple'%}<!--
+					{% assign previous_split = current_split %}
+					{% assign previous_split_count = current_split_count %}
+				{% elsif current_split_count == 4 and current_split[0] != previous_split[0] or current_split[1] != previous_split[1] and current_split[2] != previous_split[2] %}
+					{% increment count %}
+					{% if count > 5 %}{% break %}{% endif %}
+					-->{% include 'product-thumbnail-simple'%}<!--
+					{% assign previous_split = current_split %}
+					{% assign previous_split_count = current_split_count %}	
+			{% endif %}{% endif %}	
+		-->{% endfor %}
+	</div>
 
 </div>

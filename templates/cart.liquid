@@ -3,21 +3,33 @@
 	<table>
 		<tr>
 			<th class="item desc"></th>
-			<th class="item price">Price</th>
-			<th class="item qty">Quantity</th>
-			<th class="item remove">Delete</th>
-			<th class="item total">Total</th>
+			<th class="item price"><h3>Price</h3></th>
+			<th class="item qty"><h3>Quantity</h3></th>
+			<th class="item remove"><!-- <h3>Delete</h3> --></th>
+			<th class="item total"><h3>Total</h3></th>
 		</tr>
 		{% for item in cart.items %}
 		<tr id="cart-item-{{item.variant.id}}" class="cart-item">
+			{% assign itemsplit = item.product.title | split: "|" %}
 			<td class="item desc">
-				<img src="{{ item.product.featured_image | product_img_url: 'grande' }}" alt="image.alt">
-				<a href="/collections/{{ item.product.collections.first.title | downcase }}#{{ item.product.handle }}">{{ item.title }}</a>
+				<img src="{{ item.product.featured_image | product_img_url: 'medium' }}" alt="image.alt"><a href="/collections/{{ item.product.collections.first.title | downcase }}#{{ item.product.handle }}">
+					<h3>{{ itemsplit | first }} </h3>
+					{% if itemsplit[1] %}
+						<h4>
+							Style - {{itemsplit[1]|strip}}{% if itemsplit[2] %}, 
+								{{itemsplit[2]}}
+							{% endif %}
+						</h4><br>
+						<h4> 
+							size - {{item.variant.title}}
+						</h4>
+					{% endif %}
+				</a>
 			</td>
 			<td class="item price">{{ item.price | money }}</td>
 			<td class="item qty"><input type="text" size="4" pattern="[0-9]*" name="updates[{{item.variant.id}}]" id="quantity-{{ item.variant.id }}" class="quantity" value="{{ item.quantity }}" min="1" onfocus="this.select();"/></td>
 			<td class="item remove"><a href="/cart/change/{{item.variant.id}}?quantity=0">Remove</a></td>
-			<td class="item price">{{ item.line_price | money }}</td>
+			<td class="item total">{{ item.line_price | money }}</td>
 		</tr>
 		{% endfor %}
 		<tr class="subtotal">
@@ -32,5 +44,7 @@
 	</table>
 </form>
 {% else %}
-<p>It appears that your cart is currently empty!</p>
+<div class="cart">
+	<p>It appears that your cart is currently empty!</p>
+</div>
 {% endif %}
