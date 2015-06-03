@@ -30,6 +30,14 @@ h4{
 	}
 }
 
+#main{
+	padding-bottom: 2*$pb;
+	background-color: $white;
+	min-height: 40%;
+	min-height: 40vh;
+	width: 100%;
+}
+
 #wrapper{
 	width: 100%;
 	position: relative;
@@ -43,13 +51,7 @@ h4{
 	display: none;
 }
 
-#main{
-	padding-bottom: 2*$pb;
-	background-color: $white;
-	min-height: 40%;
-	min-height: 40vh;
-	width: 100%;
-}
+
 
 .slideshow{
 	width: 100%;

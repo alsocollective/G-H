@@ -56,6 +56,13 @@ h4 {
     font-size: 0.85em;
     display: inline-block; }
 
+#main {
+  padding-bottom: 150px;
+  background-color: white;
+  min-height: 40%;
+  min-height: 40vh;
+  width: 100%; }
+
 #wrapper {
   width: 100%;
   position: relative;
@@ -63,13 +70,6 @@ h4 {
 
 .hide {
   display: none; }
-
-#main {
-  padding-bottom: 150px;
-  background-color: white;
-  min-height: 40%;
-  min-height: 40vh;
-  width: 100%; }
 
 .slideshow {
   width: 100%;
@@ -430,7 +430,8 @@ input {
   .productthumbnail.listitem {
     display: inline-block;
     width: 19%;
-    vertical-align: top; }
+    vertical-align: top;
+    margin-right: 1%; }
     .productthumbnail.listitem img {
       width: 100%; }
   .productthumbnail .backgroundimage {
