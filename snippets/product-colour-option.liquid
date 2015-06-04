@@ -1,3 +1,19 @@
 <li {% if product == keep %}class="currentcolour"{% endif %}>
 	{% assign colour = product.title | split: "|" | last %}
-	<a href="#{{colour | handleize}}"><div class="colourswatch" style="background-color:{% for tag in product.tags %}{% assign tagsplit = tag | split: "-" %}{%if tagsplit[0] == "colour" %}{{tagsplit[1]}}{%endif%}{%endfor%};"><!-- <img src="{{ product.images[0] | product_img_url: 'large' }}"> --></div></a></li>
+	<a href="#{{colour | handleize}}">
+		{% for tag in product.tags %}
+			{% assign tagsplit = tag | split: "-" %}
+			{%if tagsplit[0] == "colour" %}
+				{% assign newtagsplit = tagsplit[1] | split: "#" %}
+			{%endif%}
+		{%endfor%}
+
+		{% if newtagsplit[1] %}<div class="colourswatch" style="background-color:#{{newtagsplit[1]}};"></div>{% endif %}
+		{% if newtagsplit[2] %}<div class="colourswatch" style="background-color:#{{newtagsplit[2]}};"></div>{% endif %}
+	</a>
+			<!-- <img src="{{ product.images[0] | product_img_url: 'large' }}"> -->
+	
+	<a href="#{{colour | handleize}}" class="written">{{colour}}</a>
+				
+	
+</li>
