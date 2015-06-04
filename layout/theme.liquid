@@ -28,6 +28,7 @@
 	{{ 'modernizr.js'  | asset_url | script_tag }}
 
 </head>
+
 <body  class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} {{ page_title | handle }}" >
 	<div id="main" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} {{ page_title | handle }} m-scene">
 		<div id="nav" class="m-header scene_element">
@@ -35,15 +36,20 @@
 				<div id="nav-logo">
 					<a href="/">{% include "logo-small.html" %}</a>
 				</div>
+				<ul id="nav-cart" {% if cart.item_count == -1 %} style="display:none;"{%endif%}>
+					<li><a href="/cart">Knapsack</a></li>
+					<li><a href="/cart">{{ cart.item_count}} {{ cart.item_count | pluralize: 'item', 'items' }}</a></li>
+					<li><a href="/cart">{{ cart.total_price | money  }}</a></li>
+				</ul>
 				<ul id="nav-main">
-				{% for link in linklists.main-menu.links %}
+					{% for link in linklists.main-menu.links %}
 
-				{%comment%}		this figures out if there is a sub menue	{%endcomment%}
-				{% assign has_drop_down = false %}
-				{% assign child_list_handle = link.title | handle %}
-				{% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
-					{% assign has_drop_down = true %}
-				{% endif %}
+					{%comment%}		this figures out if there is a sub menue	{%endcomment%}
+					{% assign has_drop_down = false %}
+					{% assign child_list_handle = link.title | handle %}
+					{% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+						{% assign has_drop_down = true %}
+					{% endif %}
 
 					<li class="{% if link.active %}selected{% endif %} {% if has_drop_down %}hassublinks{% endif %}">
 						<span class="nav-item-clickable">
@@ -62,13 +68,9 @@
 						{% endif %}
 					</li>
 					
-				{% endfor %}					
+					{% endfor %}					
 				</ul>
-				<ul id="nav-cart" {% if cart.item_count == -1 %} style="display:none;"{%endif%}>
-					<li><a href="/cart">Knapsack</a></li>
-					<li><a href="/cart">{{ cart.item_count}} {{ cart.item_count | pluralize: 'item', 'items' }}</a></li>
-					<li><a href="/cart">{{ cart.total_price | money  }}</a></li>
-				</ul>
+				<div class="hamburger"><a href="#togglenav">&equiv;</a></div>
 			</div>
 		</div>
 

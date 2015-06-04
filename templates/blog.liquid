@@ -1,3 +1,12 @@
+{% capture blogtitle %}{{blog.handle}}-carousel{% endcapture %}
+{% if blogs[blogtitle].articles[0] %} 
+<div class="slideshow">
+	{% for article in blogs['story'].articles limit: 3 %}
+		<div>{{article.content}}</div>
+	{% endfor %}
+</div>
+{% endif %}
+
 <div class="blog">
 	{% assign bigCount = 3 %}
 	{% assign bigNext = 2 %}
@@ -7,7 +16,6 @@
 	{% assign page = pages[blog..handle] %}
 	{{page.content}}
 	<h3 class="lined"></h3>
-	</div>
 	<ul>
 		{% for article in blog.articles %}
 			<li class="{% if bigNext == bigIndex %}wide{% assign bigNext = bigNext|plus:bigCount %}{% if bigCount == 2 %}{% assign bigCount = 3 %}{% else %}{% assign bigCount = 2 %}{% endif %}{% endif %}">
@@ -17,4 +25,5 @@
 		{% endfor %}
 	</ul>
 
+	</div>
 </div>

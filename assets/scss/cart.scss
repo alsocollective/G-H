@@ -3,13 +3,18 @@
 .cart{
 	@extend .center;
 	padding: 2*$pb 0;
-	width: 100%;	
+	width: 100%;
+
 	p{
 		text-align: center;
 	}
 
 	table{
 		width: 100%;
+		@include at-query ($max, $large) {
+			width: 80%;
+			margin: 0 auto;
+		}		
 	}
 	td,a{
 		vertical-align: top;
@@ -48,5 +53,8 @@
 
 #cart{
 	padding: 0;
+	@include at-query ($max, $large) {
+		padding: 1*$pb 0;
+	}	
 }
 

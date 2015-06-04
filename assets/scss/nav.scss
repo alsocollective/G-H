@@ -73,19 +73,44 @@
 // }
 
 #nav{
-	position: fixed;
-	width: 100%;
-	z-index: 99;
+
+	z-index: 9999;
 	background-color: $white;
 	border-bottom: $border;
+	position: fixed;	
+	width: 100%;
+	min-height: 99px;
+	
+	@include at-query ($max, $large) {
+		right: 0;
+		top: 0;
+		left: 100%;
+		bottom: 0;
+		text-align: center;
+		font-size: 2em;
+		overflow: visible;
+	}
+
+
 	>div{
 		position: relative;
+		@include at-query ($max, $large) {
+			overflow: scroll;
+			height: 100%;
+		}		
 	}
 	>ul,div{
 		vertical-align: top;
 	}
+
+
 	#nav-logo{
 		float: left;
+		@include at-query ($max, $large) {
+			position: fixed;
+			left: 0;
+			top: 0;
+		}
 		padding: 2em 0 1em 2em;
 		svg{
 			width: 90px;
@@ -94,40 +119,97 @@
 	}
 	#nav-main{
 		@extend .center;
-		padding-top: 2em;
-		height: 18px;
 		overflow: hidden;
 		@include transition(height, 0.5s, ease-in-out);
+
+		@include at-query ($min, $large) {
+			padding-top: 2em;
+			height: 18px;
+		}
+		@include at-query ($max, $large) {
+			width: 100% !important;
+			max-width: 100% !important;
+			margin: 0 !important;
+			padding-bottom: $pb;
+			background-color: $white;
+		}			
+				
 		>li{
 			display: inline-block;
 			vertical-align: top;
 			padding-right: 3em;
+			@include at-query ($max, $large) {
+				display: block;
+				text-align: center;
+				padding: 0;
+			}			
 		}
+
 	}
 	.nav-item-clickable{
 		display: block;
-		padding-bottom: 10px;
+		padding: $pb*0.5 0 0 0;
+		@include at-query ($min, $large) {
+			padding: 0 0 10px 0;
+		}
 	}
 	.sublist{
-		border-top: $border;
+		@include at-query ($min, $large) {
+			border-top: $border;
+			padding-top: 7px;
+		}
 		display: block;
-		padding-top: 7px;
 		a{
 			color: $grey;
 			font-size: 0.85em;
 			display: inline-block;
 			padding: 0.25em 0 0.25em 0;
 		}
+		li{
+			@include at-query ($max, $large) {
+				text-align: center;
+			}	
+		}
 	}
 	#nav-cart{
-		position: absolute;
+		padding-top: 2em;
 		right: 2em;
-		top: 2em;
+
+		@include at-query ($min, $large) {
+			position: absolute;
+		}
+		
+		li{
+			text-align: center;
+		}
 	}
 
-	&:hover{
-		#nav-main{
-			height: 155px;
+	@include at-query ($min, $large) {
+		&:hover{
+			#nav-main{
+				height: 155px;
+			}
 		}
+	}
+
+	.hamburger{
+		@include at-query ($min, $large) {
+			display: none;
+		}
+		position: fixed;
+		right: 0;
+		top: 0;
+		a{
+			font-size: 3em;
+			padding: $pb;
+			line-height: 0;
+			display: block;
+		}
+	}
+}
+
+@include at-query ($max, $large) {
+	.opennav #nav{
+		left: 0%;
 	}
 }

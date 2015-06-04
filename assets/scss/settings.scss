@@ -1,7 +1,7 @@
 
 $small: 480px;
-$medium: 768px;
-$large: 769px;
+$medium: 670px;
+$large: 1120px;
 $min: min-width;
 $max: max-width;
 
@@ -65,11 +65,11 @@ $border: 1px solid $black;
 
 @mixin vertical-align {
 	position: relative;
-	top: 50%;
+	// top: 50%;
 	left: 50%;
-	-webkit-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,0);
+	-ms-transform: translate(-50%,0);
+	transform: translate(-50%,0);
 }
 
 @mixin keyframes($animation-name) {

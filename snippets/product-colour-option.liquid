@@ -1,3 +1,3 @@
 <li {% if product == keep %}class="currentcolour"{% endif %}>
 	{% assign colour = product.title | split: "|" | last %}
-	<a href="#{{colour | handleize}}"><div class="colourswatch"><img src="{{ product.images[0] | product_img_url: 'large' }}"></div></a></li>
+	<a href="#{{colour | handleize}}"><div class="colourswatch" style="background-color:{% for tag in product.tags %}{% assign tagsplit = tag | split: "-" %}{%if tagsplit[0] == "colour" %}{{tagsplit[1]}}{%endif%}{%endfor%};"><!-- <img src="{{ product.images[0] | product_img_url: 'large' }}"> --></div></a></li>

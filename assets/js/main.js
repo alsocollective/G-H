@@ -11,7 +11,9 @@ var app = {
 	softInit: function() {
 		console.log("soft init");
 		var body = $("#main");
-		var s = skrollr.init();
+		// var s = skrollr.init();
+		app.slideshow.init();
+		app.constant.init();
 		if ($(".logos").length) {
 			app.index.init();
 		} else if ($("#product").length) {
@@ -63,9 +65,23 @@ app.smooth  = {
 	}
 }
 
-app.gloabl = {
+app.constant = {
 	init: function() {
-
+		console.log("constant was exictued")
+		$(".hamburger a").click(app.constant.toggleNav);
+		$("#nav a").click(app.constant.closeNavOnClick);
+	},
+	toggleNav: function(event) {
+		console.log("toggle NAV");
+		event.preventDefault();
+		$("#main").toggleClass("opennav");
+		return false;
+	},
+	closeNavOnClick: function(event) {
+		console.log("close NAV");
+		if (this.href.split("#").pop() != "togglenav") {
+			$("#main.opennav").removeClass("opennav");
+		}
 	}
 }
 
@@ -114,9 +130,13 @@ app.product = {
 app.index = {
 	init: function() {
 		console.log("index");
-		$(".slideshow").slick(app.slickSetting);
 	}
 }
 
+app.slideshow = {
+	init: function() {
+		$(".slideshow").slick(app.slickSetting);
+	}
+}
 
 app.init();

@@ -42,6 +42,9 @@ h4{
 	width: 100%;
 	position: relative;
 	padding-top: 100+$pb;
+	@include at-query ($max, $large) {
+		padding-top: $pb;
+	}
 	// > div:first-child{
 	// 	margin-top: 80px;
 	// }
@@ -51,22 +54,29 @@ h4{
 	display: none;
 }
 
-
-
+$slideVh: 60vh;
+$slideHight: 500px;
+$slideHightTab: 400px;
 .slideshow{
-	width: 100%;
-	height: 400px;
+	width: 100%;		
 	background-color: $grey;
 	position: relative;
 	overflow: hidden;
-	margin-top: -$pb;
+	margin: -$pb 0 2*$pb 0;
+	height: $slideHight;
+	@include at-query ($max, $large) {
+		height: $slideHightTab;
+	}
+	height: $slideVh;
+
 	.slick-slide{
 		position: relative;
 		overflow: hidden;
-		height: 400px;
-		> div{
-			height: 400px;
+		height: $slideHight;
+		@include at-query ($max, $large) {
+			height: $slideHightTab;
 		}
+		height: $slideVh;
 		img{
 			@include vertical-align;
 			width: 100%;
@@ -80,6 +90,12 @@ h4{
 		border-radius: 0;
 		border: none;
 		background-color: transparent;
+		width: 20%;
+		padding: 0;
+		color: transparent;		
+		&:focus{
+			outline:none;
+		}
 	}
 	.slick-prev{
 		left: 0;
@@ -203,6 +219,7 @@ input{
 }
 
 #main.is-exiting #wrapper{
+	@include animation('fadeIn 0.5s');
 	@include vendorize(animation-direction, alternate-reverse);
 }
 

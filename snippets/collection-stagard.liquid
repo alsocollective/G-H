@@ -1,3 +1,9 @@
+<div class="slideshow">
+	{% for article in blogs['browsall'].articles limit: 3 %}
+		<div>{{article.content}}</div>
+	{% endfor %}
+</div>
+
 <div class="stagard">
 {% assign bigCount = 3 %}
 {% assign bigNext = 4 %}

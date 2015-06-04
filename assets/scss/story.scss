@@ -4,7 +4,7 @@
 .story{
 	@extend .center;
 	.pagecontent{
-		padding: 2*$pb 0 0 0;
+		padding: 0 0 0 0;
 		p{
 			width: 50%;
 			margin: 0 auto;
@@ -40,6 +40,7 @@
 		}
 		h4{
 			text-align: center;
+			display: block;
 		}
 		p{
 			min-width: 150px;
