@@ -5,22 +5,28 @@
 	{% endfor %}
 </div>
 
+<div class="company">
+	<h2>Hello</h2>
+	<p>This is the text about us</p>
+</div>
+
 <div class="logos">
+	<h3>Two sentence short description about the mind body and urban movement. Two sentences will be great, but it might be too much. Three sentences will definitely be pushing the boundaries, but let's see where it goes.</h3>
 	<div class="logo">
 		<a href="/">{% include 'logo-body.html' %}</a>
-		<div class="hover">
+		{% comment %}<div class="hover">
 			<p>short description</p>
-		</div>
+		</div>{% endcomment %}
 	</div><div class="logo">
 		{% include 'logo-mind.html' %}
-		<div class="hover">
+		{% comment %}<div class="hover">
 			<p>short description</p>
-		</div>
+		</div>{% endcomment %}
 	</div><div class="logo">
 		{% include 'logo-urban.html' %}
-		<div class="hover">
+		{% comment %}<div class="hover">
 			<p>short description</p>
-		</div>
+		</div>{% endcomment %}
 	</div>
 </div>
 
