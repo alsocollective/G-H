@@ -1,3 +1,7 @@
+// https://docs.shopify.com/support/your-website/themes/can-i-use-ajax-api#add-to-cart
+// we need to ajax the new content into the cart, no loading from the current page.
+// we should prevent default all all cart
+
 var app = {
 	slickSetting: {
 		dots: false,
@@ -37,7 +41,10 @@ app.smooth  = {
 			onStart: {
 				duration: 500,
 				render: function(url, $container) {
-					app.smooth.content.toggleAnimationClass('is-exiting');
+					console.log(url);
+					alert(url);
+					$('#main').toggleClass("is-exiting");
+					app.smooth.content.restartCSSAnimations();
 					app.smooth.body.animate({
 						scrollTop: 0
 					});
@@ -70,6 +77,7 @@ app.constant = {
 		console.log("constant was exictued")
 		$(".hamburger a").click(app.constant.toggleNav);
 		$("#nav a").click(app.constant.closeNavOnClick);
+		$("form .add").click(app.constant.addToCart);
 	},
 	toggleNav: function(event) {
 		console.log("toggle NAV");
@@ -82,6 +90,12 @@ app.constant = {
 		if (this.href.split("#").pop() != "togglenav") {
 			$("#main.opennav").removeClass("opennav");
 		}
+	},
+	addToCart: function(event) {
+		// we need to post the content to the site by the link at the otp of the page
+		alert("added item... NOT");
+		event.preventDefault();
+		return false;
 	}
 }
 
