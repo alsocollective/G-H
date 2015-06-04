@@ -7,9 +7,38 @@
 		text-align: center;
 	}
 	p{
-		width: 50%;
+		width: 60%;
 		min-width: 400px;
 		margin: 0 auto;
 		padding-top: 1em;
+		font-size: 1.3em;
+ 		line-height: 1.6em;
+  		letter-spacing: .04em;
+	}
+	blockquote {
+		margin: 1em -80px;
+		font-style: italic;
+		font-size: 1.3em;
+		color: #999;
+		width: 100%;
+
+		p::before {
+			content: '';
+			display: block;
+			margin: 0 auto 1em auto;
+			width: 3em;
+			border-top: 2px solid rgb(42,127,192);
+		}
+
+		p::after {
+			content: '';
+			display: block;
+			margin: 0 auto 1em auto;
+			width: 3em;
+			border-top: 2px solid rgb(42,127,192);
+		}
+	}
+	img {
+		width: 100%;
 	}
 }

@@ -20,7 +20,7 @@ body, html {
   font-smoothing: antialiased;
   color: #363636;
   font-size: 0.95em;
-  background-color: #555555; }
+  background-color: #555; }
 
 .center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .blog ul, .story .process ul, .article, .story, .cart {
   width: 90%;
@@ -52,13 +52,13 @@ h3, h4 {
 h4 {
   display: inline-block; }
   h4 a {
-    color: #818a8f;
+    color: #818A8F;
     font-size: 0.85em;
     display: inline-block; }
 
 #main {
   padding-bottom: 150px;
-  background-color: white;
+  background-color: #fff;
   min-height: 40%;
   min-height: 40vh;
   width: 100%; }
@@ -74,7 +74,7 @@ h4 {
 .slideshow {
   width: 100%;
   height: 400px;
-  background-color: #818a8f;
+  background-color: #818A8F;
   position: relative;
   overflow: hidden;
   margin-top: -75px; }
@@ -115,7 +115,7 @@ input {
 
 .button {
   background-color: #363636;
-  color: white;
+  color: #fff;
   border: none;
   -webkit-appearance: none;
   text-transform: uppercase; }
@@ -134,7 +134,7 @@ input {
   margin-top: 150px; }
 
 .footer {
-  background-color: #555555;
+  background-color: #555;
   color: #fff; }
   .footer > div > div {
     padding: 75px 0; }
@@ -147,7 +147,7 @@ input {
     .footer .logo svg {
       width: 100px; }
     .footer .logo path {
-      fill: white; }
+      fill: #fff; }
   .footer .footer-nav {
     width: 16%; }
     .footer .footer-nav li {
@@ -159,14 +159,14 @@ input {
       display: inline-block; }
     .footer .news input {
       padding: 0.5em 5%;
-      border: solid white 2px;
-      color: white;
+      border: solid #fff 2px;
+      color: #fff;
       width: 90%;
       text-align: left;
       background-color: transparent;
       margin-bottom: 1em; }
     .footer .news path {
-      fill: white; }
+      fill: #fff; }
   .footer .facebook, .footer .twitter, .footer .pintrest {
     padding: 0 0.5em; }
   .footer .facebook {
@@ -174,27 +174,24 @@ input {
   .footer .notes {
     display: none; }
 
-@-webkit-keyframes fadeIn {
+@-webkit-keyframes $animation-name {
   0% {
     opacity: 0;
     transform: translate3d(0, 25%, 0); }
-
   100% {
     opacity: 1;
     transform: none; } }
-@-moz-keyframes fadeIn {
+@-moz-keyframes $animation-name {
   0% {
     opacity: 0;
     transform: translate3d(0, 25%, 0); }
-
   100% {
     opacity: 1;
     transform: none; } }
-@keyframes fadeIn {
+@keyframes $animation-name {
   0% {
     opacity: 0;
     transform: translate3d(0, 25%, 0); }
-
   100% {
     opacity: 1;
     transform: none; } }
@@ -235,7 +232,7 @@ input {
   position: fixed;
   width: 100%;
   z-index: 99;
-  background-color: white;
+  background-color: #fff;
   border-bottom: 1px solid #363636; }
   #nav > div {
     position: relative; }
@@ -268,7 +265,7 @@ input {
     display: block;
     padding-top: 7px; }
     #nav .sublist a {
-      color: #818a8f;
+      color: #818A8F;
       font-size: 0.85em;
       display: inline-block;
       padding: 0.25em 0 0.25em 0; }
@@ -372,7 +369,7 @@ input {
       padding: 1em 0; }
       #product .right ul li {
         font-size: 0.90em;
-        color: #555555; }
+        color: #555; }
     #product .right .price {
       padding-top: 37.5px;
       text-align: right;
@@ -546,7 +543,7 @@ input {
     left: 0;
     width: 100%; }
   .blog li:hover h3, .story .process li:hover h3, .blog li:hover h4, .story .process li:hover h4 {
-    background-color: white; }
+    background-color: #fff; }
 .blog .wide, .story .process .wide {
   width: 65%; }
 
@@ -563,10 +560,33 @@ input {
 .article h2 {
   text-align: center; }
 .article p {
-  width: 50%;
+  width: 60%;
   min-width: 400px;
   margin: 0 auto;
-  padding-top: 1em; }
+  padding-top: 1em;
+  font-size: 1.3em;
+  line-height: 1.6em;
+  letter-spacing: .04em; }
+.article blockquote {
+  margin: 1em -80px;
+  font-style: italic;
+  font-size: 1.3em;
+  color: #999;
+  width: 100%; }
+  .article blockquote p::before {
+    content: '';
+    display: block;
+    margin: 0 auto 1em auto;
+    width: 3em;
+    border-top: 2px solid #2a7fc0; }
+  .article blockquote p::after {
+    content: '';
+    display: block;
+    margin: 0 auto 1em auto;
+    width: 3em;
+    border-top: 2px solid #2a7fc0; }
+.article img {
+  width: 100%; }
 
 .center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .blog ul, .story .process ul, .article, .story, .cart {
   width: 90%;
@@ -603,7 +623,7 @@ input {
     left: 0;
     width: 100%; }
   .blog li:hover h3, .story .process li:hover h3, .blog li:hover h4, .story .process li:hover h4 {
-    background-color: white; }
+    background-color: #fff; }
 .blog .wide, .story .process .wide {
   width: 65%; }
 
@@ -706,3 +726,5 @@ input {
 
 #cart {
   padding: 0; }
+
+/*# sourceMappingURL=style.css.map */
