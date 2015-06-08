@@ -109,7 +109,7 @@ app.constant = {
 app.product = {
 	mainImage: null,
 	init: function() {
-		app.product.goToHash(window.location.hash);
+		app.product.goToHash(window.location.hash + "id");
 		$(".left .list a").click(app.product.productImageClick);
 		$(".available-colours a").click(app.product.colourClick);
 		$(".sizing button:not(.notavailable)").click(app.product.sizingClick);
@@ -124,7 +124,7 @@ app.product = {
 	colourClick: function(event) {
 		event.preventDefault();
 		$(".multi-product").addClass("hide");
-		$("#" + this.href.split("#").pop()).removeClass("hide");
+		$("#" + this.href.split("#").pop() + "id").removeClass("hide");
 		return false;
 	},
 	sizingClick: function(event) {
@@ -184,5 +184,36 @@ app.index = {
 app.slideshow = {
 	init: function() {
 		$(".slideshow").slick(app.slickSetting);
+		var video = $(".slideshow iframe");
+		if (video.length) {
+			app.slideshow.setupvideo();
+		}
+	},
+	setupvideo: function() {
+		var e = $("body"),
+			t = $(".slideshow iframe"),
+			height = e.height(),
+			width = e.width();
+		var n = 16 / 9,
+			r = width / height;
+		var i = width,
+			s = height;
+		translate3d = null;
+		if (r > n) {
+			height = width * (9 / 16);
+			translate3d = "translate3d(0px, " + (s - height) + "px, 0px)"
+		} else {
+			width = height * (16 / 9);
+			translate3d = "translate3d(" + (i - width) / 2 + "px, 0px, 0px)"
+		}
+		t.css({
+			height: height,
+			width: width,
+			"-webkit-transform": translate3d,
+			"-moz-transform": translate3d,
+			"-ms-transform": translate3d,
+			"-o-transform": translate3d,
+			transform: translate3d
+		})
 	}
 }

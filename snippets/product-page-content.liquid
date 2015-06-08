@@ -1,7 +1,7 @@
 {% assign productTitleSplit = product.title | split: "|" %}
 {% assign productTitleSize = productTitleSplit | size%}
 
-<div id="{{ productTitleSplit | last | handleize}}" class="multi-product {% if skip_product.title != product.title %}hide{% endif %}">
+<div id="{{ productTitleSplit | last | handleize}}id" class="multi-product {% if skip_product.title != product.title %}hide{% endif %}">
 	<div class="left">
 		<div class="list">			
 		{% for image in product.images %} 
