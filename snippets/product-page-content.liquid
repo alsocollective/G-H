@@ -10,6 +10,13 @@
 		</div><div class="main">
 			<img src="{{ product.featured_image| product_img_url: 'grande'}}">
 		</div>
+	
+		<div class="sizechart hide">
+			<div>
+				{% capture pageName %}{{product.type|handleize}}{% endcapture%}
+				{{ pages[pageName].content }}
+			</div>
+		</div>		
 
 	</div><div class="right">
 			
@@ -35,8 +42,18 @@
 			</ul>
 		</div>
 		{% endif %}
+		{% if pages[pageName].content != ""%}
+			<div class="sizechart hide">			
+				<h3><a href="#" class="fitguide">Fit Guide <span class="show">Show</span><span class="notshow">hide</span></a></h3>
+				{% comment %}
+				<div class="">
+					{{ pages[pageName].content }}
+				</div>
+				{% endcomment %}
+			</div>
+		{% endif %}	
 		<div class="sizing">
-			<h3>Sizing | <a href="#" class="fitguide">Fit Guide</a></h3>
+			<h3>Sizing</h3>
 			{% for variant in product.variants %}
 				{% if variant.available == true %}
 					<button class="button small {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}">{{ variant.title }}</button>
@@ -45,6 +62,7 @@
 				{% endif %}
 			{% endfor %}
 		</div>
+		
 		<form action="/cart/add" method="post" enctype="multipart/form-data" data-id="{{product.id}}">
 			<select name="id" class="sizeselector hide">
 				{% for variant in product.variants %}

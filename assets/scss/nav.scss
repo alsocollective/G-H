@@ -155,7 +155,6 @@
 
 .shipping{
 	> div{
-		display: none;
 		position: fixed;
 		bottom: -50px;
 		height: 50px;
@@ -164,9 +163,16 @@
 		color: $white;
 		text-align: center;
 		@include transition(bottom, 0.5s, ease-in-out);
+		z-index: 99999;
 	}
 	.show{
-		display: block;
 		bottom: 0%;
+	}
+	.exit{
+		float: left;
+		padding: 0 50px 50px 10px;
+		line-height: 0;
+		font-size: 2em;
+		font-weight: bold;
 	}
 }

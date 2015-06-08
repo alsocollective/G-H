@@ -5,6 +5,25 @@
 		"content": "Good+Hec Shopify theme"
 	}]
 }, {
+	"name": "Index",
+	"settings": [{
+		"label": "About us Text",
+		"type": "textarea",
+		"id": "index-about"
+	}, {
+		"label": "Body description",
+		"type": "textarea",
+		"id": "logo-body"
+	}, {
+		"label": "Mind description",
+		"type": "textarea",
+		"id": "logo-mind"
+	}, {
+		"label": "Urban description",
+		"type": "textarea",
+		"id": "logo-urban"
+	}]
+}, {
 	"name": "Footer",
 	"settings": [{
 		"type": "header",

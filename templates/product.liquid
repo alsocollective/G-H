@@ -40,10 +40,7 @@ Setting up the variables for the page
 		{% include "product-page-content"%}
 	{% endif %}	
 
-	<div class="sizechart hide">
-		{% capture pageName %}{{product.type|handleize}}{% endcapture%}
-		{{ pages[pageName].content }}
-	</div>
+
 
 	<div class="similar-products">
 		<h2>Similar Products</h2>

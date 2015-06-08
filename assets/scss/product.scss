@@ -89,16 +89,19 @@
 	}
 
 	.sizechart{
-		padding-bottom: $pb;
-		p,table{
-			width: 49%;
-			vertical-align: top;
+		padding-top: 0.5*$pb;
+		.show{display: none;}
+		.notshow{display: inline-block;}
+		img{
+			max-width: 100%;
 		}
-		p{
-			display: inline-block;
-		}
-		table{
-			display: inline-table;
+		&.hide{
+			display: block;
+			>div{
+				display: none;
+			}
+			.show{display: inline-block;}
+			.notshow{display: none;}
 		}
 	}
 	.similar-products{

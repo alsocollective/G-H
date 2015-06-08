@@ -9,6 +9,7 @@ var app = {
 	},
 	init: function() {
 		console.log("app init started");
+		app.constant.getCountry();
 		app.smooth.init();
 		app.softInit();
 	},
@@ -22,6 +23,9 @@ var app = {
 			app.index.init();
 		} else if ($("#product").length) {
 			app.product.init();
+			app.constant.getCountry();
+		} else if ($(".collections").length) {
+			app.constant.getCountry();
 		}
 		$(".lifestyle").slick(app.slickSetting);
 		app.smooth.body.height("");
@@ -38,33 +42,6 @@ app.smooth  = {
 	setup: function() {
 		app.smooth.body = $('html, body'),
 		app.smooth.content = $('#main').smoothState({
-			// onStart: {
-			// 	duration: 500,
-			// 	render: function(url, $container) {
-			// 		// $('#main').toggleClass("is-exiting");
-			// 		// app.smooth.content.restartCSSAnimations();
-			// 		app.smooth.body.animate({
-			// 			scrollTop: 0
-			// 		});
-			// 	}
-			// },
-			// onProgress: {
-			// 	render: function(url, $container) {
-			// 		app.smooth.body.css('cursor', 'wait');
-			// 		app.smooth.body.find('a').css('cursor', 'wait');
-			// 	}
-			// },
-			// onEnd: {
-			// 	duration: 500,
-			// 	render: function(url, $container, $content) {
-
-			// 		console.log("ON END");
-			// 		app.smooth.body.css('cursor', 'auto');
-			// 		app.smooth.body.find('a').css('cursor', 'auto');
-			// 		$container.html($content);
-			// 		app.softInit();
-			// 	}
-			// },
 			onAfter: function(url, $container, $content) {
 				app.softInit();
 			}
@@ -74,7 +51,6 @@ app.smooth  = {
 
 app.constant = {
 	init: function() {
-		app.constant.getCountry();
 		$(".hamburger a").click(app.constant.toggleNav);
 		$("#nav a").click(app.constant.closeNavOnClick);
 	},
@@ -90,33 +66,43 @@ app.constant = {
 		}
 	},
 	getCountry: function(event) {
-		if (Cookies.get().country) {
-			console.log("using local cookie to get country")
-			app.constant.showShippingPrice(Cookies.get().country);
-		} else {
-			$.getJSON("http://services.also-static.com/loc/&callback=?", function(data) {
-				console.log("using reuqest cookie to get country")
-				Cookies.set("country", data.countryCode);
-				app.constant.showShippingPrice(data.countryCode)
-			});
+		if (!Cookies.get().closedShipping) {
+			setTimeout(function() {
+				if (Cookies.get().country) {
+					console.log("using local cookie to get country")
+					app.constant.showShippingPrice(Cookies.get().country);
+				} else {
+					$.getJSON("http://services.also-static.com/loc/&callback=?", function(data) {
+						console.log("using reuqest cookie to get country")
+						Cookies.set("country", data.countryCode);
+						app.constant.showShippingPrice(data.countryCode)
+					});
+				}
+			}, 3000);
 		}
+		$(".shipping .exit").click(app.constant.hideShipping);
 	},
 	showShippingPrice: function(country) {
-		console.log(country);
 		if (country == "CA") {
 			console.log("show canadian shipping pricing");
-			$(".shipping .canada").addClass("show");
+			$(".shipping .canada").addClass("show").delay(10000).queue(app.constant.hideShipping);
 		} else if (country == "US") {
 			console.log("show american shipping pricing");
-			$(".shipping .unitedstates").addClass("show");
+			$(".shipping .unitedstates").addClass("show").delay(10000).queue(app.constant.hideShipping);
 		} else {
 			console.log("show world shipping")
-			$(".shipping .world").addClass("show");
+			$(".shipping .world").addClass("show").delay(10000).queue(app.constant.hideShipping);
 		}
-		setTimeout(app.constant.displayShipping, 10000);
 	},
-	displayShipping: function() {
+	hideShipping: function(event) {
+		if (event.preventDefault) {
+			event.preventDefault();
+			Cookies.set("closedShipping", true, {
+				expires: 1
+			})
+		}
 		$(".shipping .show").removeClass("show");
+		return false;
 	}
 }
 

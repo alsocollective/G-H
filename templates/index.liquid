@@ -6,64 +6,25 @@
 </div>
 
 <div class="company">
-	<h2>Hello</h2>
-	<p>This is the text about us</p>
+	<h2>Good and Hec</h2>
+	<p>{{settings.index-about}}</p>
 </div>
 
 <div class="logos">
-	<h3>Two sentence short description about the mind body and urban movement. Two sentences will be great, but it might be too much. Three sentences will definitely be pushing the boundaries, but let's see where it goes.</h3>
-	<div class="logo">
-		<a href="/">{% include 'logo-body.html' %}</a>
-		{% comment %}<div class="hover">
-			<p>short description</p>
-		</div>{% endcomment %}
-	</div><div class="logo">
-		{% include 'logo-mind.html' %}
-		{% comment %}<div class="hover">
-			<p>short description</p>
-		</div>{% endcomment %}
-	</div><div class="logo">
-		{% include 'logo-urban.html' %}
-		{% comment %}<div class="hover">
-			<p>short description</p>
-		</div>{% endcomment %}
+	<div class="descriptions">
+		<div id="logo-body">{{settings.logo-body}}</div>
+		<div id="logo-mind">{{settings.logo-mind}}</div>
+		<div id="logo-urban">{{settings.logo-urban}}</div>
 	</div>
+
+	<div class="logo"><a href="#logo-body">{% include 'logo-body.html' %}</a>
+	</div><div class="logo"><a href="#logo-mind">{% include 'logo-mind.html' %}</a>
+	</div><div class="logo"><a href="#logo-urban">{% include 'logo-urban.html' %}</a></div>
 </div>
 
 
-
-{% assign page = pages.frontpage %}
-{{ page.content }}
-{% assign collection = collections["featured-products"] %}
-
-
-<div class="featureditems">
-
-
-{% for product in collection.products %}{% if product.title != productName %}<div class="product productthumbnail {% if count == 3 %}big{%endif%}">
-	<a href="{{product.url}}">
-	{% if count == 3 %}
-		<div class="backgroundimage" style="background-image:url({{ product.images[1] | product_img_url: 'large' }})"></div>
-		<div class="backgroundimage second" style="background-image:url({{ product.images | last | product_img_url: 'large' }})"></div>
-	{% else %}
-		<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'large' }})"></div>
-		<div class="backgroundimage second" style="background-image:url({{ product.images | last | product_img_url: 'large' }})"></div>
-	{% endif %}
-	</a>
-	<a href="{{product.url}}">
-		<div class="text" href="#">
-			{% assign product_split = product.title | split: "|" %}
-			<h3>{{product_split | first | handleize}}</h3>
-			{% if product_split[1] %}<h4>{{product_split[1] | handleize}}</h4>{% endif %}
-			{% if product_split[2] %}<h4>{{product_split[2] | handleize}}</h4>{% endif %}
-			{% include "product-get-colours" %}
-			<div class="bottom">
-				{{product.content}}
-			</div>
-		</div>
-	</a>
-	{% assign productName = product.title %}
-<!-- {% increment count %} -->
-</div>{% endif %}{% endfor %}
-
+<div class="biglinks">
+	{% for article in blogs['index-big-links'].articles limit: 3 %}
+		<div>{{article.content}}</div>
+	{% endfor %}
 </div>
