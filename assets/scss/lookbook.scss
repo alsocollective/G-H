@@ -1,0 +1,19 @@
+@import "settings";
+.lookbook {
+	.image{
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		line-height: 0;
+		svg{
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+			width: 100px;
+			height: auto;
+		}
+	}
+
+
+
+}

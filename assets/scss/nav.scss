@@ -5,10 +5,12 @@
 
 	z-index: 9999;
 	background-color: $white;
-	border-bottom: $border;
 	position: fixed;	
 	width: 100%;
 	min-height: 99px;
+	
+	border-bottom: $border;	
+	// box-shadow: 0px 0px 60px rgba(0,0,0,0.10); // instead of the bottom border
 	
 	@include at-query ($max, $large) {
 		right: 0;
@@ -148,5 +150,23 @@
 @include at-query ($max, $large) {
 	.opennav #nav{
 		left: 0%;
+	}
+}
+
+.shipping{
+	> div{
+		display: none;
+		position: fixed;
+		bottom: -50px;
+		height: 50px;
+		width: 100%;
+		background-color: $darkgrey;
+		color: $white;
+		text-align: center;
+		@include transition(bottom, 0.5s, ease-in-out);
+	}
+	.show{
+		display: block;
+		bottom: 0%;
 	}
 }

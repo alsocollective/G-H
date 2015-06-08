@@ -74,6 +74,7 @@ app.smooth  = {
 
 app.constant = {
 	init: function() {
+		app.constant.getCountry();
 		$(".hamburger a").click(app.constant.toggleNav);
 		$("#nav a").click(app.constant.closeNavOnClick);
 	},
@@ -87,6 +88,35 @@ app.constant = {
 		if (this.href.split("#").pop() != "togglenav") {
 			$("#main.opennav").removeClass("opennav");
 		}
+	},
+	getCountry: function(event) {
+		if (Cookies.get().country) {
+			console.log("using local cookie to get country")
+			app.constant.showShippingPrice(Cookies.get().country);
+		} else {
+			$.getJSON("http://services.also-static.com/loc/&callback=?", function(data) {
+				console.log("using reuqest cookie to get country")
+				Cookies.set("country", data.countryCode);
+				app.constant.showShippingPrice(data.countryCode)
+			});
+		}
+	},
+	showShippingPrice: function(country) {
+		console.log(country);
+		if (country == "CA") {
+			console.log("show canadian shipping pricing");
+			$(".shipping .canada").addClass("show");
+		} else if (country == "US") {
+			console.log("show american shipping pricing");
+			$(".shipping .unitedstates").addClass("show");
+		} else {
+			console.log("show world shipping")
+			$(".shipping .world").addClass("show");
+		}
+		setTimeout(app.constant.displayShipping, 10000);
+	},
+	displayShipping: function() {
+		$(".shipping .show").removeClass("show");
 	}
 }
 

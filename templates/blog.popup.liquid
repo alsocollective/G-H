@@ -1,0 +1,25 @@
+{% capture blogtitle %}{{blog.handle}}-carousel{% endcapture %}
+{% if blogs[blogtitle].articles[0] %} 
+<div class="slideshow">
+	{% for article in blogs['story'].articles limit: 3 %}
+		<div>{{article.content}}</div>
+	{% endfor %}
+</div>
+{% endif %}
+
+<div class="blog center popup">
+	{% assign page = pages[blog.handle] %}
+	{{page.content}}
+
+	<h3 class="lined"></h3>
+
+	{% for article in blog.articles %}
+		<div class="popup-article">
+			<div class="image">{{article.excerpt}}</div>
+			<div class="content">{{article.content}}</div>
+			
+		</div>
+	{% endfor %}
+
+	</div>
+</div>

@@ -7,7 +7,7 @@
 </div>
 {% endif %}
 
-<div class="blog">
+<div class="lookbook">
 	{% assign bigCount = 3 %}
 	{% assign bigNext = 2 %}
 	{% assign bigIndex = 1 %}
@@ -15,9 +15,16 @@
 	{% assign page = pages[blog.handle] %}
 	{{page.content}}
 	<h3 class="lined"></h3>
-	{% for article in blog.articles %}
+	{% assign aspectPerserver = "xMaxYMax"%}
+	{% for article in blog.articles %}<div class="image">
 		{{article.content}}
-	{% endfor %}
-
+		{% for tag in article.tags %}
+			{% assign firstHalf = tag | split: "-" %}
+			{% if firstHalf[0] == "logo" %}
+				{% assign import = tag | append: '.html'%}
+				{% include import %}
+			{% endif %}
+		{% endfor %}
+	</div>{% endfor %}
 	</div>
 </div>

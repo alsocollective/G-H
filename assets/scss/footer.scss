@@ -1,0 +1,57 @@
+.footer{
+	background-color: $darkgrey;
+	color: #fff;
+	>div>div{
+		padding: $pb 0;
+	}
+	.logo,.footer-nav,.news{
+		vertical-align: top;
+		display: inline-block;
+		padding-left: 4%;
+		// padding-right: 4%;
+	}
+	.logo{
+		width:16%;
+		svg{
+			width: 100px;
+		}
+		path{
+			fill: $white;
+		}
+	}
+	.footer-nav{
+		width:16%;
+		li{
+			padding: 0.2em 0;
+		}
+	}
+	.news{
+		width: 36%;
+		span{
+			margin-bottom: 0.7em;
+			display: inline-block;
+		}
+		input{
+			padding: 0.5em 5%;
+			border:solid $white 2px;
+			color: $white;
+			width: 90%;
+			text-align: left;
+			background-color: transparent;
+			margin-bottom: 1em;
+		}
+		path{
+			fill:$white;
+		}
+	}
+	.facebook, .twitter, .pintrest{
+		padding: 0 0.5em;
+	}
+	.facebook{
+		padding-left: 0.25em;
+	}
+
+	.notes{
+		display: none;
+	}
+}

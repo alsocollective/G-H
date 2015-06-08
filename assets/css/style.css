@@ -1,4 +1,4 @@
-.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart {
+.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart, #corporate {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -22,7 +22,7 @@ body, html {
   font-size: 0.95em;
   background-color: #555555; }
 
-.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart {
+.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart, #corporate {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -235,7 +235,7 @@ input {
   .footer .notes {
     display: none; }
 
-.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart {
+.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart, #corporate {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -248,10 +248,10 @@ input {
 #nav {
   z-index: 9999;
   background-color: white;
-  border-bottom: 1px solid #363636;
   position: fixed;
   width: 100%;
-  min-height: 99px; }
+  min-height: 99px;
+  border-bottom: 1px solid #363636; }
   @media screen and (max-width: 1120px) {
     #nav {
       right: 0;
@@ -355,7 +355,25 @@ input {
 @media screen and (max-width: 1120px) {
   .opennav #nav {
     left: 0%; } }
-.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart {
+.shipping > div {
+  display: none;
+  position: fixed;
+  bottom: -50px;
+  height: 50px;
+  width: 100%;
+  background-color: #555555;
+  color: white;
+  text-align: center;
+  -webkit-transition: bottom 0.5s ease-in-out;
+  -moz-transition: bottom 0.5s ease-in-out;
+  -ms-transition: bottom 0.5s ease-in-out;
+  -o-transition: bottom 0.5s ease-in-out;
+  transition: bottom 0.5s ease-in-out; }
+.shipping .show {
+  display: block;
+  bottom: 0%; }
+
+.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart, #corporate {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -406,7 +424,7 @@ input {
       .featureditems .product .text .bottom {
         position: relative; }
 
-.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart {
+.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart, #corporate {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -545,7 +563,7 @@ input {
   .productthumbnail.big {
     width: 64.5%; }
 
-.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart {
+.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart, #corporate {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -563,7 +581,7 @@ input {
   .infopage > h3:first-child, .infopage > h4:first-child {
     padding-top: 0; }
 
-.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart {
+.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart, #corporate {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -585,7 +603,7 @@ input {
   height: 400px;
   margin: 37.5px 0 37.5px 0; }
 
-.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart {
+.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart, #corporate {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -629,7 +647,7 @@ input {
 .blog .wide, .story .process .wide {
   width: 65%; }
 
-.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart {
+.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart, #corporate {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -670,7 +688,7 @@ input {
 .article img {
   width: 100%; }
 
-.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart {
+.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart, #corporate {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -741,7 +759,7 @@ input {
 .story .process ul {
   width: 100%; }
 
-.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart {
+.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart, #corporate {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -768,7 +786,7 @@ input {
     /* Safari */
     transform: translate(-50%, -50%); }
 
-.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart {
+.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart, #corporate {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto; }
@@ -814,3 +832,41 @@ input {
   @media screen and (max-width: 1120px) {
     #cart {
       padding: 75px 0; } }
+
+.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart, #corporate {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto; }
+
+.bolder {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.lookbook .image {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 0; }
+  .lookbook .image svg {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 100px;
+    height: auto; }
+
+.center, #nav #nav-main, .logos, .featureditems, #product, .social-product .offsetleft, .infopage, .collections .subcollection, .stagard, .article, .story, .cart, #corporate {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto; }
+
+.bolder {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+#corporate {
+  text-align: center; }
+  #corporate iframe {
+    min-height: 100%;
+    min-height: 100vh; }

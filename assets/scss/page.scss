@@ -1,0 +1,10 @@
+@import "settings";
+
+#corporate{
+	@extend .center;
+	text-align: center;
+	iframe{
+		min-height: 100%;
+		min-height: 100vh;
+	}
+}
