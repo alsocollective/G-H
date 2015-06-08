@@ -38,35 +38,35 @@ app.smooth  = {
 	setup: function() {
 		app.smooth.body = $('html, body'),
 		app.smooth.content = $('#main').smoothState({
-			onStart: {
-				duration: 500,
-				render: function(url, $container) {
-					console.log(url);
-					alert(url);
-					$('#main').toggleClass("is-exiting");
-					app.smooth.content.restartCSSAnimations();
-					app.smooth.body.animate({
-						scrollTop: 0
-					});
-				}
-			},
-			onProgress: {
-				render: function(url, $container) {
-					app.smooth.body.css('cursor', 'wait');
-					app.smooth.body.find('a').css('cursor', 'wait');
-				}
-			},
-			onEnd: {
-				duration: 500,
-				render: function(url, $container, $content) {
-					app.smooth.body.css('cursor', 'auto');
-					app.smooth.body.find('a').css('cursor', 'auto');
-					$container.html($content);
-					app.softInit();
-				}
-			},
-			callback: function(url, $container, $content) {
+			// onStart: {
+			// 	duration: 500,
+			// 	render: function(url, $container) {
+			// 		// $('#main').toggleClass("is-exiting");
+			// 		// app.smooth.content.restartCSSAnimations();
+			// 		app.smooth.body.animate({
+			// 			scrollTop: 0
+			// 		});
+			// 	}
+			// },
+			// onProgress: {
+			// 	render: function(url, $container) {
+			// 		app.smooth.body.css('cursor', 'wait');
+			// 		app.smooth.body.find('a').css('cursor', 'wait');
+			// 	}
+			// },
+			// onEnd: {
+			// 	duration: 500,
+			// 	render: function(url, $container, $content) {
 
+			// 		console.log("ON END");
+			// 		app.smooth.body.css('cursor', 'auto');
+			// 		app.smooth.body.find('a').css('cursor', 'auto');
+			// 		$container.html($content);
+			// 		app.softInit();
+			// 	}
+			// },
+			onAfter: function(url, $container, $content) {
+				app.softInit();
 			}
 		}).data('smoothState');
 	}
@@ -74,13 +74,10 @@ app.smooth  = {
 
 app.constant = {
 	init: function() {
-		console.log("constant was exictued")
 		$(".hamburger a").click(app.constant.toggleNav);
 		$("#nav a").click(app.constant.closeNavOnClick);
-		$("form .add").click(app.constant.addToCart);
 	},
 	toggleNav: function(event) {
-		console.log("toggle NAV");
 		event.preventDefault();
 		$("#main").toggleClass("opennav");
 		return false;
@@ -90,12 +87,6 @@ app.constant = {
 		if (this.href.split("#").pop() != "togglenav") {
 			$("#main.opennav").removeClass("opennav");
 		}
-	},
-	addToCart: function(event) {
-		// we need to post the content to the site by the link at the otp of the page
-		alert("added item... NOT");
-		event.preventDefault();
-		return false;
 	}
 }
 
@@ -107,6 +98,7 @@ app.product = {
 		$(".available-colours a").click(app.product.colourClick);
 		$(".sizing button:not(.notavailable)").click(app.product.sizingClick);
 		$(".fitguide").click(app.product.toogleClickGuide);
+		$("form .add").click(app.product.addToCart);
 	},
 	productImageClick: function(event) {
 		event.preventDefault();
@@ -137,6 +129,32 @@ app.product = {
 			$(".multi-product").addClass("hide");
 			$("#" + hash.split("#").pop()).removeClass("hide");
 		}
+	},
+	addToCart: function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+
+		var params = {
+			type: 'POST',
+			url: '/cart/add.js',
+			data: $(this.parentNode).serialize(),
+			dataType: 'json',
+			success: function(data) {
+				console.log(data);
+				jQuery.getJSON('/cart.js', app.product.updateCart);
+			}
+		};
+		jQuery.ajax(params);
+		return false;
+	},
+	updateCart: function(data) {
+		console.log(data);
+		$("#cartitemcount").html(data.item_count)
+		$("#carttotalcost").html("$" + parseFloat(data.total_price * 0.01).toFixed(2));
+		$("#nav-cart").addClass("updated");
+		setTimeout(function() {
+			$("#nav-cart").removeClass("updated");
+		}, 1000)
 	}
 
 }
@@ -152,5 +170,3 @@ app.slideshow = {
 		$(".slideshow").slick(app.slickSetting);
 	}
 }
-
-app.init();

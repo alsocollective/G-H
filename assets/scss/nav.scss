@@ -1,76 +1,5 @@
 @import "settings";
 
-// #nav{
-
-// 	position: fixed;
-// 	top: 0;
-// 	left: 0;
-// 	width: 100%;
-// 	z-index: 999;
-// 	background-color: $white;
-// 	border-bottom: 1px solid $black;
-// 	>div{
-// 		position: relative;
-// 	}
-// 	li{
-// 		display: inline-block;
-// 	}
-
-// 	#nav-logo {
-// 		position: absolute;
-// 		top: 0;
-// 		left: 0;
-// 	}
-// 	#nav-main {
-// 		@extend .center;
-// 		> li{
-// 			display: inline-block;
-// 			padding: 1em;
-// 			vertical-align: top;
-// 			position: relative;
-// 			&:hover .sublist{
-// 				display: block;
-// 			}
-// 		}
-// 		.sublist{
-// 			font-size: 0.8em;
-// 			position: absolute;
-// 			top: 100%;
-// 			left: 0;
-// 			display: none;
-// 			li{
-// 				display: block;
-// 				a{
-// 					display: inline-block;
-// 					padding: 0.5em;
-// 					background-color: $white;
-// 					width: 100%;
-// 				}
-// 				a:hover{
-// 					background-color: $black;
-// 					color: $white;
-// 				}
-// 			}
-// 		}
-
-// 	}
-// 	#nav-cart{
-// 		position: absolute;
-// 		top: 0;
-// 		right: 2em;
-// 		li{
-// 			display: block;
-// 			text-align: center;
-// 		}
-// 	}
-	
-
-
-
-
-
-
-// }
 
 #nav{
 
@@ -105,11 +34,12 @@
 
 
 	#nav-logo{
-		float: left;
+		// float: left;
+		position: fixed;
+		left: 0;
+		top: 0;
 		@include at-query ($max, $large) {
-			position: fixed;
-			left: 0;
-			top: 0;
+			
 		}
 		padding: 2em 0 1em 2em;
 		svg{
@@ -133,11 +63,12 @@
 			padding-bottom: $pb;
 			background-color: $white;
 		}			
-				
-		>li{
+		text-align: center;	
+		> li{
 			display: inline-block;
 			vertical-align: top;
 			padding-right: 3em;
+			// min-width: 19%;
 			@include at-query ($max, $large) {
 				display: block;
 				text-align: center;
@@ -154,11 +85,13 @@
 		}
 	}
 	.sublist{
+		display: block;
 		@include at-query ($min, $large) {
+			display: inline-block;
 			border-top: $border;
 			padding-top: 7px;
 		}
-		display: block;
+		
 		a{
 			color: $grey;
 			font-size: 0.85em;
@@ -181,6 +114,10 @@
 		
 		li{
 			text-align: center;
+		}
+
+		&.updated{
+			background-color: #f0c;
 		}
 	}
 
