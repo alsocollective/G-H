@@ -23,3 +23,6 @@ public_html
 public
 migrations/*
 secret.json
+/assets/style.min.css
+/assets/main.min.js
+/assets/css/style.css
