@@ -177,7 +177,13 @@ app.product = {
 
 app.index = {
 	init: function() {
-		console.log("index");
+		$(".logo a").click(app.index.logoClick);
+	},
+	logoClick: function(event) {
+		event.preventDefault();
+		$(".logos .show").removeClass("show");
+		$("#" + this.href.split("#").pop()).addClass("show");
+		return false;
 	}
 }
 
@@ -190,8 +196,9 @@ app.slideshow = {
 		}
 	},
 	setupvideo: function() {
-		var e = $("body"),
-			t = $(".slideshow iframe"),
+		var t = $(".slideshow iframe"),
+			e = t.parent(),
+
 			height = e.height(),
 			width = e.width();
 		var n = 16 / 9,

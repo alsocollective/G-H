@@ -21,6 +21,12 @@
 			}
 		}
 	}
+	.descriptions > div{
+		display: none;
+		&.show{
+			display: block;
+		}
+	}
 }
 
 

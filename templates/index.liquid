@@ -1,7 +1,10 @@
 
 <div class="slideshow">
 	{% for article in blogs['index'].articles limit: 3 %}
-		<div>{{article.content}}</div>
+		<div>
+			{{article.content}}
+			<div class="overlaytext">{{article.excerpt}}</div>		
+		</div>
 	{% endfor %}
 </div>
 
@@ -12,9 +15,9 @@
 
 <div class="logos">
 	<div class="descriptions">
-		<div id="logo-body">{{settings.logo-body}}</div>
-		<div id="logo-mind">{{settings.logo-mind}}</div>
-		<div id="logo-urban">{{settings.logo-urban}}</div>
+		<div id="logo-body" class="show">{{settings.logo-body}}</div>
+		<div id="logo-mind" class="">{{settings.logo-mind}}</div>
+		<div id="logo-urban" class="">{{settings.logo-urban}}</div>
 	</div>
 
 	<div class="logo"><a href="#logo-body">{% include 'logo-body.html' %}</a>
