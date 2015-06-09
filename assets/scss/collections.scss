@@ -2,7 +2,7 @@
 
 .collections{
 	h3{
-		width: $width;
+		//width: $width;
 		max-width: $indsideWidth+200;
 		margin: 0 auto;
 	}
@@ -13,7 +13,8 @@
 	.productthumbnail{
 		margin-right: 1%;
 		display: inline-block;
-		height: 400px;
-		margin: 0.5*$pb 0 0.5*$pb 0;
+		height: $thumbSize;
+		width: $thumbSize;
+		margin: 0.5*$pb 2.5% 0.5*$pb 2.5%;
 	}
 }

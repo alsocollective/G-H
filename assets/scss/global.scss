@@ -9,6 +9,13 @@ h1,h2,h3,h4,h5,a,ul,li,p{
 	text-decoration: none;
 }
 
+h1 {
+	font-size: 2.5em;
+	font-style: 100;
+	text-transform:	uppercase;
+	letter-spacing: 0.05em;
+}
+
 h3{
 	text-transform: uppercase;
 	font-weight: normal;
@@ -17,6 +24,13 @@ h3{
 		border-bottom: $border;
 		margin: 0 0 0.5*$pb 0;
 		padding: $pb 0 $pb*0.25 0;
+
+		//border-bottom: 1px solid #ccc;
+		width: 45%;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: #888;
 	}
 }
 
@@ -36,6 +50,11 @@ h4{
 	min-height: 40%;
 	min-height: 40vh;
 	width: 100%;
+	transition: background-color 0.5s ease;
+}
+
+.shadow {
+	background-color: #333 !important;
 }
 
 #wrapper{
@@ -54,8 +73,8 @@ h4{
 	display: none;
 }
 
-$slideVh: 60vh;
-$slideHight: 500px;
+$slideVh: 80vh;
+$slideHight: 800px;
 $slideHightTab: 400px;
 .slideshow{
 	width: 100%;		

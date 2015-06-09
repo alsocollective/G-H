@@ -26,6 +26,8 @@ var app = {
 			app.constant.getCountry();
 		} else if ($(".collections").length) {
 			app.constant.getCountry();
+		} else if ($(".lookbook").length) {
+			app.lookbook.init();
 		}
 		$(".lifestyle").slick(app.slickSetting);
 		app.smooth.body.height("");
@@ -184,6 +186,19 @@ app.index = {
 		$(".logos .show").removeClass("show");
 		$("#" + this.href.split("#").pop()).addClass("show");
 		return false;
+	}
+}
+
+app.lookbook = {
+	init: function() {
+		$(".lookbook").find("img").eq(0).attr("id", "waypoint");
+		var waypoint = new Waypoint({
+			element: document.getElementById("waypoint"),
+			handler: function() {
+				console.log("Shadowbox");
+				$("#main").toggleClass("shadow");
+			}
+		})
 	}
 }
 

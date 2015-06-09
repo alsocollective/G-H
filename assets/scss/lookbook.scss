@@ -1,11 +1,16 @@
 @import "settings";
 .lookbook {
 	.image{
-		position: relative;
+		img {
+			width:100%;
+			margin-bottom: 10em;
+		}
+		/*position: relative;
 		display: inline-block;
 		vertical-align: top;
-		line-height: 0;
+		line-height: 0;*/
 		svg{
+			display: none;
 			position: absolute;
 			bottom: 10px;
 			right: 10px;
@@ -14,6 +19,30 @@
 		}
 	}
 
+	//Perhaps this should be global
 
+	blockquote {
+		margin: 1em -80px;
+		font-style: italic;
+		font-size: 1.3em;
+		color: #999;
+		width: 100%;
+
+		p::before {
+			content: '';
+			display: block;
+			margin: 0 auto 1em auto;
+			width: 3em;
+			border-top: 2px solid rgb(42,127,192);
+		}
+
+		p::after {
+			content: '';
+			display: block;
+			margin: 0 auto 1em auto;
+			width: 3em;
+			border-top: 2px solid rgb(42,127,192);
+		}
+	}
 
 }
