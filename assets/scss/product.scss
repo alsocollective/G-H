@@ -3,6 +3,7 @@
 #product{
 	//@extend .center;
 	width: 100%;
+	margin-left: 5%;
 	max-width: 1400px;
 	position: relative;
 	z-index: 2;
@@ -37,6 +38,7 @@
 			}
 			.product-slides {
 				width: 100%;
+				overflow: hidden;
 			}
 		}
 	}
