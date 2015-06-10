@@ -29,4 +29,28 @@
 	}
 }
 
+.biglinks {
+	div {
+		width: 33%;
+		display: inline-block;
+		overflow: hidden;
+		height: 200px;
+	}
+	img {
+
+	}
+}
+
+.company {
+	//width: 80%;
+	margin: 0 auto;
+	width: 60%;
+	min-width: 400px;
+	margin: 0 auto;
+	padding-top: 1em;
+	font-size: 1.3em;
+	line-height: 1.6em;
+	letter-spacing: .04em;
+}
+
 

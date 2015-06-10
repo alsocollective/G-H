@@ -9,8 +9,14 @@
 </div>
 
 <div class="company">
-	<h2>Good and Hec</h2>
-	<p>{{settings.index-about}}</p>
+	<h2>FIND YOUR BALANCE</h2>
+
+<p>The GOOD+HEC in us moves fluidly from moment to moment&mdash;it is always in motion between fear vs. heart, positive vs. negative, past vs. future, work vs. life.</p>
+
+<p>Wellbeing is finding balance between the inner world that shapes us and the outer world that drives us to do.</p>
+
+<p>We are a lifestyle brand inspiring our community to live a mindful and balanced life through body, mind and urban movement.</p>
+	{% comment %}<p>{{settings.index-about}}</p>{% endcomment %}
 </div>
 
 <div class="logos">
@@ -28,6 +34,6 @@
 
 <div class="biglinks">
 	{% for article in blogs['index-big-links'].articles limit: 3 %}
-		<div>{{article.content}}</div>
+		<div>{{article.content}}{{article.content}}</div>
 	{% endfor %}
 </div>

@@ -1,138 +1,125 @@
-[{
-	"name": "theme_info",
-	"settings": [{
-		"type": "header",
-		"content": "Good+Hec Shopify theme"
-	}]
-}, {
-	"name": "Index",
-	"settings": [{
-		"label": "About us Text",
-		"type": "textarea",
-		"id": "index-about"
-	}, {
-		"label": "Body description",
-		"type": "textarea",
-		"id": "logo-body"
-	}, {
-		"label": "Mind description",
-		"type": "textarea",
-		"id": "logo-mind"
-	}, {
-		"label": "Urban description",
-		"type": "textarea",
-		"id": "logo-urban"
-	}]
-}, {
-	"name": "Footer",
-	"settings": [{
-		"type": "header",
-		"content": "Set Life style Shots"
-	}, {
-		"id": "index",
-		"label": "index",
-		"type": "checkbox"
-	}, {
-		"id": "collection",
-		"label": "collection",
-		"type": "checkbox"
-	}, {
-		"id": "product",
-		"label": "product",
-		"type": "checkbox"
-	}, {
-		"id": "page",
-		"label": "page",
-		"type": "checkbox"
-	}, {
-		"id": "page.info",
-		"label": "page info",
-		"type": "checkbox"
-	}, {
-		"id": "page.story",
-		"label": "page story",
-		"type": "checkbox"
-	}, {
-		"id": "blog",
-		"label": "blog",
-		"type": "checkbox"
-	}, {
-		"id": "article",
-		"label": "article",
-		"type": "checkbox"
-	}, {
-		"type": "image",
-		"id": "life_style_index.jpg",
-		"label": "index"
-	}, {
-		"type": "image",
-		"id": "life_style_collection.jpg",
-		"label": "collection"
-	}, {
-		"type": "image",
-		"id": "life_style_product.jpg",
-		"label": "product"
-	}, {
-		"type": "image",
-		"id": "life_style_page.jpg",
-		"label": "page"
-	}, {
-		"type": "image",
-		"id": "life_style_page.info.jpg",
-		"label": "page info"
-	}, {
-		"type": "image",
-		"id": "life_style_page.story.jpg",
-		"label": "page story"
-	}, {
-		"type": "image",
-		"id": "life_style_blog.jpg",
-		"label": "blog"
-	}, {
-		"type": "image",
-		"id": "life_style_article.jpg",
-		"label": "article"
-	}]
-}]
-
-
-
-/*
-
-types... 
-header
-paragraph
-
-text
-textarea
-image
-radio
-select
-checkbox
-
-color			Color picker
-font			Font picker
-collection		Collections drop-down
-blog			Blogs drop-down
-page			Pages drop-down
-link_list		Link lists drop-down
-snippet			Snippets drop-down
-
-
-"type":      "textarea",
-"id":        "id",
-"label":     "Text",
-"default":   "value",
-"info":      "Text",
-
-"type":      "radio",
-"id":        "id",
-"label":     "Text",
-"options": [
-  { "value": "one", "label": "Radio One" },
-  { "value": "two", "label": "Radio Two" }
-],
-"default":   "one",
-"info":      "Text"
-
-*/
+[
+  {
+    "name": "theme_info",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Good+Hec Shopify theme"
+      }
+    ]
+  },
+  {
+    "name": "Index",
+    "settings": [
+      {
+        "label": "About us Text",
+        "type": "textarea",
+        "id": "index-about"
+      },
+      {
+        "label": "Body description",
+        "type": "textarea",
+        "id": "logo-body"
+      },
+      {
+        "label": "Mind description",
+        "type": "textarea",
+        "id": "logo-mind"
+      },
+      {
+        "label": "Urban description",
+        "type": "textarea",
+        "id": "logo-urban"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Set Life style Shots"
+      },
+      {
+        "id": "index",
+        "label": "index",
+        "type": "checkbox"
+      },
+      {
+        "id": "collection",
+        "label": "collection",
+        "type": "checkbox"
+      },
+      {
+        "id": "product",
+        "label": "product",
+        "type": "checkbox"
+      },
+      {
+        "id": "page",
+        "label": "page",
+        "type": "checkbox"
+      },
+      {
+        "id": "page.info",
+        "label": "page info",
+        "type": "checkbox"
+      },
+      {
+        "id": "page.story",
+        "label": "page story",
+        "type": "checkbox"
+      },
+      {
+        "id": "blog",
+        "label": "blog",
+        "type": "checkbox"
+      },
+      {
+        "id": "article",
+        "label": "article",
+        "type": "checkbox"
+      },
+      {
+        "type": "image",
+        "id": "life_style_index.jpg",
+        "label": "index"
+      },
+      {
+        "type": "image",
+        "id": "life_style_collection.jpg",
+        "label": "collection"
+      },
+      {
+        "type": "image",
+        "id": "life_style_product.jpg",
+        "label": "product"
+      },
+      {
+        "type": "image",
+        "id": "life_style_page.jpg",
+        "label": "page"
+      },
+      {
+        "type": "image",
+        "id": "life_style_page.info.jpg",
+        "label": "page info"
+      },
+      {
+        "type": "image",
+        "id": "life_style_page.story.jpg",
+        "label": "page story"
+      },
+      {
+        "type": "image",
+        "id": "life_style_blog.jpg",
+        "label": "blog"
+      },
+      {
+        "type": "image",
+        "id": "life_style_article.jpg",
+        "label": "article"
+      }
+    ]
+  }
+]
