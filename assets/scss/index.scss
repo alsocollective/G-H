@@ -1,5 +1,14 @@
 @import "settings";
 
+.slideshow{
+	height: 800px;
+	height: 80vh;
+	.slick-slide{
+		height: 800px;
+		height: 80vh;
+	}
+}
+
 .logos{
 	@extend .center;
 	text-align: center;
