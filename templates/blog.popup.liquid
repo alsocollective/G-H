@@ -9,7 +9,13 @@
 
 <div class="blog center popup">
 	{% assign page = pages[blog.handle] %}
-	{{page.content}}
+	{% if page.content != ""%}
+		<h3 class="lined">{{page.title}}</h3>
+
+		<div class="pagecontent">
+		{{page.content}}
+		</div>
+	{% endif %}
 
 	<h3 class="lined"></h3>
 

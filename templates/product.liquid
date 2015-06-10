@@ -19,7 +19,7 @@ Setting up the variables for the page
 	<div class="offsetleft">
 		<a href="#facebook">{% include "social-facebook" %}</a>
 		<a href="#twitter">{% include "social-twitter" %}</a>
-		<a href="#pintrest">{% include "social-pintrest" %}</a>
+		<a class="instagram" href="instagram">{% include "social-instagram" %}</a>
 	</div>
 </div>
 
@@ -55,25 +55,25 @@ Setting up the variables for the page
 				{% if current_split_count != previous_split_count %}
 					{% increment count %}
 					{% if count > 5 %}{% break %}{% endif %}
-					-->{% include 'product-thumbnail-simple'%}<!--
+					-->{% include 'product-thumbnail-productpage'%}<!--
 					{% assign previous_split = current_split %}
 					{% assign previous_split_count = current_split_count %}
 				{% elsif current_split_count == 2 and current_split[0] != previous_split[0] %}
 					{% increment count %}
 					{% if count > 5 %}{% break %}{% endif %}
-					-->{% include 'product-thumbnail-simple'%}<!--
+					-->{% include 'product-thumbnail-productpage'%}<!--
 					{% assign previous_split = current_split %}
 					{% assign previous_split_count = current_split_count %}
 				{% elsif current_split_count == 3 and current_split[0] != previous_split[0] or current_split[1] != previous_split[1] %}
 					{% increment count %}
 					{% if count > 5 %}{% break %}{% endif %}
-					-->{% include 'product-thumbnail-simple'%}<!--
+					-->{% include 'product-thumbnail-productpage'%}<!--
 					{% assign previous_split = current_split %}
 					{% assign previous_split_count = current_split_count %}
 				{% elsif current_split_count == 4 and current_split[0] != previous_split[0] or current_split[1] != previous_split[1] and current_split[2] != previous_split[2] %}
 					{% increment count %}
 					{% if count > 5 %}{% break %}{% endif %}
-					-->{% include 'product-thumbnail-simple'%}<!--
+					-->{% include 'product-thumbnail-productpage'%}<!--
 					{% assign previous_split = current_split %}
 					{% assign previous_split_count = current_split_count %}	
 			{% endif %}{% endif %}	
