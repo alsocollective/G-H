@@ -29,18 +29,6 @@
 	}
 }
 
-.biglinks {
-	div {
-		width: 33%;
-		display: inline-block;
-		overflow: hidden;
-		height: 200px;
-	}
-	img {
-
-	}
-}
-
 .company {
 	//width: 80%;
 	margin: 0 auto;
@@ -48,9 +36,58 @@
 	min-width: 400px;
 	margin: 0 auto;
 	padding-top: 1em;
-	font-size: 1.3em;
-	line-height: 1.6em;
-	letter-spacing: .04em;
+	// font-size: 1.3em;
+	// line-height: 1.6em;
+	// letter-spacing: .04em;
 }
+
+.biglinks {
+	padding-top: 3*$pb;
+	> div {
+		width: 33%;
+		display: inline-block;
+		overflow: hidden;
+		height: 4*$pb;
+		position: relative;
+	}
+	.images{
+		> p {
+			opacity: 1;
+			@include transition(opacity, 0.35s, ease-out);
+		}
+		a{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			img{
+				width: 100%;
+			}
+		}
+	}
+	.label{
+		text-align: center;
+		display: block;
+		margin: 1.5*$pb auto 0 auto;
+		position: relative;
+		h3{
+			display: inline-block;
+			text-align: center;
+			padding: .5em;
+		}
+	}
+	> div:hover{
+		.label {
+			h3{
+				background-color: rgba(0,0,0,.6);
+				color: #fff;
+			}
+		}
+		.images > p:last-child{
+			opacity: 0;
+		}
+	}
+}
+
 
 
