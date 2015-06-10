@@ -33,7 +33,10 @@
 
 
 <div class="biglinks">
-	{% for article in blogs['index-big-links'].articles limit: 3 %}
-		<div>{{article.content}}{{article.title}}</div>
-	{% endfor %}
+	{% for article in blogs['index-big-links'].articles limit: 3 %}<div>
+			<div class="images">
+				{{article.content}}
+			</div>
+			<div class="label"><h3>{{article.title}}</h3></div>
+		</div>{% endfor %}
 </div>
