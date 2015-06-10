@@ -117,6 +117,10 @@ app.product = {
 		$(".sizing button:not(.notavailable)").click(app.product.sizingClick);
 		$(".fitguide").click(app.product.toogleClickGuide);
 		$("form .add").click(app.product.addToCart);
+		$(".main").slick({
+			dots: true,
+			adaptiveHeight: true
+		});
 	},
 	productImageClick: function(event) {
 		event.preventDefault();
@@ -174,7 +178,6 @@ app.product = {
 			$("#nav-cart").removeClass("updated");
 		}, 1000)
 	}
-
 }
 
 app.index = {

@@ -34,6 +34,6 @@
 
 <div class="biglinks">
 	{% for article in blogs['index-big-links'].articles limit: 3 %}
-		<div>{{article.content}}{{article.content}}</div>
+		<div>{{article.content}}{{article.title}}</div>
 	{% endfor %}
 </div>

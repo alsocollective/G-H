@@ -4,11 +4,14 @@
 <div id="{{ productTitleSplit | last | handleize}}id" class="multi-product {% if skip_product.title != product.title %}hide{% endif %}">
 	<div class="left">
 		<div class="list">			
-		{% for image in product.images %} 
+		{% comment %}{% for image in product.images %} 
 			<a href="{{ image.src | product_img_url: 'grande' }}"><img src="{{ image.src | product_img_url: 'small' }}" alt="image.alt"></a>
-		{% endfor %}
+		{% endfor %}{% endcomment %}
 		</div><div class="main">
-			<img src="{{ product.featured_image| product_img_url: 'grande'}}">
+			{% comment %}<img src="{{ product.featured_image| product_img_url: 'grande'}}">{% endcomment %}
+			{% for image in product.images %} 
+			<div class="product-slides"><img src="{{ image.src | product_img_url: 'grande' }}" alt="image.alt"></div>
+		{% endfor %}
 		</div>
 	
 		<div class="sizechart hide">
