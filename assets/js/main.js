@@ -119,7 +119,8 @@ app.product = {
 		$("form .add").click(app.product.addToCart);
 		$(".main").slick({
 			dots: true,
-			adaptiveHeight: true
+			adaptiveHeight: true,
+			fade: true
 		});
 	},
 	productImageClick: function(event) {

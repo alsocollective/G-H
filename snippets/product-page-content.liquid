@@ -2,12 +2,21 @@
 {% assign productTitleSize = productTitleSplit | size%}
 
 <div id="{{ productTitleSplit | last | handleize}}id" class="multi-product {% if skip_product.title != product.title %}hide{% endif %}">
+
+	<h3 class="producttitle lined">{{ productTitleSplit | first }}</h3>
+
+	<div id="product-subtitle">
+		{% for title in productTitleSplit %}
+			{% if forloop.first == false %}<h4 class="productsubtitle">{{title}}</h4>{% endif %}
+		{% endfor %}
+	</div>
+
 	<div class="left">
-		<div class="list">			
-		{% comment %}{% for image in product.images %} 
+		{% comment %}<div class="list">			
+		{% for image in product.images %} 
 			<a href="{{ image.src | product_img_url: 'grande' }}"><img src="{{ image.src | product_img_url: 'small' }}" alt="image.alt"></a>
-		{% endfor %}{% endcomment %}
-		</div><div class="main">
+		{% endfor %}
+		</div>{% endcomment %}<div class="main">
 			{% comment %}<img src="{{ product.featured_image| product_img_url: 'grande'}}">{% endcomment %}
 			{% for image in product.images %} 
 			<div class="product-slides"><img src="{{ image.src | product_img_url: 'grande' }}" alt="image.alt"></div>
@@ -24,20 +33,20 @@
 	</div><div class="right">
 			
 
-		<h2 class="producttitle">{{ productTitleSplit | first }}</h2>
-		{% for title in productTitleSplit %}
+		{% comment %}<h3 class="producttitle lined">{{ productTitleSplit | first }}</h3>{% endcomment %}
+		{% comment %}{% for title in productTitleSplit %}
 			{% if forloop.first == false %}<h3 class="productsubtitle">{{title}}</h3>{% endif %}
-		{% endfor %}
+		{% endfor %}{% endcomment %}
 
 		<h3 class="price">{{ product.price | money }}</h3>
 
-		<div class="description">
+		{% comment %}<div class="description">
 			<h3>Description</h3>
 			{{ product.description }}
-		</div>
+		</div>{% endcomment %}
 		{% if product1 %}
 		<div class="available-colours">
-			<h3>Available Colours</h3>
+			<h3>Colours</h3>
 			<ul>
 				{% assign keep = product %}
 				{% assign product = product0 %}{% include "product-colour-option"%}{% assign product = product1 %}{% include "product-colour-option"%}{% endif %}{% if product2 %}{% assign product = product2 %}{% include "product-colour-option"%}{% endif %}{% if product3 %}{% assign product = product3 %}{% include "product-colour-option"%}{% endif %}{% if product1 %}
@@ -56,7 +65,7 @@
 			</div>
 		{% endif %}	
 		<div class="sizing">
-			<h3>Sizing</h3>
+			<h3>Sizes</h3>
 			{% for variant in product.variants %}
 				{% if variant.available == true %}
 					<button class="button small {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}">{{ variant.title }}</button>
@@ -80,5 +89,9 @@
 			<input class="quantity" type="number" name="quantity" class="styled-input" value="1" min="1" >
 			<input class="add" type="submit" name="add" class="button large" value="Add to Bag" >
 		</form>
+		<div class="description">
+			<h3>Details</h3>
+			{{ product.description }}
+		</div>
 	</div>
 </div>
