@@ -15,6 +15,10 @@ var app = {
 	},
 	softInit: function() {
 		console.log("soft init");
+		if (app.lookbook.waypoint) {
+			app.lookbook.waypoint.destroy();
+			app.lookbook.waypoint = null;
+		}
 		var body = $("#main");
 		// var s = skrollr.init();
 		app.slideshow.init();
@@ -194,15 +198,17 @@ app.index = {
 }
 
 app.lookbook = {
+	waypoint: null,
 	init: function() {
 		$(".lookbook").find("img").eq(0).attr("id", "waypoint");
-		var waypoint = new Waypoint({
+		app.lookbook.waypoint = new Waypoint({
 			element: document.getElementById("waypoint"),
-			handler: function() {
-				console.log("Shadowbox");
-				$("#main").toggleClass("shadow");
-			}
+			handler: app.lookbook.wpChecker
 		})
+	},
+	wpChecker: function() {
+		console.log("Shadowbox");
+		$("#main").toggleClass("shadow");
 	}
 }
 
