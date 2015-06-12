@@ -4,48 +4,32 @@
 	{% endfor %}
 </div>
 
-<div class="stagard">
+<div class="collections stagard">
 {% assign bigCount = 3 %}
 {% assign bigNext = 4 %}
 {% assign bigIndex = 1 %}
 
 
-{% for product in collection.products %}{% if product.title != productName %}<div class="product productthumbnail {% if bigNext == bigIndex %}big {% endif %}">
-	<a href="{{product.url}}">
-		{% if bigNext == bigIndex %}big 
-		<div class="backgroundimage second" style="background-image:url({{ product.images[1] | product_img_url: 'large' }})"></div>
-		<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'large' }})"></div>
-		{% else %}
-		<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'large' }})"></div>
-		<div class="backgroundimage second" style="background-image:url({{ product.images | last | product_img_url: 'large' }})"></div>
-		{% endif %}
+{% for product in collection.products %}
+	{% if product.title != productName %}
 		
-		
+		{% assign pro_split = product.title | split: "|" %}
+		{% assign pro_split_count = pro_split | size %}
 
-		<div class="text" href="#">
-			{% assign title = product.title | split: "|"%}
-			<h3>{{ title[0] }}</h3>
-			{% if title[1] %}
-				<h4>{{ title[1] }}</h4>
-			{% endif %}
-			{% if title[2] %}
-				<h4>{{ title[2] }}</h4>
-			{% endif %}
-			<h4 class="price">{{ product.price | money }}</h4>
-		</div>
-	</a>
+		{%include "collection-productthumbnail" %}
 
-	{% if bigNext == bigIndex %}
-		{% assign bigNext = bigNext|plus:bigCount %}
-		{% if bigCount == 3 %}
-			{% assign bigCount = 4 %}
-		{% else %}
-			{% assign bigCount = 3 %}
+		{% if bigNext == bigIndex %}
+			{% assign bigNext = bigNext|plus:bigCount %}
+			{% if bigCount == 3 %}
+				{% assign bigCount = 4 %}
+			{% else %}
+				{% assign bigCount = 3 %}
+			{% endif %}
 		{% endif %}
+
+		{% assign bigIndex = bigIndex|plus:1 %}
+		{% assign productName = product.title %}
 	{% endif %}
-
-	{% assign bigIndex = bigIndex|plus:1 %}
-	{% assign productName = product.title %}
-</div>{% endif %}{% endfor %}
+{% endfor %}
 
 </div>

@@ -8,21 +8,8 @@
 	padding-bottom: 0.5*$pb;
 }
 
-// .collections{
-// 	h3{
-// 		//width: $width;
-// 		max-width: $indsideWidth+200;
-// 		margin: 0 auto;
-// 	}
-// 	.subcollection{
-// 		@extend .center;
-// 		text-align: center;
-// 	}
-// 	.productthumbnail{
-// 		margin-right: 1%;
-// 		display: inline-block;
-// 		height: $thumbSize;
-// 		width: $thumbSize;
-// 		margin: 0.5*$pb 2.5% 0.5*$pb 2.5%;
-// 	}
-// }
+.stagard{
+	.productthumbnail{
+		padding-top: $pb;
+	}
+}

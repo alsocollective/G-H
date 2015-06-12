@@ -7,23 +7,29 @@
 	display: inline-block;
 	text-align: left;
 	vertical-align: top;
-	@include transition(color,0.25s,ease-in-out);
+	
+	max-height: 400px;
+	max-height: 30vw;	
 
-	// .backgroundimage{
-	// 	min-height: 200px;
-	// 	height: 100%;
-	// 	// height: 400px;
-	// 	// height: 30vh;
-	// 	background-size: cover;
-	// 	background-position: center;		
-	// 	display: block;
-	// }
+	opacity: 0.8;
+	@include transition(opacity,0.25s,ease-in-out);
+	&.big{
+		width: 60%;
+	}
+
 	img{
 		display: block;
+		width: 100%;
 	}
 
 	&:hover{
-		color: $grey;
+		opacity: 1;
+	}
+}
+.touch .productthumbnail{
+	opacity: 1;
+	&:hover{
+		opacity: 0.8;
 	}
 }
 

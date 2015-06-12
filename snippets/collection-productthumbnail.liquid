@@ -1,4 +1,10 @@
-<div class="productthumbnail">
+{% if bigNext == bigIndex %}
+	{%assign big = "big" %}
+{%else%}
+	{%assign big = ""%}
+{% endif %}
+
+<div class="productthumbnail {% if bigNext == bigIndex %}big{% endif %}">
 	{% if pro_split_count > 2 %}
 		<a href="{{product.url}}#{{pro_split[2] | handleize }}">
 	{% else %}
@@ -11,9 +17,10 @@
 			{% endif %}			
 		</span>
 
-		<!-- <span class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'large' }})"></span> -->
-		<img src="{{ product.featured_image | product_img_url: 'large' }}">
-		
-	
+		{% if bigNext == bigIndex %} 
+			<img src="{{ product.images | last | product_img_url: 'large' }}">
+		{% else %}
+			<img src="{{ product.featured_image | product_img_url: 'large' }}">
+		{% endif %}		
 	</a>	
 </div>
