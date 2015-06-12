@@ -22,14 +22,14 @@
 			<div class="product-slides"><img src="{{ image.src | product_img_url: 'grande' }}" alt="image.alt"></div>
 		{% endfor %}
 		</div>
-	
+
+{% comment %}			
 		<div class="sizechart hide">
 			<div>
-				{% capture pageName %}{{product.type|handleize}}{% endcapture%}
 				{{ pages[pageName].content }}
 			</div>
 		</div>		
-
+{% endcomment %}
 	</div><div class="right">
 			
 
@@ -54,14 +54,14 @@
 			</ul>
 		</div>
 		{% endif %}
+		{% capture pageName %}{{product.type|handleize}}{% endcapture%}
 		{% if pages[pageName].content != ""%}
-			<div class="sizechart hide">			
+			<div class="sizechart hide">
 				<h3><a href="#" class="fitguide">Fit Guide <span class="show">Show</span><span class="notshow">hide</span></a></h3>
-				{% comment %}
 				<div class="">
 					{{ pages[pageName].content }}
 				</div>
-				{% endcomment %}
+				
 			</div>
 		{% endif %}	
 		<div class="sizing">

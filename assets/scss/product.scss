@@ -54,7 +54,11 @@
 			.product-slides {
 				width: 100%;
 				overflow: hidden;
+				background-color: #fff;
 			}
+			.draggable:focus,.slick-track:focus,.slick-slide:focus {
+				outline:none;
+			}			
 		}
 	}
 	.right{

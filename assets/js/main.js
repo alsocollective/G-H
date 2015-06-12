@@ -136,6 +136,9 @@ app.product = {
 		event.preventDefault();
 		$(".multi-product").addClass("hide");
 		$("#" + this.href.split("#").pop() + "id").removeClass("hide");
+		$(".main").each(function(i, val) {
+			val.slick.setPosition()
+		})
 		return false;
 	},
 	sizingClick: function(event) {
@@ -186,13 +189,24 @@ app.product = {
 }
 
 app.index = {
+	slick: null,
 	init: function() {
+		app.index.slick = $(".logos .descriptions").slick({
+			arrows: false,
+			autoplay: true,
+			autoplaySpeed: 5000
+		});
+		app.index.slick.on("beforeChange", app.index.slidechange);
 		$(".logo a").click(app.index.logoClick);
 	},
+	slidechange: function(event, slick, currentSlide, targetSlide) {
+		var logos = $(".logos .logo");
+		$(logos[currentSlide]).removeClass("highlight");
+		$(logos[targetSlide]).addClass("highlight");
+	},
 	logoClick: function(event) {
+		$(".logos .descriptions").slick("slickGoTo", this.href.split("#").pop());
 		event.preventDefault();
-		$(".logos .show").removeClass("show");
-		$("#" + this.href.split("#").pop()).addClass("show");
 		return false;
 	}
 }
