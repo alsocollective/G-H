@@ -201,6 +201,7 @@ app.index = {
 		});
 		app.index.slick.on("beforeChange", app.index.slidechange);
 		$(".logo a").click(app.index.logoClick);
+		$(".biglinks .label").click(app.index.itemClick);
 	},
 	slidechange: function(event, slick, currentSlide, targetSlide) {
 		var logos = $(".logos .logo");
@@ -209,6 +210,11 @@ app.index = {
 	},
 	logoClick: function(event) {
 		$(".logos .descriptions").slick("slickGoTo", this.href.split("#").pop());
+		event.preventDefault();
+		return false;
+	},
+	itemClick: function(event) {
+		$(this.parentNode).find("a").click()
 		event.preventDefault();
 		return false;
 	}
