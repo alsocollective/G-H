@@ -17,14 +17,45 @@
 		</div>
 	{% endif %}
 
-	<h3 class="lined"></h3>
-
+	{% comment %}
+		search to see if there are any future popups
+	{% endcomment %}
+	{% assign future = false %}
 	{% for article in blog.articles %}
-		<div class="popup-article">
-			<div class="image">{{article.excerpt}}</div>
-			<div class="content">{{article.content}}</div>
-			
-		</div>
+		{% if article.tags[0] == "popup-future" %}
+			{% assign future = true %}
+			{% break %}
+		{% endif %}
+	{% endfor %}
+	{% comment %}
+		show future pop ups
+	{% endcomment %}
+	{% if future %}
+		<h3 class="lined">Future Pop-ups</h3>
+
+		{% for article in blog.articles %}
+			{% if article.tags[0] == "popup-future" %}
+				<div class="popup-article">
+					<h4>{{article.title}}</h4>
+					{{article.content}}
+					
+				</div>
+			{% endif %}
+		{% endfor %}
+
+	{% endif %}
+	{% comment %}
+		show current popups
+	{% endcomment %}
+	<h3 class="lined">Current Pop-ups</h3>
+	{% for article in blog.articles %}
+		{% if article.tags[0] == "popup-current" %}
+			<div class="popup-article">
+				<h4>{{article.title}}</h4>
+				{{article.content}}
+				
+			</div>
+		{% endif %}
 	{% endfor %}
 
 	</div>
