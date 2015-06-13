@@ -12,9 +12,12 @@
 	{% assign bigNext = 2 %}
 	{% assign bigIndex = 1 %}
 	<div class="center">
+	{% comment %}<h3 class="lined">{{article.title}}</h3>{% endcomment %}
 	{% assign page = pages[blog.handle] %}
 	{{page.content}}
-	<h3 class="lined"></h3>
+	{% comment %}<h3 class="lined">{% for article in blogs['story'].articles limit: 3 %}
+		{{article.content}}
+	{% endfor %}</h3>{% endcomment %}
 	{% assign aspectPerserver = "xMaxYMax"%}
 	{% for article in blog.articles %}<div class="image">
 		{{article.content}}

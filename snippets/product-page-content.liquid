@@ -11,7 +11,7 @@
 
 	<div class="col-1">
 		<div class="order-info">
-			<h3 class="price">{{ product.price | money }}</h3>
+			<h3 class="price">&mdash;{{ product.price | money }}&mdash;</h3>
 
 			{% if product1 %}
 			<div class="available-colours">
@@ -22,17 +22,7 @@
 					{% assign product = keep %}
 				</ul>
 			</div>
-			{% endif %}
-			{% capture pageName %}{{product.type|handleize}}{% endcapture%}
-			{% if pages[pageName].content != ""%}
-				<div class="sizechart hide">
-					<h3><a href="#" class="fitguide"><span class="show">Show</span><span class="notshow">hide</span> Fit Guide</a></h3>
-					<div class="">
-						{{ pages[pageName].content }}
-					</div>
-					
-				</div>
-			{% endif %}	
+			
 			<div class="sizing">
 				<h3>Sizes</h3>
 				{% for variant in product.variants %}
@@ -58,6 +48,19 @@
 				<input class="quantity" type="number" name="quantity" class="styled-input" value="1" min="1" >
 				<input class="add" type="submit" name="add" class="button large" value="Add to Bag" >
 			</form>
+
+			{% endif %}
+			{% capture pageName %}{{product.type|handleize}}{% endcapture%}
+			{% if pages[pageName].content != ""%}
+				<div class="sizechart hide">
+					<h3><a href="#" class="fitguide"><span class="show">Show</span><span class="notshow">hide</span> Fit Guide</a></h3>
+					<div class="">
+						{{ pages[pageName].content }}
+					</div>
+					
+				</div>
+			{% endif %}	
+
 		</div>
 		
 	</div><div class="col-2">
@@ -66,6 +69,12 @@
 				<div class="product-slides"><img src="{{ image.src | product_img_url: 'grande' }}" alt="image.alt"></div>
 			{% endfor %}
 		</div>
+		
+		<div class="social-product">
+			<a href="#facebook">{% include "social-facebook" %}</a>
+			<a href="#twitter">{% include "social-twitter" %}</a>
+		</div>
+
 	</div><div class="col-3">
 		<div class="description">
 			<h3>Details</h3>
