@@ -5,9 +5,9 @@
 </div>
 
 <div class="story">
-	<div class="pagecontent">
+{% comment %}	<div class="pagecontent">
 		{{ page.content }}
-	</div>
+	</div>{% endcomment %}
 
 	<h3 class="lined">{{ pages["good-and-hec"].title }}</h3>
 	<div class="gandh">
@@ -20,15 +20,15 @@
 		{{ pages["philosophy"].content }}
 	</div>
 
-	<h3 class="lined">Our Process</h3>
+	<h3 class="lined">Our Garments</h3>
 	<div class="process">
-	{% assign blog = blogs["process"] %}
+	{% assign blog = blogs["garments"] %}
 	{% assign bigCount = 3 %}
 	{% assign bigNext = 1 %}
 	{% assign bigIndex = 1 %}
 	<ul>
 		{% for article in blog.articles %}<li class="{% if bigNext == bigIndex %}wide{% assign bigNext = bigNext|plus:bigCount %}{% if bigCount == 3 %}{% assign bigCount = 1 %}{% else %}{% assign bigCount = 3 %}{% endif %}{% endif %}">
-				{{article.excerpt}}<a href="{{ article.url }}"> </a>
+				{{article.content}}
 				{% assign bigIndex = bigIndex|plus:1 %}
 			</li>{% endfor %}
 	</ul>

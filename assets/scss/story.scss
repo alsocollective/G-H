@@ -12,6 +12,7 @@
 		}
 	}
 	.gandh{
+		padding-bottom: $pb;		
 		p{
 			display: inline-block;
 			vertical-align: top;
@@ -33,6 +34,10 @@
 	}
 
 	.philosophy{
+		padding-bottom: $pb;
+		ul{
+			text-align: center;
+		}
 		li{
 			display: inline-block;
 			width: 30%;
@@ -51,6 +56,15 @@
 			line-height: 1.5em;
 			/* font-size: 1.1em; */
 			letter-spacing: 0.03em;
+		}
+		h2{
+			text-align: center;
+			padding-top: 75px;
+			max-width: 50%;
+			margin: 0 auto;
+		}
+		img{
+			padding: $pb*0.25 0;
 		}
 	}
 
