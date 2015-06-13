@@ -1,5 +1,5 @@
 <div id="{{page.handle}}">
-	<h3>{{ page.title }}</h3>
+	<h3 class="lined">{{ page.title }}</h3>
 	{{ page.content }}
 	<br>
 	{% form 'contact' %}
@@ -22,7 +22,7 @@
 		<br/><label for="contact[name]">Your Name:</label>
 		<input type="text" name="contact[name]" placeholder="John Doe" />
 		
-		<br/><label for="contact[Company]">Company Name:</label>
+		<br/><label for="contact[Company]">Company:</label>
 		<input type="text" name="contact[Company]" placeholder="Company" />
 		
 		<br/><label for="contact[email]">Email:</label>
@@ -32,7 +32,7 @@
 		<input type="telephone" name="contact[phone]" placeholder="555-555-1234" />
 	
 		<br/><label for="contact[body]">Message:</label>
-		<textarea rows="15" cols="75" name="contact[body]" placeholder="Your Message - not required"></textarea>
+		<textarea rows="15" cols="70" name="contact[body]" placeholder="Your Message - not required"></textarea>
 	
 {% comment %}		<br/><label for="contact[options]">Some other field</label>
 		<select name="contact[options]">

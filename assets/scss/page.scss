@@ -1,11 +1,89 @@
 @import "settings";
 
 #corporate{
-	color: #f00;
-	@extend .center;
+	color: $black;
+	//@extend .center;
+
+	width: 60%;
+	margin: 0 auto;
+	max-width: $indsideWidth;
+
 	text-align: center;
 	iframe{
 		min-height: 100%;
 		min-height: 100vh;
 	}
+
+	ol {
+		width: 70%;
+		margin: 0 auto;
+		li {
+			margin: 0.5em 0;
+		}
+	}
+
+	h5 {
+		font-size: 1.2em;
+		margin: 1.5em 0 .8em;
+		font-weight: 100;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+	}
+
+	ol li {
+    counter-increment: step-counter;
+}
+
+	ol li::before {
+    content: counter(step-counter)". ";
+    position: absolute;
+  	margin-left: -17px;
+    // margin-right: 5px;
+    // font-size: 80%;
+    // background-color: rgb(200,200,200);
+    color: $black;
+    font-weight: bold;
+    // padding: 3px 8px;
+    // border-radius: 3px;
+}
+
+form {
+	width: 80%;
+	text-align: left;
+	margin: 0 auto;
+}
+
+.errorForm {
+	color: $blue;
+}
+
+input {
+	width: 100%;
+	display: block;
+	margin: 0;
+	padding: 1em 0;
+}
+
+textarea {
+	height: 150px;
+	width: 100%;
+	padding: 1em 0;
+	border: solid 1px #ccc;
+}
+
+#contactFormSubmit {
+	border: 1px solid $black;
+	padding: 1em 0;
+	text-align: center;
+	padding: 0.8em 0;
+	width: 20%;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin: 1.5em 0;
+	width: 40%;
+	min-width: 145px;
+	background-color: $black;
+	color: #fff;
+}
+
 }

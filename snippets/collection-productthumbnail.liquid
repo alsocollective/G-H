@@ -13,12 +13,12 @@
 		<span class="text" href="#">
 			<h3>{{pro_split | first}}</h3>
 			{% if pro_split_count > 1 %}
-			<h4>{{pro_split[2]}}</h4>
+			<h4>{{pro_split[1]}}</br>{{pro_split[2]}}</h4>
 			{% endif %}			
 		</span>
 
 		{% if bigNext == bigIndex %} 
-			<img src="{{ product.images | last | product_img_url: 'large' }}">
+			<img src="{{ product.images | last | product_img_url: '1024x1024' }}">
 		{% else %}
 			<img src="{{ product.featured_image | product_img_url: 'large' }}">
 		{% endif %}		
