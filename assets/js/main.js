@@ -124,7 +124,10 @@ app.product = {
 		$(".main").slick({
 			dots: true,
 			adaptiveHeight: true,
-			fade: true
+			fade: true,
+			autoplay: true,
+			autoplaySpeed: 3000,
+			arrows: false
 		});
 	},
 	productImageClick: function(event) {
@@ -194,7 +197,7 @@ app.index = {
 		app.index.slick = $(".logos .descriptions").slick({
 			arrows: false,
 			autoplay: true,
-			autoplaySpeed: 5000
+			autoplaySpeed: 3000
 		});
 		app.index.slick.on("beforeChange", app.index.slidechange);
 		$(".logo a").click(app.index.logoClick);

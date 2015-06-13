@@ -22,26 +22,28 @@
 	//Perhaps this should be global
 
 	blockquote {
-		margin: 1em -80px;
-		font-style: italic;
-		font-size: 1.3em;
+		margin: 1em auto 2.5em auto;
+		text-align: center;
+		font-size: 4em;
+		letter-spacing: .06em;
 		color: #999;
 		width: 100%;
+		color: #eee;
 
 		p::before {
 			content: '';
 			display: block;
 			margin: 0 auto 1em auto;
 			width: 3em;
-			border-top: 2px solid rgb(42,127,192);
+			border-top: 2px solid #eee;
 		}
 
 		p::after {
 			content: '';
 			display: block;
-			margin: 0 auto 1em auto;
+			margin: 1em auto 0 auto;
 			width: 3em;
-			border-top: 2px solid rgb(42,127,192);
+			border-top: 2px solid #eee;
 		}
 	}
 
