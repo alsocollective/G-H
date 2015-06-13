@@ -5,93 +5,72 @@
 
 	<h3 class="producttitle lined">{{ productTitleSplit | first }}</h3>
 
-	<div id="product-subtitle">
-		{% for title in productTitleSplit %}
-			{% if forloop.first == false %}<h4 class="productsubtitle">{{title}}</h4>{% endif %}
-		{% endfor %}
-	</div>
+	{% for title in productTitleSplit %}
+		{% if forloop.first == false %}<h4 class="productsubtitle">{{title}}</h4>{% endif %}
+	{% endfor %}
 
-	<div class="left">
-		{% comment %}<div class="list">			
-		{% for image in product.images %} 
-			<a href="{{ image.src | product_img_url: 'grande' }}"><img src="{{ image.src | product_img_url: 'small' }}" alt="image.alt"></a>
-		{% endfor %}
-		</div>{% endcomment %}<div class="main">
-			{% comment %}<img src="{{ product.featured_image| product_img_url: 'grande'}}">{% endcomment %}
-			{% for image in product.images %} 
-			<div class="product-slides"><img src="{{ image.src | product_img_url: 'grande' }}" alt="image.alt"></div>
-		{% endfor %}
-		</div>
+	<div class="col-1">
+		<div class="order-info">
+			<h3 class="price">{{ product.price | money }}</h3>
 
-{% comment %}			
-		<div class="sizechart hide">
-			<div>
-				{{ pages[pageName].content }}
+			{% if product1 %}
+			<div class="available-colours">
+				<h3>Colours</h3>
+				<ul>
+					{% assign keep = product %}
+					{% assign product = product0 %}{% include "product-colour-option"%}{% assign product = product1 %}{% include "product-colour-option"%}{% endif %}{% if product2 %}{% assign product = product2 %}{% include "product-colour-option"%}{% endif %}{% if product3 %}{% assign product = product3 %}{% include "product-colour-option"%}{% endif %}{% if product1 %}
+					{% assign product = keep %}
+				</ul>
 			</div>
-		</div>		
-{% endcomment %}
-	</div><div class="right">
-			
-
-		{% comment %}<h3 class="producttitle lined">{{ productTitleSplit | first }}</h3>{% endcomment %}
-		{% comment %}{% for title in productTitleSplit %}
-			{% if forloop.first == false %}<h3 class="productsubtitle">{{title}}</h3>{% endif %}
-		{% endfor %}{% endcomment %}
-
-		<h3 class="price">{{ product.price | money }}</h3>
-
-		{% comment %}<div class="description">
-			<h3>Description</h3>
-			{{ product.description }}
-		</div>{% endcomment %}
-		{% if product1 %}
-		<div class="available-colours">
-			<h3>Colours</h3>
-			<ul>
-				{% assign keep = product %}
-				{% assign product = product0 %}{% include "product-colour-option"%}{% assign product = product1 %}{% include "product-colour-option"%}{% endif %}{% if product2 %}{% assign product = product2 %}{% include "product-colour-option"%}{% endif %}{% if product3 %}{% assign product = product3 %}{% include "product-colour-option"%}{% endif %}{% if product1 %}
-				{% assign product = keep %}
-			</ul>
-		</div>
-		{% endif %}
-		{% capture pageName %}{{product.type|handleize}}{% endcapture%}
-		{% if pages[pageName].content != ""%}
-			<div class="sizechart hide">
-				<h3><a href="#" class="fitguide">Fit Guide <span class="show">Show</span><span class="notshow">hide</span></a></h3>
-				<div class="">
-					{{ pages[pageName].content }}
+			{% endif %}
+			{% capture pageName %}{{product.type|handleize}}{% endcapture%}
+			{% if pages[pageName].content != ""%}
+				<div class="sizechart hide">
+					<h3><a href="#" class="fitguide"><span class="show">Show</span><span class="notshow">hide</span> Fit Guide</a></h3>
+					<div class="">
+						{{ pages[pageName].content }}
+					</div>
+					
 				</div>
-				
-			</div>
-		{% endif %}	
-		<div class="sizing">
-			<h3>Sizes</h3>
-			{% for variant in product.variants %}
-				{% if variant.available == true %}
-					<button class="button small {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}">{{ variant.title }}</button>
-				{% else %}
-					<button class="button small notavailable {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}" >{{ variant.title }}</button>
-				{% endif %}
-			{% endfor %}
-		</div>
-		
-		<form action="/cart/add" method="post" enctype="multipart/form-data" data-id="{{product.id}}">
-			<select name="id" class="sizeselector hide">
+			{% endif %}	
+			<div class="sizing">
+				<h3>Sizes</h3>
 				{% for variant in product.variants %}
 					{% if variant.available == true %}
-						<option value="{{variant.id}}" > {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
+						<button class="button small {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}">{{ variant.title }}</button>
 					{% else %}
-						<option disabled="disabled"> {{ variant.title }} - sold out!</option>
+						<button class="button small notavailable {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}" >{{ variant.title }}</button>
 					{% endif %}
 				{% endfor %}
-			</select>
-			<h3>Quantity</h3>
-			<input class="quantity" type="number" name="quantity" class="styled-input" value="1" min="1" >
-			<input class="add" type="submit" name="add" class="button large" value="Add to Bag" >
-		</form>
+			</div>
+			
+			<form action="/cart/add" method="post" enctype="multipart/form-data" data-id="{{product.id}}">
+				<select name="id" class="sizeselector hide">
+					{% for variant in product.variants %}
+						{% if variant.available == true %}
+							<option value="{{variant.id}}" > {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
+						{% else %}
+							<option disabled="disabled"> {{ variant.title }} - sold out!</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+				<h3>Quantity</h3>
+				<input class="quantity" type="number" name="quantity" class="styled-input" value="1" min="1" >
+				<input class="add" type="submit" name="add" class="button large" value="Add to Bag" >
+			</form>
+		</div>
+		
+	</div><div class="col-2">
+		<div class="main">
+			{% for image in product.images %} 
+				<div class="product-slides"><img src="{{ image.src | product_img_url: 'grande' }}" alt="image.alt"></div>
+			{% endfor %}
+		</div>
+	</div><div class="col-3">
 		<div class="description">
 			<h3>Details</h3>
 			{{ product.description }}
 		</div>
 	</div>
+
 </div>

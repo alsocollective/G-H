@@ -36,11 +36,13 @@
 				<div id="nav-logo">
 					<a href="/">{% include "logo-small.html" %}</a>
 				</div>
-				<ul id="nav-cart" {% if cart.item_count == -1 %} style="display:none;"{%endif%}>
-					<li><a href="/cart">Knapsack</a></li>
+				<a href="/cart"><ul id="nav-cart" {% if cart.item_count == -1 %} style="display:none;"{%endif%}>
+					{% comment %}<li><a href="/cart">Knapsack</a></li>
 					<li><a href="/cart"><span id="cartitemcount">{{ cart.item_count}}</span> {{ cart.item_count | pluralize: 'item', 'items' }}</a></li>
-					<li><a href="/cart"><span id="carttotalcost">{{ cart.total_price | money  }}</span></a></li>
-				</ul>
+					<li><a href="/cart"><span id="carttotalcost">{{ cart.total_price | money  }}</span></a></li>{% endcomment %}
+					<li>Knapsack | <span id="cartitemcount">{{ cart.item_count}}</span> {{ cart.item_count | pluralize: 'item', 'items' }}</br>
+					<span id="carttotalcost">{{ cart.total_price | money  }}</span></li>
+				</ul></a>
 				<ul id="nav-main">
 					{% for link in linklists.main-menu.links %}
 

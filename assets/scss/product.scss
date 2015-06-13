@@ -2,11 +2,13 @@
 
 #product{
 	//@extend .center;
-	width: 100%;
-	//margin-left: 5%;
-	max-width: 1400px;
-	position: relative;
-	z-index: 2;
+		width: 100%;
+		//max-width: 1400px;
+		position: relative;
+		z-index: 2;
+		margin: 0 auto;
+		text-align: center;
+
 	.multi-product{
 		padding-bottom: $pb;
 	}
@@ -24,7 +26,177 @@
 	p {
 		font-size: 1em;
 	}
-	.left{
+
+	.col-1, .col-2, .col-3 {
+		//width: 33%;
+		vertical-align: top;
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		//background-color: #ccc;					
+	}
+
+	.col-1 {
+		width: 30%;
+
+		display: inline-block;
+		vertical-align: top;
+
+		ul{
+			padding: 1em 0;
+			li{
+				font-size: 0.90em;
+				color: $darkgrey;
+			}
+		}	
+		select{
+			// display: none;
+		}
+		.order-info {
+			padding: 0 10%;
+		}
+		.producttitle{
+			
+		}
+		.price{
+			// padding-top: 0.5*$pb;
+			// text-align: right;
+			// width: 80%;
+			color: $blue;
+			font-size: 1.5em;
+			letter-spacing: 0.3em;
+		}
+		
+		.quantity,.add{
+			border: 1px solid $black;
+			padding: 1em 0;
+			width: 20%;
+			text-align: center;
+			padding: 0.8em 0;
+			width: 20%;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+		}
+		.add {
+			width: 40%;
+			min-width: 145px;
+			background-color: $black;
+			color: #fff;
+		}
+		.quantity {
+			color: $blue;
+			padding: .8em 0 0.8em 4%;
+		}
+		.available-colours{
+			padding-top: 0.5*$pb;
+			ul{
+				padding: 0.125*$pb 0 0 0;
+			}
+			li{
+				display: inline-block;
+				padding: 0 5% 0 0;
+			}
+			a {
+				text-decoration: none;
+			}
+		}
+		.sizing{
+			padding: 0.5*$pb 0;
+			text-align: left;
+
+			button {
+				background-color: #ccc;
+				color: #333;
+			}
+		}
+
+		.currentcolour{
+			//text-decoration: underline;
+			//font-weight: bold;
+			//border: solid 2px #f00;
+			a:nth-child(2) {
+				border-bottom: solid 3px #ccc;
+			}
+			
+
+			.colourswatch {
+				/*box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				border: 2px solid #0078bf;*/
+				box-shadow: inset 0px 0px 0px #fff;
+
+				.color-select {
+					background-color: $blue;
+				}
+			}
+		}
+		.selected{
+			border: none;
+			background-color: $blue;
+			outline: none;
+			color: #fff;
+
+		&:focus { 
+			border: none;
+			background-color: $blue;
+			outline: none;
+			color: #fff;
+		}
+
+		}
+		form {
+			text-align: left;
+		}
+	}
+	.col-2 {
+		width: 40%;
+		//max-width: 600px;
+
+		.main{
+			width: 100%;
+			//border: solid 1px #333;
+			//height: 300px;
+			display: inline-block;
+			vertical-align: top;
+			overflow: hidden;
+			//overflow-y: visible;
+			img{
+				width: auto;
+				margin: 0 auto;
+				height: 60vh;
+			}
+			.product-slides {
+				width: 100%;
+				overflow: hidden;
+				background-color: #fff;
+			}
+			.draggable:focus,.slick-track:focus,.slick-slide:focus {
+				outline:none;
+			}			
+		}
+
+	.list{
+		display: inline-block;
+		vertical-align: top;
+			img{
+				width: 70%;
+				margin: 0 20% 20% 0;
+			}
+		}
+	}
+	.col-3 {
+		width: 30%;
+		.description{
+			/*padding-top: 0.5*$pb;
+			ul{
+				padding: 0.125*$pb 0 0 0;
+			}*/
+			padding: 0 5%;
+		}
+	}
+
+	/*.left{
 		width: 50%;
 		display: inline-block;
 		vertical-align: top;
@@ -120,7 +292,7 @@
 		.selected{
 			border: solid 1px #f00;
 		}
-	}
+	}*/
 
 	.sizechart{
 		padding-top: 0.5*$pb;
@@ -169,8 +341,8 @@
 	$slick-font-path: "./fonts/" !default;
 	$slick-font-family: "slick" !default;
 	$slick-loader-path: "./" !default;
-	$slick-arrow-color: #f00 !default;
-	$slick-dot-color: #f00 !default;
+	$slick-arrow-color: $blue !default;
+	$slick-dot-color: $blue !default;
 	$slick-dot-color-active: $slick-dot-color !default;
 	$slick-prev-character: "←" !default;
 	$slick-next-character: "→" !default;
@@ -182,7 +354,8 @@
 
 	.slick-prev,
 	.slick-next {
-	    display: inline-block;
+	    //display: inline-block;
+	    display: none !important;
 	    height: 20px;
 	    width: 20px;
 	    line-height: 0px;
@@ -193,6 +366,7 @@
 	    padding: 0;
 	    border: none;
 	    outline: none;
+	    background-color: transparent;
 	    &:hover, &:focus {
 	        outline: none;
 	        &:before {
@@ -244,7 +418,9 @@
 
 	.slick-dots {
 	    //position: absolute;
-	    bottom: -45px;
+		position: relative;
+		top: -480px;
+	    //bottom: -45px;
 	    list-style: none;
 	    display: block;
 	    text-align: center;

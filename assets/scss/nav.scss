@@ -108,8 +108,9 @@
 		}
 	}
 	#nav-cart{
-		padding-top: 2em;
+  		padding: 2em 0.6em 0.2em 0.6em;
 		right: 2em;
+		transition: all 0.27s;
 
 		@include at-query ($min, $large) {
 			position: absolute;
@@ -120,8 +121,19 @@
 		}
 
 		&.updated{
-			background-color: #f0c;
+			background-color: $blue;
+			color: #fff;
+			//opacity: 0;
+			transition: all 0.12s;
 		}
+
+		#carttotalcost {
+			//color: $blue;
+			//font-weight: 100;
+			line-height: 1.8em;
+			//letter-spacing: 0.15em;
+			//font-size: 1.2em;
+		}			
 	}
 
 	@include at-query ($min, $large) {
