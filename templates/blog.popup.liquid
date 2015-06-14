@@ -27,11 +27,35 @@
 			{% break %}
 		{% endif %}
 	{% endfor %}
+	
+	{% comment %}
+		show current popups
+	{% endcomment %}
+	<h3 class="lined">Current Pop-ups</h3>
+	{% for article in blog.articles %}
+		{% if article.tags[0] == "popup-current" %}
+			<div class="popup-article">
+				<h4>{{article.title}}</h4>
+				{{article.content}}
+
+				{% if article.content contains "<img" %}
+    				{% assign src = article.content | split: 'alt="' %}
+    				{% assign src = src[1] | split: '"' | first %}
+    				<p class="caption">{{src}}</p>
+				{% endif %}
+
+				{% comment %}{% for content in article.content %}
+					<h5>{{content}}</h5>
+				{% endfor %}{% endcomment %}
+			</div>
+		{% endif %}
+	{% endfor %}
+
 	{% comment %}
 		show future pop ups
 	{% endcomment %}
 	{% if future %}
-		<h3 class="lined">Future Pop-ups</h3>
+		<h3 class="lined">Upcoming Pop-ups</h3>
 
 		{% for article in blog.articles %}
 			{% if article.tags[0] == "popup-future" %}
@@ -44,19 +68,6 @@
 		{% endfor %}
 
 	{% endif %}
-	{% comment %}
-		show current popups
-	{% endcomment %}
-	<h3 class="lined">Current Pop-ups</h3>
-	{% for article in blog.articles %}
-		{% if article.tags[0] == "popup-current" %}
-			<div class="popup-article">
-				<h4>{{article.title}}</h4>
-				{{article.content}}
-				
-			</div>
-		{% endif %}
-	{% endfor %}
 
 	</div>
 </div>
