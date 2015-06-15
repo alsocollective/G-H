@@ -8,6 +8,16 @@
 		display: block;
 	}
 	.bloglist{
+		li{
+			background-color: $white;
+			@include transition(background-color,0.35s,ease-in-out);
+			padding: 2em;
+			margin: -2em;
+			margin-top: $pb*2;
+			&:hover{
+				background-color: $offwhite;
+			}
+		}		
 	}
 	p{
 		width: 60%;
@@ -29,16 +39,7 @@
 		position: relative;
 		display: block;
 	}
-	li{
-		background-color: $white;
-		@include transition(background-color,0.35s,ease-in-out);
-		padding: 2em;
-		margin: -2em;
-		margin-top: $pb*2;
-		&:hover{
-			background-color: $offwhite;
-		}
-	}
+	
 	.right{
 		display: inline-block;
 		position: relative;
