@@ -39,9 +39,9 @@
 				{{article.content}}
 
 				{% if article.content contains "<img" %}
-    				{% assign src = article.content | split: 'alt="' %}
-    				{% assign src = src[1] | split: '"' | first %}
-    				<p class="caption">{{src}}</p>
+					{% assign src = article.content | split: 'alt="' %}
+					{% assign src = src[1] | split: '"' | first %}
+					<p class="caption">{{src}}</p>
 				{% endif %}
 
 				{% comment %}{% for content in article.content %}

@@ -1,6 +1,6 @@
 @import "settings";
 
-.productthumbnail{
+#product .productthumbnail,.productthumbnail{
 	position: relative;
 	width: 30%;
 	overflow: hidden;
@@ -24,6 +24,20 @@
 
 	&:hover{
 		opacity: 1;
+	}
+
+	h3{
+		margin: 0;
+	}
+	h4{
+		color: $black;
+		text-align: left;
+	}
+
+	&.productpage{
+		width: 17%;
+		font-size: 0.9em;
+		text-align: center;
 	}
 }
 .touch .productthumbnail{

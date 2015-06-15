@@ -1,47 +1,112 @@
 @import "settings";
+
+@import "article";
+
 .blog{
-	li{
-		position: relative;
+	iframe{
+		margin: 0 auto;
+		display: block;
+	}
+	.bloglist{
+	}
+	p{
+		width: 60%;
+		margin: 0 auto;
+		padding-top: 1em;
+		font-size: 1.3em;
+ 		line-height: 1.6em;
+  		letter-spacing: .04em;
+	}
+	.left,.right{
+		width: 50%;
 		display: inline-block;
-		width: 32%;
-		padding-right: 1%;
 		vertical-align: top;
-		p:first-child{
-			height: 300px;
-			position: relative;
-			overflow: hidden;
-		}
 		img{
-			min-width: 100%;
-			min-height: 300px;
-			@include vertical-align;
+			max-width: 100%;
 		}
-		h3{
-			// position: absolute;
-			// top: 0;
-			// left: 0;
-			width: 100%;
-			text-transform: inherit;
-			padding-bottom: $pb*0.25;
+	}
+	li > a{
+		position: relative;
+		display: block;
+	}
+	li{
+		background-color: $white;
+		@include transition(background-color,0.35s,ease-in-out);
+		padding: 2em;
+		margin: -2em;
+		margin-top: $pb*2;
+		&:hover{
+			background-color: $offwhite;
 		}
-		&:hover h3{
-			background-color: $white;
-		}		
 	}
-	.wide{
-		width: 65%;
+	.right{
+		display: inline-block;
+		position: relative;
+
+		p:first-child{
+			display: none;
+		}
+		p:nth-child(2){
+			padding-top: 0;
+			margin-top: -5px;
+		}
+		
+		img{
+			display: none;
+		}
 	}
+	.excerpt{
+		p:last-child::after{
+			content: "\0205FRead more\02026";
+			color: #2a7fc0;
+		}
+	}
+
+	.share{
+		position: absolute;
+		top: 100%;
+		right: 0;
+		
+		background-color: $lightgrey;
+		border: none;
+		font-family: inherit;
+		font-size: inherit;
+		color: inherit;
+		padding: 0.4em 0.75em;
+		text-transform: uppercase;
+		@include transition(background-color,0.35s,ease-in-out);
+		@include transition(color,0.35s,ease-in-out);
+		&:hover{
+			color: $white;
+			background-color: $darkgrey;
+		}
+		
+	}
+
+	h4{
+		display: block;
+		text-align: center;
+		font-size: inherit;
+		font-size: 1.3em;
+		padding: 0 0 1em 0;
+		letter-spacing: 0.15em;
+		color: $blue;
+
+		&::before {
+			content: "—"
+		}
+		&::after {
+			content: "—"
+		}
+	}	
 }
 
-.pagecontent {
-	margin: 0 auto;
-	width: 60%;
-}
 
 .popup-article{
 	position: relative;
-	padding: 3em 0 2.5em;
-	border-bottom: solid 1px #ccc;
+	padding: 3em 2em 2.5em 2em;
+	margin: 0 -2em;
+	border-bottom: $border;
 
 	p {
 		font-size: 1em;
@@ -101,9 +166,11 @@
 		letter-spacing: 0.12em;
 		font-style: italic;
 	}
+
+	@include transition(background-color, 0.2s, ease-in-out);
+
+	&:hover {
+		background-color: $offwhite;
+	}
 }
 
-.popup-article:hover {
-	background-color: #efefef;
-	transition: all 0.2s;
-}

@@ -107,13 +107,19 @@
 			text-align: left;
 
 			button {
-				background-color: #ccc;
-				color: #333;
-			}
-			button:hover {
-				background-color: #333;
-				color: #fff;
-				transition: all 0.2s;
+				background-color: $lightgrey;
+				color: $darkgrey;
+	            &.selected{
+					border: none;
+					background-color: $blue;
+					outline: none;
+					color: #fff;
+				}				
+				&:hover {
+					background-color: $darkgrey;
+					color: $white;
+					transition: all 0.2s;
+				}
 			}
 		}
 
@@ -122,7 +128,7 @@
 			//font-weight: bold;
 			//border: solid 2px #f00;
 			a:nth-child(2) {
-				border-bottom: solid 3px #ccc;
+				border-bottom: solid 1px $blue;
 			}
 			
 
@@ -139,20 +145,7 @@
 				}
 			}
 		}
-		.selected{
-			border: none;
-			background-color: $blue;
-			outline: none;
-			color: #fff;
 
-		&:focus { 
-			border: none;
-			background-color: $blue;
-			outline: none;
-			color: #fff;
-		}
-
-		}
 		form {
 			text-align: left;
 		}
@@ -327,7 +320,11 @@
 		}
 	}
 	.similar-products{
-		padding: $pb 0;
+		h3.lined{
+			padding-top: $pb/4;
+			margin-bottom: $pb/2;
+		}
+		margin-bottom: -($pb/2);
 	}
 
 
@@ -464,6 +461,8 @@
 	            color: transparent;
 	            padding: 5px;
 	            cursor: pointer;
+
+
 	            &:hover, &:focus {
 	                outline: none;
 	                &:before {

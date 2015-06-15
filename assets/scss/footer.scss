@@ -24,9 +24,13 @@
 		li{
 			padding: 0.2em 0;
 		}
+		&.wide{
+			width: 36%;
+		}
 	}
 	.news{
 		width: 36%;
+		text-align: right;
 		span{
 			margin-bottom: 0.7em;
 			display: inline-block;

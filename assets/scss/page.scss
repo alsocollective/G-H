@@ -31,59 +31,58 @@
 	}
 
 	ol li {
-    counter-increment: step-counter;
-}
+		counter-increment: step-counter;
+	}
 
 	ol li::before {
-    content: counter(step-counter)". ";
-    position: absolute;
-  	margin-left: -17px;
-    // margin-right: 5px;
-    // font-size: 80%;
-    // background-color: rgb(200,200,200);
-    color: $black;
-    font-weight: bold;
-    // padding: 3px 8px;
-    // border-radius: 3px;
-}
+		content: counter(step-counter)". ";
+		position: absolute;
+		margin-left: -17px;
+		color: $black;
+		font-weight: bold;
+	}
 
-form {
-	width: 80%;
-	text-align: left;
-	margin: 0 auto;
-}
+	form {
+		width: 80%;
+		text-align: left;
+		margin: 0 auto;
+	}
 
-.errorForm {
-	color: $blue;
-}
+	.errorForm {
+		color: $blue;
+	}
 
-input {
-	width: 100%;
-	display: block;
-	margin: 0;
-	padding: 1em 0;
-}
+	input {
+		width: 100%;
+		display: block;
+		margin: 0;
+		padding: 1em 0;
+		font-family: inherit;
+		color: inherit;	
+	}
 
-textarea {
-	height: 150px;
-	width: 100%;
-	padding: 1em 0;
-	border: solid 1px #ccc;
-}
+	textarea {
+		height: 150px;
+		width: 100%;
+		padding: 1em 1em;
+		border: $border;
+		font-family: inherit;
+		color: inherit;
+	}
 
-#contactFormSubmit {
-	border: 1px solid $black;
-	padding: 1em 0;
-	text-align: center;
-	padding: 0.8em 0;
-	width: 20%;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	margin: 1.5em 0;
-	width: 40%;
-	min-width: 145px;
-	background-color: $black;
-	color: #fff;
-}
+	#contactFormSubmit {
+		border: 1px solid $black;
+		padding: 1em 0;
+		text-align: center;
+		padding: 0.8em 0;
+		width: 20%;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		margin: 1.5em 0;
+		width: 40%;
+		min-width: 145px;
+		background-color: $black;
+		color: #fff;
+	}
 
 }

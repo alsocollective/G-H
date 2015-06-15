@@ -1,4 +1,4 @@
-<div class="productthumbnail listitem">
+{% comment %}<div class="productthumbnail listitem">
 
 	<a href="{{product.url}}">
 		<div class="backgroundimage" style="background-image:url({{ product.featured_image | product_img_url: 'large' }})"></div>
@@ -12,5 +12,22 @@
 			<h4>{{pro_split[1]}}</h4>
 			{% endif %}			
 		</div>
+	</a>	
+</div>
+{% endcomment %}<div class="productthumbnail productpage">
+	{% assign pro_split = product.title | split: "|" %}
+	{% assign pro_split_count = pro_split | size %}
+	{% if pro_split_count > 2 %}
+		<a href="{{product.url}}#{{pro_split[2] | handleize }}">
+	{% else %}
+		<a href="{{product.url}}#{{pro_split[1] | handleize }}">
+	{% endif %}			
+		<span class="text" href="#">
+			<h3>{{pro_split | first}}</h3>
+			{% if pro_split_count > 1 %}
+			<h4>{{pro_split[1]}}</h4>
+			{% endif %}			
+		</span>
+		<img src="{{ product.featured_image | product_img_url: 'large' }}">
 	</a>	
 </div>

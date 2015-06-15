@@ -256,7 +256,7 @@ app.slideshow = {
 		translate3d = null;
 		if (r > n) {
 			height = width * (9 / 16);
-			translate3d = "translate3d(0px, " + (s - height) + "px, 0px)"
+			translate3d = "translate3d(0px, " + (s - height) / 2 + "px, 0px)"
 		} else {
 			width = height * (16 / 9);
 			translate3d = "translate3d(" + (i - width) / 2 + "px, 0px, 0px)"
@@ -270,5 +270,16 @@ app.slideshow = {
 			"-o-transform": translate3d,
 			transform: translate3d
 		})
+	}
+}
+
+app.social = {
+	init: function() {
+		if ($(".socialbutton").length) {
+			app.social.initilizeButton();
+		}
+	},
+	initilizeButton: function() {
+
 	}
 }

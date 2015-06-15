@@ -99,13 +99,13 @@
 	</div>
 	<div class="footer">
 		<div class="center">
-			<div class="logo">
+			{% comment %}<div class="logo">
 				{% include 'logo-small.html' %}
-			</div><div class="footer-nav">
+			</div>{% endcomment %}<div class="footer-nav">
 				{% for link in linklists.footer.links %}
 					<li><a href="{{link.url}}#{{link.handle}}">{{link.title}}</a></li>
 				{% endfor %}
-			</div><div class="footer-nav">
+			</div><div class="footer-nav wide">
 				<ul>
 					<li><a href="/contact">Contact Info</a></li>
 					<li><a href="">hello@goodandhec.com</a></li>
