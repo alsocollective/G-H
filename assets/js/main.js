@@ -11,7 +11,9 @@ var app = {
 		console.log("app init started");
 		app.constant.getCountry();
 		app.smooth.init();
+		app.signup.init();
 		app.softInit();
+
 	},
 	softInit: function() {
 		console.log("soft init");
@@ -110,6 +112,23 @@ app.constant = {
 			})
 		}
 		$(".shipping .show").removeClass("show");
+		return false;
+	}
+}
+
+app.signup = {
+	init: function() {
+		$(".popup-exit").click(app.signup.exit);
+		if (!Cookies.get("closePopup")) {
+			$(".signupform").addClass("show");
+		}
+	},
+	exit: function(event) {
+		$(this).closest(".show").removeClass("show");
+		Cookies.set("closePopup", true, {
+			expires: 1
+		});
+		event.preventDefault();
 		return false;
 	}
 }

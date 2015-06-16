@@ -2,8 +2,8 @@
 <div class="slideshow index">
 	{% for article in blogs['index'].articles limit: 3 %}
 		<div>
-			{% comment %}{{article.content}}
-			<div class="overlaytext">{{article.excerpt}}</div>		{% endcomment %}
+			{{article.content}}
+			<div class="overlaytext">{{article.excerpt}}</div>		
 		</div>
 	{% endfor %}
 </div>

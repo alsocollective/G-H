@@ -112,19 +112,24 @@
 					<li><span>Contact Us</span><br><a href="">hello@goodandhec.com</a></li>
 				</ul>
 			</div><div class="news">
-
-					<div id="mc_embed_signup">
-						<form action="//goodandhec.us10.list-manage.com/subscribe/post?u=2c5eed12197d57d3af985c724&amp;id=723e03d532" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-							<div id="mc_embed_signup_scroll">
-							<span>Stay in touch</span>
-						<div class="mc-field-group">
-							<input placeholder="Email" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-						</div>
-							<div id="mce-responses" class="clear"><div class="response" id="mce-error-response" style="display:none"></div><div class="response" id="mce-success-response" style="display:none"></div>
-							</div><div style="position: absolute; left: -5000px;"><input type="text" name="b_2c5eed12197d57d3af985c724_723e03d532" tabindex="-1" value=""></div>
+				<div class="signupform">
+					<div>
+						<div id="mc_embed_signup">
+							<form action="//goodandhec.us10.list-manage.com/subscribe/post?u=2c5eed12197d57d3af985c724&amp;id=723e03d532" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+								<div id="mc_embed_signup_scroll">
+								<span class="popup">{% if settings.stayintouch %}{{settings.stayintouch}}{% else %}Stay in touch{% endif %}</span>
+								<span class="footer-text">{% if settings.stayintouchfooter %}{{settings.stayintouchfooter}}{% else %}Stay in touch{% endif %}</span></span>
+							<div class="mc-field-group">
+								<input placeholder="Email" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
 							</div>
-						</form>
+								<div id="mce-responses" class="clear"><div class="response" id="mce-error-response" style="display:none"></div><div class="response" id="mce-success-response" style="display:none"></div>
+								</div><div style="position: absolute; left: -5000px;"><input type="text" name="b_2c5eed12197d57d3af985c724_723e03d532" tabindex="-1" value=""></div>
+								</div>
+							</form>
+							<a class="popup-exit" href="#exit"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="37.013px" height="37.013px" viewBox="0 0 37.013 37.013" enable-background="new 0 0 37.013 37.013" xml:space="preserve"><defs></defs><line fill="none" stroke="#FFFFFF" stroke-width="6" stroke-miterlimit="10" x1="2.121" y1="2.121" x2="34.892" y2="34.892"/><line fill="none" stroke="#FFFFFF" stroke-width="6" stroke-miterlimit="10" x1="34.892" y1="2.121" x2="2.121" y2="34.892"/></svg></a>							
+						</div>
 					</div>
+				</div>
 
 				<div class="social">
 					<a class="facebook" href="facebook"> {% include "social-facebook" %} </a>
