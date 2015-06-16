@@ -39,7 +39,7 @@
 			display: inline-block;
 		}
 		input{
-			padding: 7px 5%;
+			/*padding: 7px 5%;
 			//border: solid $white 2px;
 			border: none;
 			color: $white;
@@ -47,7 +47,7 @@
 			text-align: left;
 			background-color: transparent;
 			margin-bottom: 1em;
-			display: inline-block;
+			display: inline-block;*/
 		}
 		path{
 			fill:$white;
@@ -101,8 +101,14 @@
 				display: none;
 			}
 		}
+
+		#mc_embed_signup, #mc-embedded-subscribe {
+			padding: 0;
+			height: 100%;
+		}
 		#mc-embedded-subscribe{
-			width: 30%;
+			
+			/*width: 30%;
 			text-align: center;
 			height: 100%;
 			border-left: solid 2px #fff;
@@ -114,16 +120,17 @@
 			&:hover{
 				color: $darkgrey;
 				background-color: $offwhite;
-			}
+			}*/
 		}
 		.mc-field-group {
 			font-size: 1em;
+			width: 100%;
 			vertical-align: top;
 			border: solid 2px #fff;
 			padding: 0px;
 			margin: 0 0 20px 0;
 			height: 32px;
-			text-align: right;
+			//text-align: right;
 		}
 	}
 
