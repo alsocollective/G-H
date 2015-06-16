@@ -7,13 +7,17 @@
 		margin: 0 auto;
 		display: block;
 	}
+
+
+
 	.bloglist{
 		li{
 			background-color: $white;
+			position: relative;
 			@include transition(background-color,0.35s,ease-in-out);
 			padding: 2em;
-			margin: -2em;
-			margin-top: $pb*2;
+			width: 100%;
+			margin: $pb*2 0 0 -2em;			
 			&:hover{
 				background-color: $offwhite;
 			}
@@ -117,6 +121,10 @@
 		// font-size: 0.1em;
 		width: 30%;
 		padding: 0;
+	}
+
+	a{
+		color: $blue;
 	}
 
 	h4{

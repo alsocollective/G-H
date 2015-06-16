@@ -23,6 +23,7 @@ var app = {
 		// var s = skrollr.init();
 		app.slideshow.init();
 		app.constant.init();
+		app.social.init();
 		if ($(".logos").length) {
 			app.index.init();
 		} else if ($("#product").length) {
@@ -280,6 +281,36 @@ app.social = {
 		}
 	},
 	initilizeButton: function() {
+		$(".article .socialbutton").click(app.social.socialClickArticle);
+	},
+	socialClickArticle: function(event) {
+		$(".sociallinks").click();
+		var url = $(this).closest("li")[0].href,
+			el = $(document.createElement("a"));
+		el[0].appendChild(app.social.generate.facebook(url)[0])
+		el[0].appendChild(app.social.generate.twitter(url)[0])
+		el.addClass("sociallinks");
+		$(this).closest(".article")[0].appendChild(el[0]);
+		el.click(app.social.close);
+		event.preventDefault();
+		return false;
+	},
+	generate: {
+		facebook: function(url) {
+			var el = $(document.createElement("button"));
+			el.addClass("facebook");
+			$(".facebook svg").clone().appendTo(el);
+			return el
+		},
+		twitter: function(url) {
+			var el = $(document.createElement("button"));
+			el.addClass("twitter");
+			$(".twitter svg").clone().appendTo(el);
 
+			return el
+		}
+	},
+	close: function(event) {
+		this.parentNode.removeChild(this);
 	}
 }
