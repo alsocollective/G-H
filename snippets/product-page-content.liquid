@@ -22,17 +22,23 @@
 					{% assign product = keep %}
 				</ul>
 			</div>
+			{% endif %}
+			
+			{% assign productCount = product.variants | size%}
 			
 			<div class="sizing">
-				<h3>Sizes</h3>
-				{% for variant in product.variants %}
-					{% if variant.available == true %}
-						<button class="button small {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}">{{ variant.title }}</button>
-					{% else %}
-						<button class="button small notavailable {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}" >{{ variant.title }}</button>
-					{% endif %}
-				{% endfor %}
+				{% if productCount > 1 %}
+					<h3>Sizes</h3>
+					{% for variant in product.variants %}
+						{% if variant.available == true %}
+							<button class="button small {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}">{{ variant.title }}</button>
+						{% else %}
+							<button class="button small notavailable {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}" >{{ variant.title }}</button>
+						{% endif %}
+					{% endfor %}
+				{% endif %}
 			</div>
+			
 			
 			<form action="/cart/add" method="post" enctype="multipart/form-data" data-id="{{product.id}}">
 				<select name="id" class="sizeselector hide">
@@ -49,7 +55,6 @@
 				<input class="add" type="submit" name="add" class="button large" value="Add to Bag" >
 			</form>
 
-			{% endif %}
 			{% capture pageName %}{{product.type|handleize}}{% endcapture%}
 			{% if pages[pageName].content != ""%}
 				<div class="sizechart hide">

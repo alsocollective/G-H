@@ -51,7 +51,8 @@ app.smooth  = {
 		app.smooth.content = $('#main').smoothState({
 			onAfter: function(url, $container, $content) {
 				app.softInit();
-			}
+			},
+			blacklist: '.no-smoothState'
 		}).data('smoothState');
 	}
 }

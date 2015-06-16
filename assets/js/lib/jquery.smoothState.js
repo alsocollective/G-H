@@ -548,9 +548,11 @@
 				hoverAnchor = function(event) {
 					var request,
 						$anchor = $(event.currentTarget);
-
+					console.log("hovering over ancher")
+					console.log(event.currentTarget)
 					if (utility.shouldLoadAnchor($anchor, options.blacklist) && !isTransitioning) {
 						event.stopPropagation();
+						console.log("loading the hover");
 						request = utility.translate($anchor.prop('href'));
 						request = options.alterRequest(request);
 						fetch(request);
@@ -563,11 +565,12 @@
 				 */
 				clickAnchor = function(event) {
 					var $anchor = $(event.currentTarget);
-
+					console.log("clicked");
+					console.log(event.currentTarget);
 					// Ctrl (or Cmd) + click must open a new tab
 					if (!event.metaKey && !event.ctrlKey && utility.shouldLoadAnchor($anchor, options.blacklist)) {
 						var request = utility.translate($anchor.prop('href'));
-
+						console.log("continuiing with click");
 						// stopPropagation so that event doesn't fire on parent containers.
 						isTransitioning = true;
 						event.stopPropagation();
@@ -589,8 +592,10 @@
 				 */
 				submitForm = function(event) {
 					var $form = $(event.currentTarget);
-
+					console.log("click form");
+					console.log($form);
 					if (!$form.is(options.blacklist)) {
+						console.log("got through");
 						event.preventDefault();
 						event.stopPropagation();
 
