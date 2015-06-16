@@ -4,6 +4,9 @@
 	>div>div{
 		padding: $pb 0;
 	}
+	span {
+		font-weight: 600;
+	}
 	.logo,.footer-nav,.news{
 		vertical-align: top;
 		display: inline-block;
@@ -11,7 +14,7 @@
 		// padding-right: 4%;
 	}
 	.logo{
-		width:16%;
+		width:15%;
 		svg{
 			width: 100px;
 		}
@@ -25,12 +28,12 @@
 			padding: 0.2em 0;
 		}
 		&.wide{
-			width: 36%;
+			width: 30%;
 		}
 	}
 	.news{
-		width: 36%;
-		text-align: right;
+		width: 35%;
+		text-align: left;
 		span{
 			margin-bottom: 0.7em;
 			display: inline-block;
@@ -49,10 +52,10 @@
 		}
 	}
 	.facebook, .twitter, .pintrest{
-		padding: 0 0.5em;
+		padding: 0 0.75em;
 	}
 	.facebook{
-		padding-left: 0.25em;
+		padding-left: 0.5em;
 	}
 
 	.notes{

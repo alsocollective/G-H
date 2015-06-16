@@ -93,22 +93,53 @@
 	</div>
 	
 	<div class="shipping">
-		<div class="canada">$10 flat shipping fee <br> Spend $120 and recive free shipping <a class="exit" href="#exit">x</a></div>
-		<div class="unitedstates">$15 flat shipping fee <br> Spend $150 and recive free shipping <a class="exit" href="#exit">x</a></div>
-		<div class="world">$20 flat shipping fee <br> Spend $150 and recive free shipping <a class="exit" href="#exit">x</a></div>
+		<div class="canada"><p>$10 flat shipping fee<br>Spend $120 and recive free shipping</p><a class="exit" href="#exit"><!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In  -->
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="37.013px" height="37.013px" viewBox="0 0 37.013 37.013" enable-background="new 0 0 37.013 37.013"
+	 xml:space="preserve">
+<defs>
+</defs>
+<line fill="none" stroke="#FFFFFF" stroke-width="6" stroke-miterlimit="10" x1="2.121" y1="2.121" x2="34.892" y2="34.892"/>
+<line fill="none" stroke="#FFFFFF" stroke-width="6" stroke-miterlimit="10" x1="34.892" y1="2.121" x2="2.121" y2="34.892"/>
+</svg>
+</a></div>
+		<div class="unitedstates"><p>$15 flat shipping fee<br>Spend $150 and recive free shipping</p><a class="exit" href="#exit"><!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In  -->
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="37.013px" height="37.013px" viewBox="0 0 37.013 37.013" enable-background="new 0 0 37.013 37.013"
+	 xml:space="preserve">
+<defs>
+</defs>
+<line fill="none" stroke="#FFFFFF" stroke-width="6" stroke-miterlimit="10" x1="2.121" y1="2.121" x2="34.892" y2="34.892"/>
+<line fill="none" stroke="#FFFFFF" stroke-width="6" stroke-miterlimit="10" x1="34.892" y1="2.121" x2="2.121" y2="34.892"/>
+</svg>
+</a></div>
+		<div class="world"><p>$20 flat shipping fee<br>Spend $150 and recieve free shipping</p><a class="exit" href="#exit"><!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In  -->
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="37.013px" height="37.013px" viewBox="0 0 37.013 37.013" enable-background="new 0 0 37.013 37.013"
+	 xml:space="preserve">
+<defs>
+</defs>
+<line fill="none" stroke="#FFFFFF" stroke-width="6" stroke-miterlimit="10" x1="2.121" y1="2.121" x2="34.892" y2="34.892"/>
+<line fill="none" stroke="#FFFFFF" stroke-width="6" stroke-miterlimit="10" x1="34.892" y1="2.121" x2="2.121" y2="34.892"/>
+</svg>
+</a></div>
 	</div>
 	<div class="footer">
 		<div class="center">
 			{% comment %}<div class="logo">
 				{% include 'logo-small.html' %}
 			</div>{% endcomment %}<div class="footer-nav">
+			<span>Policies / Shipping</span>
 				{% for link in linklists.footer.links %}
 					<li><a href="{{link.url}}#{{link.handle}}">{{link.title}}</a></li>
 				{% endfor %}
 			</div><div class="footer-nav wide">
 				<ul>
-					<li><a href="/contact">Contact Info</a></li>
-					<li><a href="">hello@goodandhec.com</a></li>
+					{% comment %}<li><a href="/contact">Contact Us</a></li>{% endcomment %}
+					<li><span>Contact Us</span><br><a href="">hello@goodandhec.com</a></li>
 				</ul>
 			</div><div class="news">
 				<span>Stay in touch</span>
