@@ -1,6 +1,6 @@
 
 <div class="slideshow index">
-	{% for article in blogs['index'].articles limit: 3 %}
+	{% for article in blogs['index'].articles %}
 		<div>
 			{{article.content}}
 			<div class="overlaytext">{{article.excerpt}}</div>		

@@ -296,6 +296,9 @@ app.slideshow = {
 
 app.social = {
 	init: function() {
+		$(".social .facebook").click(app.social.events.facebookPageClick)
+		$(".social .twitter").click(app.social.events.twitterPageClick)
+
 		if ($(".socialbutton").length) {
 			app.social.initilizeButton();
 		}
@@ -305,8 +308,9 @@ app.social = {
 	},
 	socialClickArticle: function(event) {
 		$(".sociallinks").click();
-		var url = $(this).closest("li")[0].href,
+		var url = $(this).closest("a")[0].href,
 			el = $(document.createElement("a"));
+		el[0].href = url;
 		el[0].appendChild(app.social.generate.facebook(url)[0])
 		el[0].appendChild(app.social.generate.twitter(url)[0])
 		el.addClass("sociallinks");
@@ -315,22 +319,59 @@ app.social = {
 		event.preventDefault();
 		return false;
 	},
+	close: function(event) {
+		this.parentNode.removeChild(this);
+		event.preventDefault();
+		return false;
+	},
 	generate: {
 		facebook: function(url) {
 			var el = $(document.createElement("button"));
 			el.addClass("facebook");
+			el[0].href = url;
 			$(".facebook svg").clone().appendTo(el);
+			el.click(app.social.events.facebookClick);
 			return el
 		},
 		twitter: function(url) {
 			var el = $(document.createElement("button"));
 			el.addClass("twitter");
+			el[0].href = "https://twitter.com/intent/tweet?text=" + url;
 			$(".twitter svg").clone().appendTo(el);
-
+			el.click(app.social.events.twitterClick);
 			return el
 		}
 	},
-	close: function(event) {
-		this.parentNode.removeChild(this);
+	events: {
+		twitterClick: function(event) {
+			var w = window.open(this.href, this.target || "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
+			event.preventDefault();
+			event.stopPropagation();
+			return false;
+		},
+		twitterPageClick: function(event) {
+			var w = window.open("https://twitter.com/intent/tweet?text=" + window.location.href, this.target || "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
+			event.preventDefault();
+			event.stopPropagation();
+			return false;
+		},
+		facebookClick: function(event) {
+			FB.ui({
+				method: 'send',
+				link: event.target.href
+			});
+			event.stopPropagation();
+			event.preventDefault();
+			return false;
+		},
+		facebookPageClick: function(event) {
+			FB.ui({
+				method: 'send',
+				link: window.location.href
+			});
+			event.stopPropagation();
+			event.preventDefault();
+			return false;
+		}
 	}
 }
