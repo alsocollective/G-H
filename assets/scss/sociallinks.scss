@@ -1,0 +1,42 @@
+@import "settings";
+
+body #wrapper .sociallinks{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,0.8);
+	text-align: center;
+	button{
+		background-color: transparent;
+		border: none;
+		text-align: center;
+		vertical-align: middle;
+		margin: 0;
+		padding: 0;
+		width: auto;
+		display: inline-block;
+		width: 25%;
+		position: relative;
+		height: 50%;
+		top: 25%;
+
+		@include transition(color,0.35s,ease-in-out);
+		@include transition(background-color,0.35s,ease-in-out);
+		background-color: transparent;
+
+		border: 3px solid $darkgrey;
+		// background-color: $offwhite;
+
+		&:hover{
+			background-color: $darkgrey;
+			fill: $white;
+		}
+		&:first-child{
+			margin-right: 5%;
+		}
+	}
+
+}

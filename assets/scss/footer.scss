@@ -39,21 +39,36 @@
 			display: inline-block;
 		}
 		input{
-			padding: 0.5em 5%;
-			border:solid $white 2px;
+			padding: 7px 5%;
+			border: solid $white 2px;
 			color: $white;
-			width: 90%;
+			width: 69%;
 			text-align: left;
 			background-color: transparent;
 			margin-bottom: 1em;
+			display: inline-block;
 		}
 		path{
 			fill:$white;
 		}
+		#mc-embedded-subscribe{
+			width: auto;
+			max-width: 20%;
+			border-left: none;
+			font-size: 0.5em;
+			padding: 6.5px 1%;
+			line-height: 2em;
+			vertical-align: middle;
+			margin-top: 6px;
+			@include transition(background-color,0.35s,ease-in-out);
+			@include transition(color,0.35s,ease-in-out);
+			&:hover{
+				color: $darkgrey;
+				background-color: $offwhite;
+			}
+		}
 	}
-	.mc-embedded-subscribe{
-		
-	}
+
 	.facebook, .twitter, .pintrest{
 		padding: 0 0.75em;
 	}
