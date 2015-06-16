@@ -40,7 +40,8 @@
 		}
 		input{
 			padding: 7px 5%;
-			border: solid $white 2px;
+			//border: solid $white 2px;
+			border: none;
 			color: $white;
 			width: 69%;
 			text-align: left;
@@ -52,20 +53,28 @@
 			fill:$white;
 		}
 		#mc-embedded-subscribe{
-			width: auto;
-			max-width: 20%;
-			border-left: none;
-			font-size: 0.5em;
-			padding: 6.5px 1%;
-			line-height: 2em;
-			vertical-align: middle;
-			margin-top: 6px;
+			width: 30%;
+			text-align: center;
+			height: 100%;
+			border-left: solid 2px #fff;
+			vertical-align: top;
+			margin: 0;
+			padding: 7px 5%;
 			@include transition(background-color,0.35s,ease-in-out);
 			@include transition(color,0.35s,ease-in-out);
 			&:hover{
 				color: $darkgrey;
 				background-color: $offwhite;
 			}
+		}
+		.mc-field-group {
+			font-size: 1em;
+			vertical-align: top;
+			border: solid 2px #fff;
+			padding: 0px;
+			margin: 0 0 20px 0;
+			height: 32px;
+			text-align: right;
 		}
 	}
 

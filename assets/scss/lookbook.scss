@@ -50,6 +50,12 @@
 			width: 3em;
 			border-top: 2px solid #eee;
 		}
+		em {
+			font-size: 0.4em;
+			font-style: normal;
+			display: block;
+			white-space: no-wrap;
+		}
 	}
 	h3{
 	text-transform: uppercase;
