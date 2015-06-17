@@ -4,8 +4,14 @@
 
 var app = {
 	slickSetting: {
-		dots: false,
-		adaptiveHeight: false
+		dots: true,
+		autoplay: true,
+		autoplaySpeed: 2000,
+		adaptiveHeight: false,
+		infinite: true,
+		speed: 500,
+		fade: true,
+		cssEase: 'linear'
 	},
 	init: function() {
 		console.log("app init started");
@@ -218,7 +224,7 @@ app.index = {
 		app.index.slick = $(".logos .descriptions").slick({
 			arrows: false,
 			autoplay: true,
-			autoplaySpeed: 3000
+			autoplaySpeed: 3000,
 		});
 		app.index.slick.on("beforeChange", app.index.slidechange);
 		$(".logo a").click(app.index.logoClick);

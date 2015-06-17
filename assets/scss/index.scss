@@ -1,11 +1,94 @@
 @import "settings";
 
+$slick-font-path: "./fonts/" !default;
+$slick-font-family: "slick" !default;
+$slick-loader-path: "./" !default;
+$slick-arrow-color: $blue !default;
+$slick-dot-color: $blue !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-prev-character: "←" !default;
+$slick-next-character: "→" !default;
+$slick-dot-character: "•" !default;
+$slick-dot-size: 36px !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+
 .index.slideshow{
 	height: 800px;
 	height: 80vh;
 	.slick-slide{
 		height: 800px;
 		height: 80vh;
+	}
+}
+
+.index {
+	.slick-dots {
+		position: relative;
+		bottom: 50px;
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+
+		ul {
+			position: relative;
+			bottom: 50px;
+			width: 100%;
+			/* margin: 0 auto; */
+			text-align: center;
+		}
+
+		li {
+			display: inline-block;
+			margin: 0 0.5em;
+		}
+
+		button {
+	            border: 0;
+				border-radius: 50%;
+				//background: transparent;
+				opacity: 0.6;
+				display: inline-block;
+				height: 13px;
+				width: 13px;
+				outline: 0;
+				line-height: 0;
+				font-size: 0;
+				color: transparent;
+				padding: 5px;
+				cursor: pointer;
+	        }
+
+
+	            &:hover, &:focus {
+	                outline: none;
+	                &:before {	           
+	                    opacity: $slick-opacity-on-hover;
+	                }
+	            }
+	            // &:before {
+	            //     // position: absolute;
+	            //     // top: 0;
+	            //     // left: 0;
+	            //     content: $slick-dot-character;
+	            //     // width: 20px;
+	            //     // height: 20px;
+	            //     font-family: $slick-font-family;
+	            //     font-size: $slick-dot-size;
+	            //     line-height: 20px;
+	            //     text-align: center;
+	            //     color: $slick-dot-color;
+	            //     opacity: $slick-opacity-not-active;
+	            //     -webkit-font-smoothing: antialiased;
+	            //     -moz-osx-font-smoothing: grayscale;
+	            // }
+	        // }
+	}
+		.slick-active button {
+		color: $blue;
+		background-color: $blue;
+		opacity: 0.5;
 	}
 }
 
@@ -176,6 +259,7 @@ blockquote {
 		}
 	}
 }
+
 
 
 

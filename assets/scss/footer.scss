@@ -23,16 +23,16 @@
 		}
 	}
 	.footer-nav{
-		width:16%;
+		width:20%;
 		li{
 			padding: 0.2em 0;
 		}
 		&.wide{
-			width: 30%;
+			width: 20%;
 		}
 	}
 	.news{
-		width: 35%;
+		width: 45%;
 		text-align: left;
 		span{
 			margin-bottom: 0.7em;
@@ -78,6 +78,7 @@
 			#mc_embed_signup{
 				margin: 0 auto;
 				max-width: 400px;
+				height: inherit;
 				width: 90%;
 				padding: 4% 5%;
 				display: inline-block;
@@ -105,6 +106,18 @@
 		#mc_embed_signup, #mc-embedded-subscribe {
 			padding: 0;
 			height: 100%;
+			border: none;
+			white-space: nowrap;
+			input {
+				padding: 0;
+				height: 100%;
+				border: none;
+			}
+			input[type=text] {
+				width: 5px;
+				border: none;
+			}
+			letter-spacing: 0.065em;
 		}
 		#mc-embedded-subscribe{
 			
@@ -121,6 +134,24 @@
 				color: $darkgrey;
 				background-color: $offwhite;
 			}*/
+		}
+		input#mce-EMAIL {
+			width: 68%;
+			background-color: transparent;
+			text-align: left;
+			padding-left: 2%;
+			color: $offwhite;
+		}
+		input#mc-embedded-subscribe {
+			width: 30%;
+			border-left: solid 2px #fff;
+			background-color: transparent;
+			@include transition(background-color,0.35s,ease-in-out);
+			@include transition(color,0.35s,ease-in-out);
+			&:hover{
+				color: $darkgrey;
+				background-color: $offwhite;
+			}
 		}
 		.mc-field-group {
 			font-size: 1em;
