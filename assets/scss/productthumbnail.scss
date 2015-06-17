@@ -1,6 +1,10 @@
 @import "settings";
 
+.subcollection{
+	margin-top: -50px;
+}
 #product .productthumbnail,.productthumbnail{
+
 	position: relative;
 	width: 30%;
 	overflow: hidden;
@@ -12,6 +16,18 @@
 	max-height: 30vw;	
 
 	opacity: 0.8;
+
+	margin-top: 50px;
+
+	@include at-query ($max, $large) {
+		width: 45%;
+		max-height: 45vw;	
+	}
+	@include at-query ($max, $medium) {
+		width: 90%;
+		max-height: 90vw;	
+	}	
+
 	@include transition(opacity,0.25s,ease-in-out);
 	&.big{
 		width: 60%;

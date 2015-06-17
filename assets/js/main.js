@@ -154,7 +154,7 @@ app.product = {
 			fade: true,
 			autoplay: true,
 			autoplaySpeed: 3000,
-			arrows: false
+			arrows: true
 		});
 	},
 	productImageClick: function(event) {

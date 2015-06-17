@@ -101,7 +101,7 @@
 		<div class="center">
 			{% comment %}<div class="logo">
 				{% include 'logo-small.html' %}
-			</div>{% endcomment %}<div class="footer-nav">
+			</div>{% endcomment %}<div class="containerfooter"><div class="footer-nav">
 			<span>Policies / Shipping</span>
 				{% for link in linklists.footer.links %}
 					<li><a href="{{link.url}}#{{link.handle}}">{{link.title}}</a></li>
@@ -111,7 +111,7 @@
 					{% comment %}<li><a href="/contact">Contact Us</a></li>{% endcomment %}
 					<li><span>Contact Us</span><br><a href="">hello@goodandhec.com</a></li>
 				</ul>
-			</div><div class="news">
+			</div></div><div class="news">
 				<div class="signupform">
 					<div>
 						<div id="mc_embed_signup">
