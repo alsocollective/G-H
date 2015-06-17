@@ -46,4 +46,14 @@
 		margin: 0 auto;
 		display: block;
 	}
+	.social-article{
+		text-align: center;
+		a{
+			display: inline-block;
+  			padding: 28.13px 10px;
+		}
+		svg{
+			fill: $darkgrey;
+		}
+	}
 }
