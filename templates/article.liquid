@@ -1,7 +1,37 @@
 <div class="article">
-
 	<h2>{{ article.title }}</h2>
 	<!-- <p>{{ article.published_at | date: '%d %B %Y' }}</p> -->
 	{{ article.content }}
-
+	{% assign currentArticle = article %}
+	<div class="social-article">
+		<a class="facebook" href="#facebook">{% include "social-facebook" %}</a>
+		<a class="twitter" href="#twitter">{% include "social-twitter" %}</a>
+	</div>
+	{% if blog.handle == "journal" %}
+		<div class="center blog">
+			<ul class=" bloglist" >
+				{% for article in blog.articles %}
+					{% if article.title != currentArticle.title%}
+						<li class="article">
+							<h4>{{article.title}}</h4>
+							<a href="{{article.url}}">
+								{% if article.excerpt contains "<img" %}
+									{% assign src = article.excerpt | split: 'src="' %}
+									{% assign src = src[1] | split: '"' | first %}
+									
+									<img src="{{src}}" class="left"><span class="right">
+										<span class="excerpt">{{article.excerpt}}</span>
+										<button class="share socialbutton">share</button>
+									</span>
+								{% else %}
+									<span class="excerpt">{{article.excerpt}}</span>
+									<button class="share socialbutton">share</button>
+								{% endif %}
+							</a>
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
 </div>

@@ -154,7 +154,7 @@ app.product = {
 			fade: true,
 			autoplay: true,
 			autoplaySpeed: 3000,
-			arrows: false
+			arrows: true
 		});
 	},
 	productImageClick: function(event) {
@@ -302,8 +302,8 @@ app.slideshow = {
 
 app.social = {
 	init: function() {
-		$(".social .facebook").click(app.social.events.facebookPageClick)
-		$(".social .twitter").click(app.social.events.twitterPageClick)
+		$(".social .facebook,.social-article .facebook,.social-product .facebook").click(app.social.events.facebookPageClick)
+		$(".social .twitter,.social-article .twitter,.social-product .twitter").click(app.social.events.twitterPageClick)
 
 		if ($(".socialbutton").length) {
 			app.social.initilizeButton();
@@ -335,7 +335,7 @@ app.social = {
 			var el = $(document.createElement("button"));
 			el.addClass("facebook");
 			el[0].href = url;
-			$(".facebook svg").clone().appendTo(el);
+			$(".social .facebook svg").clone().appendTo(el);
 			el.click(app.social.events.facebookClick);
 			return el
 		},
@@ -343,7 +343,7 @@ app.social = {
 			var el = $(document.createElement("button"));
 			el.addClass("twitter");
 			el[0].href = "https://twitter.com/intent/tweet?text=" + url;
-			$(".twitter svg").clone().appendTo(el);
+			$(".social .twitter svg").clone().appendTo(el);
 			el.click(app.social.events.twitterClick);
 			return el
 		}
@@ -356,7 +356,7 @@ app.social = {
 			return false;
 		},
 		twitterPageClick: function(event) {
-			var w = window.open("https://twitter.com/intent/tweet?text=" + window.location.href, this.target || "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
+			var w = window.open("https://twitter.com/intent/tweet?text=" + window.location.href, "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
 			event.preventDefault();
 			event.stopPropagation();
 			return false;

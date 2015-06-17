@@ -27,7 +27,7 @@ body #wrapper .sociallinks{
 		@include transition(background-color,0.35s,ease-in-out);
 		background-color: transparent;
 
-		border: 3px solid $darkgrey;
+		border: 2px solid $darkgrey;
 		// background-color: $offwhite;
 
 		&:hover{
