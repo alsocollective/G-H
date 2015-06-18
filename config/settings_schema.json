@@ -32,8 +32,23 @@
 		}, {
 			"label": "SignUp footer text",
 			"type": "textarea",
-		"id": "stayintouchfooter"
+			"id": "stayintouchfooter"
 		}
 
 	]
+}, {
+	"name": "Shipping",
+	"settings": [{
+		"label": "Canada Shipping",
+		"type": "textarea",
+		"id": "ship_can"
+	}, {
+		"label": "US Shipping",
+		"type": "textarea",
+		"id": "ship_us"
+	}, {
+		"label": "World Shipping",
+		"type": "textarea",
+		"id": "ship_world"
+	}]
 }]

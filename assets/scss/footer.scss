@@ -17,7 +17,10 @@
 		vertical-align: top;
 		display: inline-block;
 		padding-left: 4%;
-		// padding-right: 4%;
+		@include at-query ($max, $medium) {
+			padding-left: 0%;
+		}		
+
 	}
 	.logo{
 		width:15%;
@@ -35,7 +38,7 @@
 			width: 40%;
 		}		
 		@include at-query ($max, $medium) {
-			width: 50%;
+			width: 80%;
 			margin: 0 auto;
 			display: block;
 			padding-bottom: 0;
@@ -58,6 +61,10 @@
 			width:55%;
 		}				
 		@include at-query ($max, $medium) {
+			width: 80%;
+			margin: 0 auto;
+			display: block;
+			padding-left: 0;			
 			padding-top: 0;
 		}		
 		text-align: left;
