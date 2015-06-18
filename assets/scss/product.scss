@@ -1,13 +1,11 @@
 @import "settings";
 
 #product{
-	//@extend .center;
-		width: 100%;
-		//max-width: 1400px;
-		position: relative;
-		z-index: 2;
-		margin: 0 auto;
-		text-align: center;
+	width: 100%;
+	position: relative;
+	z-index: 2;
+	margin: 0 auto;
+	text-align: center;
 
 	.multi-product{
 		padding-bottom: $pb;
@@ -29,12 +27,13 @@
 	}
 
 	.col-1, .col-2, .col-3 {
-		//width: 33%;
 		vertical-align: top;
 		display: inline-block;
 		margin: 4em 0;
 		padding: 0;
-		//background-color: #ccc;					
+		@include at-query ($max, $medium) {
+			margin: 0;
+		}
 	}
 
 	.col-1 {
@@ -42,6 +41,16 @@
 
 		display: inline-block;
 		vertical-align: top;
+		@include at-query ($max, $medium) {
+			display: none;
+			width: 100%;
+		}	
+		&.second-buy{
+			display: none;
+			@include at-query ($max, $medium) {
+				display: block;
+			}	
+		}
 
 		ul{
 			padding: 1em 0;
@@ -165,7 +174,12 @@
 	.col-2 {
 		width: 40%;
 		//max-width: 600px;
-
+		@include at-query ($max, $large) {
+			width: 60%;
+		}
+		@include at-query ($max, $medium) {
+			width: 100%;
+		}
 		.main{
 			width: 100%;
 			position: relative;
@@ -201,112 +215,21 @@
 	}
 	.col-3 {
 		width: 30%;
+		@include at-query ($max, $large) {
+			width: 60%;
+			padding-left: 35%;
+			max-width: 600px;
+			display: block;
+			margin: 0;
+		}		
+		@include at-query ($max, $medium) {
+			width: 100%;
+		}		
 		.description{
-			/*padding-top: 0.5*$pb;
-			ul{
-				padding: 0.125*$pb 0 0 0;
-			}*/
 			padding: 0 5%;
 		}
 	}
 
-	/*.left{
-		width: 50%;
-		display: inline-block;
-		vertical-align: top;
-		//margin-top:	0.375*$pb;
-		.list{
-			width: 20%;
-			display: inline-block;
-			vertical-align: top;
-			img{
-				width: 70%;
-				margin: 0 20% 20% 0;
-			}
-		}
-		.main{
-			width: 100%;
-			//border: solid 1px #333;
-			//height: 300px;
-			display: inline-block;
-			vertical-align: top;
-			overflow: hidden;
-			//overflow-y: visible;
-			img{
-				width: auto;
-				margin: 0 auto;
-				height: 80vh;
-			}
-			.product-slides {
-				width: 100%;
-				overflow: hidden;
-				background-color: #fff;
-			}
-			.draggable:focus,.slick-track:focus,.slick-slide:focus {
-				outline:none;
-			}			
-		}
-	}
-	.right{
-		width: 40%;
-		margin-left: 5%;
-		display: inline-block;
-		vertical-align: top;
-
-		ul{
-			padding: 1em 0;
-			li{
-				font-size: 0.90em;
-				color: $darkgrey;
-			}
-		}	
-		select{
-			// display: none;
-		}	
-		.producttitle{
-			
-		}
-		.price{
-			// padding-top: 0.5*$pb;
-			// text-align: right;
-			// width: 80%;
-			// color: $blue;
-		}
-		.description{
-			padding-top: 0.5*$pb;
-			ul{
-				padding: 0.125*$pb 0 0 0;
-			}
-		}
-		.quantity,.add{
-			border: 2px solid $black;
-			padding: 1em 0;
-			width: 40%;
-			margin-right: 2%;
-		}
-		.available-colours{
-			padding-top: 0.5*$pb;
-			ul{
-				padding: 0.125*$pb 0 0 0;
-			}
-			li{
-				display: inline-block;
-			}
-			a {
-				text-decoration: none;
-			}
-		}
-		.sizing{
-			padding: 0.5*$pb 0;
-		}
-
-		.currentcolour{
-			text-decoration: underline;
-		}
-		.selected{
-			border: solid 1px #f00;
-		}
-	}*/
 
 	.sizechart{
 		padding-top: 0.5*$pb;
