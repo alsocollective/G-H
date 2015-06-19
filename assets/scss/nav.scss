@@ -83,6 +83,7 @@
 			}			
 		}
 
+
 	}
 	.nav-item-clickable{
 		display: block;
@@ -182,11 +183,21 @@
 	}
 	li li:hover{
 		margin-bottom: -1px;
-  		border-bottom: 1px solid $blue;
+		border-bottom: 1px solid $blue;
+  		@include at-query ($max, $large) {
+  			margin-bottom: 0px;
+  			border-bottom: none;
+  		}
   		a{
   			color: $black;
   		}
-  }
+  	}
+	.selected a{
+		color: $black;
+		@include at-query ($max, $large) {
+			color: $blue;
+		}
+	}
 }
 
 @include at-query ($max, $large) {

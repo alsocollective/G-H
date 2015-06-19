@@ -120,6 +120,9 @@
 	p {
 		font-size: 1em;
 	}
+	li>a{
+		display: inline;
+	}
 
 	p:first-of-type {
 		// font-size: 0.1em;

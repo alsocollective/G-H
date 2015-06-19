@@ -119,6 +119,11 @@ $slideHightTab: 400px;
 		img{
 			@include vertical-align;
 			width: 100%;
+			@include at-query ($max, $medium) {
+				width: auto;
+				height: 100%;
+				height: 80vh;
+			}
 		}	
 	}
 	.slick-prev,.slick-next{

@@ -272,6 +272,16 @@
 		svg {
 			fill: $black;
 		}
+
+		&.second{
+			display: none;
+		}
+		@include at-query ($max, $large) {
+			display: none;
+			&.second{
+				display: block;
+			}
+		}
 		// a:first-child{
 		// 	padding-top: 0;
 		// }
