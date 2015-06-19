@@ -51,4 +51,17 @@
 		"type": "textarea",
 		"id": "ship_world"
 	}]
+}, {
+	"name": "Pop ups",
+	"settings": [{
+			"label": "Current Popups tagged popup-current",
+			"type": "textarea",
+			"id": "popup-current"
+		}, {
+			"label": "Future Popups tagged popup-future",
+			"type": "textarea",
+			"id": "popup-future"
+		}
+
+	]
 }]

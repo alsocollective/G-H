@@ -10,64 +10,7 @@
 	{% endfor %}
 
 	<div class="col-1">
-		<div class="order-info">
-			<h3 class="price">&mdash;{{ product.price | money }}&mdash;</h3>
-
-			{% if product1 %}
-			<div class="available-colours">
-				<h3>Colours</h3>
-				<ul>
-					{% assign keep = product %}
-					{% assign product = product0 %}{% include "product-colour-option"%}{% assign product = product1 %}{% include "product-colour-option"%}{% endif %}{% if product2 %}{% assign product = product2 %}{% include "product-colour-option"%}{% endif %}{% if product3 %}{% assign product = product3 %}{% include "product-colour-option"%}{% endif %}{% if product1 %}
-					{% assign product = keep %}
-				</ul>
-			</div>
-			{% endif %}
-			
-			{% assign productCount = product.variants | size%}
-			
-			<div class="sizing">
-				{% if productCount > 1 %}
-					<h3>Sizes</h3>
-					{% for variant in product.variants %}
-						{% if variant.available == true %}
-							<button class="button small {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}">{{ variant.title }}</button>
-						{% else %}
-							<button class="button small notavailable {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}" >{{ variant.title }}</button>
-						{% endif %}
-					{% endfor %}
-				{% endif %}
-			</div>
-			
-			
-			<form action="/cart/add" method="post" enctype="multipart/form-data" data-id="{{product.id}}">
-				<select name="id" class="sizeselector hide">
-					{% for variant in product.variants %}
-						{% if variant.available == true %}
-							<option value="{{variant.id}}" > {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
-						{% else %}
-							<option disabled="disabled"> {{ variant.title }} - sold out!</option>
-						{% endif %}
-					{% endfor %}
-				</select>
-				<h3>Quantity</h3>
-				<input class="quantity" type="number" name="quantity" class="styled-input" value="1" min="1" >
-				<input class="add" type="submit" name="add" class="button large" value="Add to Bag" >
-			</form>
-
-			{% capture pageName %}{{product.type|handleize}}{% endcapture%}
-			{% if pages[pageName].content != ""%}
-				<div class="sizechart hide">
-					<h3><a href="#" class="fitguide"><span class="show">Show</span><span class="notshow">hide</span> Fit Guide</a></h3>
-					<div class="">
-						{{ pages[pageName].content }}
-					</div>
-					
-				</div>
-			{% endif %}	
-
-		</div>
-		
+		{% include "product-order-info" %}
 	</div><div class="col-2">
 		<div class="main">
 			{% for image in product.images %} 
@@ -81,64 +24,7 @@
 		</div>
 
 	</div><div class="col-1 second-buy">
-		<div class="order-info">
-			<h3 class="price">&mdash;{{ product.price | money }}&mdash;</h3>
-
-			{% if product1 %}
-			<div class="available-colours">
-				<h3>Colours</h3>
-				<ul>
-					{% assign keep = product %}
-					{% assign product = product0 %}{% include "product-colour-option"%}{% assign product = product1 %}{% include "product-colour-option"%}{% endif %}{% if product2 %}{% assign product = product2 %}{% include "product-colour-option"%}{% endif %}{% if product3 %}{% assign product = product3 %}{% include "product-colour-option"%}{% endif %}{% if product1 %}
-					{% assign product = keep %}
-				</ul>
-			</div>
-			{% endif %}
-			
-			{% assign productCount = product.variants | size%}
-			
-			<div class="sizing">
-				{% if productCount > 1 %}
-					<h3>Sizes</h3>
-					{% for variant in product.variants %}
-						{% if variant.available == true %}
-							<button class="button small {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}">{{ variant.title }}</button>
-						{% else %}
-							<button class="button small notavailable {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}" >{{ variant.title }}</button>
-						{% endif %}
-					{% endfor %}
-				{% endif %}
-			</div>
-			
-			
-			<form action="/cart/add" method="post" enctype="multipart/form-data" data-id="{{product.id}}">
-				<select name="id" class="sizeselector hide">
-					{% for variant in product.variants %}
-						{% if variant.available == true %}
-							<option value="{{variant.id}}" > {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
-						{% else %}
-							<option disabled="disabled"> {{ variant.title }} - sold out!</option>
-						{% endif %}
-					{% endfor %}
-				</select>
-				<h3>Quantity</h3>
-				<input class="quantity" type="number" name="quantity" class="styled-input" value="1" min="1" >
-				<input class="add" type="submit" name="add" class="button large" value="Add to Bag" >
-			</form>
-
-			{% capture pageName %}{{product.type|handleize}}{% endcapture%}
-			{% if pages[pageName].content != ""%}
-				<div class="sizechart hide">
-					<h3><a href="#" class="fitguide"><span class="show">Show</span><span class="notshow">hide</span> Fit Guide</a></h3>
-					<div class="">
-						{{ pages[pageName].content }}
-					</div>
-					
-				</div>
-			{% endif %}	
-
-		</div>
-		
+		{% include "product-order-info" %}
 	</div><div class="col-3">
 		<div class="description">
 			<h3>Details</h3>
