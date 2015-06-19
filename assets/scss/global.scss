@@ -67,7 +67,7 @@ p{
 	position: relative;
 	padding-top: 100+$pb;
 	@include at-query ($max, $large) {
-		padding-top: $pb;
+		padding-top: 100px;
 	}
 	// > div:first-child{
 	// 	margin-top: 80px;
@@ -89,6 +89,7 @@ $slideHightTab: 400px;
 	margin: -$pb 0 2*$pb 0;
 	height: $slideHight;
 	@include at-query ($max, $large) {
+		margin: 0 0 2*$pb 0;
 		height: $slideHightTab;
 	}
 	height: $slideVh;

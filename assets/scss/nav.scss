@@ -4,7 +4,7 @@
 #nav{
 
 	z-index: 9999;
-	//background-color: $white;
+	background-color: $white;
 	background-color: rgba(255,255,255,0.95);
 	position: fixed;	
 	width: 100%;
@@ -21,7 +21,9 @@
 		text-align: center;
 		font-size: 2em;
 		overflow: visible;
+		background-color: $white;
 	}
+
 
 
 	>div{
@@ -29,7 +31,7 @@
 		@include at-query ($max, $large) {
 			overflow: scroll;
 			height: 100%;
-		}		
+		}
 	}
 	>ul,div{
 		vertical-align: top;
@@ -41,10 +43,12 @@
 		position: fixed;
 		left: 0;
 		top: 0;
-		@include at-query ($max, $large) {
-			
-		}
 		padding: 1.8em 0 1em 3.5em;
+		@include at-query ($max, $large) {
+			position: absolute;
+			padding: 24px 40px 20px 24px;
+		}
+		
 		svg{
 			width: 90px;
 			height: 52px;
@@ -118,6 +122,9 @@
 		@include at-query ($min, $large) {
 			position: absolute;
 		}
+		@include at-query ($max, $medium) {
+			padding-top: 140px;
+		}
 		
 		li{
 			text-align: center;
@@ -159,6 +166,10 @@
 			padding: $pb;
 			line-height: 0;
 			display: block;
+			@include at-query ($max, $large) {
+				padding: 43px 27px 60px 40px;
+			}
+
 		}
 	}
 
@@ -180,7 +191,24 @@
 
 @include at-query ($max, $large) {
 	.opennav #nav{
-		left: 0%;
+		left: 0%;	
+	}
+}
+
+#nav-logo-mobile{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3;
+	
+	@include at-query ($max, $large) {
+		display: block;
+	}
+	svg{
+		width: 90px;
+		height: 52px;
+		padding: 24px 40px 20px 24px;	
 	}
 }
 
