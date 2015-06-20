@@ -5,22 +5,22 @@
 {% endif %}
 
 <div class="productthumbnail {% if bigNext == bigIndex %}big{% endif %}">
-	{% if pro_split_count > 2 %}
-		<a href="{{product.url}}#{{pro_split[2] | handleize }}">
-	{% else %}
-		<a href="{{product.url}}#{{pro_split[1] | handleize }}">
-	{% endif %}			
 		<span class="text" href="#">
 			<h3>{{pro_split | first}}</h3>
 			{% if pro_split_count > 1 %}
 			<h4>{{pro_split[1]}}</br>{{pro_split[2]}}</h4>
 			{% endif %}			
 		</span>
-
-		{% if bigNext == bigIndex %} 
-			<img src="{{ product.images | last | product_img_url: '1024x1024' }}">
-		{% else %}
-			<img src="{{ product.featured_image | product_img_url: 'large' }}">
-		{% endif %}		
-	</a>	
+	{% if pro_split_count > 2 %}
+		<a href="{{product.url}}#{{pro_split[2] | handleize }}" class="cover"></a>
+	{% else %}
+		<a href="{{product.url}}#{{pro_split[1] | handleize }}" class="cover"></a>
+	{% endif %}			
+		
+	{% if bigNext == bigIndex %} 
+		<img src="{{ product.images | last | product_img_url: '1024x1024' }}">
+	{% else %}
+		<img src="{{ product.featured_image | product_img_url: 'large' }}">
+	{% endif %}		
+		
 </div>
