@@ -93,10 +93,11 @@
 			min-width: 145px;
 			background-color: $black;
 			color: #fff;
+			z-index: 2;
 		}
 		.quantity {
-			//color: $blue;
 			padding: .8em 0 0.8em 4%;
+			margin-right: 2%;
 		}
 		.available-colours{
 			padding-top: 0.5*$pb;
@@ -109,6 +110,9 @@
 			}
 			a {
 				text-decoration: none;
+			}
+			.white{
+				border: solid 1px $black;
 			}
 		}
 		.sizing{
@@ -152,22 +156,55 @@
 				box-shadow: inset 0px 0px 0px #fff;
 
 				.color-select {
-					background-color: #fff;
+					background-color: $white;
 					opacity: 0.8;
+				}
+				&.white{
+					.color-select{
+						background-color: $black;
+					}
 				}
 			}
 		}
 
-		form {
+		.product-form {
 			padding-top: $pb*0.5;
 			text-align: left;
+			position: relative;
+			.inputcontainer{
+				display: inline-block;
+				position: relative;
+			}
+			input{
+				position: relative;
+			}
 		}
+
 
 		tr {
 			border-bottom: solid 1px #ddd;
 		}
 		td {
 			padding: 0.2em 0;
+		}
+
+		.added-tocart{
+			display: inline-block;
+			position: absolute;
+			left: 27%;
+			top: 0%;
+			border: solid 1px black;
+			width: 40%;
+			min-width: 143px;
+			border-top: none;
+			text-align: center;
+			padding: 0.5em 0;
+			@include transition(top,0.35s,ease-in-out);
+
+			&.added-active{
+				top: 100%;
+			}
+
 		}
 	}
 
@@ -271,6 +308,16 @@
 		}
 		svg {
 			fill: $black;
+		}
+
+		&.second{
+			display: none;
+		}
+		@include at-query ($max, $large) {
+			display: none;
+			&.second{
+				display: block;
+			}
 		}
 		// a:first-child{
 		// 	padding-top: 0;

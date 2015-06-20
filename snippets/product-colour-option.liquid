@@ -8,8 +8,8 @@
 			{%endif%}
 		{%endfor%}
 
-		{% if newtagsplit[1] %}<div class="colourswatch" style="background-color:#{{newtagsplit[1]}};"><div class="color-select"></div></div>{% endif %}
-		{% if newtagsplit[2] %}<div class="colourswatch" style="background-color:#{{newtagsplit[2]}};"><div class="color-select"></div></div>{% endif %}
+		{% if newtagsplit[1] %}<div class="colourswatch {% if newtagsplit[1] contains "fff" %}white{% endif %}" style="background-color:#{{newtagsplit[1]}};"><div class="color-select"></div></div>{% endif %}
+		{% if newtagsplit[2] %}<div class="colourswatch {% if newtagsplit[2] contains "fff" %}white{% endif %}" style="background-color:#{{newtagsplit[2]}};"><div class="color-select"></div></div>{% endif %}
 	</a>
 			<!-- <img src="{{ product.images[0] | product_img_url: 'large' }}"> -->
 	

@@ -111,6 +111,10 @@
 }
 
 
+.popup a{
+	color: $blue;
+}
+
 .popup-article{
 	position: relative;
 	padding: 3em 2em 2.5em 2em;
@@ -119,6 +123,9 @@
 
 	p {
 		font-size: 1em;
+	}
+	li>a{
+		display: inline;
 	}
 
 	p:first-of-type {

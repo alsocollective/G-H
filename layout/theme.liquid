@@ -63,7 +63,7 @@
 							<span class="sublist">
 								<ul>
 									{% for sublink in linklists[child_list_handle].links %}
-										<li><a href="{{ sublink.url }}">{{sublink.title}}</a></li>	
+										<li class="{% if sublink.active %}selected{% endif %}"><a href="{{ sublink.url }}">{{sublink.title}}</a></li>	
 									{% endfor %}
 								</ul>
 							</span>

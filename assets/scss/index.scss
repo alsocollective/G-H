@@ -161,6 +161,11 @@ blockquote {
 		position: relative;
 		padding: 5%;
 		width: 20%;
+		@include at-query ($max, $medium) {
+			width: 33%;
+			padding: 0;
+			overflow: hidden;
+		}
 		.hover{
 			position: absolute;
 			left: 0;
@@ -179,6 +184,11 @@ blockquote {
 	svg{
 		@include transition(fill, 0.35s, ease-out);
 		fill: $grey;
+		@include at-query ($max, $medium) {
+			position: relative;
+			left: 50%;
+			@include vendorize(transform, translate(-50%,20%))
+		}
 	}
 	.descriptions > div{
 		// display: none;
@@ -194,6 +204,13 @@ blockquote {
 		// @include vendorize(animation-fill-mode, both);		
 		// @include animation('highlight 0.5s');
 	}
+
+	@include at-query ($max, $medium) {
+		blockquote{
+			margin: 0;
+			width:100%;
+		}
+	}
 }
 
 .company {
@@ -203,6 +220,10 @@ blockquote {
 	min-width: 400px;
 	margin: 0 auto;
 	padding-top: 1em;
+	@include at-query ($max, $medium) {
+		width: 100%;
+		min-width: inherit;
+	}	
 	// font-size: 1.3em;
 	// line-height: 1.6em;
 	// letter-spacing: .04em;
@@ -213,11 +234,22 @@ blockquote {
 	width: 90%;
 	display: block;
 	margin: 0 auto;
+
+	@include at-query ($max, $medium) {
+		padding-top: 1.25*$pb;
+		margin-bottom: -$pb/2
+	}
+
 	> div {
 		width: 33.3%;
 		display: inline-block;
 		overflow: hidden;
 		position: relative;
+		@include at-query ($max, $medium) {
+			width: 90%;
+			display: block;
+			margin: 40px auto 0 auto;
+		}
 	}
 	img{
 		width: 100%;

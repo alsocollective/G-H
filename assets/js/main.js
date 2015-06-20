@@ -43,6 +43,7 @@ var app = {
 			app.lookbook.init();
 		}
 		$(".lifestyle").slick(app.slickSetting);
+		$('a[href$="mailinglist"]').click(app.signup.open);
 		app.smooth.body.height("");
 	}
 }
@@ -125,12 +126,29 @@ app.constant = {
 app.signup = {
 	init: function() {
 		$(".popup-exit").click(app.signup.exit);
+		$(".signupform").click(app.signup.exit);
 		if (!Cookies.get("closePopup")) {
-			$(".signupform").addClass("show");
+			app.signup.open();
 		}
 	},
+	open: function(event) {
+		$(".signupform").addClass("show");
+		$(".signupform .email").focus();
+		if (event.preventDefault) {
+			event.preventDefault();
+		}
+		return false;
+	},
 	exit: function(event) {
+		console.log(event.target);
+		console.log(event.target.id);
+		console.log($(event.target).prop("tagName"));
+		if (event.target.id == "mc_embed_signup" || $(event.target).hasClass("popup") || $(event.target).prop("tagName") == "INPUT") {
+			return true;
+		}
+
 		$(this).closest(".show").removeClass("show");
+
 		Cookies.set("closePopup", true, {
 			expires: 1
 		});
@@ -174,6 +192,10 @@ app.product = {
 	sizingClick: function(event) {
 		event.preventDefault();
 		var parent = $(this.parentNode.parentNode)
+		if ($(this).hasClass("notavailable")) {
+			return false;
+			// possible to alert sold out
+		}
 		parent.find("button.selected").removeClass("selected");
 		$(this).addClass("selected");
 		parent.find(".sizeselector").val(this.id);
@@ -212,9 +234,13 @@ app.product = {
 		$("#cartitemcount").html(data.item_count)
 		$("#carttotalcost").html("$" + parseFloat(data.total_price * 0.01).toFixed(2));
 		$("#nav-cart").addClass("updated");
+		$(".added-tocart").addClass("added-active");
 		setTimeout(function() {
 			$("#nav-cart").removeClass("updated");
-		}, 1000)
+		}, 1000);
+		setTimeout(function() {
+			$(".added-tocart").removeClass("added-active");
+		}, 3000);
 	}
 }
 
