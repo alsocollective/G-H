@@ -5,10 +5,10 @@ Setting up the variables for the page
 {% assign limit = 6 %}
 {% assign col = product.collections.first.handle %}
 {% assign products = collections[col].products %}
+{% assign productCount = products | size %}
 {% assign skip_product = product %}
 {% assign skip_product_split = product.title | split: "|" %}
 {% assign skip_product_split_count = skip_product_split | size %}
-
 {% assign productLoop = "product0|product1|product2|product3" | split: "|" %}
 {% assign includeColours = 0 %}
 {% include "product-get-colour-productlist" %}
@@ -30,7 +30,6 @@ Setting up the variables for the page
 		{% assign product = product3 %}
 		{% include "product-page-content"%}
 	{% endif %}	
-
 
 	<div class="similar-products">
 		<h3 class="lined">Similar Products</h3>

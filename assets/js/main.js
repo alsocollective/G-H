@@ -360,7 +360,7 @@ app.social = {
 		facebook: function(url) {
 			var el = $(document.createElement("button"));
 			el.addClass("facebook");
-			el[0].href = url;
+			el[0].href = url + " " + app.social.facebook;
 			$(".social .facebook svg").clone().appendTo(el);
 			el.click(app.social.events.facebookClick);
 			return el
@@ -368,7 +368,7 @@ app.social = {
 		twitter: function(url) {
 			var el = $(document.createElement("button"));
 			el.addClass("twitter");
-			el[0].href = "https://twitter.com/intent/tweet?text=" + url;
+			el[0].href = "https://twitter.com/intent/tweet?text=" + url + " " + app.social.twitter;
 			$(".social .twitter svg").clone().appendTo(el);
 			el.click(app.social.events.twitterClick);
 			return el
@@ -376,13 +376,13 @@ app.social = {
 	},
 	events: {
 		twitterClick: function(event) {
-			var w = window.open(this.href, this.target || "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
+			var w = window.open(this.href + " " + app.social.facebook, this.target || "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
 			event.preventDefault();
 			event.stopPropagation();
 			return false;
 		},
 		twitterPageClick: function(event) {
-			var w = window.open("https://twitter.com/intent/tweet?text=" + window.location.href, "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
+			var w = window.open("https://twitter.com/intent/tweet?text=" + window.location.href + " " + app.social.twitter, "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
 			event.preventDefault();
 			event.stopPropagation();
 			return false;

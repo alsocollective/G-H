@@ -29,6 +29,12 @@
 	}
 	p{
 		width: 60%;
+		@include at-query ($max, $large) {
+			width: 80%;
+		}
+		@include at-query ($max, $medium) {
+			width: 100%;
+		}
 		margin: 0 auto;
 		padding-top: 1em;
 		font-size: 1.3em;
@@ -120,6 +126,9 @@
 	padding: 3em 2em 2.5em 2em;
 	margin: 0 -2em;
 	border-bottom: $border;
+	@include at-query ($max, $medium) {
+		border: none;
+	}
 
 	p {
 		font-size: 1em;
@@ -129,9 +138,8 @@
 	}
 
 	p:first-of-type {
-		// font-size: 0.1em;
-		width: 30%;
 		padding: 0;
+
 	}
 
 	a{
@@ -146,24 +154,31 @@
 		padding: 0 0 1em 0;
 		letter-spacing: 0.15em;
 		color: $blue;
-
-		&::before {
-			content: "—"
+		@include at-query ($max, $medium) {
+			max-width: 70%;
+			display: block;
+			margin: 0 auto;
 		}
-		&::after {
-			content: "—"
+
+		&::before,&::after {
+			content: "—";
+			@include at-query ($max, $medium) {
+				display: block;
+			}
 		}
 	}
 	
 	p{
 		display: inline-block;
 		width: 30%;
-		//padding: 0;
 		vertical-align: top;
-		// &:last-child{
-		// 	color: $grey;
-		// }
 		padding: 0 1em;
+		@include at-query ($max, $medium) {
+			width: 100%;
+			padding: 1em 0;
+			margin: 0 auto;
+			display: block;			
+		}		
 	}
 	img{
 		max-width: 100%;
@@ -179,6 +194,11 @@
 		width: 34%;
 		text-align: right;
 		display: inline-block;
+		@include at-query ($max, $medium) {
+			width: 100%;
+			margin: 0 auto;
+			display: block;			
+		}		
 	}
 
 	.caption {
@@ -191,6 +211,9 @@
 
 	&:hover {
 		background-color: $offwhite;
+		@include at-query ($max, $medium) {
+			background-color: transparent;
+		}
 	}
 }
 

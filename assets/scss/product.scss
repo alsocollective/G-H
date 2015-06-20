@@ -14,6 +14,7 @@
 	h3 {
 		letter-spacing: 0.08em;
 		margin-bottom: 0.8em;
+		margin-top: 1em;
 	}
 
 	h4 {
@@ -24,6 +25,7 @@
 
 	p {
 		font-size: 1em;
+		margin-bottom: 0.6em;
 	}
 
 	.col-1, .col-2, .col-3 {
@@ -31,7 +33,7 @@
 		display: inline-block;
 		margin: 4em 0;
 		padding: 0;
-		@include at-query ($max, $medium) {
+		@include at-query ($max, $inbetween) {
 			margin: 0;
 		}
 	}
@@ -41,13 +43,13 @@
 
 		display: inline-block;
 		vertical-align: top;
-		@include at-query ($max, $medium) {
+		@include at-query ($max, $inbetween) {
 			display: none;
 			width: 100%;
 		}	
 		&.second-buy{
 			display: none;
-			@include at-query ($max, $medium) {
+			@include at-query ($max, $inbetween) {
 				display: block;
 			}	
 		}
@@ -195,7 +197,7 @@
 			top: 0%;
 			border: solid 1px black;
 			width: 40%;
-			min-width: 143px;
+			min-width: 142px;
 			border-top: none;
 			text-align: center;
 			padding: 0.5em 0;
@@ -214,7 +216,7 @@
 		@include at-query ($max, $large) {
 			width: 60%;
 		}
-		@include at-query ($max, $medium) {
+		@include at-query ($max, $inbetween) {
 			width: 100%;
 		}
 		.main{
@@ -259,7 +261,7 @@
 			display: block;
 			margin: 0;
 		}		
-		@include at-query ($max, $medium) {
+		@include at-query ($max, $inbetween) {
 			width: 100%;
 		}		
 		.description{
