@@ -9,18 +9,18 @@
 		{{ page.content }}
 	</div>{% endcomment %}
 
-	<h3 class="lined">{{ pages["good-and-hec"].title }}</h3>
+	<h2>{{ pages["good-and-hec"].title }}</h2>
 	<div class="gandh">
 		{{ pages["good-and-hec"].content }}
 		<div class="clear"></div>
 	</div>
 
-	<h3 class="lined">Our Philosophy</h3>
+	<h2>Our Philosophy</h2>
 	<div class="philosophy">
 		{{ pages["philosophy"].content }}
 	</div>
 
-	<h3 class="lined">Our Garments<a href="https://good-hec.myshopify.com/admin/articles?query=Our+Garments"> <strong class="edit-here">Edit here</strong></a></h3>
+	<h2>Our Garments{% comment %}<a href="https://good-hec.myshopify.com/admin/articles?query=Our+Garments"><strong class="edit-here">Edit here</strong></a>{% endcomment %}</h2>
 	<div class="process">
 	{% assign blog = blogs["garments"] %}
 	{% assign bigCount = 3 %}
@@ -35,7 +35,7 @@
 
 	</div>
 
-	<h3 class="lined">Our Benches<a href="https://good-hec.myshopify.com/admin/articles?query=Benches"> <strong class="edit-here">Edit here</strong></a></h3>
+	<h2>Our Benches<a href="https://good-hec.myshopify.com/admin/articles?query=Benches">{% comment %} <strong class="edit-here">Edit here</strong></a>{% endcomment %}</h2>
 	<div class="process">
 	{% assign blog = blogs["benches"] %}
 	<ul>

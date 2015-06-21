@@ -3,7 +3,7 @@
 
 <div id="{{ productTitleSplit | last | handleize}}id" class="multi-product {% if skip_product.title != product.title %}hide{% endif %}">
 
-	<h3 class="producttitle lined">{{ productTitleSplit | first }}</h3>
+	<h2 class="producttitle">{{ productTitleSplit | first }}</h2>
 
 	{% for title in productTitleSplit %}
 		{% if forloop.first == false %}<h4 class="productsubtitle">{{title}}</h4>{% endif %}

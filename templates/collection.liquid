@@ -24,7 +24,8 @@
 				{% if pro_split[1] contains "Blank" %}
 					{% if blankPreviousSelection != true %}
 						</div>
-						<h3 class="lined">The Core Blank</h3>
+						{% comment %}<h3 class="lined">The Core Blank</h3>{% endcomment %}
+						<h2>The Core Blank</h2>
 						<div class="subcollection">
 						{% assign blankPreviousSelection = true %}
 					{% endif %}
@@ -32,7 +33,8 @@
 					{% assign blankPreviousSelection = false %}
 					{% if productType != section %}
 						</div>
-						<h3 class="lined">{{productType}}</h3>
+						{% comment %}<h3 class="lined">{{productType}}</h3>{% endcomment %}
+						<h2 class="lined">{{productType}}</h2>
 						<div class="subcollection">
 						{% assign section = productType %}
 					{% endif %}
