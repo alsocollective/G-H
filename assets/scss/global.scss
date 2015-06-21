@@ -20,16 +20,15 @@ h1 {
 h2 {
 	text-transform: uppercase;
 	font-weight: normal;
+	font-size: 1.3em;
+	text-align: center;
+	letter-spacing: 0.2em;
 
-	padding-bottom: $pb*0.25;
+	padding: $pb 0 $pb*0.2 0;
 	border-bottom: $border;
 	margin: 0 auto 0.5*$pb auto;
-	padding: $pb 0 $pb*0.25 0;
-
-	width: 45%;
-	text-align: center;
-	text-transform: uppercase;
-	letter-spacing: 0.2em;
+	
+	width: 50%;
 	color: #888;
 }
 
@@ -52,13 +51,27 @@ h3{
 }
 
 h4{
-	@extend h3;
+	color: #333;
+	text-align: left;
+	font-weight: 400;
+	width: 100%;
+	font-size: 1.1em;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	margin: 0 0 0.6em 0;
+
+	/*@extend h3;
 	display: inline-block;
 	a{
 		color: $grey;
 		font-size: 0.85em;
 		display: inline-block;	
-	}
+	}*/
+}
+
+h5 {
+	font-weight: 600;
+	margin: 1.5em 0 1em 0;
 }
 
 p{
@@ -66,6 +79,7 @@ p{
 	line-height: 1.6em;
 	letter-spacing: .04em;
 }
+
 
 #main{
 	padding-bottom: 2*$pb;
