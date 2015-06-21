@@ -85,7 +85,7 @@
 				min-height: 300px;
 				@include vertical-align;
 			}
-			h3{
+			/*h3{
 				// position: absolute;
 				// top: 0;
 				// left: 0;
@@ -95,7 +95,7 @@
 			}
 			&:hover h3{
 				background-color: $white;
-			}		
+			}*/
 		}
 		.wide{
 			width: 65%;

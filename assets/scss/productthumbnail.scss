@@ -18,7 +18,7 @@
 		height: 45vw;
 	}
 
-	margin-top: 50px;
+	margin-top: 7em;
 
 	@include at-query ($max, $large) {
 		width: 45%;
@@ -46,22 +46,19 @@
 		@include transition(opacity,0.25s,ease-in-out);
 	}
 
-	&:hover img{
+	&:hover img, &:hover h3, &:hover h4{
 		opacity: 1;
 	}
+	&:hover h4{
+		color: $blue;
+	}
 
-	h3{
+	h3,h4{
+		opacity: 0.8;
 		margin: 0;
 		z-index: 2;
-		color: $black;
 		position: relative;
 	}
-	/*h4{
-		color: $black;
-		text-align: left;
-		z-index: 2;
-		position: relative;
-	}*/
 	.text{
 		z-index: 2;
 		position: relative;
@@ -88,95 +85,3 @@
 		opacity: 0.8;
 	}
 }
-
-
-
-// .productthumbnail{
-// 	position: relative;
-// 	min-height: 200px;
-// 	width: 31.5%;
-// 	// margin-right: 2.5%;
-// 	// margin-bottom: 1.5%;
-// 	text-align: left;
-
-// 	overflow: hidden;
-
-// 	&.listitem{
-// 		display: inline-block;
-// 		width: 19%;
-// 		vertical-align: top;
-// 		margin-right: 1%;
-// 		img{
-// 			width: 100%;
-// 		}
-// 	}
-// 	.backgroundimage{
-// 		position: absolute;
-// 		top: 0;
-// 		left: 0;
-// 		right: 0;
-// 		bottom: 0;
-// 		background-size: cover;
-// 		background-position: center;
-// 	}
-// 	.second{
-// 		//display: none;
-// 		-webkit-transition: 0.35s ease-out;
-//     	-moz-transition: 0.35s ease-out;
-//     	-o-transition: 0.35s ease-out;
-//     	opacity: 0;
-// 		//transform: translateX(-$thumbSize);
-// 	}
-// 	.text{
-// 		position: relative;
-// 		display: block;
-
-// 		margin: 0.8em;
-// 		padding: 0.5em;
-
-// 		h3{
-// 			margin:	0;
-// 		}
-// 		h4{ 
-// 			width: auto !important;
-// 		}
-// 		// background-color: rgba(0,0,0,0.5);
-// 		.bottom{
-// 			position: absolute;
-// 			bottom: 0;
-// 			left: 0;
-// 			p,ul,h3{
-// 				display: none;
-// 			}
-// 			p:first-child{
-// 				display: block;
-// 			}
-// 		}
-// 		.price{
-// 			display: block;
-// 		}
-// 	}
-		
-// 	&:hover{
-// 		.backgroundimage{
-// 			//display: none;
-// 		}
-// 		.second{
-// 			//display: block;
-// 			-webkit-transition: 0.35s ease-out;
-//     		-moz-transition: 0.35s ease-out;
-//     		-o-transition: 0.35s ease-out;
-//     		//transform: translateX(0px);
-//     		opacity: 1;
-// 		}
-// 		.text {
-// 			background-color: rgba(0,0,0,0.6);
-// 			color: #fff;
-// 		}
-// 	}
-
-// 	&.big{
-// 		width: 64.5%;
-// 	}	
-
-// }

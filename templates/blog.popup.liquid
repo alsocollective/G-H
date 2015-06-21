@@ -31,11 +31,11 @@
 	{% comment %}
 		show current popups
 	{% endcomment %}
-	<h3 class="lined">{{settings.popup-current}}</h3>
+	<h2>{{settings.popup-current}}</h2>
 	{% for article in blog.articles %}
 		{% if article.tags[0] == "popup-current" %}
 			<div class="popup-article">
-				<h4>{{article.title}}</h4>
+				<h3 class="sub-h3">{{article.title}}</h3>
 				{{article.content}}
 
 				{% if article.content contains "<img" %}
@@ -55,12 +55,12 @@
 		show future pop ups
 	{% endcomment %}
 	{% if future %}
-		<h3 class="lined">{{settings.popup-future}}</h3>
+		<h2>{{settings.popup-future}}</h2>
 
 		{% for article in blog.articles %}
 			{% if article.tags[0] == "popup-future" %}
 				<div class="popup-article">
-					<h4>{{article.title}}</h4>
+					<h3 class="sub-h3">{{article.title}}</h3>
 					{{article.content}}
 					
 				</div>
