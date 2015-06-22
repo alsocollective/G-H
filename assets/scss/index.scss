@@ -211,9 +211,12 @@ blockquote {
 			width:100%;
 		}
 	}
-	@include at-query ($max,$inbetween) {
+	.logo-text{
+		display: none;
+	}
+	@include at-query ($min,$large) {
 		.logo-text{
-			display: none;
+			display: inherit;
 		}
 	}
 }

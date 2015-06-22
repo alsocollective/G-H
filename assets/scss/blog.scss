@@ -143,15 +143,11 @@
 	p {
 		font-size: 1em;
 		width: 38%;
+		margin-right: 1%;
   		vertical-align: top;
   		display: inline-block;
   		padding-top: 0;
 	}
-	@include at-query ($max, $large) {
-		p{
-			width: 100%;
-		}	
-	}	
 
 	ul {
 		width: 20%;
@@ -168,41 +164,6 @@
 	a{
 		color: $blue;
 	}
-
-	/*h4{
-		display: block;
-		text-align: center;
-		font-size: inherit;
-		font-size: 1.3em;
-		padding: 0 0 1em 0;
-		letter-spacing: 0.15em;
-		color: $blue;
-		@include at-query ($max, $medium) {
-			max-width: 70%;
-			display: block;
-			margin: 0 auto;
-		}
-
-		&::before,&::after {
-			content: "—";
-			@include at-query ($max, $medium) {
-				display: block;
-			}
-		}
-	}*/
-	
-	// p{
-	// 	display: inline-block;
-	// 	width: 30%;
-	// 	vertical-align: top;
-	// 	padding: 0 1em;
-	// 	@include at-query ($max, $medium) {
-	// 		width: 100%;
-	// 		padding: 1em 0;
-	// 		margin: 0 auto;
-	// 		display: block;			
-	// 	}		
-	// }
 	img{
 		max-width: 100%;
 	}
@@ -236,6 +197,33 @@
 		background-color: $offwhite;
 		@include at-query ($max, $medium) {
 			background-color: transparent;
+		}
+	}
+
+	@include at-query ($max, $large) {
+		p,ul{
+			width: 55%;
+			padding-top: $pb/4;
+			margin-right: 4%;
+		}
+		ul{
+			width: 35%;
+		}
+		p:first-of-type{
+			padding-top: 0;
+			width: 100%;
+			margin-right: 0;
+		}
+		img{
+			display: block;
+			margin: 0 auto;
+		}
+	}	
+	@include at-query ($max, $medium) {
+		p,ul{
+			width: 100%;
+			max-width: 600px;
+			margin: 0 auto;
 		}
 	}
 }
