@@ -2,7 +2,6 @@
 	background-color: $darkgrey;
 	color: #fff;
 
-
 	@include at-query ($max, $medium) {
 			
 	}	
@@ -188,6 +187,27 @@
 				background-color: $offwhite;
 			}
 		}
+		input.mce_inline_error {
+			background-color: rgba(255,0,0,0.5) !important;
+		}
+		#mc_embed_signup div.mce_inline_error {
+			background-color: transparent;
+			font-weight: 400;
+			font-size: 0.9em;
+			border: none;
+			//border-bottom: solid 1px #f00;
+			padding: 0;
+			margin: 0;
+			white-space: normal;
+		}
+
+		div#mce-error-response {
+			font-size: 0.9em;
+			white-space: normal;
+			padding: 0;
+			margin: 0 0 1em 0;
+		}
+
 		.mc-field-group {
 			font-size: 1em;
 			width: 100%;
@@ -198,6 +218,18 @@
 			height: 32px;
 			//text-align: right;
 		}
+		/*#mce-responses {
+			width: 100%;
+			height: 100%;
+			left: 0px;
+			top: 0px;
+			position: fixed;
+			display: none;
+
+			.clear {
+				display: block;
+			}
+		}*/
 	}
 
 	.facebook, .twitter, .pintrest{
