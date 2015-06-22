@@ -166,6 +166,7 @@
 	}
 	img{
 		max-width: 100%;
+
 	}
 	ul{
 		//width: 20%;
@@ -217,6 +218,7 @@
 		img{
 			display: block;
 			margin: 0 auto;
+			width: 100%;
 		}
 	}	
 	@include at-query ($max, $medium) {
