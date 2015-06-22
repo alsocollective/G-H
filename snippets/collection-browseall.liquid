@@ -1,0 +1,47 @@
+<div class="slideshow">
+	{% for article in blogs['browsall'].articles limit: 3 %}
+		<div>{{article.content}}</div>
+	{% endfor %}
+</div>
+
+	{% comment %}<h2>Browse All</h2>{% endcomment %}
+
+{% comment %}<p>
+{% for product_type in shop.types %}
+	{{product_type}},
+{% endfor %}
+</p>{% endcomment %}
+
+<p>
+{% assign BAO = settings.borwseall-order|split:"," %}
+
+
+</p>
+
+<div class="collections browseall">
+
+
+
+{% assign bigNext = 0 %}
+{% assign bigIndex = 1 %}
+{% assign blankPreviousSelection = false %}
+{% assign breaker = false %}
+{% for type in BAO%}
+	{% comment %}<h2>{{type}}</h2>{% endcomment %}
+	{% for product in collection.products| sort: 'type' %}
+		{% if product.type == type %}
+			{% assign pro_split = product.title | split: "|" %}
+			{% assign pro_split_count = pro_split | size %}
+			{% if breaker == false %}
+				<img class="lifestyleimage" src="{{product.images | last | product_img_url: 'original'}}">
+			{% endif %}
+			{%include "collection-productthumbnail" %}
+			{% assign breaker = true %}
+		{% elsif breaker == true %}
+			{% assign breaker = false %}
+			{% break %}
+		{% endif %}
+	{% endfor %}
+{% endfor %}
+
+</div>

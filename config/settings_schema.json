@@ -69,6 +69,13 @@
 
 	]
 }, {
+	"name": "Browse all",
+	"settings": [{
+		"label": "Order of browsall",
+		"type": "textarea",
+		"id": "borwseall-order"
+	}]
+}, {
 	"name": "Social media",
 	"settings": [{
 			"label": "To be includened in twitter",
