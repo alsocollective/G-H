@@ -1,12 +1,13 @@
 @import "settings";
 
 #corporate{
-	color: $black;
-	//@extend .center;
+	//color: $black;
+	@extend .center;
 
-	width: 60%;
+	//width: 50%;
 	margin: 0 auto;
-	max-width: $indsideWidth;
+	//padding: 0 5%
+	//max-width: $indsideWidth;
 
 	text-align: center;
 	iframe{
@@ -15,11 +16,13 @@
 	}
 
 	ol {
-		width: 70%;
+		//width: 70%;
 		margin: 0 auto;
 		li {
-			margin: 0.5em 0;
+			margin: 0.8em 0;
 		}
+		padding-right: 30%;
+		margin: 1em 0 2em 0;
 	}
 
 	/*h5 {

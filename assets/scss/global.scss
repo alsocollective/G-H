@@ -84,11 +84,55 @@ h5 {
 	color: $blue;
 }
 
-p{
+
+// Global Paragraph
+
+/*p{
 	font-size: 1.3em;
 	line-height: 1.6em;
 	letter-spacing: .04em;
-}
+}*/
+
+	p{
+		//width: 60%;
+		color: #f00;
+		//min-width: 400px;
+		color: $darkgrey;
+		margin: 0 auto;
+		padding-bottom: 1em;
+		font-size: 1.3em;
+ 		line-height: 1.6em;
+  		letter-spacing: .04em;
+  		/*@include at-query ($max, $medium) {
+			width: 100%;
+			padding: 1em 0;
+			margin: 0 auto;
+			display: block;			
+		}*/
+	}
+	/*blockquote {
+		margin: 1em -80px;
+		font-style: italic;
+		font-size: 1.3em;
+		color: #999;
+		width: 100%;
+
+		p::before {
+			content: '';
+			display: block;
+			margin: 0 auto 1em auto;
+			width: 3em;
+			border-top: 2px solid rgb(42,127,192);
+		}
+
+		p::after {
+			content: '';
+			display: block;
+			margin: 0 auto 1em auto;
+			width: 3em;
+			border-top: 2px solid rgb(42,127,192);
+		}
+	}*/
 
 
 #main{

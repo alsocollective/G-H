@@ -9,7 +9,9 @@
 		max-width: 100%;
 	}
 
-
+	// p {
+	// 	width: 80%;
+	// }
 
 	.bloglist{
 		li{
@@ -27,7 +29,7 @@
 			}
 		}		
 	}
-	p{
+	/*p{
 		width: 60%;
 		@include at-query ($max, $large) {
 			width: 80%;
@@ -40,7 +42,7 @@
 		font-size: 1.3em;
  		line-height: 1.6em;
   		letter-spacing: .04em;
-	}
+	}*/
 	.left,.right{
 		width: 50%;
 		display: inline-block;
@@ -95,7 +97,6 @@
 			color: $white;
 			background-color: $darkgrey;
 		}
-		
 	}
 
 	/*h4{
@@ -132,6 +133,14 @@
 
 	p {
 		font-size: 1em;
+		width: 38%;
+  		vertical-align: top;
+  		display: inline-block;
+  		padding-top: 0;
+	}
+
+	ul {
+		width: 20%;
 	}
 	li>a{
 		display: inline;
@@ -168,30 +177,30 @@
 		}
 	}*/
 	
-	p{
-		display: inline-block;
-		width: 30%;
-		vertical-align: top;
-		padding: 0 1em;
-		@include at-query ($max, $medium) {
-			width: 100%;
-			padding: 1em 0;
-			margin: 0 auto;
-			display: block;			
-		}		
-	}
+	// p{
+	// 	display: inline-block;
+	// 	width: 30%;
+	// 	vertical-align: top;
+	// 	padding: 0 1em;
+	// 	@include at-query ($max, $medium) {
+	// 		width: 100%;
+	// 		padding: 1em 0;
+	// 		margin: 0 auto;
+	// 		display: block;			
+	// 	}		
+	// }
 	img{
 		max-width: 100%;
 	}
 	ul{
-		//width: 100%;
+		//width: 20%;
 		color: $grey;
 		text-align: right;
 		li{
 			display: block;
 			width: 100%
 		}
-		width: 34%;
+		//width: 34%;
 		text-align: right;
 		display: inline-block;
 		@include at-query ($max, $medium) {
