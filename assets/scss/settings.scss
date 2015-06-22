@@ -23,16 +23,7 @@ $min-width:500px;
 $pb: 75px;
 $fs: 0.95em; //font size
 $border: 1px solid $lightgrey;
-.center{
-	width: $width;
-	max-width: $indsideWidth;
-	margin: 0 auto;	
-}
-.bolder{
-	font-size: 1em;
-	font-weight: bold;
-	text-transform: uppercase;
-}
+
 
 
 
@@ -92,4 +83,22 @@ $border: 1px solid $lightgrey;
 
 @mixin animation($str) {
 	-webkit-animation: #{$str};
+}
+
+
+.center{
+	width: $width;
+	max-width: $indsideWidth;
+	margin: 0 auto;	
+	@include at-query ($max, $inbetween) {
+		width: 80%;
+	}
+	@include at-query ($max, $medium) {
+		width: 90%;
+	}
+}
+.bolder{
+	font-size: 1em;
+	font-weight: bold;
+	text-transform: uppercase;
 }

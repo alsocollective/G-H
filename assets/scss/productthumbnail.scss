@@ -2,6 +2,9 @@
 
 .subcollection{
 	margin-top: -50px;
+	@include at-query ($max, $medium) {
+		margin-top: 0px;
+	}
 }
 #product .productthumbnail,.productthumbnail{
 
@@ -14,19 +17,19 @@
 	
 	height: 400px;
 	height: 30vw;	
-	@include at-query ($max, $large) {
-		height: 45vw;
-	}
 
 	margin-top: 7em;
 
 	@include at-query ($max, $large) {
 		width: 45%;
-		max-height: 45vw;	
+		height: 45%;
+		height: 45vw;	
 	}
 	@include at-query ($max, $medium) {
 		width: 90%;
-		max-height: 90vw;	
+		height: 90%;
+		height: 90vw;	
+		margin-top: 2.5em;
 	}	
 
 	&.big{
@@ -75,8 +78,29 @@
 
 	&.productpage{
 		width: 17%;
+		height: 200px;
+		height: 17vw;
 		font-size: 0.9em;
 		text-align: center;
+		@include at-query ($max, $large) {
+			width: 22%;
+			height: 22vw;
+			margin-top: 25px;
+			&:last-child{
+				display: none;
+			}
+		}
+		@include at-query ($max, $medium) {
+			width: 100%;
+			max-width: 400px;
+			height: 100vw;
+			max-height: 400px;
+		}
+		// @include at-query ($max, $inbetween) {
+		// 	width: 40%;
+		// 	height: 40vw;
+		// 	margin-top: 25px;
+		// }
 	}
 }
 .touch .productthumbnail{

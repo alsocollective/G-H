@@ -11,17 +11,39 @@
 		}
 	}
 	.gandh{
-		padding-bottom: $pb;
-		text-align: right;		
+		padding-bottom: $pb/2;
+		text-align: right;
+		@include at-query ($min, $large) {
+			width: 130%;
+			position: relative;
+			left: -15%;
+			padding-left: none;
+		}	
 		p{
 			display: inline-block;
 			vertical-align: top;
 			width: 45%;
 			padding-left: 5%;
+			// @include at-query ($max, $large) {
+			// 	width: 100%;
+			// 	padding-left: none;
+			// }	
+			@include at-query ($max, $large) {
+				width: 90%;
+				padding-left: none;
+			}	
 			&:first-child{
 				width: 50%;
 				padding-left: 0%;
 				float: left;
+				// @include at-query ($max, $large) {
+				// 	width: 60%;
+				// 	float: none;
+				// }	
+				@include at-query ($max, $large) {
+					width: 90%;
+					float: none;
+				}	
 			}
 		}
 		.clear{
@@ -43,6 +65,10 @@
 			width: 30%;
 			text-align: center;
 			vertical-align: top;
+			@include at-query ($max, $medium) {
+				width: 100%;
+				display: block;
+			}
 		}
 		/*h4{
 			text-align: center;
@@ -74,11 +100,12 @@
 			width: 100%;
 
 			p{
-				width: 60%;
-				min-width: 400px;
-				margin:0 auto;
+				// width: 60%;
+				// min-width: 400px;
+				// margin:0 auto;
 				img{
 					min-width: 60%;
+					max-width: 100%;
 					
 					display: block;
 					margin:0 auto;

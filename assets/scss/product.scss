@@ -67,6 +67,26 @@
 		}
 		.order-info {
 			padding: 0 10%;
+			@include at-query ($max, $inbetween) {
+				padding: 0;
+				padding-bottom: $pb;
+				max-width: 600px;
+				width: 100%;
+				margin:0 auto;
+				> div{
+					display: inline-block;
+					vertical-align: top;
+					width: 45%;
+				}
+			}
+			@include at-query ($max, $medium) {
+				> div{
+					display: block;
+					width: 100%;
+					padding-left: 5%;
+					padding-right: 5%;
+				}
+			}
 		}
 		.producttitle{
 			
@@ -198,7 +218,7 @@
 			top: 0%;
 			border: solid 1px black;
 			width: 40%;
-			min-width: 142px;
+			min-width: 141px;
 			border-top: none;
 			text-align: center;
 			padding: 0.5em 0;
@@ -264,6 +284,8 @@
 		}		
 		@include at-query ($max, $inbetween) {
 			width: 100%;
+			padding-left: 0;
+			margin: 0 auto;
 		}		
 		.description{
 			padding: 0 5%;
@@ -283,6 +305,12 @@
 
 
 	.sizechart{
+		@include at-query ($max, $inbetween) {
+			display: none !important;
+		}
+		@include at-query ($max, $medium) {
+			display: block !important;
+		}
 		padding-top: 0.5*$pb;
 		.show{display: none;}
 		.notshow{display: inline-block;}
@@ -296,6 +324,15 @@
 			}
 			.show{display: inline-block;}
 			.notshow{display: none;}
+		}
+	}
+	.sizechart.second{	
+		display: none !important;
+		@include at-query ($max, $inbetween) {
+			display: inline-block !important;
+		}
+		@include at-query ($max, $medium) {
+			display: none !important;
 		}
 	}
 	.similar-products{

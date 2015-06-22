@@ -330,50 +330,52 @@ app.social = {
 	init: function() {
 		$(".social .facebook,.social-article .facebook,.social-product .facebook").click(app.social.events.facebookPageClick)
 		$(".social .twitter,.social-article .twitter,.social-product .twitter").click(app.social.events.twitterPageClick)
-
-		if ($(".socialbutton").length) {
-			app.social.initilizeButton();
-		}
+		$(".social-post .facebook").click(app.social.events.facebookClick);
+		$(".social-post .twitter").click(app.social.events.twitterClick);
 	},
-	initilizeButton: function() {
-		$(".article .socialbutton").click(app.social.socialClickArticle);
-	},
-	socialClickArticle: function(event) {
-		$(".sociallinks").click();
-		var url = $(this).closest("a")[0].href,
-			el = $(document.createElement("a"));
-		el[0].href = url;
-		el[0].appendChild(app.social.generate.facebook(url)[0])
-		el[0].appendChild(app.social.generate.twitter(url)[0])
-		el.addClass("sociallinks");
-		$(this).closest(".article")[0].appendChild(el[0]);
-		el.click(app.social.close);
-		event.preventDefault();
-		return false;
-	},
-	close: function(event) {
-		this.parentNode.removeChild(this);
-		event.preventDefault();
-		return false;
-	},
-	generate: {
-		facebook: function(url) {
-			var el = $(document.createElement("button"));
-			el.addClass("facebook");
-			el[0].href = url + " " + app.social.facebook;
-			$(".social .facebook svg").clone().appendTo(el);
-			el.click(app.social.events.facebookClick);
-			return el
-		},
-		twitter: function(url) {
-			var el = $(document.createElement("button"));
-			el.addClass("twitter");
-			el[0].href = "https://twitter.com/intent/tweet?text=" + url + " " + app.social.twitter;
-			$(".social .twitter svg").clone().appendTo(el);
-			el.click(app.social.events.twitterClick);
-			return el
-		}
-	},
+	// 	if ($(".socialbutton").length) {
+	// 		app.social.initilizeButton();
+	// 	}
+	// },
+	// initilizeButton: function() {
+	// 	$(".article .socialbutton").click(app.social.socialClickArticle);
+	// },
+	// socialClickArticle: function(event) {
+	// 	$(".sociallinks").click();
+	// 	var url = $(this).closest("a")[0].href,
+	// 		el = $(document.createElement("a"));
+	// 	el[0].href = url;
+	// 	el[0].appendChild(app.social.generate.facebook(url)[0])
+	// 	el[0].appendChild(app.social.generate.twitter(url)[0])
+	// 	el.addClass("sociallinks");
+	// 	$(this).closest(".article")[0].appendChild(el[0]);
+	// 	el.click(app.social.close);
+	// 	event.preventDefault();
+	// 	return false;
+	// },
+	// close: function(event) {
+	// 	this.parentNode.removeChild(this);
+	// 	event.preventDefault();
+	// 	return false;
+	// },
+	// generate: {
+	// 	facebook: function(url) {
+	// 		var el = $(document.createElement("button"));
+	// 		el.addClass("facebook");
+	// 		el[0].href = url + " " + app.social.facebook;
+	// 		$(".social .facebook svg").clone().appendTo(el);
+	// 		el.click(app.social.events.facebookClick);
+	// 		return el
+	// 	},
+	// 	twitter: function(url) {
+	// 		var el = $(document.createElement("button"));
+	// 		el.addClass("twitter");
+	// 		el[0].href = "https://twitter.com/intent/tweet?text=" + url + " " + app.social.twitter;
+	// 		$(".social .twitter svg").clone().appendTo(el);
+	// 		el.click(app.social.events.twitterClick);
+	// 		return el
+	// 	}
+	// },
 	events: {
 		twitterClick: function(event) {
 			var w = window.open(this.href + " " + app.social.facebook, this.target || "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
@@ -388,9 +390,10 @@ app.social = {
 			return false;
 		},
 		facebookClick: function(event) {
+			console.log(this.href)
 			FB.ui({
 				method: 'send',
-				link: event.target.href
+				link: this.href
 			});
 			event.stopPropagation();
 			event.preventDefault();

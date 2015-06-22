@@ -27,6 +27,17 @@
 		{% endif %}
 	</div>
 	
+	{% capture pageName %}{{product.type|handleize}}{% endcapture%}
+	{% if pages[pageName].content != ""%}
+		<div class="sizechart hide second">
+			<h4><a href="#" class="fitguide"><span class="show">Show</span><span class="notshow">hide</span> Fit Guide</a></h4>
+			<div class="">
+				{{ pages[pageName].content }}
+			</div>
+			
+		</div>
+	{% endif %}	
+
 	<div class="product-form">
 	<h4>Quantity</h4>
 	<form action="/cart/add" method="post" enctype="multipart/form-data" data-id="{{product.id}}" class="inputcontainer">
@@ -45,7 +56,6 @@
 	</form>
 	</div>
 
-	{% capture pageName %}{{product.type|handleize}}{% endcapture%}
 	{% if pages[pageName].content != ""%}
 		<div class="sizechart hide">
 			<h4><a href="#" class="fitguide"><span class="show">Show</span><span class="notshow">hide</span> Fit Guide</a></h4>
