@@ -14,8 +14,6 @@
 
 <p>
 {% assign BAO = settings.borwseall-order|split:"," %}
-
-
 </p>
 
 <div class="collections browseall">
@@ -27,9 +25,10 @@
 {% assign blankPreviousSelection = false %}
 {% assign breaker = false %}
 {% for type in BAO%}
+	{% assign type_compairagainst = type | split: "|" %}
 	{% comment %}<h2>{{type}}</h2>{% endcomment %}
 	{% for product in collection.products| sort: 'type' %}
-		{% if product.type == type %}
+		{% if product.type == type_compairagainst[0] or product.type == type_compairagainst[1] %}
 			{% assign pro_split = product.title | split: "|" %}
 			{% assign pro_split_count = pro_split | size %}
 			{% if breaker == false %}
@@ -38,10 +37,11 @@
 			{%include "collection-productthumbnail" %}
 			{% assign breaker = true %}
 		{% elsif breaker == true %}
-			{% assign breaker = false %}
-			{% break %}
+			{% comment %}{% assign breaker = false %}{% endcomment %}
+			{% comment %}{% break %}{% endcomment %}
 		{% endif %}
 	{% endfor %}
+	{% assign breaker = false %}
 {% endfor %}
 
 </div>
