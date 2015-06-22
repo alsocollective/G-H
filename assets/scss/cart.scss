@@ -1,9 +1,11 @@
 @import "settings";
 
 .cart{
-	@extend .center;
+	// @extend .center;
 	padding: 2*$pb 0;
 	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
 
 	p{
 		text-align: center;
@@ -22,6 +24,11 @@
 	td{
 		margin-top: 0.25*$pb;
 		padding-top: 0.75*$pb;
+		text-align: center;
+		@include at-query ($max, $inbetween) {
+			text-align: left;
+		}
+
 		&:first-child{
 			padding-top: 0.25*$pb;
 			a{
@@ -50,10 +57,7 @@
 					width: 100%;
 					padding-bottom: $pb/4;
 				}
-				&.total span,&.remove a{
-					display: inline-block;
-					padding: 1em 0.75em;
-				}
+				
 				&.price{
 					display: none;
 				}
@@ -66,16 +70,19 @@
 				// }
 			}
 		}
-		.qty input{
-			padding: 1em 0.75em;
-			max-width: 90%;
-		}
 		.actions td{
 			width: 100%;
 			text-align: center;
 		}
 	}
-
+	.qty input{
+			padding: 1em 0.75em;
+			max-width: 90%;
+		}
+	.price span,.total span,.remove a{
+		display: inline-block;
+		padding: 1em 0.75em;
+	}
 
 	.subtotal,.actions{
 		text-align: right;
@@ -109,7 +116,7 @@
 #cart{
 	padding: 0;
 	@include at-query ($max, $large) {
-		padding: 1*$pb 0;
+		padding: $pb/2 0;
 		width: 100% !important;
 	}
 }
