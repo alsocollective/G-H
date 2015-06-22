@@ -171,7 +171,7 @@ app.product = {
 			adaptiveHeight: true,
 			fade: true,
 			autoplay: true,
-			autoplaySpeed: 3000,
+			autoplaySpeed: 7000,
 			arrows: true
 		});
 	},
@@ -276,6 +276,8 @@ app.index = {
 app.lookbook = {
 	waypoint: null,
 	init: function() {
+		$(".lookbook").find("blockquote").eq(0).attr("class", "first-bq");
+		$(".lookbook img:last-child").attr("id", "waypoint"); //Good lord why won't this work?
 		$(".lookbook").find("img").eq(0).attr("id", "waypoint");
 		app.lookbook.waypoint = new Waypoint({
 			element: document.getElementById("waypoint"),
@@ -328,8 +330,8 @@ app.slideshow = {
 
 app.social = {
 	init: function() {
-		$(".social .facebook,.social-article .facebook,.social-product .facebook").click(app.social.events.facebookPageClick)
-		$(".social .twitter,.social-article .twitter,.social-product .twitter").click(app.social.events.twitterPageClick)
+		$(".social-article .facebook,.social-product .facebook").click(app.social.events.facebookPageClick)
+		$(".social-article .twitter,.social-product .twitter").click(app.social.events.twitterPageClick)
 		$(".social-post .facebook").click(app.social.events.facebookClick);
 		$(".social-post .twitter").click(app.social.events.twitterClick);
 	},

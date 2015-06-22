@@ -105,13 +105,16 @@
 				{% include 'logo-small.html' %}
 			</div>{% endcomment %}<div class="containerfooter"><div class="footer-nav">
 			<span>Policies / Shipping</span>
+			<ul>
 				{% for link in linklists.footer.links %}
 					<li><a href="{{link.url}}#{{link.handle}}">{{link.title}}</a></li>
 				{% endfor %}
+			</ul>
 			</div><div class="footer-nav wide">
+			<span>Contact Us</span>
 				<ul>
-					{% comment %}<li><a href="/contact">Contact Us</a></li>{% endcomment %}
-					<li><span>Contact Us</span><br><a href="">hello@goodandhec.com</a></li>
+					
+					<li><a href="mailto:hello@goodandhec.com">hello@goodandhec.com</a></li>
 				</ul>
 			</div></div><div class="news">
 				<div class="signupform">
@@ -134,8 +137,8 @@
 				</div>
 
 				<div class="social">
-					<a class="facebook" target="_blank" href="facebook"> {% include "social-facebook" %} </a>
-					<a class="twitter" target="_blank" href="twitter">{% include "social-twitter" %}</a>
+					<a class="facebook" target="_blank" href="https://www.facebook.com/goodandhec">{% include "social-facebook" %}</a>
+					<a class="twitter" target="_blank" href="https://twitter.com/goodandhec">{% include "social-twitter" %}</a>
 					<a class="instagram" target="_blank" href="https://instagram.com/goodandhec/">{% include "social-instagram" %}</a>
 				</div>
 			</div>

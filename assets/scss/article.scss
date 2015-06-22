@@ -3,6 +3,10 @@
 .article{
 	@extend .center;
 
+	a {
+		color: $blue;
+	}
+
 	iframe{
 		max-width: 100%;
 		display: block;
@@ -37,6 +41,13 @@
 		}
 		svg{
 			fill: $darkgrey;
+		}
+	}
+	.bloglist {
+		li {
+			&::before {
+				content: "";
+			}
 		}
 	}
 }
