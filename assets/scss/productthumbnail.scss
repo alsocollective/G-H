@@ -105,6 +105,12 @@
 }
 .touch .productthumbnail{
 	opacity: 1;
+	img{
+		opacity: 1;
+	}
+	h4{
+		color: $blue;
+	}
 	&:hover{
 		opacity: 0.8;
 	}

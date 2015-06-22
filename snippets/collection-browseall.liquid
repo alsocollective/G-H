@@ -1,8 +1,10 @@
-<div class="slideshow">
-	{% for article in blogs['browsall'].articles limit: 3 %}
-		<div>{{article.content}}</div>
-	{% endfor %}
-</div>
+{% if blogs['browsall'].articles[0].content %}
+	<div class="slideshow">
+		{% for article in blogs['browsall'].articles limit: 3 %}
+			<div>{{article.content}}</div>
+		{% endfor %}
+	</div>
+{% endif %}
 
 	{% comment %}<h2>Browse All</h2>{% endcomment %}
 
@@ -12,11 +14,14 @@
 {% endfor %}
 </p>{% endcomment %}
 
-<p>
-{% assign BAO = settings.borwseall-order|split:"," %}
-</p>
+{% comment %}<p>
 
-<div class="collections browseall">
+</p>{% endcomment %}
+
+{% assign BAO = settings.borwseall-order|split:"," %}
+
+
+<div class="collections browseall {% if blogs['browsall'].articles[0].content%}{% else %}negativemargin{%endif%}">
 
 
 

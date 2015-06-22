@@ -4,6 +4,9 @@
 	text-align: center;
 	width: 100%;
 	margin: 0 auto;
+	&.negativemargin{
+		margin-top: -$pb;
+	}
 }
 .subcollection{
 	padding-bottom: 0.5*$pb;
@@ -24,4 +27,12 @@
 }
 img.lifestyleimage{
 	width: 100%;
+}
+.browseall{
+	> img{
+		padding-top: $pb*3;
+	}
+	> img:first-child{
+		padding-top: 0;
+	}
 }
