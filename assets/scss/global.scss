@@ -198,6 +198,7 @@ $slideHightTab: 400px;
 		position: relative;
 		overflow: hidden;
 		height: $slideHight;
+		background-color: $white;
 		@include at-query ($max, $large) {
 			height: $slideHightTab;
 		}
