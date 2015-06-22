@@ -16,7 +16,8 @@
 <p>Wellbeing is finding balance between the inner world that shapes us and the outer world that drives us to do.</p>
 
 <p>We are a lifestyle brand inspiring our community to live a mindful and balanced life through body, mind and urban movement.</p>{% endcomment %}
-	<h1>{{settings.index-about}}</h1>
+	<h1>{% if settings.index-about != "" %}{{settings.index-about}}{% else %}<a href="/admin/themes">add main text</a>{% endif %}</h1>
+	<h3>{% if settings.index-about-sub != "" %}{{settings.index-about-sub}}{% else %}<a href="/admin/themes">add sub text</a>{% endif %}</h3>
 </div>
 
 <div class="logos">

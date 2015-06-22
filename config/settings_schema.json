@@ -11,6 +11,10 @@
 		"type": "textarea",
 		"id": "index-about"
 	}, {
+		"label": "About us subText",
+		"type": "textarea",
+		"id": "index-about-sub"
+	}, {
 		"label": "Body description",
 		"type": "textarea",
 		"id": "logo-body"
@@ -73,7 +77,7 @@
 		}, {
 			"label": "Future Popups tagged popup-future",
 			"type": "textarea",
-		"id": "social-facebook"
+			"id": "social-facebook"
 		}
 
 	]
