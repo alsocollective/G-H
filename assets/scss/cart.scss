@@ -26,9 +26,56 @@
 			padding-top: 0.25*$pb;
 			a{
 				padding-top: 0.5*$pb;
+				@include at-query ($max, $medium) {
+					padding-top: 0;
+				}
 			}
 		}
 	}
+
+	@include at-query ($max, $inbetween) {
+		tr{
+			display: block;
+			padding: $pb/4 0;
+			border-bottom: $border;
+			&:first-child{
+				display: none;
+			}			
+			td{
+				display: inline-block;
+				width: 33%;
+				padding: 0;
+				margin: 0;
+				&.desc{
+					width: 100%;
+					padding-bottom: $pb/4;
+				}
+				&.total span,&.remove a{
+					display: inline-block;
+					padding: 1em 0.75em;
+				}
+				&.price{
+					display: none;
+				}
+				.label{
+					padding-right: 0;
+					padding-left: 0;
+				}
+				// &.total{
+				// 	display: none;
+				// }
+			}
+		}
+		.qty input{
+			padding: 1em 0.75em;
+			max-width: 90%;
+		}
+		.actions td{
+			width: 100%;
+			text-align: center;
+		}
+	}
+
 
 	.subtotal,.actions{
 		text-align: right;
@@ -41,11 +88,19 @@
 	.desc{
 		img{
 			width: 35%;
+			@include at-query ($max, $medium) {
+				width: 100%;
+			}
 		}
 		a{
 			width: 55%;
 			margin-left: 3%;
 			display: inline-block;
+			@include at-query ($max, $medium) {
+				padding-top: 0;
+				width: 100%;
+				margin: 0;
+			}
 		}
 	}
 
@@ -55,6 +110,7 @@
 	padding: 0;
 	@include at-query ($max, $large) {
 		padding: 1*$pb 0;
-	}	
+		width: 100% !important;
+	}
 }
 
