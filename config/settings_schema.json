@@ -69,16 +69,24 @@
 
 	]
 }, {
+	"name": "Browse all",
+	"settings": [{
+		"label": "Order of browsall",
+		"type": "textarea",
+		"id": "borwseall-order"
+	}]
+}, {
 	"name": "Social media",
 	"settings": [{
-			"label": "To be includened in twitter",
+			"label": "To be includened in social media",
 			"type": "textarea",
 			"id": "social-twitter"
-		}, {
-			"label": "Future Popups tagged popup-future",
-			"type": "textarea",
-			"id": "social-facebook"
 		}
+		// , {
+		// 	"label": "To be includeded in facebook",
+		// 	"type": "textarea",
+		// 	"id": "social-facebook"
+		// }
 
 	]
 }]
