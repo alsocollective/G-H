@@ -267,6 +267,17 @@
 		.description{
 			padding: 0 5%;
 		}
+		ul {
+			margin-top: 1em;
+		}
+			li {
+				font-size: 0.8em !important;
+				margin-bottom: 0.7em;
+				&::before {
+					content: "+ " !important;
+					font-weight: 600 !important;
+				}
+			}
 	}
 
 
