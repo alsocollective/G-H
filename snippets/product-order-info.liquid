@@ -1,9 +1,9 @@
 <div class="order-info">
-	<h3 class="price">&mdash;{{ product.price | money }}&mdash;</h3>
+	<h4 class="price">&mdash;{{ product.price | money }}&mdash;</h4>
 
 	{% if product1 %}
 	<div class="available-colours">
-		<h3>Colours</h3>
+		<h4>Colours</h4>
 		<ul>
 			{% assign keep = product %}
 			{% assign product = product0 %}{% include "product-colour-option"%}{% assign product = product1 %}{% include "product-colour-option"%}{% endif %}{% if product2 %}{% assign product = product2 %}{% include "product-colour-option"%}{% endif %}{% if product3 %}{% assign product = product3 %}{% include "product-colour-option"%}{% endif %}{% if product1 %}
@@ -16,7 +16,7 @@
 	
 	<div class="sizing">
 		{% if productCount > 1 %}
-			<h3>Sizes</h3>
+			<h4>Sizes</h4>
 			{% for variant in product.variants %}
 				{% if variant.available == true %}
 					<button class="button small {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}">{{ variant.title }}</button>
@@ -28,7 +28,7 @@
 	</div>
 	
 	<div class="product-form">
-	<h3>Quantity</h3>
+	<h4>Quantity</h4>
 	<form action="/cart/add" method="post" enctype="multipart/form-data" data-id="{{product.id}}" class="inputcontainer">
 		<select name="id" class="sizeselector hide">
 			{% for variant in product.variants %}
@@ -48,7 +48,7 @@
 	{% capture pageName %}{{product.type|handleize}}{% endcapture%}
 	{% if pages[pageName].content != ""%}
 		<div class="sizechart hide">
-			<h3><a href="#" class="fitguide"><span class="show">Show</span><span class="notshow">hide</span> Fit Guide</a></h3>
+			<h4><a href="#" class="fitguide"><span class="show">Show</span><span class="notshow">hide</span> Fit Guide</a></h4>
 			<div class="">
 				{{ pages[pageName].content }}
 			</div>

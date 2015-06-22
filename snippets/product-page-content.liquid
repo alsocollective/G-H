@@ -3,10 +3,10 @@
 
 <div id="{{ productTitleSplit | last | handleize}}id" class="multi-product {% if skip_product.title != product.title %}hide{% endif %}">
 
-	<h2 class="producttitle">{{ productTitleSplit | first }}</h2>
+	<h2>{{ productTitleSplit | first }}</h2>
 
 	{% for title in productTitleSplit %}
-		{% if forloop.first == false %}<h4 class="productsubtitle">{{title}}</h4>{% endif %}
+		{% if forloop.first == false %}<h3 class="blue-h3">{{title}}</h3>{% endif %}
 	{% endfor %}
 
 	<div class="col-1">
@@ -27,7 +27,7 @@
 		{% include "product-order-info" %}
 	</div><div class="col-3">
 		<div class="description">
-			<h3>Details</h3>
+			<h4>Details</h4>
 			{{ product.description }}
 		</div>
 		<div class="social-product second">

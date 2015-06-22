@@ -9,13 +9,13 @@
 
 <div class="blog">
 	<div class="center">
-	<h3 class="lined" >{{blog.title}}</h3>
+	<h2>{{blog.title}}</h2>
 	{% assign page = pages[blog.handle] %}
 	{{page.content}}
 	<ul class="bloglist" >
 		{% for article in blog.articles %}
 			<li class="article">
-				<h4>{{article.title}}</h4>
+				<h3 class="sub-h3">{{article.title}}</h3>
 				<a href="{{article.url}}">
 					{% if article.excerpt contains "<img" %}
 						{% assign src = article.excerpt | split: 'src="' %}

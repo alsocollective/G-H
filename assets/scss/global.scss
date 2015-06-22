@@ -20,45 +20,68 @@ h1 {
 h2 {
 	text-transform: uppercase;
 	font-weight: normal;
-
-	padding-bottom: $pb*0.25;
-	border-bottom: $border;
-	margin: 0 auto 0.5*$pb auto;
-	padding: $pb 0 $pb*0.25 0;
-
-	width: 45%;
+	font-size: 1.3em;
 	text-align: center;
-	text-transform: uppercase;
 	letter-spacing: 0.2em;
+
+	padding: $pb 0 $pb*0.2 0;
+	border-bottom: $border;
+	margin: 0 auto $pb*0.2 auto;
+	
+	width: 50%;
 	color: #888;
 }
 
+//Global style for all Header 3 styles (extends 2 distinct styles from base)
 h3{
+	font-size: 1.2em;
 	text-transform: uppercase;
 	font-weight: normal;
-	color: #f00 !important;
-	// &.lined{
-	// 	padding-bottom: $pb*0.25;
-	// 	border-bottom: $border;
-	// 	margin: 0 auto 0.5*$pb auto;
-	// 	padding: $pb 0 $pb*0.25 0;
+	color: $black;
+	letter-spacing: 0.12em;
+	margin: 1em 0 0.5em 0;
+	text-align: left;
+	width: 100%;
 
-	// 	width: 45%;
-	// 	text-align: center;
-	// 	text-transform: uppercase;
-	// 	letter-spacing: 0.2em;
-	// 	color: #888;
-	// }
+	&.sub-h3 {
+		color: $blue;
+		text-align: center;
+		margin: 0 0 1.4em 0;
+		&::before {
+			content: "\02014 \000A0";
+		}
+		&::after {
+			content: "\000A0\02014";
+		}
+	}
+	&.blue-h3 {
+		@extend .sub-h3;
+		margin: 0;
+		&::before, &::after {
+			content: "";
+		}
+	}
 }
 
+//Global style for all Header 4 styles (extended by product thumbnail)
 h4{
-	@extend h3;
-	display: inline-block;
-	a{
-		color: $grey;
-		font-size: 0.85em;
-		display: inline-block;	
-	}
+	color: $black;
+	text-align: left;
+	font-weight: 400;
+	width: 100%;
+	font-size: 1.1em;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	margin: 0 0 0.6em 0;
+}
+
+//Global style for all Header 5 styles to be used by client
+h5 {
+	font-weight: 400;
+	margin: 2em 0 0.6em;
+	font-size: 1em;
+	letter-spacing: 0.08em;
+	color: $blue;
 }
 
 p{
@@ -66,6 +89,7 @@ p{
 	line-height: 1.6em;
 	letter-spacing: .04em;
 }
+
 
 #main{
 	padding-bottom: 2*$pb;

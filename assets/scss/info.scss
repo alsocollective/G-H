@@ -7,20 +7,20 @@
 		margin: 0 auto;
 	}
 	padding-bottom: 6em;
-	> h3{
+	/*> h3{
 		@extend h3.lined;
-	}
+	}*/
 	p{
 		margin: 0 auto 0.7em auto;
 		//width: 70%;
 	}
-	> h3:first-child{
+	/*> h3:first-child{
 		padding-top: 0;
 	}
 
 	h3 {
 		margin-top: 2em;
-	}
+	}*/
 	//Make this stuff GLOBAL!
 
 	ul {
