@@ -2,8 +2,8 @@
 .lookbook {
 	.image{
 		img {
-			width:100%;
-			margin: 3em 0 7em 0;
+			width:130%;
+			margin: 3em -15% 5em -15%;
 		}
 		/*position: relative;
 		display: inline-block;
@@ -27,7 +27,7 @@
 	//Perhaps this should be global
 
 	blockquote {
-		margin: 2.3em auto 1.5em auto;
+		margin: 2em auto 2.2em auto;
 		text-align: center;
 		font-size: 4em;
 		letter-spacing: .06em;
@@ -56,6 +56,25 @@
 			display: block;
 			white-space: no-wrap;
 		}
+	}
+
+	.first-bq {
+		p::before {
+			content: '';
+			display: block;
+			margin: 0 auto 1em auto;
+			width: 3em;
+			border-top: 2px solid #333;
+		}
+		p::after {
+			content: '';
+			display: block;
+			margin: 1em auto 0 auto;
+			width: 3em;
+			border-top: 2px solid #333;
+		}
+		color: #333;
+		transition: all 5s;
 	}
 /*	h3{
 	text-transform: uppercase;

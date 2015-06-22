@@ -17,7 +17,7 @@
 
 <p>We are a lifestyle brand inspiring our community to live a mindful and balanced life through body, mind and urban movement.</p>{% endcomment %}
 	<h1>{% if settings.index-about != "" %}{{settings.index-about}}{% else %}<a href="/admin/themes">add main text</a>{% endif %}</h1>
-	<h3>{% if settings.index-about-sub != "" %}{{settings.index-about-sub}}{% else %}<a href="/admin/themes">add sub text</a>{% endif %}</h3>
+	<p>{% if settings.index-about-sub != "" %}{{settings.index-about-sub}}{% else %}{% comment %}<a href="/admin/themes">add sub text</a>{% endif %}{% endcomment %}{% endif %}</p>
 </div>
 
 <div class="logos">
