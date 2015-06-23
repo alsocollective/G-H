@@ -25,6 +25,7 @@
 		width: 100%;
 		li {
 			width: 70%;
+			font-size: 1.1em;
 			&::before {
 				content: "+ ";
 				font-weight: 600;
