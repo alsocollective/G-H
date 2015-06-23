@@ -2,6 +2,9 @@
 
 .story{
 	@extend .center;
+	h2{
+		margin-bottom: 1.35em;
+	}
 	.pagecontent{
 		padding: 0 0 0 0;
 		p{
@@ -11,7 +14,7 @@
 		}
 	}
 	.gandh{
-		padding-bottom: $pb/2;
+		padding-bottom: $pb/1.5;
 		text-align: right;
 		@include at-query ($min, $large) {
 			width: 130%;
@@ -45,6 +48,12 @@
 					float: none;
 				}	
 			}
+			&:nth-child(2){
+				margin-top: -0.3em;
+				@include at-query ($max, $large) {
+					margin-top: none;
+				}
+			}
 		}
 		.clear{
 			clear: both;
@@ -56,7 +65,7 @@
 	}
 
 	.philosophy{
-		padding-bottom: $pb;
+		padding-bottom: $pb/1.25;
 
 		width: 160%;
 		margin: 0 -30% 0 -30%;
@@ -67,6 +76,7 @@
 		ul{
 			text-align: center;
 			margin-top: 4em;
+			padding-bottom: $pb/1.5;
 		}
 		li{
 			display: inline-block;
@@ -80,7 +90,7 @@
 		}
 		blockquote {
 			text-align: center;
-			margin: 4em auto;
+			margin: 4em auto 0 auto;
 		}
 		/*h4{
 			text-align: center;
