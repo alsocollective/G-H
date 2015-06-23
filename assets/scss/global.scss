@@ -158,17 +158,14 @@ $slideHightTab: 400px;
 	user-select: none;
 
 	margin: -$pb 0 $pb 0;
-	height: $slideHight;
 	@include transition(height,0.35s,ease-in-out);
 	@include at-query ($max, $large) {
-		margin: 0 0 2*$pb 0;
-		height: $slideHightTab;
+		margin: 0 0 $pb 0;
 	}
 	@include at-query ($max, $medium) {
 		margin-bottom: $pb/3;
 	}
 
-	height: $slideVh;
 	.overlaytext{
 		position: absolute;
 		left: 0;
@@ -187,22 +184,28 @@ $slideHightTab: 400px;
 	.slick-slide{
 		position: relative;
 		overflow: hidden;
-		height: $slideHight;
 		background-color: $white;
-		@include at-query ($max, $large) {
-			height: $slideHightTab;
-		}
+		height: $slideHight;
 		height: $slideVh;
 		img{
 			@include transition(height,0.35s,ease-in-out);
-			@include vertical-align;
-			width: 100%;
-			@include at-query ($max, $inbetween) {
-				width: auto;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			-webkit-transform: translate(-50%,-50%);
+			-ms-transform: translate(-50%,-50%);
+			transform: translate(-50%,-50%);
+		
+			min-width: 100%;
+			min-height: 100%;
+			@media screen and (orientation:portrait) {
 				height: 100%;
-				height: 80vh;
 			}
-		}	
+			// @media screen and (orientation:portrait) and ()
+			@media screen and (orientation:landscape) and (max-width:$inbetween) {
+				width: 100%;
+			}
+		}
 	}
 	.slick-prev,.slick-next{
 		position: absolute;
