@@ -47,13 +47,33 @@
 		"type": "textarea",
 		"id": "ship_can"
 	}, {
+		"label": "Canada Shipping RawCost",
+		"type": "textarea",
+		"id": "ship_can_num"
+	}, {
 		"label": "US Shipping",
 		"type": "textarea",
 		"id": "ship_us"
 	}, {
+		"label": "US Shipping RawCost",
+		"type": "textarea",
+		"id": "ship_us_num"
+	}, {
 		"label": "World Shipping",
 		"type": "textarea",
 		"id": "ship_world"
+	}, {
+		"label": "World Shipping RawCost",
+		"type": "textarea",
+		"id": "ship_world_num"
+	}, {
+		"label": "Text before free shipping Number",
+		"type": "textarea",
+		"id": "script_before"
+	}, {
+		"label": "Text after free shipping Number",
+		"type": "textarea",
+		"id": "script_after"
 	}]
 }, {
 	"name": "Pop ups",
