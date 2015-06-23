@@ -188,7 +188,7 @@ app.product = {
 			adaptiveHeight: true,
 			fade: true,
 			autoplay: true,
-			autoplaySpeed: 7000,
+			autoplaySpeed: 8000,
 			arrows: true
 		});
 	},
