@@ -11,16 +11,14 @@
 		padding-bottom: $pb;
 	}
 
-	/*h3 {
-		letter-spacing: 0.08em;
-		margin-bottom: 0.8em;
-		margin-top: 1em;
-	}*/
-	/*h4 {
-		color: $blue;
-		text-align: center;
-		width: 100%;
-	}*/
+	.notavailable {
+		background-color: transparent !important;
+		border: solid 1px #ccc;
+		color: #ccc !important;
+		
+		&::before {
+		}
+	}
 
 	p {
 		font-size: 1em;
@@ -81,7 +79,8 @@
 			@include at-query ($max, $medium) {
 				> div{
 					display: block;
-					width: 100%;
+					width: 90%;
+					//text-align: center;
 					padding-left: 5%;
 					padding-right: 5%;
 				}
@@ -98,6 +97,9 @@
 			font-size: 1.5em;
 			letter-spacing: 0.3em;
 			text-align: center;
+			@include at-query ($max, $medium) {
+				margin-top: 1em;
+			}
 		}
 		
 		.quantity,.add{
@@ -124,11 +126,14 @@
 		.available-colours{
 			padding-top: 0.5*$pb;
 			ul{
+				@include at-query ($max, $medium) {
+					//text-align: center;
+				}
 				padding: 0.125*$pb 0 0 0;
 			}
 			li{
 				display: inline-block;
-				padding: 0 5% 0 0;
+				padding: 0.5em 5% 0.5em 0;
 			}
 			a {
 				text-decoration: none;
@@ -221,10 +226,12 @@
 			border-top: none;
 			text-align: center;
 			padding: 0.5em 0;
+			opacity: 0;
 			@include transition(top,0.35s,ease-in-out);
 
 			&.added-active{
 				top: 100%;
+				opacity: 1;
 			}
 
 		}
