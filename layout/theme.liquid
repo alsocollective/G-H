@@ -35,7 +35,9 @@
 	<meta property="og:title" content="GOOD+HEC">
 	<meta property="og:description" content="Wellbeing is finding a balance between the inner world that shapes us and the outer world that drives us to do.">
 
-	<link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.png' | asset_url }}">
+	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.shopify.com/s/files/1/0714/8515/files/favicon.png?1310830426143546460">
+
+	{% comment %}{{ 'favicon.png' | asset_url }}">{% endcomment %}
 	{% comment %}<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">{% endcomment %}
 
 
@@ -189,7 +191,11 @@
 		app.social.twitter = "{{settings.socail-twitter}}";
 		app.social.facebook = "{{settings.socail-facebook}}";
 	</script>
-	<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
+	
+	<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+	<script type='text/javascript'>
+
+		(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
 
 		window.fbAsyncInit = function() {
 			FB.init({
