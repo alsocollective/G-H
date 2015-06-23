@@ -60,9 +60,10 @@
 
 		width: 160%;
 		margin: 0 -30% 0 -30%;
-		
+
 		ul{
 			text-align: center;
+			margin-top: 4em;
 		}
 		li{
 			display: inline-block;
@@ -73,6 +74,10 @@
 				width: 100%;
 				display: block;
 			}
+		}
+		blockquote {
+			text-align: center;
+			margin: 4em auto;
 		}
 		/*h4{
 			text-align: center;
@@ -85,9 +90,9 @@
 			text-align: center;
 			line-height: 1.5em;
 			letter-spacing: 0.03em;
-			background-color: #fff;
-			position: relative;
-			padding-top: 40px;
+			// background-color: #fff;
+			// position: relative;
+			padding-top: 20px;
 			font-size: 1em;
   			letter-spacing: 0.1em;
 		}

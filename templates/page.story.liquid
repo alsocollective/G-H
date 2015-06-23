@@ -27,10 +27,13 @@
 	{% assign bigNext = 1 %}
 	{% assign bigIndex = 1 %}
 	<ul>
-		{% for article in blog.articles %}<li class="{% if bigNext == bigIndex %}wide{% assign bigNext = bigNext|plus:bigCount %}{% if bigCount == 3 %}{% assign bigCount = 1 %}{% else %}{% assign bigCount = 3 %}{% endif %}{% endif %}">
+		<li>
+			{{ pages["our-process"].content }}
+		</li>
+		{% comment %}{% for article in blog.articles %}<li class="{% if bigNext == bigIndex %}wide{% assign bigNext = bigNext|plus:bigCount %}{% if bigCount == 3 %}{% assign bigCount = 1 %}{% else %}{% assign bigCount = 3 %}{% endif %}{% endif %}">
 				{{article.content}}
 				{% assign bigIndex = bigIndex|plus:1 %}
-			</li>{% endfor %}
+			</li>{% endfor %}{% endcomment %}
 	</ul>
 
 	{% comment %}
@@ -48,13 +51,18 @@
 
 	<h2>Our Benches<a href="https://good-hec.myshopify.com/admin/articles?query=Benches">{% comment %} <strong class="edit-here">Edit here</strong></a>{% endcomment %}</h2>
 	<div class="process">
-	{% assign blog = blogs["benches"] %}
+		<ul>
+			<li>
+				{{ pages["our-benches"].content }}
+			</li>
+		</ul>
+	{% comment %}{% assign blog = blogs["benches"] %}
 	<ul>
 		{% for article in blog.articles %}<li class="{% if bigNext == bigIndex %}wide{% assign bigNext = bigNext|plus:bigCount %}{% if bigCount == 3 %}{% assign bigCount = 1 %}{% else %}{% assign bigCount = 3 %}{% endif %}{% endif %}">
 				{{article.content}}
 				{% assign bigIndex = bigIndex|plus:1 %}
 			</li>{% endfor %}
-	</ul>
+	</ul>{% endcomment %}
 
 	</div>		
 </div>
