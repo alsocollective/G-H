@@ -1,19 +1,20 @@
 @import "settings";
 
 .infopage{
-	//@extend .center;
-	div {
-		width: 60%;
-		margin: 0 auto;
-	}
+	@extend .center;
+	min-width: 70%;
+	// div {
+	// 	width: 60%;
+	// 	margin: 0 auto;
+	// }
 	padding-bottom: 6em;
 	/*> h3{
 		@extend h3.lined;
 	}*/
-	p{
-		margin: 0 auto 0.7em auto;
-		//width: 70%;
-	}
+	// p{
+	// 	margin: 0 auto 0.7em auto;
+	// 	//width: 70%;
+	// }
 	/*> h3:first-child{
 		padding-top: 0;
 	}
@@ -23,16 +24,53 @@
 	}*/
 	//Make this stuff GLOBAL!
 
-	ul {
+	// ul {
+	// 	width: 70%;
+	// 	margin: 0 auto;
+	// }
+	// li {
+	// 	margin-bottom: 0.7em;
+	// 	font-size: 1.15em;
+	// }
+	ul{
 		width: 70%;
 		margin: 0 auto;
-	}
-	li {
-		margin-bottom: 0.7em;
-		font-size: 1.15em;
+		padding-bottom: 1em;
 	}
 
-	blockquote {
-		text-align: center;
+	h3{
+		@extend h3.sub-h3;
+		margin-bottom: 1em;
 	}
+	h4{
+		@extend h3.blue-h3;
+	}
+	h6{
+		text-align: center;
+		margin: 0 0 2.33em 0;
+	}
+	a{
+		color: $blue;
+	}
+	ol {
+		margin: 0 auto;
+		padding-right: 30%;	
+		padding-bottom: 1em;	
+		li {
+			margin: 0.8em 0;
+			&:first-child{
+				margin-top:0; 
+			}
+			counter-increment: step-counter;
+			&::before {
+				content: counter(step-counter)". ";
+				position: absolute;
+				margin-left: -17px;
+				color: $black;
+				font-weight: bold;
+			}
+		}
+		
+	}
+
 }

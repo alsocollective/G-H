@@ -14,7 +14,9 @@
 	</div><div class="col-2">
 		<div class="main">
 			{% for image in product.images %} 
-				<div class="product-slides"><img src="{{ image.src | product_img_url: 'grande' }}" alt="image.alt"></div>
+				{% if image.alt != "lifestyle" %}
+					<div class="product-slides"><img src="{{ image.src | product_img_url: 'grande' }}" alt="{{image.alt}}"></div>
+				{% endif %}
 			{% endfor %}
 		</div>
 		
