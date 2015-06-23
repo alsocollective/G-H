@@ -2,20 +2,19 @@
 	<h4 class="price">&mdash;{{ product.price | money }}&mdash;</h4>
 
 	{% if product1 %}
-	<div class="available-colours">
-		<h4>Colours</h4>
-		<ul>
-			{% assign keep = product %}
-			{% assign product = product0 %}{% include "product-colour-option"%}{% assign product = product1 %}{% include "product-colour-option"%}{% endif %}{% if product2 %}{% assign product = product2 %}{% include "product-colour-option"%}{% endif %}{% if product3 %}{% assign product = product3 %}{% include "product-colour-option"%}{% endif %}{% if product1 %}
-			{% assign product = keep %}
-		</ul>
-	</div>
+		<div class="available-colours">
+			<h4>Colours</h4>
+			<ul>
+				{% assign keep = product %}
+				{% assign product = product0 %}{% include "product-colour-option"%}{% assign product = product1 %}{% include "product-colour-option"%}{% endif %}{% if product2 %}{% assign product = product2 %}{% include "product-colour-option"%}{% endif %}{% if product3 %}{% assign product = product3 %}{% include "product-colour-option"%}{% endif %}{% if product1 %}
+				{% assign product = keep %}
+			</ul>
+		</div>
 	{% endif %}
 	
 	{% assign productCount = product.variants | size%}
-	
-	<div class="sizing">
-		{% if productCount > 1 %}
+	{% if productCount > 1 %}
+		<div class="sizing">
 			<h4>Sizes</h4>
 			{% for variant in product.variants %}
 				{% if variant.available == true %}
@@ -24,8 +23,9 @@
 					<button class="button small notavailable {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}" disabled>{{ variant.title }}</button>
 				{% endif %}
 			{% endfor %}
-		{% endif %}
-	</div>
+			
+		</div>
+	{% endif %}
 	
 	{% capture pageName %}{{product.type|handleize}}{% endcapture%}
 	{% if pages[pageName].content != ""%}
