@@ -86,6 +86,11 @@ h5 {
 	color: $blue;
 }
 
+//Global text colour selection
+
+::selection, ::-moz-selection {
+	background: $lightblue;
+}
 
 // Global Paragraph
 

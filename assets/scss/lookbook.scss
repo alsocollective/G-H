@@ -4,11 +4,11 @@
 		img {
 			width:160%;
 			margin: 3em -30% 5em -30%;
+			@include at-query ($max, $medium) {
+				width: 95%;
+				margin: 0 auto;
+			}
 		}
-		/*position: relative;
-		display: inline-block;
-		vertical-align: top;
-		line-height: 0;*/
 		svg{
 			display: none;
 			position: absolute;
@@ -75,6 +75,9 @@
 		}
 		color: #333;
 		@include transition(color,2s,ease-in);
+	}
+	h2 {
+		display: none !important;
 	}
 /*	h3{
 	text-transform: uppercase;
