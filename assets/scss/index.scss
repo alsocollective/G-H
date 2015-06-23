@@ -165,7 +165,7 @@ blockquote {
 .logos{
 	@extend .center;
 	text-align: center;
-	margin-top: 2*$pb !important;
+	margin-top: $pb+15 !important;
 	.logo{
 		display: inline-block;
 		position: relative;
@@ -256,7 +256,7 @@ blockquote {
 
 	@include at-query ($max, $medium) {
 		padding-top: 1.25*$pb;
-		margin-bottom: -$pb/2
+		margin-bottom: -$pb/2;
 	}
 
 	> div {
