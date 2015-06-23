@@ -239,7 +239,7 @@ blockquote {
 	width: 60%;
 	min-width: 400px;
 	margin: 0 auto;
-	padding-top: 1em;
+	padding-top: 3.8em;
 	@include at-query ($max, $medium) {
 		width: 100%;
 		min-width: inherit;
