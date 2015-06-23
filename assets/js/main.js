@@ -11,7 +11,8 @@ var app = {
 		infinite: true,
 		speed: 500,
 		fade: true,
-		cssEase: 'linear'
+		cssEase: 'linear',
+		lazyLoad: 'ondemand',
 	},
 	init: function() {
 		console.log("app init started");
@@ -206,7 +207,8 @@ app.product = {
 			fade: true,
 			autoplay: true,
 			autoplaySpeed: 8000,
-			arrows: true
+			arrows: true,
+			lazyLoad: 'ondemand'
 		});
 	},
 	productImageClick: function(event) {
@@ -480,11 +482,15 @@ app.cartCheckout = {
 		child.appendChild(text);
 		var exit = $(".popup-exit").clone(true).off()[0];
 		child.appendChild(exit);
-		$(exit).click(app.cartCheckout.removeInform);
+		exit.onclick = app.cartCheckout.removeInform;
+		// $(exit).on("click touchstart touchend", app.cartCheckout.removeInform); //.on("tap", app.cartCheckout.removeInform);
 		document.body.appendChild(el);
 		app.cartCheckout.run = false;
 		setTimeout(function() {
 			$(el).addClass("show");
+			setTimeout(function() {
+				$(el).removeClass("show");
+			}, 10000)
 		}, 3000)
 	},
 	removeInform: function(event) {

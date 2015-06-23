@@ -158,9 +158,11 @@
 		top: 0;
 		right: 0;
 		padding: $pb/7 $pb/7;
+		cursor: pointer;
 		svg{
 			width: $pb/3;//25px;
 			height: $pb/3;//25px;
+			cursor: pointer;
 		}
 	}
 	&.show{
