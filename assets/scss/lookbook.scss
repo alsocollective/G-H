@@ -4,10 +4,10 @@
 		img {
 			width:160%;
 			margin: 3em -30% 5em -30%;
-			// @include at-query ($max, $medium) {
-			// 	width: 95%;
-			// 	margin: 0 auto;
-			// }
+			@include at-query ($max, $medium) {
+				width: 95%;
+				margin: 0 auto;
+			}
 		}
 		svg{
 			display: none;
