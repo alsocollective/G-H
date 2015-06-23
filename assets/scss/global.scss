@@ -177,6 +177,7 @@ $slideHightTab: 400px;
 	overflow: hidden;
 	margin: -$pb 0 2*$pb 0;
 	height: $slideHight;
+	@include transition(height,0.35s,ease-in-out);
 	@include at-query ($max, $large) {
 		margin: 0 0 2*$pb 0;
 		height: $slideHightTab;
@@ -207,6 +208,7 @@ $slideHightTab: 400px;
 		}
 		height: $slideVh;
 		img{
+			@include transition(height,0.35s,ease-in-out);
 			@include vertical-align;
 			width: 100%;
 			@include at-query ($max, $inbetween) {

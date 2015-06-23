@@ -161,7 +161,11 @@
 		}
 		position: fixed;
 		right: 0;
-		top: 0;
+		top: -100px;
+		@include transition(top, 0.35s, ease-in-out);
+		&.openham{
+			top: 0;
+		}
 		a{
 			font-size: 3em;
 			padding: $pb;
@@ -173,6 +177,7 @@
 
 		}
 	}
+
 
 	li li {
 		// @include transition(margin, 0.1s, ease-in-out);

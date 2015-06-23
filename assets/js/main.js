@@ -19,7 +19,7 @@ var app = {
 		app.smooth.init();
 		app.signup.init();
 		app.softInit();
-
+		// $(window).scroll(app.constant.scrollEvent);
 	},
 	softInit: function() {
 		console.log("soft init");
@@ -121,6 +121,23 @@ app.constant = {
 		$(".shipping .show").removeClass("show");
 		return false;
 	}
+	// ,last: new Date(),
+	// top: 0,
+	// ham: $(".hamburger"),
+	// scrollEvent: function(event) {
+	// 	var now = new Date();
+	// 	if (now - app.constant.last < 100) {
+	// 		return false;
+	// 	}
+	// 	app.constant.last = now
+	// 	var st = $(this).scrollTop();
+	// 	if (st > app.constant.top) {
+	// 		app.constant.ham.removeClass("openham");
+	// 	} else {
+	// 		app.constant.ham.addClass("openham");
+	// 	}
+	// 	app.constant.top = st;
+	// }
 }
 
 app.signup = {
