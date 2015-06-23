@@ -1,7 +1,7 @@
 @import "settings";
 
 .subcollection{
-	margin-top: -50px;
+	margin-top: $pb/1.5;//-50px;
 	@include at-query ($max, $medium) {
 		margin-top: 0px;
 	}
@@ -85,7 +85,7 @@
 		@include at-query ($max, $large) {
 			width: 22%;
 			height: 22vw;
-			margin-top: 25px;
+			margin-top: $pb/3;//25px;
 			&:last-child{
 				display: none;
 			}
@@ -103,6 +103,12 @@
 		// }
 	}
 }
+.ie9 #product .productthumbnail,.ie9 .productthumbnail{
+	.cover{
+		background-color: rgba(0,0,0,0.1);
+	}
+}
+
 .touch .productthumbnail{
 	opacity: 1;
 	img{

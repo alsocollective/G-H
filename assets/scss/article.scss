@@ -40,7 +40,7 @@
 		text-align: center;
 		a{
 			display: inline-block;
-  			padding: 28.13px 10px;
+  			padding: $pb/2.6 $pb/7;//28.13px 10px;
 		}
 		svg{
 			fill: $darkgrey;

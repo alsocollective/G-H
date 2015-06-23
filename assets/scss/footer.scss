@@ -75,6 +75,7 @@
 			display: inline-block;
 		}
 		input{
+			border-radius:0;
 			/*padding: 7px 5%;
 			//border: solid $white 2px;
 			border: none;
@@ -125,11 +126,12 @@
 			.popup-exit{
 				position: absolute;
 				display: block;
-				top: 10px;
-				right: 10px;
+				top: 0;
+				right: 0;
+				padding: $pb/7 $pb/7;
 				svg{
-					width: 25px;
-					height: 25px;
+					width: $pb/3;//25px;
+					height: $pb/3;//25px;
 				}
 			}
 			.popup{
@@ -150,10 +152,10 @@
 				height: 100%;
 				border: none;
 			}
-			input[type=text] {
-				width: 5px;
-				border: none;
-			}
+			// input[type=text] {
+			// 	width: 5px;
+			// 	border: none;
+			// }
 			letter-spacing: 0.065em;
 		}
 		#mc-embedded-subscribe{
@@ -217,13 +219,13 @@
 		}
 		.show #mc_embed_signup {
 			form {
-				margin-top: 35px;
+				margin-top: $pb/2;//35px;
 			}
 		}
 
 		#mc_embed_signup {
 			@include at-query ($max, $medium) {
-				height: 35vh !important;
+				// height: 35vh !important; @symon
 			}
 		}
 

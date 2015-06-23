@@ -166,7 +166,7 @@ blockquote {
 	@extend .center;
 	min-width: 70%;
 	text-align: center;
-	margin-top: $pb+15 !important;
+	margin-top: $pb*1.2 !important;
 	.logo{
 		display: inline-block;
 		position: relative;

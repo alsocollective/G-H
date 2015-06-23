@@ -313,6 +313,7 @@
 
 
 	.sizechart{
+		width: 110%;
 		@include at-query ($max, $inbetween) {
 			display: none !important;
 		}

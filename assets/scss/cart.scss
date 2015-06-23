@@ -70,6 +70,9 @@
 		.actions td{
 			width: 100%;
 			text-align: center;
+			input{
+				margin-bottom: 0.5em;
+			}
 		}
 	}
 	.qty input{
@@ -147,15 +150,17 @@
 		color: $white;
 		text-align: center;
 		padding-top: 1em;
+		max-width:75%
 	}
 	.popup-exit{
 		position: absolute;
 		display: block;
-		top: 10px;
-		right: 10px;
+		top: 0;
+		right: 0;
+		padding: $pb/7 $pb/7;
 		svg{
-			width: 25px;
-			height: 25px;
+			width: $pb/3;//25px;
+			height: $pb/3;//25px;
 		}
 	}
 	&.show{
