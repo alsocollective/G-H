@@ -25,9 +25,6 @@
 		margin-top: 0.25*$pb;
 		padding-top: 0.75*$pb;
 		text-align: center;
-		@include at-query ($max, $inbetween) {
-			text-align: left;
-		}
 
 		&:first-child{
 			padding-top: 0.25*$pb;
@@ -84,8 +81,19 @@
 		padding: 1em 0.75em;
 	}
 
-	.subtotal,.actions{
+	@include at-query ($min, $inbetween) {
+		.total,.total h3,.total span {
+			text-align: right;
+			padding-right: 0;
+		}
+	}
+
+	.subtotal td,.actions td{
 		text-align: right;
+		@include at-query ($max, $inbetween) {
+			text-align: center;
+			width: 100%;
+		}
 	}
 
 /*	.total,.total h3{
