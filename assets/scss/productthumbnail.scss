@@ -74,7 +74,6 @@
 		bottom: 0;
 		display: block;
 		z-index: 5;
-		background-color: rgba(0,0,0,0.01);
 	}
 
 	&.productpage{
@@ -104,6 +103,12 @@
 		// }
 	}
 }
+.ie9 #product .productthumbnail,.ie9 .productthumbnail{
+	.cover{
+		background-color: rgba(0,0,0,0.1);
+	}
+}
+
 .touch .productthumbnail{
 	opacity: 1;
 	img{
