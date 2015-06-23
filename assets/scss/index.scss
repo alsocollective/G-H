@@ -164,6 +164,7 @@ blockquote {
 
 .logos{
 	@extend .center;
+	min-width: 70%;
 	text-align: center;
 	margin-top: 2*$pb !important;
 	.logo{

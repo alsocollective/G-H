@@ -11,8 +11,10 @@ Setting up the variables for the page
 {% assign skip_product_split_count = skip_product_split | size %}
 {% assign productLoop = "product0|product1|product2|product3" | split: "|" %}
 {% assign includeColours = 0 %}
+{% if skip_product_split[0] contains "Meditation Bench" %}
+	{% assign skip_product_split_count = 2 %}
+{% endif %}
 {% include "product-get-colour-productlist" %}
-
 
 <div id="product">
 	{% assign product = product0 %}
@@ -31,42 +33,49 @@ Setting up the variables for the page
 		{% include "product-page-content"%}
 	{% endif %}	
 
-	<div class="similar-products">
-		<h2>Similar Products</h2>
 
-		{% assign previous_split = skip_product_split %}
-		{% assign previous_split_count = skip_product_split_count %}
+	{% assign numberOfProducts = products | size %}
+	{% if numberOfProducts > 4 %}	
+		<div class="similar-products">
+			<h2>Similar Products</h2>
 
-		{% for product in products %}<!-- 
-			{% if product != product0 and product != product1 and product != product2 and product != product3 %}
-				{% assign current_split = product.title | split:"|" %}
-				{% assign current_split_count = current_split | size %}
-				{% if current_split_count != previous_split_count %}
-					{% increment count %}
-					{% if count > 5 %}-->{% break %}<!--{% endif %}
-					-->{% include 'product-thumbnail-productpage'%}<!--
-					{% assign previous_split = current_split %}
-					{% assign previous_split_count = current_split_count %}
-				{% elsif current_split_count == 2 and current_split[0] != previous_split[0] %}
-					{% increment count %}
-					{% if count > 5 %}-->{% break %}<!--{% endif %}
-					-->{% include 'product-thumbnail-productpage'%}<!--
-					{% assign previous_split = current_split %}
-					{% assign previous_split_count = current_split_count %}
-				{% elsif current_split_count == 3 and current_split[0] != previous_split[0] or current_split[1] != previous_split[1] %}
-					{% increment count %}
-					{% if count > 5 %}-->{% break %}<!--{% endif %}
-					-->{% include 'product-thumbnail-productpage'%}<!--
-					{% assign previous_split = current_split %}
-					{% assign previous_split_count = current_split_count %}
-				{% elsif current_split_count == 4 and current_split[0] != previous_split[0] or current_split[1] != previous_split[1] and current_split[2] != previous_split[2] %}
-					{% increment count %}
-					{% if count > 5 %}-->{% break %}<!--{% endif %}
-					-->{% include 'product-thumbnail-productpage'%}<!--
-					{% assign previous_split = current_split %}
-					{% assign previous_split_count = current_split_count %}	
-			{% endif %}{% endif %}	
-		-->{% endfor %}
+			{% assign previous_split = skip_product_split %}
+			{% assign previous_split_count = skip_product_split_count %}
+			
+			{% comment %}{% for product in products %}
+			<h1>{{product.title}}</h1>
+			{% endfor %}{% endcomment %}
+			{% for product in products %}<!-- 
+				{% if product != product0 and product != product1 and product != product2 and product != product3 %}
+					{% assign current_split = product.title | split:"|" %}
+					{% assign current_split_count = current_split | size %}
+					{% if current_split_count != previous_split_count %}
+						{% increment count %}
+						{% if count > 5 %}-->{% break %}<!--{% endif %}
+						-->{% include 'product-thumbnail-productpage'%}<!--
+						{% assign previous_split = current_split %}
+						{% assign previous_split_count = current_split_count %}
+					{% elsif current_split_count == 2 and current_split[0] != previous_split[0] %}
+						{% increment count %}
+						{% if count > 5 %}-->{% break %}<!--{% endif %}
+						-->{% include 'product-thumbnail-productpage'%}<!--
+						{% assign previous_split = current_split %}
+						{% assign previous_split_count = current_split_count %}
+					{% elsif current_split_count == 3 and current_split[0] != previous_split[0] or current_split[1] != previous_split[1] %}
+						{% increment count %}
+						{% if count > 5 %}-->{% break %}<!--{% endif %}
+						-->{% include 'product-thumbnail-productpage'%}<!--
+						{% assign previous_split = current_split %}
+						{% assign previous_split_count = current_split_count %}
+					{% elsif current_split_count == 4 and current_split[0] != previous_split[0] or current_split[1] != previous_split[1] and current_split[2] != previous_split[2] %}
+						{% increment count %}
+						{% if count > 5 %}-->{% break %}<!--{% endif %}
+						-->{% include 'product-thumbnail-productpage'%}<!--
+						{% assign previous_split = current_split %}
+						{% assign previous_split_count = current_split_count %}	
+				{% endif %}{% endif %}	
+			-->{% endfor %}
 
-	</div>
+		</div>
+	{% endif %}
 </div>
