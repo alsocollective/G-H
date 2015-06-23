@@ -120,14 +120,20 @@ h5 {
 #wrapper{
 	width: 100%;
 	position: relative;
-	padding-top: 100+$pb;
+	margin-top: 100px;
+	padding-top: $pb;
 	@include at-query ($max, $large) {
 		padding-top: 100px;
+		margin-top: 0;
 	}
 }
 
 .hide{
 	display: none;
+}
+
+input{
+	border-radius: 0;
 }
 
 $slideVh: 80vh;
@@ -153,6 +159,10 @@ $slideHightTab: 400px;
 		margin: 0 0 2*$pb 0;
 		height: $slideHightTab;
 	}
+	@include at-query ($max, $medium) {
+		margin-bottom: $pb/3;
+	}
+
 	height: $slideVh;
 	.overlaytext{
 		position: absolute;

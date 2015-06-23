@@ -21,8 +21,8 @@
 	}
 	span.text {
 		position: relative;
-		top: 65px;
-		left: 15px;
+		top: $pb/1.15;//65px;
+		left: $pb/5;//15px;
 	}
 }
 img.lifestyleimage{
