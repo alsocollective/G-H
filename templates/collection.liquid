@@ -15,12 +15,11 @@
 				{% assign pro_split_count = pro_split | size %}
 
 
-				{% if pro_split_count > 2 %}
+				{% if pro_split_count > 2 and product.type != "Meditation Bench" %}
 					{% assign productType = product.type | append: pro_split[1]%}
 				{% else %}
 					{% assign productType = product.type %}
 				{% endif %}
-
 				{% if pro_split[1] contains "Blank" %}
 					{% if blankPreviousSelection != true %}
 						</div>
@@ -43,7 +42,9 @@
 
 
 				{% include "collection-productthumbnail" %}
-
+				{% if pro_split_count > 2 and product.type == "Meditation Bench" %}
+					<br>
+				{% endif %}
 
 
 
