@@ -33,6 +33,17 @@
 			</li>{% endfor %}
 	</ul>
 
+	{% comment %}
+	<ul>
+		{% for article in blog.articles %}<li class="{% if bigNext == bigIndex %}wide{% assign bigNext = bigNext|plus:bigCount %}{% if bigCount == 3 %}{% assign bigCount = 1 %}{% else %}{% assign bigCount = 3 %}{% endif %}{% endif %}">
+				<div class="article-image">{{article.excerpt}}</div>
+				<div class="article-text">{{article.content}}</div>
+				<a class="edit-here" href="https://good-hec.myshopify.com/admin/blogs/18059329/articles/{{article.id}}">edit</a>
+				{% assign bigIndex = bigIndex|plus:1 %}
+			</li>{% endfor %}
+	</ul>
+	{% endcomment %}
+
 	</div>
 
 	<h2>Our Benches<a href="https://good-hec.myshopify.com/admin/articles?query=Benches">{% comment %} <strong class="edit-here">Edit here</strong></a>{% endcomment %}</h2>
