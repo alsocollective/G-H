@@ -301,7 +301,8 @@ app.index = {
 		return false;
 	},
 	itemClick: function(event) {
-		$(this.parentNode).find("a").click()
+		console.log(this);
+		$(this.parentNode).find("a")[0].click()
 		event.preventDefault();
 		return false;
 	}

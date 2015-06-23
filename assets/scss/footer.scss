@@ -75,6 +75,7 @@
 			display: inline-block;
 		}
 		input{
+			border-radius:0;
 			/*padding: 7px 5%;
 			//border: solid $white 2px;
 			border: none;
@@ -150,10 +151,10 @@
 				height: 100%;
 				border: none;
 			}
-			input[type=text] {
-				width: 5px;
-				border: none;
-			}
+			// input[type=text] {
+			// 	width: 5px;
+			// 	border: none;
+			// }
 			letter-spacing: 0.065em;
 		}
 		#mc-embedded-subscribe{
