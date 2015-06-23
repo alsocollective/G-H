@@ -21,7 +21,7 @@
 				{% if variant.available == true %}
 					<button class="button small {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}">{{ variant.title }}</button>
 				{% else %}
-					<button class="button small notavailable {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}" >{{ variant.title }}</button>
+					<button class="button small notavailable {% if variant == product.selected_or_first_available_variant%}selected{% endif %}" id="{{variant.id}}" disabled>{{ variant.title }}</button>
 				{% endif %}
 			{% endfor %}
 		{% endif %}

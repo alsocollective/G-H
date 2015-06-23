@@ -4,10 +4,9 @@
 
 	.center {
 		width: 80% !important;
-	}
-
-	@include at-query ($max, $medium) {
-			
+		@include at-query ($max, $medium) {
+			width: 95% !important;
+		}
 	}	
 
 	>div>div{
@@ -41,7 +40,7 @@
 			width: 40%;
 		}		
 		@include at-query ($max, $medium) {
-			width: 80%;
+			width: 90%;
 			margin: 0 auto;
 			display: block;
 			padding-bottom: 0;
@@ -64,7 +63,7 @@
 			width:55%;
 		}				
 		@include at-query ($max, $medium) {
-			width: 80%;
+			width: 90%;
 			margin: 0 auto;
 			display: block;
 			padding-left: 0;			
@@ -158,6 +157,7 @@
 			letter-spacing: 0.065em;
 		}
 		#mc-embedded-subscribe{
+
 			
 			/*width: 30%;
 			text-align: center;
@@ -173,12 +173,20 @@
 				background-color: $offwhite;
 			}*/
 		}
+		.response {
+			a {
+				text-decoration: underline !important;
+			}
+		}
 		input#mce-EMAIL {
 			width: 68%;
 			background-color: transparent;
 			text-align: left;
 			padding-left: 2%;
 			color: $offwhite;
+			@include at-query ($max, $medium) {
+				width: 62%;
+			}
 		}
 		input#mc-embedded-subscribe {
 			width: 30%;
@@ -189,6 +197,9 @@
 			&:hover{
 				color: $darkgrey;
 				background-color: $offwhite;
+			}
+			@include at-query ($max, $medium) {
+				width: 36%;
 			}
 		}
 		input.mce_inline_error {
@@ -203,6 +214,17 @@
 			padding: 0.3em;
 			margin: 0;
 			white-space: normal;
+		}
+		.show #mc_embed_signup {
+			form {
+				margin-top: 35px;
+			}
+		}
+
+		#mc_embed_signup {
+			@include at-query ($max, $medium) {
+				height: 35vh !important;
+			}
 		}
 
 		div#mce-error-response {
