@@ -36,6 +36,10 @@ module.exports = function(grunt) {
 		},
 		uglify: {
 			js: {
+				options: {
+					mangle: false,
+					compress: false
+				},
 				files: {
 					'assets/main.min.js': [
 						'assets/js/lib/jquery.min.js',

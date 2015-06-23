@@ -199,11 +199,13 @@ blockquote {
 		@include vendorize(transform, translate(-50%,20%))
 		
 	}
-	.descriptions > div{
-		// display: none;
-		// &.show{
-		// 	display: block;
-		// }
+	.descriptions {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 	}
 	.highlight{
 		svg{

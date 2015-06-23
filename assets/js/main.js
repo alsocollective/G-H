@@ -168,7 +168,7 @@ app.signup = {
 	open: function(event) {
 		$(".signupform").addClass("show");
 		$(".signupform .email").focus();
-		if (event.preventDefault) {
+		if (event && event.preventDefault) {
 			event.preventDefault();
 		}
 		return false;
