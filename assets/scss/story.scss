@@ -24,10 +24,7 @@
 			vertical-align: top;
 			width: 45%;
 			padding-left: 5%;
-			// @include at-query ($max, $large) {
-			// 	width: 100%;
-			// 	padding-left: none;
-			// }	
+
 			@include at-query ($max, $large) {
 				width: 90%;
 				padding-left: none;
@@ -36,10 +33,7 @@
 				width: 50%;
 				padding-left: 0%;
 				float: left;
-				// @include at-query ($max, $large) {
-				// 	width: 60%;
-				// 	float: none;
-				// }	
+	
 				@include at-query ($max, $large) {
 					width: 90%;
 					float: none;
@@ -51,7 +45,10 @@
 			width: 100%;
 		}
 		img{
-			width: 100%;
+			//width: 100%;
+			@include at-query ($max, $medium) {
+				width: 100%;
+			}
 		}
 	}
 
@@ -82,10 +79,6 @@
 			text-align: center;
 			margin: 4em auto;
 		}
-		/*h4{
-			text-align: center;
-			display: block;
-		}*/
 		p{
 			min-width: 150px;
 			width: 70%;
