@@ -2,6 +2,10 @@
 	background-color: $darkgrey;
 	color: #fff;
 
+	.center {
+		width: 80% !important;
+	}
+
 	@include at-query ($max, $medium) {
 			
 	}	
