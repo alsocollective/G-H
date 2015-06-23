@@ -2,6 +2,9 @@
 
 .story{
 	@extend .center;
+	h2{
+		margin-bottom: 1.35em;
+	}
 	.pagecontent{
 		padding: 0 0 0 0;
 		p{
@@ -11,7 +14,7 @@
 		}
 	}
 	.gandh{
-		padding-bottom: $pb/2;
+		padding-bottom: $pb/1.5;
 		text-align: right;
 		@include at-query ($min, $large) {
 			width: 130%;
@@ -39,6 +42,12 @@
 					float: none;
 				}	
 			}
+			&:nth-child(2){
+				margin-top: -0.3em;
+				@include at-query ($max, $large) {
+					margin-top: none;
+				}
+			}
 		}
 		.clear{
 			clear: both;
@@ -61,6 +70,7 @@
 		ul{
 			text-align: center;
 			margin-top: 4em;
+			padding-bottom: $pb/1.5;
 		}
 		li{
 			display: inline-block;

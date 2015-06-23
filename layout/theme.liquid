@@ -6,8 +6,48 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->  
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<link rel="stylesheet" type="text/css" href="//cloud.typography.com/717268/608946/css/fonts.css">
+
+
+	<meta name="msvalidate.01" content="217F8C5251A0AF5A490D436ED72260C0" />
+	<title>GOOD+HEC | FIND YOUR BALANCE</title>
+
+
+	<!-- general metas -->
+	<meta http-equiv="cleartype" content="on">	
+	<meta name="description" content="Made in Canada, GOOD+HEC is a men’s lifestyle label inspiring our community to live a mindful and balanced life through body, mind and urban movement">
+	<meta name="author" content="GOOD+HEC">
+
+	<!-- mobile specific meta -->
+	{% comment %}<meta name="HandheldFriendly" content="True">{% endcomment %}
+	{% comment %}<meta name="MobileOptimized" content="320">{% endcomment %}
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@goodandhec" />
+	<meta name="twitter:title" content="GOOD+HEC" />
+	<meta name="twitter:description" content="Wellbeing is finding a balance between the inner world that shapes us and the outer world that drives us to do." />
+{% comment %}	<meta name="twitter:image" content="http://goodandhec.com/assets/img/fbcard.png" />
+	<meta name="twitter:url" content="http://goodandhec.com" />
+	<meta property="og:image" content="http://goodandhec.com/assets/img/fbcard.png">{% endcomment %}
+	<meta property="og:url" content="http://goodandhec.com">
+	<meta property="og:title" content="GOOD+HEC">
+	<meta property="og:description" content="Wellbeing is finding a balance between the inner world that shapes us and the outer world that drives us to do.">
+
+	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.shopify.com/s/files/1/0714/8515/files/favicon.png?1310830426143546460">
+
+	{% comment %}{{ 'favicon.png' | asset_url }}">{% endcomment %}
+	{% comment %}<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">{% endcomment %}
+
+
+
+
+
+
+
+
+
 
 	{% if template == 'index' %}
 		<title>{{ shop.name }} | {{ page_title }}</title>
@@ -20,8 +60,8 @@
 		<meta name="description" content="{{ page_description }}" />
 	{% endif %}
 	
-	<link rel="canonical" href="{{ canonical_url }}" />
-	<meta name="viewport" content="width=device-width" />  
+	{% comment %}<link rel="canonical" href="{{ canonical_url }}" />{% endcomment %}
+	{% comment %}<meta name="viewport" content="width=device-width" />  {% endcomment %}
 	
 	{{ content_for_header }}
 	{{ 'style.min.css' | asset_url | stylesheet_tag }}
@@ -151,7 +191,11 @@
 		app.social.twitter = "{{settings.socail-twitter}}";
 		app.social.facebook = "{{settings.socail-facebook}}";
 	</script>
-	<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
+	
+	<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+	<script type='text/javascript'>
+
+		(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
 
 		window.fbAsyncInit = function() {
 			FB.init({
