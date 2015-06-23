@@ -7,13 +7,10 @@
 <div class="infopage">
 	{{ page.content }}
 
-	{% assign pageArray = "return-exchange-policy,shipping,privacy-policy,return-policy" | split: "," %}
-
-	{% for pageName in pageArray %}
-	<div>
-		<h3 id="{{pageName}}" class="lined">{{ pages[pageName].title }}</h3>
-		{{ pages[pageName].content }}
-	</div>
+	{% for link in linklists.footer.links %}
+		<div id="{{link.handle}}">
+			{{ pages[link.handle].content }}
+		</div>
 	{% endfor %}
 </div>
 
