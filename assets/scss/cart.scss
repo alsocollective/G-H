@@ -121,3 +121,35 @@
 	}
 }
 
+#inform_of_price{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 50;
+	> div {
+		position: relative;
+		bottom: -200px;
+		background-color: $darkgrey;
+		@include transition(bottom,0.35s,ease-in-out);
+	}
+	p{
+		color: $white;
+		text-align: center;
+		padding-top: 1em;
+	}
+	.popup-exit{
+		position: absolute;
+		display: block;
+		top: 10px;
+		right: 10px;
+		svg{
+			width: 25px;
+			height: 25px;
+		}
+	}
+	&.show{
+		> div {
+			bottom: 0;
+		}
+	}
+}

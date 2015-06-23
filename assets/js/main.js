@@ -34,6 +34,9 @@ var app = {
 		app.social.init();
 		if ($(".logos").length) {
 			app.index.init();
+		} else if ($("#cart").length) {
+			app.cartCheckout.init();
+			app.constant.getCountry();
 		} else if ($("#product").length) {
 			app.product.init();
 			app.constant.getCountry();
@@ -83,20 +86,34 @@ app.constant = {
 		}
 	},
 	getCountry: function(event) {
-		if (!Cookies.get().closedShipping) {
-			setTimeout(function() {
-				if (Cookies.get().country) {
-					console.log("using local cookie to get country")
-					app.constant.showShippingPrice(Cookies.get().country);
-				} else {
-					$.getJSON("http://services.also-static.com/loc/&callback=?", function(data) {
-						console.log("using reuqest cookie to get country")
-						Cookies.set("country", data.countryCode);
+		// if (!Cookies.get().closedShipping) {
+		// setTimeout(function() {
+		if (Cookies.get().country) {
+			console.log("using local cookie to get country")
+			app.constant.country = Cookies.get().country;
+			if (!Cookies.get().closedShipping) {
+				setTimeout(function() {
+					app.constant.showShippingPrice(app.constant.country);
+				});
+			} else if (app.cartCheckout.run) {
+				app.cartCheckout.alert();
+			}
+		} else {
+			$.getJSON("http://services.also-static.com/loc/&callback=?", function(data) {
+				console.log("using reuqest cookie to get country")
+				Cookies.set("country", data.countryCode);
+				app.constant.country = data.countryCode;
+				if (!Cookies.get().closedShipping) {
+					setTimeout(function() {
 						app.constant.showShippingPrice(data.countryCode)
 					});
+				} else if (app.cartCheckout.run) {
+					app.cartCheckout.alert();
 				}
-			}, 3000);
+			});
 		}
+		// }, 3000);
+		// }
 		$(".shipping .exit").click(app.constant.hideShipping);
 	},
 	showShippingPrice: function(country) {
@@ -428,4 +445,62 @@ app.social = {
 			return false;
 		}
 	}
+}
+
+app.cartCheckout = {
+	run: false,
+	init: function() {
+		app.cartCheckout.run = true;
+	},
+	alert: function(country) {
+		console.log("cart Checkout!");
+		console.log(app.constant.country)
+		if (app.constant.country == "CA") {
+			var ammount = CARTDATA.ship_can_num - (CARTDATA.cartWeight / 1000);
+			if (ammount >= 0) {
+				app.cartCheckout.inform(ammount);
+			}
+		} else if (app.constant.country == "US") {
+
+		}
+		// create the alert
+	},
+	inform: function(ammount) {
+		if ($("#inform_of_price").length > 0) {
+			return false;
+		}
+		var el = document.createElement("div");
+		el.id = "inform_of_price";
+		var child = document.createElement("div");
+		el.appendChild(child);
+		var text = document.createElement("p");
+		text.id = "inform_text"
+		text.innerHTML = CARTDATA.script_before + " $" + ammount + ".00 " + CARTDATA.script_after;
+		child.appendChild(text);
+		var exit = $(".popup-exit").clone(true).off()[0];
+		child.appendChild(exit);
+		$(exit).click(app.cartCheckout.removeInform);
+		document.body.appendChild(el);
+		app.cartCheckout.run = false;
+		setTimeout(function() {
+			$(el).addClass("show");
+		}, 3000)
+	},
+	removeInform: function(event) {
+		event.preventDefault;
+		$("#inform_of_price").removeClass("show");
+		setTimeout(function() {
+			$("#inform_of_price").remove();
+		}, 1000);
+		return false;
+	}
+
+
+
+
+
+
+
+
+
 }

@@ -41,6 +41,16 @@
 		</tr>
 	</table>
 </form>
+<script type="text/javascript">
+	var CARTDATA = {
+		ship_can_num:{{settings.ship_can_num}},
+		ship_us_num:{{settings.ship_us_num}},
+		ship_world_num:{{settings.ship_world_num}},
+		cartWeight:{{cart.total_weight}},
+		script_before:"{{settings.script_before}}",
+		script_after:"{{settings.script_after}}"
+	}
+</script>
 {% else %}
 <div class="cart">
 	<p>It appears that your cart is currently empty!</p>
