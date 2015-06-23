@@ -5,8 +5,8 @@
 			width:160%;
 			margin: 3em -30% 5em -30%;
 			@include at-query ($max, $medium) {
-				width: 95%;
-				margin: 0 auto;
+				width: 160%;
+				margin: 0 -30% 2em -30% !important;
 			}
 		}
 		svg{
@@ -56,9 +56,28 @@
 			display: block;
 			white-space: no-wrap;
 		}
+		@include at-query ($max, $medium) {
+			font-size: 2.5em;
+			p::before {
+				content: '';
+				display: block;
+				margin: 0 auto 0.6em auto;
+				width: 3em;
+				border-top: 2px solid #eee;
+			}
+
+			p::after {
+				content: '';
+				display: block;
+				margin: 0.6em auto 0 auto;
+				width: 3em;
+				border-top: 2px solid #eee;
+			}
+		}
 	}
 
 	.first-bq {
+		margin-top: 0;
 		p::before {
 			content: '';
 			display: block;

@@ -1,6 +1,6 @@
 @import "settings";
 
-h1,h2,h3,h4,h5,a,ul,li,p{
+h1,h2,h3,h4,h5,a,ul,li,p,ol{
 	padding: 0 0 0 0;
 	margin: 0 0 0 0;
 	list-style: none;
@@ -32,6 +32,10 @@ h2 {
 	
 	width: 50%;
 	color: #888;
+}
+
+ol {
+	@extend p;
 }
 
 //Global style for all Header 3 styles (extends 2 distinct styles from base)
@@ -95,7 +99,7 @@ h5 {
 // Global Paragraph
 
 	p{
-		color: #f00;
+		// color: #f00;
 		color: $darkgrey;
 		margin: 0 auto;
 		padding-bottom: 1em;
