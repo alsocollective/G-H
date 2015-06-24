@@ -300,8 +300,9 @@ app.lookbook = {
 	waypoint: null,
 	init: function() {
 		$(".lookbook").find("blockquote").eq(0).attr("class", "first-bq");
-		$(".lookbook img:last-child").attr("id", "waypoint"); //Good lord why won't this work?
-		$(".lookbook").find("img").eq(0).attr("id", "waypoint");
+		$(".lookbook").find("h2").eq(0).attr("id", "waypoint");
+		//$(".lookbook img:last-child").attr("id", "waypoint"); //Good lord why won't this work?
+		//$(".lookbook").find("img").eq(0).attr("id", "waypoint");
 		app.lookbook.waypoint = new Waypoint({
 			element: document.getElementById("waypoint"),
 			handler: app.lookbook.wpChecker
