@@ -3,7 +3,7 @@
 	{% for article in blogs['index'].articles %}
 		<div>
 			{{article.content}}
-			<div class="overlaytext">{{article.excerpt}}</div>		
+			{% comment %}<div class="overlaytext">{{article.excerpt}}</div>		{% endcomment %}
 		</div>
 	{% endfor %}
 </div>

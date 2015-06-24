@@ -120,13 +120,13 @@ app.constant = {
 	showShippingPrice: function(country) {
 		if (country == "CA") {
 			console.log("show canadian shipping pricing");
-			$(".shipping .canada").addClass("show").delay(10000).queue(app.constant.hideShipping);
+			$(".shipping .canada").addClass("show active").delay(10000).queue(app.constant.hideShipping);
 		} else if (country == "US") {
 			console.log("show american shipping pricing");
-			$(".shipping .unitedstates").addClass("show").delay(10000).queue(app.constant.hideShipping);
+			$(".shipping .unitedstates").addClass("show active").delay(10000).queue(app.constant.hideShipping);
 		} else {
 			console.log("show world shipping")
-			$(".shipping .world").addClass("show").delay(10000).queue(app.constant.hideShipping);
+			$(".shipping .world").addClass("show active").delay(10000).queue(app.constant.hideShipping);
 		}
 	},
 	hideShipping: function(event) {
@@ -319,6 +319,8 @@ app.lookbook = {
 		app.lookbook.waypoint = new Waypoint({
 			element: document.getElementById("waypoint"),
 			handler: app.lookbook.wpChecker
+		}, {
+			offset: '100%'
 		})
 	},
 	wpChecker: function() {
@@ -470,7 +472,7 @@ app.cartCheckout = {
 	},
 	inform: function(ammount) {
 		if ($("#inform_of_price").length > 0) {
-			return false;
+			$("#inform_of_price").remove();
 		}
 		var el = document.createElement("div");
 		el.id = "inform_of_price";

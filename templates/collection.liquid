@@ -5,8 +5,9 @@
 {% assign bigNext = 0 %}
 {% assign bigIndex = 1 %}
 {% assign blankPreviousSelection = false %}
+{% assign firstloop = true %}
 	<div class="collections">
-		<div>
+		{% comment %}<div>{% endcomment %}
 		{% if collection.all_products_count > 0 %}
 			{% assign section = "none"%}
 			{% for product in collection.products %}
@@ -31,7 +32,9 @@
 				{% else %}
 					{% assign blankPreviousSelection = false %}
 					{% if productType != section %}
-						</div>
+						{% if firstloop == false %}
+							</div>
+						{% endif %}
 						{% comment %}<h3 class="lined">{{productType}}</h3>{% endcomment %}
 						<h2 class="lined">{{productType}}</h2>
 						<div class="subcollection">
@@ -47,7 +50,7 @@
 				{% endif %}
 
 
-
+			 	{% assign firstloop = false %}
 			{% endfor %}
 
 		{% else %}

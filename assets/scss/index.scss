@@ -221,6 +221,7 @@ blockquote {
 		blockquote{
 			margin: 0;
 			width:100%;
+			font-size: 1.2em;
 		}
 	}
 	.logo-text{
@@ -241,8 +242,11 @@ blockquote {
 	margin: 0 auto;
 	padding-top: 3.8em;
 	@include at-query ($max, $medium) {
-		width: 100%;
+		width: 90%;
 		min-width: inherit;
+		p {
+			font-size: 1.2em;
+		}
 	}	
 	// font-size: 1.3em;
 	// line-height: 1.6em;
@@ -266,7 +270,7 @@ blockquote {
 		overflow: hidden;
 		position: relative;
 		@include at-query ($max, $medium) {
-			width: 90%;
+			width: 100%;
 			display: block;
 			margin: 40px auto 0 auto;
 		}

@@ -67,10 +67,29 @@
 			width: 100%;
 			margin: 0 auto;
 		}
+		p{
+			width: 60%;
+			text-align: center;
+			@include at-query ($max, $inbetween) {
+				width: 100%;
+			}
+		}
 		ul{
 			text-align: center;
 			margin-top: 4em;
 			padding-bottom: $pb/1.5;
+			p{
+				min-width: 150px;
+				width: 70%;
+				margin: 0 auto;
+				text-align: center;
+				line-height: 1.5em;
+				letter-spacing: 0.03em;
+				padding-top: 20px;
+				font-size: 1em;
+	  			letter-spacing: 0.1em;
+	  			min-width: inherit;
+			}
 		}
 		li{
 			display: inline-block;
@@ -86,19 +105,7 @@
 			text-align: center;
 			margin: 4em auto 1em auto;
 		}
-		p{
-			min-width: 150px;
-			width: 70%;
-			margin: 0 auto;
-			text-align: center;
-			line-height: 1.5em;
-			letter-spacing: 0.03em;
-			// background-color: #fff;
-			// position: relative;
-			padding-top: 20px;
-			font-size: 1em;
-  			letter-spacing: 0.1em;
-		}
+		
 
 		img{
 			padding: $pb*0.25 0;
