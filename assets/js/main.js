@@ -76,11 +76,13 @@ app.constant = {
 	toggleNav: function(event) {
 		event.preventDefault();
 		$("#main").toggleClass("opennav");
+		$(document.body).toggleClass("navopen");
 		return false;
 	},
 	closeNavOnClick: function(event) {
 		if (this.href.split("#").pop() != "togglenav") {
 			$("#main.opennav").removeClass("opennav");
+			$("document.body").removeClass("navopen");
 		}
 	},
 	getCountry: function(event) {
@@ -113,6 +115,9 @@ app.constant = {
 		$(".shipping .exit").click(app.constant.hideShipping);
 	},
 	showShippingPrice: function(country) {
+		if ($(".logos").length) {
+			return false
+		}
 		if (country == "CA") {
 			$(".shipping .canada").addClass("show active").delay(10000).queue(app.constant.hideShipping);
 		} else if (country == "US") {

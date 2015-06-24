@@ -158,16 +158,13 @@ $slideHightTab: 400px;
 	overflow: hidden;
 	max-height: 100%;
 	max-height: $slideVh;
-	// @media screen and (orientation:portrait) and (max-height:800px) {
-	// 	max-height: 500px;
-	// }
 
-	// -webkit-touch-callout: none;
-	// -webkit-user-select: none;
-	// -khtml-user-select: none;
-	// -moz-user-select: none;
-	// -ms-user-select: none;
-	// user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 
 	margin: -$pb 0 $pb 0;
 	@include transition(height,0.35s,ease-in-out);
@@ -199,6 +196,7 @@ $slideHightTab: 400px;
 		background-color: $white;
 		height: $slideHight;
 		height: $slideVh;
+		@include transition(height,0.35s,ease-in-out);
 		// border-bottom: solid 5px #000;
 		img{
 			@include transition(height,0.35s,ease-in-out);
@@ -248,7 +246,7 @@ $slideHightTab: 400px;
 		}	
 		&::before,&::after{
 			font-size: 3.5em;
-			font-weight: bolder;
+			font-weight: lighter;
 			color: $white;
 			display: inline-block;
 			padding: 0.4em;
@@ -264,18 +262,30 @@ $slideHightTab: 400px;
 		left: 0;
 		text-align: left;
 		&::before{
-			content:"\2329";
+			content:"\003c";
 		}			
 	}
 	.slick-next{
 		right: 0;
 		text-align: right;
 		&::after{
-			content:"\232A";
+			content:"\003e";
 		}
 	}
-
 }
+
+.touch .slideshow{
+	.slick-prev,.slick-next{
+		&::after,&::before{
+			padding: 0.2em;
+			font-size: 2em;
+			font-weight: bolder;
+			opacity: 0.7;
+		}
+	}
+}
+
+
 input{
 	border: $border;
 	padding: 1em 2.75em;
