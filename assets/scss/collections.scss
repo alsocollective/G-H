@@ -9,6 +9,10 @@
 	margin: 0 auto;
 	&.negativemargin{
 		margin-top: -$pb;
+		@include at-query ($max, $large) {
+			margin-top: 0;
+		}
+
 	}
 }
 .subcollection{

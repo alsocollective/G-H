@@ -1,5 +1,6 @@
 <div class="order-info">
-	<h4 class="price">&mdash;{{ product.price | money }}&mdash;</h4>
+	<h4 class="price">&mdash;{{ product.price | money | strip}} &mdash;</h4>
+	<span class="currency">CAD</span>
 
 	{% if product1 %}
 		<div class="available-colours">

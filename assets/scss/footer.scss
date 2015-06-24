@@ -151,7 +151,7 @@
 			padding: 0;
 			height: 100%;
 			border: none;
-			white-space: nowrap;
+			// white-space: nowrap;
 			input {
 				padding: 0;
 				height: 100%;
@@ -250,6 +250,9 @@
 			margin: 0 0 20px 0;
 			height: 32px;
 			//text-align: right;
+		}
+		#mce-responses{
+			text-align: left;
 		}
 		/*#mce-responses {
 			width: 100%;

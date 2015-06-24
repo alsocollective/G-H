@@ -4,18 +4,18 @@
 
 var app = {
 	slickSetting: {
-		dots: true,
+		arrows: true,
+		dots: false,
 		autoplay: true,
-		autoplaySpeed: 2000,
+		autoplaySpeed: 12000,
 		adaptiveHeight: false,
 		infinite: true,
-		speed: 500,
+		speed: 750,
 		fade: true,
 		cssEase: 'linear',
 		lazyLoad: 'ondemand',
 	},
 	init: function() {
-		console.log("app init started");
 		app.constant.getCountry();
 		app.smooth.init();
 		app.signup.init();
@@ -23,7 +23,6 @@ var app = {
 		// $(window).scroll(app.constant.scrollEvent);
 	},
 	softInit: function() {
-		console.log("soft init");
 		if (app.lookbook.waypoint) {
 			app.lookbook.waypoint.destroy();
 			app.lookbook.waypoint = null;
@@ -55,7 +54,6 @@ var app = {
 app.smooth  = {
 	init: function() {
 		if (app.smooth.content == undefined) {
-			console.log("smooth setup");
 			app.smooth.setup();
 		}
 	},
@@ -81,7 +79,6 @@ app.constant = {
 		return false;
 	},
 	closeNavOnClick: function(event) {
-		console.log("close NAV");
 		if (this.href.split("#").pop() != "togglenav") {
 			$("#main.opennav").removeClass("opennav");
 		}
@@ -90,7 +87,6 @@ app.constant = {
 		// if (!Cookies.get().closedShipping) {
 		// setTimeout(function() {
 		if (Cookies.get().country) {
-			console.log("using local cookie to get country")
 			app.constant.country = Cookies.get().country;
 			if (!Cookies.get().closedShipping) {
 				setTimeout(function() {
@@ -101,7 +97,6 @@ app.constant = {
 			}
 		} else {
 			$.getJSON("http://services.also-static.com/loc/&callback=?", function(data) {
-				console.log("using reuqest cookie to get country")
 				Cookies.set("country", data.countryCode);
 				app.constant.country = data.countryCode;
 				if (!Cookies.get().closedShipping) {
@@ -119,13 +114,10 @@ app.constant = {
 	},
 	showShippingPrice: function(country) {
 		if (country == "CA") {
-			console.log("show canadian shipping pricing");
 			$(".shipping .canada").addClass("show active").delay(10000).queue(app.constant.hideShipping);
 		} else if (country == "US") {
-			console.log("show american shipping pricing");
 			$(".shipping .unitedstates").addClass("show active").delay(10000).queue(app.constant.hideShipping);
 		} else {
-			console.log("show world shipping")
 			$(".shipping .world").addClass("show active").delay(10000).queue(app.constant.hideShipping);
 		}
 	},
@@ -175,9 +167,6 @@ app.signup = {
 		return false;
 	},
 	exit: function(event) {
-		console.log(event.target);
-		console.log(event.target.id);
-		console.log($(event.target).prop("tagName"));
 		if (event.target.id == "mc_embed_signup" || $(event.target).hasClass("popup") || $(event.target).prop("tagName") == "INPUT") {
 			return true;
 		}
@@ -258,7 +247,6 @@ app.product = {
 			data: $(this.parentNode).serialize(),
 			dataType: 'json',
 			success: function(data) {
-				console.log(data);
 				jQuery.getJSON('/cart.js', app.product.updateCart);
 			}
 		};
@@ -266,7 +254,6 @@ app.product = {
 		return false;
 	},
 	updateCart: function(data) {
-		console.log(data);
 		$("#cartitemcount").html(data.item_count)
 		$("#carttotalcost").html("$" + parseFloat(data.total_price * 0.01).toFixed(2));
 		$("#nav-cart").addClass("updated");
@@ -303,7 +290,6 @@ app.index = {
 		return false;
 	},
 	itemClick: function(event) {
-		console.log(this);
 		$(this.parentNode).find("a")[0].click()
 		event.preventDefault();
 		return false;
@@ -324,7 +310,6 @@ app.lookbook = {
 		})
 	},
 	wpChecker: function() {
-		console.log("Shadowbox");
 		$("#main").toggleClass("shadow");
 	}
 }
@@ -431,7 +416,6 @@ app.social = {
 			return false;
 		},
 		facebookClick: function(event) {
-			console.log(this.href)
 			FB.ui({
 				method: 'send',
 				link: this.href
@@ -458,8 +442,6 @@ app.cartCheckout = {
 		app.cartCheckout.run = true;
 	},
 	alert: function(country) {
-		console.log("cart Checkout!");
-		console.log(app.constant.country)
 		if (app.constant.country == "CA") {
 			var ammount = CARTDATA.ship_can_num - (CARTDATA.cartWeight / 1000);
 			if (ammount >= 0) {
