@@ -267,11 +267,21 @@
 				width: auto;
 				margin: 0 auto;
 				height: 60vh;
+
+				@media screen and (orientation:portrait) and (max-height:500px) {
+					width: 100% !important;
+					height: auto !important;
+				}
+				@media screen and (orientation:landscape) and (max-height:500px) {
+					width: 100% !important;
+					height: auto !important;
+				}
 			}
 			.product-slides {
 				width: 100%;
 				overflow: hidden;
 				background-color: #fff;
+
 			}
 			.draggable:focus,.slick-track:focus,.slick-slide:focus {
 				outline:none;

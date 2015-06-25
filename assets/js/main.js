@@ -23,10 +23,10 @@ var app = {
 		// $(window).scroll(app.constant.scrollEvent);
 	},
 	softInit: function() {
-		if (app.lookbook.waypoint) {
-			app.lookbook.waypoint.destroy();
+		/*if (app.lookbook.waypoint) {
+		app.lookbook.waypoint.destroy();
 			app.lookbook.waypoint = null;
-		}
+		}*/
 		var body = $("#main");
 		// var s = skrollr.init();
 		app.slideshow.init();
@@ -42,9 +42,10 @@ var app = {
 			app.constant.getCountry();
 		} else if ($(".collections").length) {
 			app.constant.getCountry();
-		} else if ($(".lookbook").length) {
-			app.lookbook.init();
 		}
+		/*else if ($(".lookbook").length) {
+			app.lookbook.init();
+		}*/
 		$(".lifestyle").slick(app.slickSetting);
 		$('a[href$="mailinglist"]').click(app.signup.open);
 		app.smooth.body.height("");
@@ -82,7 +83,7 @@ app.constant = {
 	closeNavOnClick: function(event) {
 		if (this.href.split("#").pop() != "togglenav") {
 			$("#main.opennav").removeClass("opennav");
-			$("document.body").removeClass("navopen");
+			$(document.body).removeClass("navopen");
 		}
 	},
 	getCountry: function(event) {
@@ -304,20 +305,20 @@ app.index = {
 app.lookbook = {
 	waypoint: null,
 	init: function() {
-		$(".lookbook").find("blockquote").eq(0).attr("class", "first-bq");
-		$(".lookbook").find("h2").eq(0).attr("id", "waypoint");
+		//$(".lookbook").find("blockquote").eq(0).attr("class", "first-bq");
+		//$(".lookbook").find("h2").eq(0).attr("id", "waypoint");
 		//$(".lookbook img:last-child").attr("id", "waypoint"); //Good lord why won't this work?
 		//$(".lookbook").find("img").eq(0).attr("id", "waypoint");
-		app.lookbook.waypoint = new Waypoint({
+		/*app.lookbook.waypoint = new Waypoint({
 			element: document.getElementById("waypoint"),
 			handler: app.lookbook.wpChecker
 		}, {
 			offset: '100%'
-		})
+		})*/
 	},
-	wpChecker: function() {
+	/*wpChecker: function() {
 		$("#main").toggleClass("shadow");
-	}
+	}*/
 }
 
 app.slideshow = {

@@ -225,9 +225,22 @@ $slideHightTab: 400px;
 			}
 			@media screen and (orientation:portrait) and (max-height:500px) {
 				width: auto;
-				height: 100%;
-				max-height: 600px;
+				height: 100% !important;
+				max-height: 600px !important;
 			}
+			@media screen and (orientation:landscape) and (max-height:500px) {
+					width: 100% !important;
+					height: auto!important;
+				}
+		}
+		@media screen and (orientation:portrait) and (max-height:500px) {
+			width: auto;
+			height: 600px !important;
+			max-height: 600px !important;
+		}
+		@media screen and (orientation:landscape) and (max-height:500px) {
+			width: 100% !important;
+			height: 400px !important;
 		}
 	}
 	.slick-prev,.slick-next{

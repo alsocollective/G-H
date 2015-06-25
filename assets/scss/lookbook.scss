@@ -9,15 +9,22 @@
 		line-height: 0;
 		img {
 			width: 100vw;
-  			transform: translateX(-25%);
+  			@include vendorize(transform, translateX(-25%));
 			//width:160%;
 			//margin: 3em -30% 5em -30%;
 			@include at-query ($max, $medium) {
 				//height: 100vh;
 				//width: auto;
 				width: 160%;
-				transform: translateX(0%);
-				margin: 0 -30% 2em -30% !important;
+				@include vendorize(transform, translateX(0%));
+				margin: 0 -30% 0 -30% !important;
+			}
+			@include at-query ($max, $inbetween) {
+				//height: 100vh;
+				//width: auto;
+				width: 160%;
+				@include vendorize(transform, translateX(0%));
+				margin: 0 -30% 0 -30% !important;
 			}
 		}
 		svg{
@@ -30,10 +37,15 @@
 		}
 	}
 
-	p {
-		width: 98%;
+	p:nth-child(3) {
 		margin: 0 auto 3em auto;
 	}
+
+	p {
+		width: 98%;
+		margin-top: 0;
+	}
+
 
 	//Perhaps this should be global
 
@@ -42,16 +54,16 @@
 		text-align: center;
 		font-size: 3.3em;
 		letter-spacing: .06em;
-		color: #999;
+		//color: #999;
 		width: 100%;
-		color: #eee;
+		//color: #eee;
 
 		p::before {
 			content: '';
 			display: block;
 			margin: 0 auto 1em auto;
 			width: 3em;
-			border-top: 2px solid #eee;
+			border-top: 2px solid #333;
 		}
 
 		p::after {
@@ -59,7 +71,7 @@
 			display: block;
 			margin: 1em auto 0 auto;
 			width: 3em;
-			border-top: 2px solid #eee;
+			border-top: 2px solid #333;
 		}
 		em {
 			font-size: 0.4em;
@@ -74,7 +86,7 @@
 				display: block;
 				margin: 0 auto 0.6em auto;
 				width: 3em;
-				border-top: 2px solid #eee;
+				border-top: 2px solid #333;
 			}
 
 			p::after {
@@ -82,7 +94,7 @@
 				display: block;
 				margin: 0.6em auto 0 auto;
 				width: 3em;
-				border-top: 2px solid #eee;
+				border-top: 2px solid #333;
 			}
 		}
 	}
