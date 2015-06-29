@@ -15,7 +15,7 @@
 		<div class="main">
 			{% for image in product.images %} 
 				{% if image.alt != "lifestyle" %}
-					<div class="product-slides"><img src="{{ image.src | product_img_url: 'grande' }}" alt="{{image.alt}}"></div>
+					<div class="product-slides"><div><img src="{{ image.src | product_img_url: 'grande' }}" alt="{{image.alt}}"></div></div>
 				{% endif %}
 			{% endfor %}
 		</div>

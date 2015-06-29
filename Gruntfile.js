@@ -36,11 +36,11 @@ module.exports = function(grunt) {
 		},
 		uglify: {
 			js: {
-				options: {
-					mangle: false,
-					compress: false
-				},
-				files: {
+				// options: {
+				// 	mangle: false,
+				// 	compress: false
+				// },
+				files: [{
 					'assets/main.min.js': [
 						'assets/js/lib/jquery.min.js',
 						'assets/js/lib/jquery.waypoints.js',
@@ -50,7 +50,10 @@ module.exports = function(grunt) {
 						'assets/js/lib/js.cookie.js',
 						'assets/js/*.js'
 					]
-				}
+				}, {
+					'assets/modernizr.min.js': 'assets/js/lib/modernizr.js'
+				}]
+
 			}
 		},
 		env: {

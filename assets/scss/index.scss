@@ -188,6 +188,11 @@ blockquote {
 				opacity: 1;
 			}
 		}
+		a{
+			display: inline-block;
+			width: 100%;
+			text-align: left;
+		}
 	}
 	.draggable:focus,.slick-track:focus,.slick-slide:focus {
 		outline:none;
