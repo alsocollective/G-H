@@ -78,4 +78,32 @@ Setting up the variables for the page
 
 		</div>
 	{% endif %}
+
+	<script type="application/ld+json">
+	{
+		"@context": "http://schema.org/",
+		"@type": "Product",
+		"name": "{{product0.title}}",
+		"image": "{{ product0.featured_image | product_img_url: 'large' }}",
+		"description": "{{product.description| replace:'"',"'"}}",
+		"brand":{
+		"@type": "Thing",
+		"name": "Good+Hec"
+	},
+	"offers":{
+		"@type": "Offer",
+		"priceCurrency": "CAD",
+		"price": "{{product0.price|money}}"
+		}
+	}
+	</script>	
+
+	{% comment %}https://developers.pinterest.com/rich_pins_product/{% endcomment %}
+	<meta property="og:title" content="{{product0.title}}" />
+	<meta property="og:type" content="product" />
+	<meta property="og:price:amount" content="{{product0.price|money}}" />
+	<meta property="og:price:currency" content="CAD" />	
+	{% comment %}
+		<meta property="og:color" content="">
+	{% endcomment %}
 </div>

@@ -1,7 +1,3 @@
-// https://docs.shopify.com/support/your-website/themes/can-i-use-ajax-api#add-to-cart
-// we need to ajax the new content into the cart, no loading from the current page.
-// we should prevent default all all cart
-
 var app = {
 	slickSetting: {
 		arrows: true,
@@ -12,8 +8,8 @@ var app = {
 		infinite: true,
 		speed: 750,
 		fade: true,
-		cssEase: 'linear',
-		lazyLoad: 'ondemand',
+		pauseOnHover: false,
+		lazyLoad: 'progressive',
 	},
 	init: function() {
 		app.constant.getCountry();
@@ -238,9 +234,12 @@ app.product = {
 		return false;
 	},
 	goToHash: function(hash) {
-		if (hash) {
+		console.log(hash);
+		if (hash != "id") {
 			$(".multi-product").addClass("hide");
 			$("#" + hash.split("#").pop()).removeClass("hide");
+		} else {
+			$(".multi-product").first().removeClass("hide");
 		}
 	},
 	addToCart: function(event) {
@@ -279,7 +278,7 @@ app.index = {
 		app.index.slick = $(".logos .descriptions").slick({
 			arrows: false,
 			autoplay: true,
-			autoplaySpeed: 3000,
+			autoplaySpeed: 6000,
 		});
 		app.index.slick.on("beforeChange", app.index.slidechange);
 		$(".logo a").click(app.index.logoClick);
@@ -411,34 +410,37 @@ app.social = {
 	// },
 	events: {
 		twitterClick: function(event) {
-			var w = window.open(this.href + " " + app.social.facebook, this.target || "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
+			var w = window.open(this.href + " " + app.social.twitter.split("#")[0], this.target || "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
 			event.preventDefault();
 			event.stopPropagation();
 			return false;
 		},
 		twitterPageClick: function(event) {
-			var w = window.open("https://twitter.com/intent/tweet?text=" + window.location.href + " " + app.social.twitter, "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
+			var w = window.open("https://twitter.com/intent/tweet?text=" + window.location.href.split("#")[0] + " " + app.social.twitter, "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
 			event.preventDefault();
 			event.stopPropagation();
 			return false;
 		},
 		facebookClick: function(event) {
 			FB.ui({
-				method: 'send',
-				link: this.href
-			});
+				method: 'share',
+				href: this.href
+			}, app.social.events.facebookCallback);
 			event.stopPropagation();
 			event.preventDefault();
 			return false;
 		},
 		facebookPageClick: function(event) {
 			FB.ui({
-				method: 'send',
-				link: window.location.href
-			});
+				method: 'share',
+				href: window.location.href
+			}, app.social.events.facebookCallback);
 			event.stopPropagation();
 			event.preventDefault();
 			return false;
+		},
+		facebookCallback: function(response) {
+			console.log(response);
 		}
 	}
 }

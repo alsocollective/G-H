@@ -59,10 +59,10 @@
 	}
 
 	.philosophy{
+		
 		padding-bottom: 0;
-
 		width: 160%;
-		margin: 0 -30% 0 -30%;
+		margin: 0 -30% 0 -30%;	
 		@include at-query ($max, $inbetween) {
 			width: 100%;
 			margin: 0 auto;
@@ -100,13 +100,21 @@
 				width: 100%;
 				display: block;
 			}
+
+		}
+		li:last-child img{
+			margin-left: 0;
+			@include at-query ($max, $inbetween) {
+				margin-left: -6%;
+			}
+			@include at-query ($max, $medium) {
+				margin-left: 0%;
+			}
 		}
 		blockquote {
 			text-align: center;
 			margin: 4em auto 1em auto;
 		}
-		
-
 		img{
 			padding: $pb*0.25 0;
 			height: 100px;

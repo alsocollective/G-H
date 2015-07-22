@@ -16,6 +16,7 @@
 	<!-- general metas -->
 	<meta http-equiv="cleartype" content="on">	
 	<meta name="description" content="Made in Canada, GOOD+HEC is a men’s lifestyle label inspiring our community to live a mindful and balanced life through body, mind and urban movement">
+	<meta name="keywords" content="Toronto,Yoga,clothing,activewear,male,shorts,yogaclothes,onlinestore">
 	<meta name="author" content="GOOD+HEC">
 
 	<!-- mobile specific meta -->
@@ -41,14 +42,6 @@
 	{% comment %}<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">{% endcomment %}
 
 
-
-
-
-
-
-
-
-
 	{% if template == 'index' %}
 		<title>{{ shop.name }} | {{ page_title }}</title>
 	{% elsif template == '404' %}
@@ -65,7 +58,7 @@
 	
 	{{ content_for_header }}
 	{{ 'style.min.css' | asset_url | stylesheet_tag }}
-	{{ 'modernizr.js'  | asset_url | script_tag }}
+	{{ 'modernizr.min.js'  | asset_url | script_tag }}
 
 </head>
 
@@ -188,20 +181,32 @@
 	{{ 'api.jquery.js' | shopify_asset_url | script_tag }}
 	<script type="text/javascript">	
 		app.init();
-		app.social.twitter = "{{settings.socail-twitter}}";
+		app.social.twitter = "{{settings.social-twitter}}";
 		app.social.facebook = "{{settings.socail-facebook}}";
 	</script>
 	
+
+	<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "Store",
+		"name": "{{ shop.name }}",
+		"description": "{{ page_description }}",
+		"telephone": "{{shop.phone}}",
+		"email": "{{shop.email}}"
+	}
+	</script>
+		
 	<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
 	<script type='text/javascript'>
 
 		(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
 
 		window.fbAsyncInit = function() {
-			FB.init({
-				appId      : '336911309824780',
-				xfbml      : true,
-				version    : 'v2.1'
+		FB.init({
+			appId      : '474827749352318',
+			xfbml      : true,
+			version    : 'v2.3'
 			});
 		};
 
